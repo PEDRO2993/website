@@ -126,4 +126,33 @@ O botão "Jetzt online buchen & bezahlen" JÁ FUNCIONA: abre o motor oficial do 
 - **Fotos**: troca os `src="https://hotelalpinagraechen.ch/..."` por `src="img/nome.jpg"`
 - **Depois de editar**: se quiseres regenerar o ficheiro único de demo, diz-me — eu faço.
 
+---
+
+## 8. Melhorias aplicadas (revisão de formulários & bugs)
+
+**Formulários**
+- Validação campo a campo em tempo real nos 2 formulários (contacto + checkout passo "Gäste"): mensagens de erro por baixo de cada campo, nas 4 línguas (DE·FR·IT·EN), com `aria-invalid`/`aria-describedby` para leitores de ecrã, e foco automático no primeiro campo com erro.
+- Validação de e-mail a sério (antes `abc@x.y` de qualquer forma passava) e validação suave do telefone (opcional, mas se preenchido tem de ser plausível).
+- Enter no passo 2 do checkout avança para o pagamento quando os dados estão válidos.
+- Limites de tamanho (`maxlength`) em todos os campos — evita mailtos gigantes que alguns programas de e-mail cortam.
+- O seletor de hóspedes da barra de reserva passou a ter `value` numérico — deixa de depender do texto traduzido (antes era frágil ao mudar de língua).
+- `autocomplete`/`inputmode` corretos em todos os campos (autofill do browser funciona bem).
+
+**Bugs corrigidos**
+- **Calendário**: era possível selecionar datas no passado por teclado (os dias "desativados" só bloqueavam o rato). Agora ficam `disabled` de verdade + guarda no código.
+- **Escape duplo**: com o calendário aberto dentro do checkout, Escape fechava o calendário E o modal inteiro (perdiam-se os dados). Agora fecha só o calendário e devolve o foco ao botão da data.
+- **Injeção de HTML**: o nome do hóspede era inserido no resumo da reserva sem escape — agora é escapado.
+- **Páginas legais (Impressum/Datenschutz)**: texto quase ilegível (cinzento-escuro sobre fundo escuro), variável CSS inexistente (`--gold-deep`) e fontes erradas (Fraunces/Outfit de um design antigo). Corrigido tudo — agora usam as fontes e cores do site.
+- **Sem JavaScript**: o site ficava totalmente em branco (preloader por cima + conteúdo com opacidade 0). Adicionado fallback `<noscript>`.
+- **Preloader**: rede de segurança — nunca prende o visitante mais de ~4,5 s.
+- **Popup bloqueado**: se o browser bloquear o payment link (Stripe/Payrexx), abre na mesma aba em vez de não fazer nada.
+
+**Acessibilidade**
+- Focus-trap nos diálogos (checkout, folha de e-mail, frame de pagamento) — Tab já não "escapa" para trás do modal.
+- Foco gerido ao abrir/fechar a folha de e-mail e o frame de pagamento; `aria-pressed` no seletor de línguas; `aria-label` com a data completa em cada dia do calendário.
+
+Tudo verificado com testes automáticos no browser (24 casos, todos a passar). `alpina-demo.html` regenerado com `build-demo.sh`.
+
+---
+
 *Konzept & Design: Pedro Ribeiro Digital — boa sorte na reunião! 🤝*

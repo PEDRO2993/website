@@ -759,6 +759,15 @@ body.loaded .reveal-hero.d3 { animation-delay: .54s; }
 }
 .cf-field input:focus, .cf-field textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, .14); }
 .form-note { font-size: 13.5px; color: #7FC79B; font-weight: 500; min-height: 1em; }
+.form-note.err { color: #D08770; }
+
+/* ---------- Inline field validation (contact form + checkout) ---------- */
+.field-err { font-size: 12.5px; font-weight: 500; color: #D08770; line-height: 1.35; }
+.cf-field.invalid input, .cf-field.invalid textarea,
+.bm-field.invalid input, .bm-field.invalid textarea {
+  border-color: rgba(208, 135, 112, .85);
+  box-shadow: 0 0 0 3px rgba(208, 135, 112, .12);
+}
 
 /* ---------- Footer ---------- */
 .site-footer { background: #070A0E; color: var(--snow); padding: clamp(70px, 8vw, 100px) 0 0; border-top: 1px solid var(--line); }

@@ -61,6 +61,28 @@
   var KEY2 = { einzelzimmer: "ez", doppelzimmer: "dz", dreibettzimmer: "drz", familienzimmer: "fz", ferienwohnung: "fewo" };
   var TT = function (k) { return (window.T ? window.T(k) : "") || ""; };
   var roomName = function (key) { return TT("room." + KEY2[key] + ".name") || ROOMS[key].name; };
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var PHONE_RE = /^[+0-9][0-9 ()\/.\-]{5,}$/;
+  var escapeHtml = function (s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  };
+  /* per-field validation UI: expects <small class="field-err" id="<inputId>Err"> after the input */
+  var setFieldError = function (input, message) {
+    var err = $(input.id + "Err");
+    var wrap = input.closest(".bm-field, .cf-field");
+    if (message) {
+      input.setAttribute("aria-invalid", "true");
+      if (wrap) wrap.classList.add("invalid");
+      if (err) { err.textContent = message; err.hidden = false; }
+    } else {
+      input.removeAttribute("aria-invalid");
+      if (wrap) wrap.classList.remove("invalid");
+      if (err) { err.textContent = ""; err.hidden = true; }
+    }
+    return !message;
+  };
 
   /* ================================================================
      CINEMATIC PRELOADER
@@ -78,7 +100,9 @@
   if (preloader && !reduced) {
     var count = 0;
     var countEl = $("preCount"), barEl = $("preBar");
+    var preDone = false;
     var tick = function () {
+      if (preDone) return;
       count = Math.min(100, count + 2 + Math.random() * 7);
       var v = Math.floor(count);
       countEl.textContent = (v < 10 ? "0" : "") + v + "%";
@@ -86,10 +110,20 @@
       if (count < 100) {
         setTimeout(tick, 55 + Math.random() * 95);
       } else {
+        preDone = true;
         setTimeout(finishPreloader, 250);
       }
     };
     setTimeout(tick, 500);
+    /* safety net: never trap visitors behind the preloader */
+    setTimeout(function () {
+      if (!preDone) {
+        preDone = true;
+        countEl.textContent = "100%";
+        barEl.style.width = "100%";
+        finishPreloader();
+      }
+    }, 4500);
   } else {
     if (preloader) preloader.classList.add("gone", "done");
     document.body.classList.add("loaded");
@@ -599,7 +633,8 @@
         btn.type = "button";
         btn.className = "cal-day";
         btn.textContent = d;
-        if (date < today0) btn.classList.add("disabled");
+        btn.setAttribute("aria-label", d + ". " + MONTHS()[viewM] + " " + viewY);
+        if (date < today0) { btn.classList.add("disabled"); btn.disabled = true; }
         if (date.getTime() === today0.getTime()) btn.classList.add("today");
         if (selIn && date.getTime() === selIn.getTime()) {
           btn.classList.add("sel", "sel-in");
@@ -619,6 +654,7 @@
   };
 
   var pickDay = function (date) {
+    if (date < today0) return; /* never allow past dates */
     var s = SCOPES[calScope];
     var selIn = parseISO(s.inEl.value), selOut = parseISO(s.outEl.value);
     if (!selIn || selOut || date <= selIn) {
@@ -688,7 +724,13 @@
     if (pop.classList.contains("open") && !pop.contains(e.target) && !e.target.closest(".date-trigger")) closeCal();
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && pop.classList.contains("open")) closeCal();
+    if (e.key === "Escape" && pop.classList.contains("open")) {
+      /* only close the calendar — never the booking modal behind it */
+      e.stopImmediatePropagation();
+      var anchor = calAnchor;
+      closeCal();
+      if (anchor) anchor.focus();
+    }
   });
   window.addEventListener("resize", function () { if (pop.classList.contains("open")) placeCal(); });
   window.addEventListener("scroll", function () { if (pop.classList.contains("open")) placeCal(); }, { passive: true });
@@ -795,18 +837,58 @@
     payNote.textContent = "";
     payNote.classList.remove("ok");
   };
-  bmNext1.addEventListener("click", function () { gotoStep(2); bmName.focus(); });
-  bmNext2.addEventListener("click", function () { gotoStep(3); });
+  bmNext1.addEventListener("click", function () { gotoStep(2); checkStep2(); bmName.focus(); });
+  bmNext2.addEventListener("click", function () {
+    if (validateStep2(true)) gotoStep(3);
+  });
   modal.querySelectorAll("[data-back]").forEach(function (b) {
     b.addEventListener("click", function () {
       gotoStep(parseInt(b.getAttribute("data-back"), 10));
     });
   });
 
-  var checkStep2 = function () {
-    bmNext2.disabled = !(bmName.value.trim() && /.+@.+\..+/.test(bmMail.value));
+  /* live gate: button enables as soon as the required fields are plausible */
+  var step2Valid = function () {
+    return !!bmName.value.trim() && EMAIL_RE.test(bmMail.value.trim()) &&
+      (!bmPhone.value.trim() || PHONE_RE.test(bmPhone.value.trim()));
   };
-  [bmName, bmMail].forEach(function (el) { el.addEventListener("input", checkStep2); });
+  var checkStep2 = function () { bmNext2.disabled = !step2Valid(); };
+  var bmCheck = function (el) {
+    if (el === bmName) return !!bmName.value.trim() ? "" : (TT("form.errName") || "Bitte geben Sie Ihren Namen ein.");
+    if (el === bmMail) return EMAIL_RE.test(bmMail.value.trim()) ? "" : (TT("form.errMail") || "Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+    return (!bmPhone.value.trim() || PHONE_RE.test(bmPhone.value.trim())) ? "" : (TT("form.errPhone") || "Bitte prüfen Sie die Telefonnummer.");
+  };
+  /* on submit: explain what is wrong, field by field */
+  var validateStep2 = function (show) {
+    var ok = true;
+    [bmName, bmMail, bmPhone].forEach(function (el) {
+      var msg = bmCheck(el);
+      if (msg) ok = false;
+      if (show) setFieldError(el, msg);
+    });
+    if (show && !ok) {
+      var firstInvalid = modal.querySelector('.bm-form [aria-invalid="true"]');
+      if (firstInvalid) firstInvalid.focus();
+    }
+    return ok;
+  };
+  [bmName, bmMail, bmPhone].forEach(function (el) {
+    el.addEventListener("input", function () { setFieldError(el, ""); checkStep2(); });
+    el.addEventListener("change", checkStep2);
+    el.addEventListener("blur", function () {
+      /* only flag the field the visitor just left, and only if touched */
+      if (el.value.trim()) setFieldError(el, bmCheck(el));
+    });
+  });
+  /* Enter in a step-2 field continues to payment when everything is valid */
+  [bmName, bmMail, bmPhone].forEach(function (el) {
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (validateStep2(true)) { gotoStep(3); }
+      }
+    });
+  });
 
   var renderRecap = function () {
     var t = totals();
@@ -815,7 +897,7 @@
       "<strong>" + roomName(state.room) + "</strong> · " + fmtDate(bmIn.value) + " → " + fmtDate(bmOut.value) +
       " · " + g + " " + (g === 1 ? (TT("u.guest") || "Gast") : (TT("u.guests") || "Gäste")) +
       "<br>" + t.nights + " " + (t.nights === 1 ? (TT("u.night") || "Nacht") : (TT("u.nights") || "Nächte")) +
-      " · " + bmName.value.trim() +
+      " · " + escapeHtml(bmName.value.trim()) +
       '<div class="bm-recap-total">' + (TT("u.from") || "ab") + " " + chf(t.total) +
       ' <small style="font-size:12px;color:rgba(244,245,247,.4);">' +
       (TT("recap.incl") || "inkl. Frühstück · günstigste Rate") + "</small></div>";
@@ -827,8 +909,9 @@
     if (bbIn && bbIn.value) bmIn.value = bbIn.value;
     if (bbOut && bbOut.value) bmOut.value = bbOut.value;
     if (bbGuests) {
-      var g = (bbGuests.value.match(/\d+/) || ["2"])[0];
-      bmGuests.value = Math.min(parseInt(g, 10), 5);
+      /* options carry numeric values; the regex is a fallback for old markup */
+      var g = (String(bbGuests.value).match(/\d+/) || ["2"])[0];
+      bmGuests.value = String(Math.min(Math.max(parseInt(g, 10) || 2, 1), 5));
     }
     if (roomKey && ROOMS[roomKey]) state.room = roomKey;
     syncLabels("bm");
@@ -848,6 +931,27 @@
   };
   modal.querySelectorAll("[data-close]").forEach(function (el) {
     el.addEventListener("click", closeModal);
+  });
+  /* keep Tab inside whichever dialog is on top (checkout, mail sheet, payment frame) */
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab") return;
+    var top = document.querySelector(".payframe.open") ||
+              document.querySelector(".mailsheet.open .ms-card") ||
+              (modal.classList.contains("open") ? modal.querySelector(".bmodal-card") : null);
+    if (!top) return;
+    var focusables = top.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])'
+    );
+    var visible = Array.prototype.filter.call(focusables, function (el) {
+      return el.offsetParent !== null || el === document.activeElement;
+    });
+    if (!visible.length) return;
+    var first = visible[0], last = visible[visible.length - 1];
+    if (e.shiftKey && (document.activeElement === first || !top.contains(document.activeElement))) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && (document.activeElement === last || !top.contains(document.activeElement))) {
+      e.preventDefault(); first.focus();
+    }
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && modal.classList.contains("open") && !document.querySelector(".calpop.open") && !document.querySelector(".payframe.open") && !document.querySelector(".lightbox.open") && !document.querySelector(".mailsheet.open")) closeModal();
@@ -928,11 +1032,15 @@
   var msBody = mailsheet.querySelector(".ms-body");
   var msMailto = mailsheet.querySelector(".ms-mailto");
   var msCopy = mailsheet.querySelector(".ms-copy");
+  var msLastFocus = null;
   var closeMailSheet = function () {
     mailsheet.classList.remove("open");
     document.body.style.overflow = modal.classList.contains("open") ? "hidden" : "";
+    if (msLastFocus && msLastFocus.focus) msLastFocus.focus();
+    msLastFocus = null;
   };
   var openMailSheet = function (subject, body) {
+    msLastFocus = document.activeElement;
     msTitle.textContent = subject;
     msBody.value = body;
     mailsheet.querySelector(".ms-to-label").textContent = TT("ms.to") || "An";
@@ -944,6 +1052,8 @@
       "&body=" + encodeURIComponent(body);
     mailsheet.classList.add("open");
     document.body.style.overflow = "hidden";
+    var mailBtn = mailsheet.querySelector(".ms-mailto");
+    if (mailBtn) mailBtn.focus();
   };
   mailsheet.querySelector(".ms-close").addEventListener("click", closeMailSheet);
   mailsheet.querySelector(".ms-backdrop").addEventListener("click", closeMailSheet);
@@ -1044,7 +1154,8 @@
     var custom = PAYMENT_LINKS[state.room];
     if (custom) {
       /* external payment links (Stripe/Payrexx) forbid framing — open in new tab */
-      window.open(custom, "_blank", "noopener");
+      var w = window.open(custom, "_blank", "noopener");
+      if (!w) window.location.href = custom; /* popup blocked → same tab */
     } else {
       var link = sbUrl();
       pfFrame.src = link;
@@ -1052,6 +1163,7 @@
       payframe.classList.add("open");
       document.body.classList.add("pay-open");
       document.body.style.overflow = "hidden";
+      payframe.querySelector(".payframe-close").focus();
     }
     payNote.textContent = TT("pay.noteOnline") || "Das offizielle Buchungssystem ist geöffnet — Rate wählen und sicher online bezahlen, oder «Book now, pay later».";
     payNote.classList.add("ok");
@@ -1061,21 +1173,47 @@
   var contactForm = $("contactForm");
   var formNote = $("formNote");
   if (contactForm) {
+    var cfName = $("cfName"), cfMail = $("cfMail"), cfMsg = $("cfMsg");
+    var cfCheck = function (el) {
+      if (el === cfName) return !!cfName.value.trim() ? "" : (TT("form.errName") || "Bitte geben Sie Ihren Namen ein.");
+      if (el === cfMail) return EMAIL_RE.test(cfMail.value.trim()) ? "" : (TT("form.errMail") || "Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+      return !!cfMsg.value.trim() ? "" : (TT("form.errMsg") || "Bitte schreiben Sie eine Nachricht.");
+    };
+    var validateContact = function (show) {
+      var ok = true;
+      [cfName, cfMail, cfMsg].forEach(function (el) {
+        var msg = cfCheck(el);
+        if (msg) ok = false;
+        if (show) setFieldError(el, msg);
+      });
+      return ok;
+    };
+    [cfName, cfMail, cfMsg].forEach(function (el) {
+      el.addEventListener("input", function () {
+        setFieldError(el, "");
+        formNote.textContent = "";
+        formNote.classList.remove("err");
+      });
+      el.addEventListener("blur", function () {
+        /* only flag the field the visitor just left, and only if touched */
+        if (el.value.trim()) setFieldError(el, cfCheck(el));
+      });
+    });
     contactForm.addEventListener("submit", function (ev) {
       ev.preventDefault();
-      var name = $("cfName").value.trim();
-      var mail = $("cfMail").value.trim();
-      var msg = $("cfMsg").value.trim();
-      if (!name || !mail || !msg) {
+      if (!validateContact(true)) {
         formNote.textContent = TT("form.err") || "Bitte füllen Sie alle Felder aus.";
-        formNote.style.color = "#D08770";
+        formNote.classList.add("err");
+        var firstInvalid = contactForm.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
+      var name = cfName.value.trim();
       openMailSheet(
         (TT("mail.contactSubject") || "Anfrage über die Website — {name}").replace("{name}", name),
-        msg + "\n\n" + name + "\n" + mail
+        cfMsg.value.trim() + "\n\n" + name + "\n" + cfMail.value.trim()
       );
-      formNote.style.color = "";
+      formNote.classList.remove("err");
       formNote.textContent = (TT("form.ok") || "Vielen Dank, {name}! Ihr E-Mail-Programm öffnet sich.").replace("{name}", name);
     });
   }

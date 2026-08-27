@@ -52,6 +52,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<noscript><style>
+  .preloader, .cursor-dot, .cursor-ring, #snowCanvas, .book-dock { display: none !important; }
+  .reveal, .reveal-hero, .split-line > span { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .kin-line { opacity: 1; }
+</style></noscript>
 </head>
 <body>
 
@@ -192,11 +197,11 @@
       <div class="bb-field">
         <label for="bbGuests" data-i18n="bb.guests">Gäste</label>
         <select id="bbGuests" name="gaeste">
-          <option data-i18n="bb.g1">1 Gast</option>
-          <option selected data-i18n="bb.g2">2 Gäste</option>
-          <option data-i18n="bb.g3">3 Gäste</option>
-          <option data-i18n="bb.g4">4 Gäste</option>
-          <option data-i18n="bb.g5">5+ / Familie</option>
+          <option value="1" data-i18n="bb.g1">1 Gast</option>
+          <option value="2" selected data-i18n="bb.g2">2 Gäste</option>
+          <option value="3" data-i18n="bb.g3">3 Gäste</option>
+          <option value="4" data-i18n="bb.g4">4 Gäste</option>
+          <option value="5" data-i18n="bb.g5">5+ / Familie</option>
         </select>
       </div>
       <button class="btn btn-gold bb-btn" type="submit" data-magnetic data-i18n="bb.btn">Jetzt buchen&nbsp;→</button>
@@ -572,16 +577,19 @@
       <div class="cf-row">
         <div class="cf-field">
           <label for="cfName" data-i18n="ct.fName">Name</label>
-          <input id="cfName" type="text" autocomplete="name" required>
+          <input id="cfName" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="cfNameErr">
+          <small class="field-err" id="cfNameErr" hidden></small>
         </div>
         <div class="cf-field">
           <label for="cfMail" data-i18n="ct.fMail">E-Mail</label>
-          <input id="cfMail" type="email" autocomplete="email" required>
+          <input id="cfMail" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="120" required aria-describedby="cfMailErr">
+          <small class="field-err" id="cfMailErr" hidden></small>
         </div>
       </div>
       <div class="cf-field">
         <label for="cfMsg" data-i18n="ct.fMsg">Nachricht</label>
-        <textarea id="cfMsg" rows="5" data-i18n-ph="ct.fPh" placeholder="Wann möchten Sie kommen? Haben Sie Wünsche?" required></textarea>
+        <textarea id="cfMsg" name="message" rows="5" maxlength="1500" data-i18n-ph="ct.fPh" placeholder="Wann möchten Sie kommen? Haben Sie Wünsche?" required aria-describedby="cfMsgErr"></textarea>
+        <small class="field-err" id="cfMsgErr" hidden></small>
       </div>
       <button class="btn btn-gold" type="submit" data-i18n="ct.fBtn">Nachricht senden</button>
       <p class="form-note" id="formNote" role="status"></p>
@@ -682,7 +690,7 @@
       </div>
       <div class="bm-actions">
         <span></span>
-        <button class="btn btn-gold" id="bmNext1" disabled data-i18n="bm.next">Weiter&nbsp;→</button>
+        <button type="button" class="btn btn-gold" id="bmNext1" disabled data-i18n="bm.next">Weiter&nbsp;→</button>
       </div>
     </section>
 
@@ -692,24 +700,27 @@
       <div class="bm-form">
         <div class="bm-field">
           <label for="bmName" data-i18n="bm.name">Name *</label>
-          <input type="text" id="bmName" autocomplete="name" required>
+          <input type="text" id="bmName" name="name" autocomplete="name" maxlength="80" required aria-describedby="bmNameErr">
+          <small class="field-err" id="bmNameErr" hidden></small>
         </div>
         <div class="bm-field">
           <label for="bmMail" data-i18n="bm.mail">E-Mail *</label>
-          <input type="email" id="bmMail" autocomplete="email" required>
+          <input type="email" id="bmMail" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="120" required aria-describedby="bmMailErr">
+          <small class="field-err" id="bmMailErr" hidden></small>
         </div>
         <div class="bm-field">
           <label for="bmPhone" data-i18n="bm.phone">Telefon</label>
-          <input type="tel" id="bmPhone" autocomplete="tel">
+          <input type="tel" id="bmPhone" name="phone" autocomplete="tel" maxlength="40" aria-describedby="bmPhoneErr">
+          <small class="field-err" id="bmPhoneErr" hidden></small>
         </div>
         <div class="bm-field bm-field-full">
           <label for="bmNote" data-i18n="bm.wishes">Wünsche (optional)</label>
-          <textarea id="bmNote" rows="3" data-i18n-ph="bm.wishesPh" placeholder="z. B. Haustier, Anreisezeit, Zimmerlage…"></textarea>
+          <textarea id="bmNote" name="note" rows="3" maxlength="500" data-i18n-ph="bm.wishesPh" placeholder="z. B. Haustier, Anreisezeit, Zimmerlage…"></textarea>
         </div>
       </div>
       <div class="bm-actions">
-        <button class="btn btn-outline-dark" data-back="1" data-i18n="bm.back">←&nbsp;Zurück</button>
-        <button class="btn btn-gold" id="bmNext2" disabled data-i18n="bm.toPay">Weiter zur Zahlung&nbsp;→</button>
+        <button type="button" class="btn btn-outline-dark" data-back="1" data-i18n="bm.back">←&nbsp;Zurück</button>
+        <button type="button" class="btn btn-gold" id="bmNext2" disabled data-i18n="bm.toPay">Weiter zur Zahlung&nbsp;→</button>
       </div>
     </section>
 
@@ -718,7 +729,7 @@
       <h3 data-i18n="bm.h3">Zahlung</h3>
       <div class="bm-recap" id="bmRecap"><!-- JS --></div>
       <div class="bm-pay-options">
-        <button class="bm-pay-card" id="payOnline">
+        <button type="button" class="bm-pay-card" id="payOnline">
           <span class="bm-pay-head">
             <strong data-i18n="bm.pay1">Jetzt online buchen &amp; bezahlen</strong>
             <span class="bm-pay-badges"><i>VISA</i><i>Mastercard</i><i data-i18n="bm.pay1b">Sofort bestätigt</i></span>
@@ -726,14 +737,14 @@
           <span class="bm-pay-sub" data-i18n="bm.pay1s">Sichere Zahlung über das offizielle Buchungssystem — Ihre Daten
           werden übernommen · auch «Book now, pay later» wählbar</span>
         </button>
-        <button class="bm-pay-card alt" id="payLater">
+        <button type="button" class="bm-pay-card alt" id="payLater">
           <span class="bm-pay-head"><strong data-i18n="bm.pay2">Per E-Mail anfragen — vor Ort bezahlen</strong></span>
           <span class="bm-pay-sub" data-i18n="bm.pay2s">Wir bestätigen persönlich innert 24 h · keine Anzahlung</span>
         </button>
       </div>
       <p class="bm-pay-note" id="payNote" role="status"></p>
       <div class="bm-actions">
-        <button class="btn btn-outline-dark" data-back="2" data-i18n="bm.back">←&nbsp;Zurück</button>
+        <button type="button" class="btn btn-outline-dark" data-back="2" data-i18n="bm.back">←&nbsp;Zurück</button>
         <span class="bm-secure" data-i18n="bm.ssl">🔒 SSL-verschlüsselt</span>
       </div>
     </section>
