@@ -764,7 +764,8 @@
       btn.innerHTML =
         thumb +
         '<span class="bm-room-txt"><span class="bm-room-name">' + roomName(key) + '</span>' +
-        '<div class="bm-room-meta">' + (TT("meta." + KEY2[key]) || r.meta) + "</div></span>" +
+        '<div class="bm-room-meta">' + (TT("meta." + KEY2[key]) || r.meta) + '</div>' +
+        '<div class="bm-room-max" hidden></div></span>' +
         '<span class="bm-room-price">' + chf(r.price).replace(".00", ".–") + " <small>" + (TT("rooms.perNight") || "/ Nacht") + "</small></span>";
       btn.addEventListener("click", function () {
         state.room = key;
@@ -789,6 +790,41 @@
   };
   renderRooms();
 
+  /* Illustrative per-room availability grid (bm-avail) — NOT live data,
+     no feed from the hotel's real booking system is available; the grid
+     exists to show the concept, with a visible "demo data" badge. */
+  var bmAvailTable = $("bmAvailTable");
+  var availHash = function (key, day) {
+    var s = key + "-" + day;
+    var h = 0;
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) % 97;
+    return h;
+  };
+  var renderAvailability = function () {
+    if (!bmAvailTable) return;
+    var days = [];
+    var d0 = new Date(); d0.setHours(0, 0, 0, 0);
+    for (var i = 0; i < 10; i++) {
+      var d = new Date(d0); d.setDate(d0.getDate() + i);
+      days.push(d);
+    }
+    var wd = WD_S(), ms = MONTHS_S();
+    var head = "<tr><th></th>" + days.map(function (d) {
+      return "<th>" + wd[d.getDay()] + "<br>" + d.getDate() + ". " + ms[d.getMonth()] + "</th>";
+    }).join("") + "</tr>";
+    var body = Object.keys(ROOMS).map(function (key) {
+      var cells = days.map(function (d) {
+        var ok = availHash(key, iso(d)) % 5 > 1; /* ~60% available */
+        return '<td class="avail-cell ' + (ok ? "ok" : "no") + '" aria-label="' +
+          (ok ? (TT("avail.ok") || "Verfügbar") : (TT("avail.no") || "Nicht verfügbar")) + '">' +
+          (ok ? "✓" : "✕") + "</td>";
+      }).join("");
+      return "<tr><td>" + roomName(key) + "</td>" + cells + "</tr>";
+    }).join("");
+    bmAvailTable.innerHTML = "<thead>" + head + "</thead><tbody>" + body + "</tbody>";
+  };
+  renderAvailability();
+
   var nights = function () {
     if (!bmIn.value || !bmOut.value) return 0;
     var n = Math.round((new Date(bmOut.value) - new Date(bmIn.value)) / 86400000);
@@ -807,8 +843,19 @@
     var g = parseInt(bmGuests.value, 10);
     bmRooms.querySelectorAll(".bm-room").forEach(function (el) {
       var key = el.getAttribute("data-key");
-      var fits = ROOMS[key].max >= g;
+      var max = ROOMS[key].max;
+      var fits = max >= g;
       el.classList.toggle("disabled", !fits);
+      el.setAttribute("aria-disabled", String(!fits));
+      var note = el.querySelector(".bm-room-max");
+      if (note) {
+        note.hidden = fits;
+        if (!fits) {
+          note.textContent = (max === 1
+            ? (TT("room.maxGuest1") || "Nur für 1 Gast")
+            : (TT("room.maxGuests") || "Max. {n} Gäste").replace("{n}", max));
+        }
+      }
       if (!fits && state.room === key) state.room = null;
       el.classList.toggle("selected", state.room === key);
     });
@@ -1003,6 +1050,7 @@
   document.addEventListener("alpina:lang", function () {
     rebuildDows();
     renderRooms();
+    renderAvailability();
     syncLabels("bb");
     syncLabels("bm");
     refresh();

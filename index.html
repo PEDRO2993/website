@@ -352,8 +352,8 @@
       </article>
     </div>
     <p class="section-note" style="color: rgba(245,240,230,.55); font-size: 13px; margin-top: 28px;">
-    <span data-i18n="rooms.foot">„Ab"-Preise pro Zimmer/Nacht inkl. Frühstück, gemäss offiziellem Buchungssystem
-    (günstigste Rate, saisonabhängig) · exkl. Kurtaxe.</span></p>
+    <span data-i18n="rooms.foot">„Ab"-Preise für die Nebensaison, pro Zimmer/Nacht inkl. Frühstück — in Stosszeiten höher.
+    Der definitive Preis wird im offiziellen Buchungssystem angezeigt · exkl. Kurtaxe.</span></p>
   </div>
 </section>
 
@@ -679,6 +679,19 @@
             <option value="4" data-i18n="bb.g4">4 Gäste</option>
             <option value="5" data-i18n="bb.g5">5 Gäste</option>
           </select>
+        </div>
+      </div>
+      <div class="bm-avail">
+        <div class="bm-avail-head">
+          <span class="bm-avail-title" data-i18n="avail.title">Verfügbarkeit der nächsten Tage</span>
+          <span class="bm-avail-badge" data-i18n="avail.demo">Beispieldaten — nicht live</span>
+        </div>
+        <div class="bm-avail-scroll">
+          <table class="bm-avail-table" id="bmAvailTable"><!-- JS renders --></table>
+        </div>
+        <div class="bm-avail-legend">
+          <span class="avail-ok">✓ <span data-i18n="avail.ok">Verfügbar</span></span>
+          <span class="avail-no">✕ <span data-i18n="avail.no">Nicht verfügbar</span></span>
         </div>
       </div>
       <div class="bm-rooms" id="bmRooms"><!-- JS renders room options --></div>
