@@ -1,0 +1,47 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.tawk.to https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.facebook.com; connect-src 'self' https://rinfpezlwqmblwpzfdlm.supabase.co wss://rinfpezlwqmblwpzfdlm.supabase.co https://*.tawk.to wss://*.tawk.to https://www.google-analytics.com https://analytics.google.com; frame-src https://*.tawk.to; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/privacidade.html
+  Cache-Control: public, max-age=0, must-revalidate
+/termos.html
+  Cache-Control: public, max-age=0, must-revalidate
+/informacao-legal.html
+  Cache-Control: public, max-age=0, must-revalidate
+/blog.html
+  Cache-Control: public, max-age=0, must-revalidate
+/de/*
+  Cache-Control: public, max-age=0, must-revalidate
+/fr/*
+  Cache-Control: public, max-age=0, must-revalidate
+/it/*
+  Cache-Control: public, max-age=0, must-revalidate
+/en/*
+  Cache-Control: public, max-age=0, must-revalidate
+/preco-site-suica.html
+  Cache-Control: public, max-age=0, must-revalidate
+/multilingue-valais.html
+  Cache-Control: public, max-age=0, must-revalidate
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+/site.webmanifest
+  Cache-Control: public, max-age=3600
+/img/*
+  Cache-Control: public, max-age=2592000
+/supabase.min.js
+  Cache-Control: public, max-age=2592000
+/og.png
+  Cache-Control: public, max-age=2592000
+/favicon.ico
+  Cache-Control: public, max-age=604800
