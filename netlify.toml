@@ -11,6 +11,6 @@
 [functions."publish-scheduled"]
   schedule = "@hourly"
 
-# escritor automático: 1 tema da fila por semana (segunda, 06:00 UTC). Precisa de ANTHROPIC_API_KEY.
+# escritor automático: 1 tema da fila por dia (06:00 UTC); fila vazia = não faz nada. Precisa de ANTHROPIC_API_KEY.
 [functions."autopilot-writer"]
-  schedule = "0 6 * * 1"
+  schedule = "0 6 * * *"
