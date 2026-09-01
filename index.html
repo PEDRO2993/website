@@ -1863,27 +1863,27 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       <div class="faq-list reveal">
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a1" role="region"><div><p data-i18n="fq1.a">Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo exato fica fechado na proposta, antes de começarmos.</p></div></div>
+          <div class="faq-a" id="faq-a1"><div><p data-i18n="fq1.a">Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo exato fica fechado na proposta, antes de começarmos.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a2" role="region"><div><p data-i18n="fq2.a">Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas.</p></div></div>
+          <div class="faq-a" id="faq-a2"><div><p data-i18n="fq2.a">Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a3" role="region"><div><p data-i18n="fq3.a">Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga.</p></div></div>
+          <div class="faq-a" id="faq-a3"><div><p data-i18n="fq3.a">Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o budget dos anúncios?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a4" role="region"><div><p data-i18n="fq4.a">O que investes em anúncios é pago por ti diretamente ao Google ou à Meta, no teu próprio cartão — total transparência. O meu plano cobre a estratégia, a criação dos anúncios e a otimização contínua.</p></div></div>
+          <div class="faq-a" id="faq-a4"><div><p data-i18n="fq4.a">O que investes em anúncios é pago por ti diretamente ao Google ou à Meta, no teu próprio cartão — total transparência. O meu plano cobre a estratégia, a criação dos anúncios e a otimização contínua.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a5" role="region"><div><p data-i18n="fq5.a">Ja, gerne! Atendo em alemão, português e inglês, e crio sites e conteúdo multilingues — uma vantagem enorme no Valais, onde os teus clientes falam várias línguas.</p></div></div>
+          <div class="faq-a" id="faq-a5"><div><p data-i18n="fq5.a">Ja, gerne! Atendo em alemão, português e inglês, e crio sites e conteúdo multilingues — uma vantagem enorme no Valais, onde os teus clientes falam várias línguas.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a6" role="region"><div><p data-i18n="fq6.a">Claro. Os três serviços funcionam em separado. Faço primeiro uma análise gratuita do que já tens e digo-te, com franqueza, onde vale a pena investir.</p></div></div>
+          <div class="faq-a" id="faq-a6"><div><p data-i18n="fq6.a">Claro. Os três serviços funcionam em separado. Faço primeiro uma análise gratuita do que já tens e digo-te, com franqueza, onde vale a pena investir.</p></div></div>
         </div>
       </div>
     </div>
@@ -2971,7 +2971,9 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     if (cover && holder) {
       holder.className = "shot-thumb";
       holder.innerHTML = "";
-      holder.appendChild(cover.cloneNode(true));
+      var thumb = cover.cloneNode(true);
+      thumb.setAttribute("aria-hidden", "true"); thumb.setAttribute("focusable", "false"); /* decorativo: o link já tem aria-label */
+      holder.appendChild(thumb);
     }
     var screen = a.querySelector(".shot-screen");
     if (screen) {
@@ -3521,6 +3523,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var tx = LANG_HINT[want];
     var bar = document.createElement("div");
     bar.className = "lang-hint";
+    bar.setAttribute("role", "complementary");
     bar.setAttribute("lang", want === "pt" ? "pt-PT" : want === "en" ? "en" : want + "-CH");
     bar.innerHTML = '<span></span><a href="' + LANG_HREF[want] + '"></a><button type="button">&times;</button>';
     bar.querySelector("button").setAttribute("aria-label", tx[2]);
