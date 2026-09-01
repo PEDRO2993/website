@@ -214,6 +214,14 @@ function buildHome() {
     let html = src;
     let replaced = 0, total = 0, missing = new Set();
 
+    // só o dicionário do idioma da página (−40 KB gzip em pt, −27 KB em de)
+    ['var I18N =', 'var TPL_TR ='].forEach((decl) => {
+      const lit = extractObject(src, decl);
+      const obj = evalObject(src, decl);
+      const keep = lang === 'pt' ? {} : { [lang]: obj[lang] };
+      html = html.replace(lit, () => JSON.stringify(keep));
+    });
+
     if (lang !== 'pt') {
       const dict = I18N[lang];
       if (!dict) throw new Error('sem dicionário para ' + lang);

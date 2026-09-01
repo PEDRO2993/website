@@ -45,8 +45,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto tempo demora até o meu site estar online?","acceptedAnswer":{"@type":"Answer","text":"Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo exato fica fechado na proposta, antes de começarmos."}},{"@type":"Question","name":"O site fica mesmo meu?","acceptedAnswer":{"@type":"Answer","text":"Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas."}},{"@type":"Question","name":"Posso cancelar a gestão mensal de redes sociais ou marketing?","acceptedAnswer":{"@type":"Answer","text":"Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga."}},{"@type":"Question","name":"Como funciona o budget dos anúncios?","acceptedAnswer":{"@type":"Answer","text":"O que investes em anúncios é pago por ti diretamente ao Google ou à Meta, no teu próprio cartão — total transparência. O meu plano cobre a estratégia, a criação dos anúncios e a otimização contínua."}},{"@type":"Question","name":"Trabalhas com empresas de língua alemã?","acceptedAnswer":{"@type":"Answer","text":"Ja, gerne! Atendo em alemão, português e inglês, e crio sites e conteúdo multilingues — uma vantagem enorme no Valais, onde os teus clientes falam várias línguas."}},{"@type":"Question","name":"Já tenho site — podes tratar só das redes sociais ou dos anúncios?","acceptedAnswer":{"@type":"Answer","text":"Claro. Os três serviços funcionam em separado. Faço primeiro uma análise gratuita do que já tens e digo-te, com franqueza, onde vale a pena investir."}}]}
 </script>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spline+Sans+Mono:wght@300..700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spline+Sans+Mono:wght@300..700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:wght@200..800&family=Spline+Sans+Mono:wght@300..700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:wght@200..800&family=Spline+Sans+Mono:wght@300..700&display=swap"></noscript>
 <style>
 /* ==================================================================
    PEDRO RIBEIRO DIGITAL 3.0 — dribbble-modern light
@@ -640,7 +640,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 /* ================== LUMEN SKIN ================== */
 :root { --r: 10px; }
 .display { letter-spacing: -0.02em; font-weight: 600; line-height: 1.1; }
-.hero h1 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; text-shadow: 0 0 60px rgba(46, 107, 255, 0.35); }
+.hero h1 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; min-height: 2.2em; text-shadow: 0 0 60px rgba(46, 107, 255, 0.35); }
 .logo { font-weight: 700; letter-spacing: 0.14em; font-size: 1rem; }
 .serif { font-weight: 600; }
 .btn { border-radius: 4px; font-family: "Spline Sans Mono", monospace; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; padding: 15px 24px; }
@@ -669,7 +669,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 #prLoader {
   position: fixed; inset: 0; z-index: 200; background: #030409;
   display: grid; place-items: center; text-align: center;
-  transition: opacity 0.5s ease 0.4s, visibility 0.5s ease 0.4s;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 #prLoader.done { opacity: 0; visibility: hidden; }
 #prLoader .lg { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(2.2rem, 7vw, 3.6rem); letter-spacing: 0.28em; text-indent: 0.28em; }
@@ -678,7 +678,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 #prLoader .pct { font-family: "Spline Sans Mono", monospace; font-size: 0.68rem; letter-spacing: 0.2em; color: var(--red-ink); margin-top: 30px; }
 #prLoader .sweep { position: absolute; top: 0; bottom: 0; left: -20%; width: 8%; background: linear-gradient(90deg, transparent, rgba(140, 175, 255, 0.5), transparent); filter: blur(6px); opacity: 0; }
 #prLoader.finish .sweep { animation: prsweep 0.55s ease forwards; }
-@keyframes prsweep { 0% { left: -15%; opacity: 1; } 100% { left: 110%; opacity: 1; } }
+@keyframes prsweep { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(1625%); opacity: 1; } }
 #prLoader.finish .in2 { animation: prldout 0.4s ease 0.25s forwards; }
 @keyframes prldout { to { opacity: 0; transform: translateY(-14px); } }
 
@@ -3374,6 +3374,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 
   ["de", "en", "fr", "it"].forEach(function (l) {
     var d = I18N[l];
+    if (!d) return; /* build estático: só o dicionário do idioma da página */
     d["pc.once2"] = d["pc.once"];
     d["pc.hot2"] = d["pc.hot"]; d["pc.hot3"] = d["pc.hot"];
     for (var i = 2; i <= 6; i++) d["pc.mo" + i] = d["pc.mo"];
@@ -6148,7 +6149,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var prPct = document.getElementById("prPct");
     var pv = 0, pt0 = performance.now();
     (function ptick(now) {
-      var target = Math.min(100, ((now - pt0) / 700) * 100);
+      var target = Math.min(100, ((now - pt0) / 250) * 100);
       pv += (target - pv) * 0.35;
       var sh = Math.min(100, Math.round(pv));
       prPct.textContent = (sh < 10 ? "0" : "") + sh + "%";
@@ -6158,7 +6159,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         prLoader.classList.add("done");
         document.body.style.overflow = "";
         try { sessionStorage.setItem("pr-seen", "1"); } catch (e) {}
-      }, 500);
+      }, 150);
     })(pt0);
   }
 
@@ -6203,8 +6204,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       if (!document.hidden && window.scrollY < window.innerHeight) { pT += 0.016; pfDraw(); }
       requestAnimationFrame(pfLoop);
     }
-    pfSize(); pfDraw();
-    if (!REDUCED) requestAnimationFrame(pfLoop);
+    /* arranca só depois do load: a primeira frame custava ~110 ms antes do FCP */
+    window.addEventListener("load", function () { setTimeout(function () { pfSize(); pfDraw(); if (!REDUCED) requestAnimationFrame(pfLoop); }, 0); });
     window.addEventListener("resize", function () { pfSize(); pfDraw(); });
     if (FINE) document.addEventListener("pointermove", function (e) {
       ptx = e.clientX / window.innerWidth - 0.5;

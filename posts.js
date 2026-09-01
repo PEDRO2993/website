@@ -61,7 +61,7 @@ footer.lg-foot{border-top:1px solid var(--line);padding:24px 0 40px;display:flex
 footer.lg-foot .lg-links{display:flex;gap:16px;flex-wrap:wrap}footer.lg-foot a{color:var(--ink-2);text-decoration:none;font-size:0.86rem}footer.lg-foot a:hover{color:var(--red-ink)}
 .lg-mono{font-family:"Spline Sans Mono",monospace;font-size:0.76rem;color:var(--ink-3)}`;
 
-const FONTS = 'https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spline+Sans+Mono:wght@300..700&display=swap';
+const FONTS = 'https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:wght@200..800&family=Spline+Sans+Mono:wght@300..700&display=swap';
 
 // página completa de um post. related = outros posts do mesmo idioma (máx. 3)
 function renderPost(p, langsForSlug, { ORIGIN, PREFIX }, related = []) {
