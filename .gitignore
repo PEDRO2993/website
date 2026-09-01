@@ -11,3 +11,5 @@ node_modules/
 .claude/memory.db
 .claude/memory.db-*
 .claude-flow/*.db
+.claude-flow/daemon-state.json
+.claude-flow/metrics/
