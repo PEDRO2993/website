@@ -792,6 +792,24 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 .invoice-form input[type="number"] { width: 110px; }
 .invoice-form select { width: 90px; }
 .invoice-form button { flex: none; }
+.bp-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bp-form input, .bp-form select, .bp-form textarea {
+  font-family: inherit; font-size: 0.92rem; color: var(--ink); width: 100%;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--line-2); border-radius: 10px; padding: 10px 13px;
+}
+.bp-form textarea { grid-column: 1 / -1; min-height: 180px; resize: vertical; font-family: ui-monospace, monospace; font-size: 0.86rem; }
+.bp-form .full { grid-column: 1 / -1; }
+.bp-form input:focus, .bp-form select:focus, .bp-form textarea:focus { outline: none; border-color: var(--red); }
+.bp-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+.bp-list { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; }
+.bp-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,0.02); font-size: 0.88rem; }
+.bp-item b { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 500; }
+.bp-item .tag { font: 0.72rem ui-monospace, monospace; padding: 2px 7px; border-radius: 6px; border: 1px solid var(--line-2); color: var(--ink-2); }
+.bp-item .tag.published { color: #6ee7a8; border-color: rgba(110,231,168,0.4); }
+.bp-item .tag.scheduled { color: #fbbf24; border-color: rgba(251,191,36,0.4); }
+.bp-item button { background: none; border: 0; color: var(--ink-2); cursor: pointer; font-size: 0.82rem; padding: 4px 6px; border-radius: 6px; }
+.bp-item button:hover { color: var(--ink); background: rgba(255,255,255,0.06); }
+@media (max-width: 640px) { .bp-form { grid-template-columns: 1fr; } }
 .admin-notes { width: 100%; min-height: 120px; font-family: inherit; font-size: 0.95rem; color: var(--ink); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line-2); border-radius: 14px; padding: 13px 15px; resize: vertical; }
 .admin-notes:focus { outline: none; border-color: var(--red); }
 .admin-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; justify-content: space-between; align-items: center; }
@@ -2101,6 +2119,28 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           <button class="btn btn-red" id="invGenerate" type="button">Gerar e imprimir</button>
         </div>
         <p class="admin-note-hint">Abre o recibo numa aba nova, pronta para imprimir ou guardar como PDF (Ctrl/Cmd+P → Guardar como PDF).</p>
+      </div>
+      <div class="invoice-box">
+        <h3>Blog · escrever e publicar</h3>
+        <div class="bp-form">
+          <input id="bpTitle" type="text" placeholder="Título do artigo" aria-label="Título do artigo">
+          <input id="bpSlug" type="text" placeholder="endereco-do-artigo (fica em /blog/…)" aria-label="Endereço do artigo">
+          <select id="bpLang" aria-label="Idioma">
+            <option value="pt">Português</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="it">Italiano</option><option value="en">English</option>
+          </select>
+          <select id="bpStatus" aria-label="Estado">
+            <option value="draft">Rascunho (não publica)</option><option value="published">Publicar agora</option><option value="scheduled">Agendar para…</option>
+          </select>
+          <input id="bpDesc" class="full" type="text" maxlength="160" placeholder="Descrição curta (aparece no Google e no cartão do blog, máx. 160)" aria-label="Descrição curta">
+          <input id="bpAt" class="full" type="datetime-local" aria-label="Data e hora de publicação" hidden>
+          <textarea id="bpBody" placeholder="Texto do artigo. Linha em branco = novo parágrafo. Linha a começar por ## = subtítulo. Linha a começar por - = lista. Também aceita HTML." aria-label="Texto do artigo"></textarea>
+        </div>
+        <div class="bp-actions">
+          <button class="btn btn-red" id="bpSave" type="button">Guardar</button>
+          <button class="btn btn-ghost" id="bpNew" type="button" hidden>Novo artigo</button>
+          <span class="admin-note-hint" id="bpState" role="status" aria-live="polite"></span>
+        </div>
+        <div class="bp-list" id="bpList"></div>
       </div>
       <label class="sub" for="adminNotes" style="display:block;margin-bottom:6px;">Notas rápidas (guardadas na tua conta, em todos os dispositivos)</label>
       <textarea id="adminNotes" class="admin-notes" placeholder="Leads a contactar, ideias, tarefas…"></textarea>
@@ -5797,6 +5837,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       document.getElementById("adminWho").textContent = (u && u.email) || "";
     });
     loadAdminStats();
+    bpReset(); bpLoad();
     adminGrid.innerHTML = '<span class="admin-note-hint">A carregar…</span>';
     sb.from("admin_links").select("label,url,note").order("sort_order", { ascending: true }).then(function (r) {
       if (r.error) { adminGrid.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + r.error.message) + "</span>"; return; }
@@ -5826,6 +5867,99 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       if (!r.data && content) saveAdminNotes();
     });
   }
+  /* ---- Blog (tabela posts): publicar sem SQL. O trigger da BD dispara o build. ---- */
+  var bpEditId = null;
+  var bpEl = {};
+  ["bpTitle","bpSlug","bpLang","bpStatus","bpDesc","bpAt","bpBody","bpSave","bpNew","bpState","bpList"].forEach(function (id) { bpEl[id] = document.getElementById(id); });
+  function bpSlugify(t) {
+    return String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80);
+  }
+  function bpToHtml(txt) {
+    txt = String(txt || "").trim();
+    if (/^\s*</.test(txt)) return txt; /* já é HTML */
+    return txt.split(/\n\s*\n/).map(function (blk) {
+      var lines = blk.split("\n");
+      if (/^##\s+/.test(lines[0])) return "<h2>" + escH(lines[0].replace(/^##\s+/, "")) + "</h2>";
+      if (lines.every(function (l) { return /^-\s+/.test(l); }))
+        return "<ul>" + lines.map(function (l) { return "<li>" + escH(l.replace(/^-\s+/, "")) + "</li>"; }).join("") + "</ul>";
+      return "<p>" + escH(blk).replace(/\n/g, "<br>") + "</p>";
+    }).join("\n");
+  }
+  function bpReset() {
+    bpEditId = null;
+    ["bpTitle","bpSlug","bpDesc","bpBody","bpAt"].forEach(function (k) { bpEl[k].value = ""; });
+    bpEl.bpLang.value = "pt"; bpEl.bpStatus.value = "draft"; bpEl.bpAt.hidden = true;
+    bpEl.bpNew.hidden = true; bpEl.bpSave.textContent = "Guardar";
+  }
+  function bpLoad() {
+    bpEl.bpList.innerHTML = '<span class="admin-note-hint">A carregar artigos…</span>';
+    sb.from("posts").select("id,slug,lang,title,description,body_html,status,publish_at,published_at,updated_at")
+      .order("updated_at", { ascending: false }).limit(60).then(function (r) {
+      if (r.error) { bpEl.bpList.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + r.error.message) + "</span>"; return; }
+      var rows = r.data || [];
+      bpEl.bpList._rows = rows;
+      if (!rows.length) { bpEl.bpList.innerHTML = '<span class="admin-note-hint">Ainda sem artigos. Escreve o primeiro acima.</span>'; return; }
+      bpEl.bpList.innerHTML = rows.map(function (p) {
+        var when = p.status === "scheduled" && p.publish_at ? fmtT(p.publish_at) : (p.published_at ? fmtT(p.published_at) : "");
+        var url = (p.lang === "pt" ? "/" : "/" + p.lang + "/") + "blog/" + p.slug + ".html";
+        return '<div class="bp-item" data-id="' + escH(p.id) + '">' +
+          '<span class="tag">' + escH(p.lang.toUpperCase()) + "</span>" +
+          "<b>" + escH(p.title) + "</b>" +
+          '<span class="tag ' + escH(p.status) + '">' + escH(p.status === "published" ? "publicado" : p.status === "scheduled" ? "agendado" : "rascunho") + (when ? " · " + escH(when) : "") + "</span>" +
+          (p.status === "published" ? '<a href="' + escH(url) + '" target="_blank" rel="noopener" title="Abrir">↗</a>' : "") +
+          '<button type="button" data-act="edit" title="Editar">✎</button>' +
+          '<button type="button" data-act="del" title="Apagar">✕</button></div>';
+      }).join("");
+    });
+  }
+  bpEl.bpStatus.addEventListener("change", function () { bpEl.bpAt.hidden = bpEl.bpStatus.value !== "scheduled"; });
+  bpEl.bpTitle.addEventListener("blur", function () { if (!bpEl.bpSlug.value.trim()) bpEl.bpSlug.value = bpSlugify(bpEl.bpTitle.value); });
+  bpEl.bpNew.addEventListener("click", bpReset);
+  bpEl.bpList.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-act]"); if (!b) return;
+    var item = b.closest(".bp-item"); var id = item.getAttribute("data-id");
+    var p = (bpEl.bpList._rows || []).filter(function (x) { return x.id === id; })[0]; if (!p) return;
+    if (b.getAttribute("data-act") === "del") {
+      if (!confirm('Apagar "' + p.title + '" (' + p.lang.toUpperCase() + ")? Se estava publicado, o site atualiza sozinho.")) return;
+      sb.from("posts").delete().eq("id", id).then(function (r) {
+        bpEl.bpState.textContent = r.error ? LX("err") + r.error.message : "Apagado ✓";
+        if (bpEditId === id) bpReset();
+        bpLoad();
+      });
+      return;
+    }
+    bpEditId = id;
+    bpEl.bpTitle.value = p.title; bpEl.bpSlug.value = p.slug; bpEl.bpLang.value = p.lang;
+    bpEl.bpDesc.value = p.description; bpEl.bpBody.value = p.body_html; bpEl.bpStatus.value = p.status;
+    bpEl.bpAt.hidden = p.status !== "scheduled";
+    bpEl.bpAt.value = p.publish_at ? new Date(new Date(p.publish_at).getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16) : "";
+    bpEl.bpNew.hidden = false; bpEl.bpSave.textContent = "Guardar alterações";
+    bpEl.bpTitle.focus();
+  });
+  bpEl.bpSave.addEventListener("click", function () {
+    var title = bpEl.bpTitle.value.trim(), slug = bpSlugify(bpEl.bpSlug.value || title), desc = bpEl.bpDesc.value.trim(), body = bpEl.bpBody.value.trim();
+    var status = bpEl.bpStatus.value;
+    if (!title || !slug || !desc || !body) { bpEl.bpState.textContent = "Faltam campos: título, endereço, descrição e texto são obrigatórios."; return; }
+    var row = { slug: slug, lang: bpEl.bpLang.value, title: title, description: desc, body_html: bpToHtml(body), status: status, publish_at: null };
+    if (status === "scheduled") {
+      if (!bpEl.bpAt.value) { bpEl.bpState.textContent = "Escolhe a data e hora para agendar."; return; }
+      row.publish_at = new Date(bpEl.bpAt.value).toISOString();
+    }
+    if (status === "published") row.published_at = new Date().toISOString();
+    bpEl.bpSave.disabled = true; bpEl.bpState.textContent = "A guardar…";
+    var q = bpEditId ? sb.from("posts").update(row).eq("id", bpEditId) : sb.from("posts").insert(row);
+    q.then(function (r) {
+      bpEl.bpSave.disabled = false;
+      if (r.error) {
+        bpEl.bpState.textContent = /duplicate|unique/i.test(r.error.message) ? "Já existe um artigo com esse endereço nesse idioma. Muda o endereço." : LX("err") + r.error.message;
+        return;
+      }
+      bpEl.bpState.textContent = status === "published" ? "Guardado ✓ — o site atualiza sozinho em 1 a 2 minutos."
+        : status === "scheduled" ? "Agendado ✓ — publica sozinho à hora marcada (verificação de hora a hora)." : "Rascunho guardado ✓";
+      bpReset(); bpLoad();
+    });
+  });
   function saveAdminNotes() {
     sb.from("admin_notes").upsert({ id: ADMIN_NOTES_ID, content: adminNotes.value, updated_at: new Date().toISOString() }).then(function (r) {
       if (r.error) { adminSaveState.textContent = LX("err") + r.error.message; return; }
