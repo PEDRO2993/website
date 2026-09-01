@@ -2141,6 +2141,17 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           <span class="admin-note-hint" id="bpState" role="status" aria-live="polite"></span>
         </div>
         <div class="bp-list" id="bpList"></div>
+        <h3 style="margin-top:22px;">Autopilot · fila de temas</h3>
+        <p class="admin-note-hint" style="margin-bottom:10px;">Toda a segunda-feira o escritor automático pega no tema mais antigo e cria o artigo nos 5 idiomas como rascunho. Revês acima e publicas.</p>
+        <div class="bp-form">
+          <input id="tpTopic" class="full" type="text" placeholder="Tema (ex.: SEO local para restaurantes em Brig)" aria-label="Tema">
+          <input id="tpBrief" class="full" type="text" placeholder="Notas opcionais: ângulo, público, palavras-chave" aria-label="Notas">
+        </div>
+        <div class="bp-actions">
+          <button class="btn btn-ghost" id="tpAdd" type="button">Adicionar à fila</button>
+          <span class="admin-note-hint" id="tpState" role="status" aria-live="polite"></span>
+        </div>
+        <div class="bp-list" id="tpList"></div>
       </div>
       <label class="sub" for="adminNotes" style="display:block;margin-bottom:6px;">Notas rápidas (guardadas na tua conta, em todos os dispositivos)</label>
       <textarea id="adminNotes" class="admin-notes" placeholder="Leads a contactar, ideias, tarefas…"></textarea>
@@ -5837,7 +5848,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       document.getElementById("adminWho").textContent = (u && u.email) || "";
     });
     loadAdminStats();
-    bpReset(); bpLoad();
+    bpReset(); bpLoad(); tpLoad();
     adminGrid.innerHTML = '<span class="admin-note-hint">A carregar…</span>';
     sb.from("admin_links").select("label,url,note").order("sort_order", { ascending: true }).then(function (r) {
       if (r.error) { adminGrid.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + r.error.message) + "</span>"; return; }
@@ -5959,6 +5970,42 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         : status === "scheduled" ? "Agendado ✓ — publica sozinho à hora marcada (verificação de hora a hora)." : "Rascunho guardado ✓";
       bpReset(); bpLoad();
     });
+  });
+  /* ---- Autopilot: fila de temas (tabela post_topics) ---- */
+  var tpEl = {};
+  ["tpTopic","tpBrief","tpAdd","tpState","tpList"].forEach(function (id) { tpEl[id] = document.getElementById(id); });
+  var TP_ST = { pending: "na fila", writing: "a escrever…", done: "escrito ✓", error: "erro" };
+  function tpLoad() {
+    sb.from("post_topics").select("id,topic,status,error,slug,created_at").order("created_at", { ascending: false }).limit(30).then(function (r) {
+      if (r.error) { tpEl.tpList.innerHTML = '<span class="admin-note-hint">' + escH(/relation|does not exist/i.test(r.error.message) ? "Corre supabase/003_topics.sql no Supabase para ativar a fila." : LX("err") + r.error.message) + "</span>"; return; }
+      var rows = r.data || [];
+      if (!rows.length) { tpEl.tpList.innerHTML = '<span class="admin-note-hint">Fila vazia.</span>'; return; }
+      tpEl.tpList.innerHTML = rows.map(function (t) {
+        return '<div class="bp-item" data-id="' + escH(t.id) + '"><b>' + escH(t.topic) + "</b>" +
+          '<span class="tag ' + (t.status === "done" ? "published" : t.status === "writing" ? "scheduled" : "") + '" title="' + escH(t.error || "") + '">' + escH(TP_ST[t.status] || t.status) + "</span>" +
+          (t.status === "error" ? '<button type="button" data-act="retry" title="Tentar outra vez">↻</button>' : "") +
+          '<button type="button" data-act="del" title="Remover">✕</button></div>';
+      }).join("");
+    });
+  }
+  tpEl.tpAdd.addEventListener("click", function () {
+    var topic = tpEl.tpTopic.value.trim(); if (!topic) { tpEl.tpState.textContent = "Escreve o tema."; return; }
+    tpEl.tpAdd.disabled = true;
+    sb.from("post_topics").insert({ topic: topic, brief: tpEl.tpBrief.value.trim() || null }).then(function (r) {
+      tpEl.tpAdd.disabled = false;
+      if (r.error) { tpEl.tpState.textContent = LX("err") + r.error.message; return; }
+      tpEl.tpTopic.value = ""; tpEl.tpBrief.value = "";
+      tpEl.tpState.textContent = "Na fila ✓ — sai na próxima segunda-feira como rascunho.";
+      tpLoad();
+    });
+  });
+  tpEl.tpList.addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-act]"); if (!b) return;
+    var id = b.closest(".bp-item").getAttribute("data-id");
+    var q = b.getAttribute("data-act") === "retry"
+      ? sb.from("post_topics").update({ status: "pending", error: null }).eq("id", id)
+      : sb.from("post_topics").delete().eq("id", id);
+    q.then(function (r) { tpEl.tpState.textContent = r.error ? LX("err") + r.error.message : ""; tpLoad(); });
   });
   function saveAdminNotes() {
     sb.from("admin_notes").upsert({ id: ADMIN_NOTES_ID, content: adminNotes.value, updated_at: new Date().toISOString() }).then(function (r) {

@@ -449,7 +449,13 @@ async function buildPosts() {
   DB_POSTS.forEach((p) => (bySlug[p.slug] = bySlug[p.slug] || []).push(p));
   DB_POSTS.forEach((p) => {
     const rel = (p.lang === 'pt' ? '' : p.lang + '/') + 'blog/' + p.slug + '.html';
-    writeFile(rel, posts.renderPost(p, bySlug[p.slug].map((x) => x.lang), { ORIGIN, PREFIX }));
+    const related = DB_POSTS.filter((x) => x.lang === p.lang && x.slug !== p.slug).slice(0, 3);
+    writeFile(rel, posts.renderPost(p, bySlug[p.slug].map((x) => x.lang), { ORIGIN, PREFIX }, related));
+  });
+  // feed RSS por idioma (só se houver artigos nesse idioma)
+  posts.LANGS.forEach((lang) => {
+    const list = DB_POSTS.filter((p) => p.lang === lang);
+    if (list.length) writeFile((lang === 'pt' ? '' : lang + '/') + 'feed.xml', posts.renderFeed(lang, list, { ORIGIN, PREFIX }));
   });
   console.log('  posts (BD)            ' + DB_POSTS.length + ' páginas');
 }

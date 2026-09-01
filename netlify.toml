@@ -10,3 +10,7 @@
 # cron: publica os 'scheduled' vencidos; o trigger da BD dispara o build a seguir
 [functions."publish-scheduled"]
   schedule = "@hourly"
+
+# escritor automático: 1 tema da fila por semana (segunda, 06:00 UTC). Precisa de ANTHROPIC_API_KEY.
+[functions."autopilot-writer"]
+  schedule = "0 6 * * 1"
