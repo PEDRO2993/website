@@ -115,6 +115,7 @@ a { color: inherit; }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; position: relative; }
 section { padding: 96px 0; position: relative; }
+@media (max-width: 640px) { section { padding: 64px 0; } .hero { padding: 56px 0 64px; } }
 .dot { color: var(--red); }
 .serif {
   font-family: "Bricolage Grotesque", "Arial Black", sans-serif; font-style: normal; font-weight: 500;
@@ -623,17 +624,18 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 #cookieBanner {
-  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 140;
-  max-width: 620px; margin: 0 auto;
+  position: fixed; right: 16px; bottom: 16px; z-index: 140;
+  max-width: 400px;
   background: #0A1120; border: 1px solid var(--line-2); border-radius: var(--r);
   box-shadow: var(--sh-lg); padding: 20px 22px;
   display: flex; flex-direction: column; gap: 14px;
 }
 #cookieBanner[hidden] { display: none; }
-#cookieBanner p { font-size: 0.88rem; color: var(--ink-2); margin: 0; }
+#cookieBanner p { font-size: 0.84rem; line-height: 1.5; color: var(--ink-2); margin: 0; }
 #cookieBanner p a { color: var(--red-ink); text-decoration: underline; }
 .cookie-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-@media (max-width: 640px) { #cookieBanner { left: 10px; right: 10px; bottom: 10px; padding: 16px 18px; } .cookie-row { justify-content: stretch; } .cookie-row button { flex: 1; } }
+.cookie-row .btn { padding: 12px 16px; }
+@media (max-width: 640px) { #cookieBanner { left: 10px; right: 10px; bottom: 10px; max-width: none; padding: 14px 16px; } .cookie-row { justify-content: stretch; } .cookie-row button { flex: 1; } }
 
 /* ================== LUMEN SKIN ================== */
 :root { --r: 10px; }
@@ -2170,7 +2172,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 </div>
 
 <div id="cookieBanner" role="dialog" aria-modal="true" aria-label="Cookies" aria-describedby="cookieMsg" hidden>
-  <p id="cookieMsg"><span data-i18n="cookie.msg">Uso o mínimo indispensável para o site funcionar. Com a tua autorização, uso também estatísticas e marketing (Google Analytics / Meta) para perceber o que funciona — nunca sem a tua autorização. Lê a </span><a href="privacidade.html" data-i18n="cookie.link">Política de Privacidade</a>.</p>
+  <p id="cookieMsg"><span data-i18n="cookie.msg">Só o essencial para o site funcionar. Estatísticas e marketing (Google Analytics / Meta) apenas com a tua autorização. </span><a href="privacidade.html" data-i18n="cookie.link">Política de Privacidade</a>.</p>
   <div class="cookie-row">
     <button class="btn btn-ghost" id="cookieDeny" type="button" data-i18n="cookie.deny">Só o essencial</button>
     <button class="btn btn-red" id="cookieAccept" type="button" data-i18n="cookie.accept">Aceitar tudo</button>
@@ -3086,7 +3088,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.tag": "Websites, Marketing und Social Media für Betriebe im Wallis — ein Partner, drei Sprachen.",
       "ft.h1": "Navigation", "ft.h2": "Leistungen", "ft.h3": "Kontakt",
       "ft.h4": "Rechtliches", "ft.privacy": "Datenschutz", "ft.terms": "AGB", "ft.notice": "Impressum",
-      "cookie.msg": "Ich verwende nur das technisch Nötigste, damit die Website funktioniert. Mit Ihrer Zustimmung nutze ich auch Statistiken und Marketing (Google Analytics / Meta), um zu verstehen, was funktioniert — nie ohne Ihre Zustimmung. Lesen Sie die ", "cookie.link": "Datenschutzerklärung", "cookie.deny": "Nur das Nötigste", "cookie.accept": "Alles akzeptieren",
+      "cookie.msg": "Nur das technisch Nötige. Statistik und Marketing (Google Analytics / Meta) nur mit Ihrer Zustimmung. ", "cookie.link": "Datenschutzerklärung", "cookie.deny": "Nur das Nötigste", "cookie.accept": "Alles akzeptieren",
       "ft.resp": "Antwort innert 24 Stunden"
     },
     en: {
@@ -3179,7 +3181,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.tag": "Websites, marketing and social media for Valais businesses — one partner, three languages.",
       "ft.h1": "Navigation", "ft.h2": "Services", "ft.h3": "Contact",
       "ft.h4": "Legal", "ft.privacy": "Privacy", "ft.terms": "Terms", "ft.notice": "Legal notice",
-      "cookie.msg": "I only use what's strictly needed for the site to work. With your consent, I also use statistics and marketing (Google Analytics / Meta) to understand what works — never without your consent. Read the ", "cookie.link": "Privacy Policy", "cookie.deny": "Essential only", "cookie.accept": "Accept all",
+      "cookie.msg": "Only what the site needs to work. Statistics and marketing (Google Analytics / Meta) only with your consent. ", "cookie.link": "Privacy Policy", "cookie.deny": "Essential only", "cookie.accept": "Accept all",
       "ft.resp": "Reply within 24 hours"
     },
     fr: {
@@ -3272,7 +3274,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.tag": "Sites web, marketing et réseaux sociaux pour les entreprises du Valais — un partenaire, trois langues.",
       "ft.h1": "Navigation", "ft.h2": "Services", "ft.h3": "Contact",
       "ft.h4": "Mentions", "ft.privacy": "Confidentialité", "ft.terms": "CGU", "ft.notice": "Mentions légales",
-      "cookie.msg": "J'utilise seulement le strict nécessaire pour que le site fonctionne. Avec votre accord, j'utilise aussi des statistiques et du marketing (Google Analytics / Meta) pour comprendre ce qui fonctionne — jamais sans votre accord. Lisez la ", "cookie.link": "Politique de confidentialité", "cookie.deny": "Seulement l'essentiel", "cookie.accept": "Tout accepter",
+      "cookie.msg": "Seulement le strict nécessaire au fonctionnement du site. Statistiques et marketing (Google Analytics / Meta) uniquement avec votre accord. ", "cookie.link": "Politique de confidentialité", "cookie.deny": "Seulement l'essentiel", "cookie.accept": "Tout accepter",
       "ft.resp": "Réponse en moins de 24 h"
     },
     it: {
@@ -3365,7 +3367,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.tag": "Siti web, marketing e social media per le aziende del Vallese — un partner, tre lingue.",
       "ft.h1": "Navigazione", "ft.h2": "Servizi", "ft.h3": "Contatto",
       "ft.h4": "Legale", "ft.privacy": "Privacy", "ft.terms": "Termini", "ft.notice": "Note legali",
-      "cookie.msg": "Uso solo il minimo indispensabile per far funzionare il sito. Con il tuo consenso, uso anche statistiche e marketing (Google Analytics / Meta) per capire cosa funziona — mai senza il tuo consenso. Leggi l'", "cookie.link": "Informativa sulla privacy", "cookie.deny": "Solo l'essenziale", "cookie.accept": "Accetta tutto",
+      "cookie.msg": "Solo l'indispensabile per far funzionare il sito. Statistiche e marketing (Google Analytics / Meta) solo con il tuo consenso. ", "cookie.link": "Informativa sulla privacy", "cookie.deny": "Solo l'essenziale", "cookie.accept": "Accetta tutto",
       "ft.resp": "Risposta entro 24 ore"
     }
   };
