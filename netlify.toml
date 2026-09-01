@@ -1,14 +1,12 @@
-# PR Studio — prstudio.ch
-#
-# O build gera dist/ com uma pasta por idioma (/de/, /fr/, /it/, /en/; o
-# português fica na raiz), cada uma com o seu canonical e o conjunto
-# completo de hreflang. Ver build.js.
-#
-# Não há dependências: o script corre só com Node, sem npm install.
-
+# build estático + função agendada. Variáveis de ambiente: no painel Netlify, não aqui.
 [build]
-  command = "node build.js"
-  publish = "dist"
+  command   = "node build.js"
+  publish   = "dist"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
+
+# cron: publica os 'scheduled' vencidos; o trigger da BD dispara o build a seguir
+[functions."publish-scheduled"]
+  schedule = "@hourly"

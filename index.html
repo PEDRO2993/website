@@ -40,7 +40,7 @@
 <link rel="icon" href="/img/favicon-16x16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" sizes="180x180">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Pedro Ribeiro — PR Studio","url":"https://prstudio.ch/","image":"https://prstudio.ch/og.png","description":"Websites, marketing digital e gestão de redes sociais para negócios do Valais.","address":{"@type":"PostalAddress","addressLocality":"Stalden","addressRegion":"VS","addressCountry":"CH"},"areaServed":[{"@type":"AdministrativeArea","name":"Valais"},{"@type":"AdministrativeArea","name":"Upper Valais"},"Switzerland"],"priceRange":"CHF 95 - CHF 12000","telephone":"+41798257078","email":"pedrooribeiro7555@icloud.com","knowsLanguage":["pt","de","fr","it","en"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Serviços","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Websites","description":"Sites modernos, rápidos e feitos à medida — do lançamento simples à loja online."},"priceSpecification":{"@type":"PriceSpecification","minPrice":2400,"priceCurrency":"CHF"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Marketing Digital","description":"Google Ads, Meta Ads, SEO local e Google Business Profile."},"priceSpecification":{"@type":"PriceSpecification","minPrice":790,"priceCurrency":"CHF","unitText":"MON"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Social Media","description":"Gestão profissional de redes sociais, conteúdo e comunidade."},"priceSpecification":{"@type":"PriceSpecification","minPrice":690,"priceCurrency":"CHF","unitText":"MON"}}]}}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Pedro Ribeiro — PR Studio","url":"https://prstudio.ch/","image":"https://prstudio.ch/og.png","description":"Websites, marketing digital e gestão de redes sociais para negócios do Valais.","address":{"@type":"PostalAddress","addressLocality":"Stalden","addressRegion":"VS","addressCountry":"CH"},"geo":{"@type":"GeoCoordinates","latitude":46.2331,"longitude":7.8721},"areaServed":[{"@type":"AdministrativeArea","name":"Valais"},{"@type":"AdministrativeArea","name":"Upper Valais"},{"@type":"City","name":"Stalden"},{"@type":"City","name":"Visp"},{"@type":"City","name":"Brig-Glis"},{"@type":"City","name":"Naters"},{"@type":"City","name":"Zermatt"},{"@type":"City","name":"Saas-Fee"},{"@type":"City","name":"Grächen"},{"@type":"City","name":"Sierre"},{"@type":"City","name":"Sion"},"Switzerland"],"priceRange":"CHF 95 - CHF 12000","telephone":"+41798257078","email":"pedrooribeiro7555@icloud.com","knowsLanguage":["pt","de","fr","it","en"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Serviços","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Websites","description":"Sites modernos, rápidos e feitos à medida — do lançamento simples à loja online."},"priceSpecification":{"@type":"PriceSpecification","minPrice":2400,"priceCurrency":"CHF"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Marketing Digital","description":"Google Ads, Meta Ads, SEO local e Google Business Profile."},"priceSpecification":{"@type":"PriceSpecification","minPrice":790,"priceCurrency":"CHF","unitText":"MON"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Social Media","description":"Gestão profissional de redes sociais, conteúdo e comunidade."},"priceSpecification":{"@type":"PriceSpecification","minPrice":690,"priceCurrency":"CHF","unitText":"MON"}}]}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto tempo demora até o meu site estar online?","acceptedAnswer":{"@type":"Answer","text":"Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo exato fica fechado na proposta, antes de começarmos."}},{"@type":"Question","name":"O site fica mesmo meu?","acceptedAnswer":{"@type":"Answer","text":"Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas."}},{"@type":"Question","name":"Posso cancelar a gestão mensal de redes sociais ou marketing?","acceptedAnswer":{"@type":"Answer","text":"Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga."}},{"@type":"Question","name":"Como funciona o budget dos anúncios?","acceptedAnswer":{"@type":"Answer","text":"O que investes em anúncios é pago por ti diretamente ao Google ou à Meta, no teu próprio cartão — total transparência. O meu plano cobre a estratégia, a criação dos anúncios e a otimização contínua."}},{"@type":"Question","name":"Trabalhas com empresas de língua alemã?","acceptedAnswer":{"@type":"Answer","text":"Ja, gerne! Atendo em alemão, português e inglês, e crio sites e conteúdo multilingues — uma vantagem enorme no Valais, onde os teus clientes falam várias línguas."}},{"@type":"Question","name":"Já tenho site — podes tratar só das redes sociais ou dos anúncios?","acceptedAnswer":{"@type":"Answer","text":"Claro. Os três serviços funcionam em separado. Faço primeiro uma análise gratuita do que já tens e digo-te, com franqueza, onde vale a pena investir."}}]}
@@ -469,10 +469,17 @@ header.scrolled { border-bottom-color: var(--line); background: rgba(5, 7, 15, 0
 .tw-c3 .claim { font-family: Georgia, "Times New Roman", serif; font-weight: 600; font-size: clamp(19px, 4.4vw, 36px); line-height: 1.12; letter-spacing: -0.015em; text-wrap: balance; }
 .tw-c3 .sign { font-size: clamp(8px, 1.4vw, 10px); letter-spacing: 0.28em; text-transform: uppercase; opacity: 0.8; }
 
-.lang-hint { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; padding: 10px 46px 10px 18px; background: var(--dark-2); border-bottom: 1px solid var(--line-2); font-size: 0.88rem; color: var(--ink-2); position: relative; }
+/* ---- onde trabalho: SEO local + resposta a "vens cá?" ---- */
+#zona { padding-top: 0; }
+.zona { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 30px 0; display: flex; gap: 30px; align-items: baseline; flex-wrap: wrap; }
+.zona-h { font-family: "Spline Sans Mono", monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red-ink); white-space: nowrap; }
+.zona-t { color: var(--ink-2); font-size: 1rem; max-width: 62ch; margin: 0; flex: 1; min-width: 260px; }
+@media (max-width: 620px) { .zona { gap: 12px; padding: 24px 0; } }
+
+.lang-hint { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; min-height: 44px; box-sizing: border-box; padding: 10px 54px 10px 18px; background: var(--dark-2); border-bottom: 1px solid var(--line-2); font-size: 0.88rem; color: var(--ink-2); position: relative; }
 .lang-hint a { color: var(--red-ink); font-weight: 600; text-decoration: none; }
 .lang-hint a:hover { text-decoration: underline; }
-.lang-hint button { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border: 0; background: transparent; color: var(--ink-3); font-size: 1.3rem; line-height: 1; cursor: pointer; border-radius: 8px; }
+.lang-hint button { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink-3); font-size: 1.3rem; line-height: 1; cursor: pointer; border-radius: 8px; }
 .lang-hint button:hover { color: var(--ink); background: rgba(255, 255, 255, 0.06); }
 .care { margin-top: 26px; padding: 26px 28px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 30px; align-items: center; border-radius: var(--r); }
 .care h4 { font-weight: 600; font-size: 1.08rem; letter-spacing: -0.015em; }
@@ -1262,7 +1269,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 <header id="siteHeader">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Pedro Ribeiro Digital">PR<span class="dot">.</span></a>
-    <nav class="nav-links" id="navLinks" aria-label="Menu">
+    <nav class="nav-links" id="navLinks" data-i18n-aria="a11y.nav" aria-label="Menu">
       <a href="#servicos" data-i18n="nav.services">Serviços</a>
       <a href="#portfolio" data-i18n="nav.folio">Exemplos</a>
       <a href="#processo" data-i18n="nav.process">Processo</a>
@@ -1272,16 +1279,16 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       <a href="#contacto" data-i18n="nav.contact">Contacto</a>
       <a href="#" id="loginNav" data-i18n="lg.btn">Login</a>
     </nav>
-    <div class="langs" role="group" aria-label="Idioma">
-      <button type="button" data-lang="pt" aria-pressed="true">PT</button>
-      <button type="button" data-lang="de" aria-pressed="false">DE</button>
-      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
-      <button type="button" data-lang="it" aria-pressed="false">IT</button>
-      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <div class="langs" role="group" data-i18n-aria="a11y.lang" aria-label="Idioma">
+      <button type="button" data-lang="pt" aria-pressed="true" aria-label="Português (PT)">PT</button>
+      <button type="button" data-lang="de" aria-pressed="false" aria-label="Deutsch (DE)">DE</button>
+      <button type="button" data-lang="fr" aria-pressed="false" aria-label="Français (FR)">FR</button>
+      <button type="button" data-lang="it" aria-pressed="false" aria-label="Italiano (IT)">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false" aria-label="English (EN)">EN</button>
     </div>
     <button class="btn btn-ghost btn-nav" id="loginBtn" type="button" data-i18n="lg.btn">Login</button>
     <a class="btn btn-red btn-nav" href="https://wa.me/41798257078?text=Ol%C3%A1%20Pedro!" target="_blank" rel="noopener">WhatsApp</a>
-    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menu">☰</button>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" data-i18n-aria="a11y.menuOpen" aria-label="Abrir menu">☰</button>
   </div>
 </header>
 
@@ -1309,7 +1316,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <a class="btn btn-red magnetic" href="https://wa.me/41798257078?text=Ol%C3%A1%20Pedro!" target="_blank" rel="noopener" data-i18n="hero.cta1">Pedir orçamento grátis</a>
         <a class="btn btn-ghost" href="#servicos" data-i18n="hero.cta2">Ver serviços</a>
       </div>
-      <ul class="hero-trust" aria-label="Porque trabalhar comigo">
+      <ul class="hero-trust" data-i18n-aria="a11y.why" aria-label="Porque trabalhar comigo">
         <li data-i18n="hero.tr1">✓ Resposta em menos de 24h</li>
         <li data-i18n="hero.tr2">✓ Falas comigo direto, sem agência</li>
         <li data-i18n="hero.tr3">✓ Multilingue — PT · DE · EN</li>
@@ -1433,7 +1440,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <h2 class="display" data-i18n="fo.title">Feito para negócios como o teu</h2>
         <p class="section-sub" data-i18n="fo.sub">Modelos de demonstração para os setores com que mais trabalho. O teu projeto é sempre desenhado de raiz — isto mostra o estilo e a qualidade.</p>
       </div>
-      <div class="folio-filters" role="group" aria-label="Filtrar portfólio">
+      <div class="folio-filters" role="group" data-i18n-aria="a11y.filter" aria-label="Filtrar portfólio">
         <button class="fbtn active" type="button" data-filter="all" data-i18n="fo.fAll">Todos</button>
         <button class="fbtn" type="button" data-filter="serv" data-i18n="fo.fServ">Serviços &amp; Restauração</button>
         <button class="fbtn" type="button" data-filter="shop" data-i18n="fo.fShop">E-commerce &amp; Reservas</button>
@@ -1564,7 +1571,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <div class="tw-grid">
           <figure class="tw-item">
             <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
-            <div class="tw-post tw-f1" role="img" aria-label="Publicação: Fluhalp, Bergrestaurant a 2606 metros sobre o Stellisee, Zermatt">
+            <div class="tw-post tw-f1" role="img" data-i18n-aria="tw.a1" aria-label="Publicação: Fluhalp, Bergrestaurant a 2606 metros sobre o Stellisee, Zermatt">
               <div class="hd">Zermatt · Wallis</div>
               <div>
                 <div class="alt"><span class="num">2606</span><span class="unit">M.Ü.M.</span></div>
@@ -1576,7 +1583,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           </figure>
           <figure class="tw-item">
             <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
-            <div class="tw-post tw-f2" role="img" aria-label="Modelo reutilizável: espaço para a fotografia com barra fixa Fluhalp 2606 m">
+            <div class="tw-post tw-f2" role="img" data-i18n-aria="tw.a2" aria-label="Modelo reutilizável: espaço para a fotografia com barra fixa Fluhalp 2606 m">
               <div class="stage">
                 <div class="plus" aria-hidden="true">+</div>
                 <div class="hint">Hier Ihr Foto —<br>Terrasse, Teller, Schnee, Gäste</div>
@@ -1586,7 +1593,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           </figure>
           <figure class="tw-item">
             <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
-            <div class="tw-post tw-f3" role="img" aria-label="Publicação: o melhor lugar do vale não está no vale">
+            <div class="tw-post tw-f3" role="img" data-i18n-aria="tw.a3" aria-label="Publicação: o melhor lugar do vale não está no vale">
               <div class="tag">Sonnenterrasse</div>
               <div class="claim">Der Tisch mit der <b>besten Aussicht</b> im Tal steht nicht im Tal.</div>
               <div class="foot"><span>Fluhalp</span><span>Zermatt</span></div>
@@ -1603,7 +1610,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <div class="tw-grid">
           <figure class="tw-item">
             <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
-            <div class="tw-post tw-c1" role="img" aria-label="Publicação: Channa, pizzaria na Furkastrasse 5, Brig">
+            <div class="tw-post tw-c1" role="img" data-i18n-aria="tw.a4" aria-label="Publicação: Channa, pizzaria na Furkastrasse 5, Brig">
               <div class="top">Brig · Wallis</div>
               <div class="name">Channa</div>
               <div class="band"><i aria-hidden="true"></i><span>Pizzeria</span><i aria-hidden="true"></i></div>
@@ -1612,7 +1619,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           </figure>
           <figure class="tw-item">
             <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
-            <div class="tw-post tw-c2" role="img" aria-label="Modelo reutilizável: espaço para a fotografia com assinatura Channa">
+            <div class="tw-post tw-c2" role="img" data-i18n-aria="tw.a5" aria-label="Modelo reutilizável: espaço para a fotografia com assinatura Channa">
               <div class="frame">
                 <div class="icon" aria-hidden="true">+</div>
                 <div class="hint">Hier Ihr Foto —<br>Pizza, Teller, Gasse, Team</div>
@@ -1625,7 +1632,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           </figure>
           <figure class="tw-item">
             <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
-            <div class="tw-post tw-c3" role="img" aria-label="Publicação: um negócio de família no centro de Brig">
+            <div class="tw-post tw-c3" role="img" data-i18n-aria="tw.a6" aria-label="Publicação: um negócio de família no centro de Brig">
               <div class="mark" aria-hidden="true">&ldquo;</div>
               <div class="claim">Ein Familien&shy;betrieb mitten in Brig.</div>
               <div class="sign">Channa · Pizzeria</div>
@@ -1647,7 +1654,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <p class="section-sub" data-i18n="pc.sub">Preço fixo acordado antes de começar. Sem taxas escondidas, sem fidelizações longas — os planos mensais cancelam-se com 30 dias de aviso.</p>
         <p class="price-guide"><span data-i18n="pc.guide1">Não sabes qual escolher? A maioria dos negócios do Valais fica bem servida com o plano do meio — </span><a href="#faq" data-i18n="pc.guide2">vê as perguntas frequentes</a><span data-i18n="pc.guide3"> ou fala comigo sem compromisso.</span></p>
       </div>
-      <div class="tabs" role="tablist" aria-label="Categorias de preços">
+      <div class="tabs" role="tablist" data-i18n-aria="a11y.priceTabs" aria-label="Categorias de preços">
         <button type="button" role="tab" id="tab-web" aria-controls="panel-web" aria-selected="true" data-tab="web">Websites</button>
         <button type="button" role="tab" id="tab-social" aria-controls="panel-social" aria-selected="false" tabindex="-1" data-tab="social">Social Media</button>
         <button type="button" role="tab" id="tab-mkt" aria-controls="panel-mkt" aria-selected="false" tabindex="-1" data-tab="mkt">Marketing</button>
@@ -1814,6 +1821,16 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
             <div><span class="k" data-i18n="ab.k4">Stack</span><span class="v">React · TypeScript · Tailwind</span></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ONDE TRABALHO ================= -->
+  <section id="zona">
+    <div class="wrap">
+      <div class="zona reveal">
+        <span class="zona-h" data-i18n="zn.h">Trabalho em todo o Valais</span>
+        <p class="zona-t" data-i18n="zn.t">Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Café presencial no Alto Valais, videochamada no resto do cantão — e a proposta chega sempre na tua língua.</p>
       </div>
     </div>
   </section>
@@ -2122,7 +2139,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   <div class="tpl-bar">
     <span class="tpl-dots" aria-hidden="true"><i></i><i></i><i></i></span>
     <span class="tpl-name" id="tplName"></span>
-    <button class="tpl-close" id="tplClose" type="button">✕ Fechar</button>
+    <button class="tpl-close" id="tplClose" type="button" data-i18n="tpl.close">✕ Fechar</button>
   </div>
   <div class="tpl-body" id="tplBody"></div>
   <span class="tpl-badge">TEMPLATE DEMO</span>
@@ -2132,7 +2149,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       <button class="dm-lbtn" id="dmPrev" type="button">←</button>
       <span class="dm-lcount" id="dmCount"></span>
       <button class="dm-lbtn" id="dmNext" type="button">→</button>
-      <button class="dm-lbtn" id="dmClose" type="button">✕ Fechar</button>
+      <button class="dm-lbtn" id="dmClose" type="button" data-i18n="tpl.close">✕ Fechar</button>
     </div>
   </div>
 </div>
@@ -2931,6 +2948,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---------- i18n ---------- */
   var I18N = {
     de: {
+      "tpl.close": "✕ Schliessen", "a11y.nav": "Menü", "a11y.lang": "Sprache", "a11y.menuOpen": "Menü öffnen", "a11y.why": "Warum mit mir arbeiten", "a11y.filter": "Portfolio filtern", "a11y.priceTabs": "Preiskategorien",
       "nav.services": "Leistungen", "nav.folio": "Beispiele", "nav.process": "Ablauf", "nav.pricing": "Preise", "nav.contact": "Kontakt",
       "hero.eyebrow": "Stalden · Wallis · Schweiz",
       "hero.h1a": "Ihr digitaler Auftritt, ", "hero.h1b": "komplett",
@@ -2961,7 +2979,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Restaurant", "fo1.s": "Menü + Reservationen", "fo2.b": "Fitnessstudio", "fo2.s": "Abos + Anmeldung", "fo3.b": "Barbershop", "fo3.s": "Online-Termine",
       "fo4.b": "Praxis", "fo4.s": "Termine + Team", "fo5.b": "Fotografie", "fo5.s": "Galerie + Booking", "fo6.b": "Immobilien", "fo6.s": "Inserate + Besichtigungen",
       "fo.note": "* Demo-Vorlagen mit fiktiven Betrieben — tippen Sie auf eine Karte, um die vollständige Vorlage zu öffnen.",
-      "fo.ctaTxt": "Gefällt Ihnen, was Sie sehen? Das sind Vorlagen — Ihre Website wird von Grund auf für Ihr Geschäft entworfen. Sagen Sie mir Ihre Branche, und ich zeige Ihnen innert 24 Stunden, wie sie aussehen könnte.", "fo.ctaBtn": "So eine will ich für mein Geschäft", "tw.eyebrow": "Aktuelle Arbeiten", "tw.title": "Was ich diesen Monat gestaltet habe", "tw.sub": "Sechs Instagram-Beiträge für zwei Betriebe im Oberwallis: ein Bergrestaurant über Zermatt und eine Familien-Pizzeria in Brig. Ich habe sie aus eigener Initiative gestaltet und verschenkt — ohne Auftrag und ohne Gegenleistung.", "tw.badge": "Konzept · nicht beauftragt", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · Das Aushängeschild", "tw.n2": "02 · Die Vorlage für Fotos", "tw.n3": "03 · Der Satz, der bleibt", "tw.note": "Beide Betriebe sind echt, die Gestaltung ist meine. Keiner der beiden hat mich beauftragt oder dafür bezahlt: Ich habe die Beiträge verschenkt. Nichts hier wird als Kundenarbeit ausgegeben.",
+      "fo.ctaTxt": "Gefällt Ihnen, was Sie sehen? Das sind Vorlagen — Ihre Website wird von Grund auf für Ihr Geschäft entworfen. Sagen Sie mir Ihre Branche, und ich zeige Ihnen innert 24 Stunden, wie sie aussehen könnte.", "fo.ctaBtn": "So eine will ich für mein Geschäft", "tw.eyebrow": "Aktuelle Arbeiten", "tw.title": "Was ich diesen Monat gestaltet habe", "tw.sub": "Sechs Instagram-Beiträge für zwei Betriebe im Oberwallis: ein Bergrestaurant über Zermatt und eine Familien-Pizzeria in Brig. Ich habe sie aus eigener Initiative gestaltet und verschenkt — ohne Auftrag und ohne Gegenleistung.", "tw.badge": "Konzept · nicht beauftragt", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · Das Aushängeschild", "tw.n2": "02 · Die Vorlage für Fotos", "tw.n3": "03 · Der Satz, der bleibt", "zn.h": "Ich arbeite im ganzen Wallis", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Siders und Sitten. Persönliches Treffen im Oberwallis, Videocall im restlichen Kanton — die Offerte kommt immer in Ihrer Sprache.", "tw.a1": "Beitrag: Fluhalp, Bergrestaurant auf 2606 Metern über dem Stellisee, Zermatt", "tw.a2": "Wiederverwendbare Vorlage: Platz für das Foto mit fester Leiste Fluhalp 2606 m", "tw.a3": "Beitrag: der Tisch mit der besten Aussicht im Tal steht nicht im Tal", "tw.a4": "Beitrag: Channa, Pizzeria an der Furkastrasse 5, Brig", "tw.a5": "Wiederverwendbare Vorlage: Platz für das Foto mit Channa-Signatur", "tw.a6": "Beitrag: ein Familienbetrieb mitten in Brig", "tw.note": "Beide Betriebe sind echt, die Gestaltung ist meine. Keiner der beiden hat mich beauftragt oder dafür bezahlt: Ich habe die Beiträge verschenkt. Nichts hier wird als Kundenarbeit ausgegeben.",
       "fo.view": "Demo ansehen", "fo.fAll": "Alle", "fo.fServ": "Dienstleistungen & Gastro", "fo.fShop": "E-Commerce & Buchungen", "fo.fLand": "Landing Pages",
       "fo1.c": "Digitales Menü · Reservationen · Lokales SEO", "fo2.c": "Abos · Online-Anmeldung · Kurse", "fo3.c": "Online-Termine · Google Maps",
       "fo4.c": "Mehrsprachig · Termine · Team", "fo5.c": "Galerie · Booking · Hi-Res", "fo6.c": "Inserate · Filter · Bewertung",
@@ -2975,7 +2993,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "pw2.l1": "Bis zu 5 Seiten", "pw2.l2": "SEO-Basis + Google Business", "pw2.l3": "Mehrsprachig (DE/PT/EN) optional", "pw2.l4": "Lieferung in 1 Monat",
       "pw3.p": "Onlineshop oder Web-App nach Ihren Anforderungen.",
       "pw3.l1": "E-Commerce mit Zahlungen", "pw3.l2": "Login-Bereiche / Dashboards", "pw3.l3": "Integrationen (Reservationen, Lager…)", "pw3.l4": "Lieferung in 3 Monaten",
-      "pc.care.t": "Wartung & Hosting", "pc.care.p": "Hosting, SSL, Backups und Anpassungen an Ihrer Website — damit Sie sich nie um die Technik kümmern müssen.", "pc.care.cta": "Über Wartung sprechen →", "pc.guide1": "Nicht sicher, welches Paket? Die meisten Walliser Unternehmen sind mit dem mittleren Paket gut bedient — ", "pc.guide2": "sehen Sie die FAQ", "pc.guide3": " oder sprechen Sie unverbindlich mit mir.", "pc.guar.b": "Ohne Risiko:", "pc.guar.t": "Überzeugt Sie der erste Designentwurf nicht, zahlen Sie nichts — und behalten die Dateien. Monatspläne kündigen Sie mit 30 Tagen Frist, ohne Gebühren.",
+      "pc.care.t": "Wartung & Hosting", "pc.care.p": "Hosting, SSL, Backups und Anpassungen an Ihrer Website — damit Sie sich nie um die Technik kümmern müssen.", "pc.care.cta": "Über Wartung sprechen →", "pc.guide1": "Nicht sicher, welches Paket? Die meisten Walliser Unternehmen sind mit dem mittleren Paket gut bedient — ", "pc.guide2": "lesen Sie die FAQ", "pc.guide3": " oder sprechen Sie unverbindlich mit mir.", "pc.guar.b": "Ohne Risiko:", "pc.guar.t": "Überzeugt Sie der erste Designentwurf nicht, zahlen Sie nichts — und behalten die Dateien. Monatspläne kündigen Sie mit 30 Tagen Frist, ohne Gebühren.",
       "ps1.p": "Konsistente Präsenz ohne Aufwand für Sie.",
       "ps1.l1": "1–2 Kanäle (Instagram / Facebook)", "ps1.l2": "8 Beiträge pro Monat", "ps1.l3": "Monatlicher Content-Kalender", "ps1.l4": "Einfacher Ergebnisbericht",
       "ps2.p": "Um richtig zu wachsen und Follower zu Kunden zu machen.",
@@ -2987,7 +3005,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "pm2.p": "Professionelle Kampagnen auf Google und Meta, mit eigenen Landing Pages.",
       "pm2.l1": "Google Ads + Meta Ads", "pm2.l2": "Kampagnen-Landing-Pages", "pm2.l3": "A/B-Tests und laufende Optimierung", "pm2.l4": "Bericht alle zwei Wochen",
       "pm3.t": "Nach Mass", "pm3.price": "auf Anfrage",
-      "pm3.p": "E-Mail-Marketing, Branding, Blog-Content oder etwas Spezielles? Stellen wir gemeinsam zusammen.",
+      "pm3.p": "E-Mail-Marketing, Branding, Blog-Content oder etwas Spezielles? Das stellen wir gemeinsam zusammen.",
       "pm3.l1": "Newsletter und Automationen", "pm3.l2": "Visuelle Identität und Branding", "pm3.l3": "Produktfotografie und -video", "pm3.l4": "Punktuelle Beratung",
       "pc.note": "Hinweis: Das Werbebudget zahlen Sie direkt an Google/Meta — der Planpreis deckt Strategie, Erstellung und Betreuung. Preise exkl. MwSt.",
       "ab.eyebrow": "Über mich",
@@ -3023,6 +3041,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Antwort innert 24 Stunden"
     },
     en: {
+      "tpl.close": "✕ Close", "a11y.nav": "Menu", "a11y.lang": "Language", "a11y.menuOpen": "Open menu", "a11y.why": "Why work with me", "a11y.filter": "Filter portfolio", "a11y.priceTabs": "Pricing categories",
       "nav.services": "Services", "nav.folio": "Examples", "nav.process": "Process", "nav.pricing": "Pricing", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Switzerland",
       "hero.h1a": "Your digital presence, ", "hero.h1b": "complete",
@@ -3053,7 +3072,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Restaurant", "fo1.s": "menu + reservations", "fo2.b": "Gym", "fo2.s": "plans + sign-up", "fo3.b": "Barbershop", "fo3.s": "online booking",
       "fo4.b": "Clinic", "fo4.s": "appointments + team", "fo5.b": "Photography", "fo5.s": "gallery + booking", "fo6.b": "Real estate", "fo6.s": "listings + viewings",
       "fo.note": "* Demo templates with fictional businesses — tap a card to open the full template.",
-      "fo.ctaTxt": "Like what you see? These are templates — yours is designed from scratch for your business. Tell me your industry and I'll show you within 24h how it could look.", "fo.ctaBtn": "I want one of these for my business", "tw.eyebrow": "Recent work", "tw.title": "Pieces I designed this month", "tw.sub": "Six Instagram posts for two Upper Valais businesses: a mountain restaurant above Zermatt and a family pizzeria in Brig. I designed them on my own initiative and gave them away — unsolicited, nothing asked in return.", "tw.badge": "Concept · not commissioned", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · The signboard", "tw.n2": "02 · The frame for photos", "tw.n3": "03 · The line that sticks", "tw.note": "Both businesses are real and the design is mine. Neither hired me or paid for this: I sent the pieces as a gift. Nothing here is presented as client work.",
+      "fo.ctaTxt": "Like what you see? These are templates — yours is designed from scratch for your business. Tell me your industry and I'll show you within 24h how it could look.", "fo.ctaBtn": "I want one of these for my business", "tw.eyebrow": "Recent work", "tw.title": "Pieces I designed this month", "tw.sub": "Six Instagram posts for two Upper Valais businesses: a mountain restaurant above Zermatt and a family pizzeria in Brig. I designed them on my own initiative and gave them away — unsolicited, nothing asked in return.", "tw.badge": "Concept · not commissioned", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · The signboard", "tw.n2": "02 · The frame for photos", "tw.n3": "03 · The line that sticks", "zn.h": "I work across the whole of Valais", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre and Sion. In person in Upper Valais, video call elsewhere in the canton — and the quote always arrives in your language.", "tw.a1": "Post: Fluhalp, mountain restaurant at 2606 metres above the Stellisee, Zermatt", "tw.a2": "Reusable template: space for the photo with a fixed Fluhalp 2606 m bar", "tw.a3": "Post: the table with the best view in the valley is not in the valley", "tw.a4": "Post: Channa, pizzeria at Furkastrasse 5, Brig", "tw.a5": "Reusable template: space for the photo with the Channa signature", "tw.a6": "Post: a family business in the heart of Brig", "tw.note": "Both businesses are real and the design is mine. Neither hired me or paid for this: I sent the pieces as a gift. Nothing here is presented as client work.",
       "fo.view": "View demo", "fo.fAll": "All", "fo.fServ": "Services & Dining", "fo.fShop": "E-commerce & Bookings", "fo.fLand": "Landing pages",
       "fo1.c": "Digital menu · Reservations · Local SEO", "fo2.c": "Plans · Online sign-up · Classes", "fo3.c": "Online booking · Google Maps",
       "fo4.c": "Multilingual · Appointments · Team", "fo5.c": "Gallery · Booking · Hi-res", "fo6.c": "Listings · Filters · Valuation",
@@ -3115,13 +3134,14 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Reply within 24 hours"
     },
     fr: {
+      "tpl.close": "✕ Fermer", "a11y.nav": "Menu", "a11y.lang": "Langue", "a11y.menuOpen": "Ouvrir le menu", "a11y.why": "Pourquoi travailler avec moi", "a11y.filter": "Filtrer le portfolio", "a11y.priceTabs": "Catégories de prix",
       "nav.services": "Services", "nav.folio": "Exemples", "nav.process": "Processus", "nav.pricing": "Tarifs", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Suisse",
       "hero.h1a": "Votre présence digitale, ", "hero.h1b": "complète",
       "hero.pitch": "Je crée votre site web, je vous amène des clients avec la publicité et le SEO, et je gère vos réseaux sociaux — avec ",
       "hero.acc1": "précision suisse", "hero.join": " et ", "hero.acc2": "âme portugaise",
       "hero.cta1": "Devis gratuit", "hero.cta2": "Voir les services",
-      "hero.tr1": "✓ Réponse en moins de 24h", "hero.tr2": "✓ Vous me parlez directement, sans agence", "hero.tr3": "✓ Multilingue — FR · DE · EN",
+      "hero.tr1": "✓ Réponse en moins de 24h", "hero.tr2": "✓ Vous me parlez directement, sans agence", "hero.tr3": "✓ Multilingue — DE · PT · EN",
       "proof.k1": "Temps de réponse", "proof.k2": "Première livraison", "proof.v2": "jours", "proof.k3": "Intermédiaires", "proof.k4": "Le site est", "proof.v4": "à vous",
       "sv.eyebrow": "Ce que je fais", "sv.title": "Trois services, un partenaire",
       "sv.sub": "Réservez chaque service séparément — ou combinez le tout et confiez l'ensemble de votre présence digitale à une seule personne.",
@@ -3139,13 +3159,13 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "pr1.t": "Discussion", "pr1.p": "30 minutes gratuites, sur WhatsApp ou autour d'un café. Nous parlons de vos objectifs et de votre budget — dans votre langue.",
       "pr2.t": "Proposition", "pr2.p": "Vous recevez une proposition claire avec prix fixe et délais. Vous savez exactement ce que vous payez et ce que vous recevez.",
       "pr3.t": "Réalisation", "pr3.p": "Design, code et contenu. Vous suivez l'avancement dès le premier jour et donnez votre feedback directement.",
-      "pr4.t": "Croissance", "pr4.p": "Lancement et suivi continu : rapports mensuels, optimisation et nouvelles idées pour continuer à grandir.",
+      "pr4.t": "Croissance", "pr4.p": "Lancement et suivi continu : rapports mensuels, optimisation et nouvelles idées pour continuer à grandir.",
       "fo.eyebrow": "Exemples par secteur", "fo.title": "Conçu pour des entreprises comme la vôtre",
       "fo.sub": "Templates de démonstration pour les secteurs avec lesquels je travaille le plus. Votre projet est toujours conçu sur mesure — ceci montre le style et la qualité.",
       "fo1.b": "Restaurant", "fo1.s": "menu + réservations", "fo2.b": "Fitness", "fo2.s": "abonnements + inscription", "fo3.b": "Barbier", "fo3.s": "réservation en ligne",
       "fo4.b": "Cabinet médical", "fo4.s": "rendez-vous + équipe", "fo5.b": "Photographie", "fo5.s": "galerie + réservation", "fo6.b": "Immobilier", "fo6.s": "annonces + visites",
       "fo.note": "* Templates de démonstration avec des entreprises fictives — touchez une carte pour ouvrir le template complet.",
-      "fo.ctaTxt": "Vous aimez ce que vous voyez ? Ce sont des modèles — le vôtre est conçu sur mesure pour votre entreprise. Dites-moi votre secteur et je vous montre sous 24h à quoi ça pourrait ressembler.", "fo.ctaBtn": "J'en veux un pour mon entreprise", "tw.eyebrow": "Travaux récents", "tw.title": "Ce que j'ai conçu ce mois-ci", "tw.sub": "Six publications Instagram pour deux entreprises du Haut-Valais : un restaurant d'altitude au-dessus de Zermatt et une pizzeria familiale à Brigue. Je les ai conçues de ma propre initiative et offertes — sans commande et sans contrepartie.", "tw.badge": "Concept · non commandé", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brigue", "tw.n1": "01 · L'enseigne", "tw.n2": "02 · Le cadre pour les photos", "tw.n3": "03 · La phrase qui reste", "tw.note": "Les deux entreprises sont réelles et le design est le mien. Aucune ne m'a engagé ni payé pour cela : j'ai offert les pièces. Rien ici n'est présenté comme un travail de client.",
+      "fo.ctaTxt": "Vous aimez ce que vous voyez ? Ce sont des modèles — le vôtre est conçu sur mesure pour votre entreprise. Dites-moi votre secteur et je vous montre sous 24h à quoi ça pourrait ressembler.", "fo.ctaBtn": "J'en veux un pour mon entreprise", "tw.eyebrow": "Travaux récents", "tw.title": "Ce que j'ai conçu ce mois-ci", "tw.sub": "Six publications Instagram pour deux entreprises du Haut-Valais : un restaurant d'altitude au-dessus de Zermatt et une pizzeria familiale à Brigue. Je les ai conçues de ma propre initiative et offertes — sans commande et sans contrepartie.", "tw.badge": "Concept · non commandé", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brigue", "tw.n1": "01 · L'enseigne", "tw.n2": "02 · Le cadre pour les photos", "tw.n3": "03 · La phrase qui reste", "zn.h": "Je travaille dans tout le Valais", "zn.t": "Stalden, Viège, Brigue-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre et Sion. Rencontre sur place dans le Haut-Valais, visioconférence dans le reste du canton — et le devis arrive toujours dans votre langue.", "tw.a1": "Publication : Fluhalp, restaurant d'altitude à 2606 mètres au-dessus du Stellisee, Zermatt", "tw.a2": "Modèle réutilisable : espace pour la photo avec bandeau fixe Fluhalp 2606 m", "tw.a3": "Publication : la table avec la plus belle vue de la vallée n'est pas dans la vallée", "tw.a4": "Publication : Channa, pizzeria à la Furkastrasse 5, Brigue", "tw.a5": "Modèle réutilisable : espace pour la photo avec la signature Channa", "tw.a6": "Publication : une entreprise familiale au cœur de Brigue", "tw.note": "Les deux entreprises sont réelles et le design est le mien. Aucune ne m'a engagé ni payé pour cela : j'ai offert les pièces. Rien ici n'est présenté comme un travail de client.",
       "fo.view": "Voir la démo", "fo.fAll": "Tous", "fo.fServ": "Services & Restauration", "fo.fShop": "E-commerce & Réservations", "fo.fLand": "Landing pages",
       "fo1.c": "Menu digital · Réservations · SEO local", "fo2.c": "Abonnements · Inscription en ligne · Cours", "fo3.c": "Réservation en ligne · Google Maps",
       "fo4.c": "Multilingue · Rendez-vous · Équipe", "fo5.c": "Galerie · Réservation · Haute résolution", "fo6.c": "Annonces · Filtres · Estimation",
@@ -3159,7 +3179,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "pw2.l1": "Jusqu'à 5 pages", "pw2.l2": "SEO de base + Google Business", "pw2.l3": "Multilingue (FR/DE/EN…) en option", "pw2.l4": "Livré en 1 mois",
       "pw3.p": "Une boutique en ligne ou une web app construite selon vos besoins.",
       "pw3.l1": "E-commerce avec paiements", "pw3.l2": "Espaces membres / dashboards", "pw3.l3": "Intégrations (réservations, stock…)", "pw3.l4": "Livré en 3 mois",
-      "pc.care.t": "Maintenance & hébergement", "pc.care.p": "Hébergement, SSL, sauvegardes et modifications de votre site — pour que vous n'ayez jamais à vous soucier de la technique.", "pc.care.cta": "Parler de la maintenance →", "pc.guide1": "Vous ne savez pas lequel choisir ? La plupart des entreprises du Valais sont bien servies par le forfait du milieu — ", "pc.guide2": "consultez la FAQ", "pc.guide3": " ou parlez-moi sans engagement.", "pc.guar.b": "Sans risque :", "pc.guar.t": "Si la première proposition de design ne vous convainc pas, vous ne payez rien — et gardez les fichiers. Les forfaits mensuels s'annulent avec 30 jours de préavis, sans frais.",
+      "pc.care.t": "Maintenance & hébergement", "pc.care.p": "Hébergement, SSL, sauvegardes et modifications de votre site — pour que vous n'ayez jamais à vous soucier de la technique.", "pc.care.cta": "Parler de la maintenance →", "pc.guide1": "Vous ne savez pas lequel choisir ? La plupart des entreprises du Valais sont bien servies par le forfait du milieu — ", "pc.guide2": "consultez la FAQ", "pc.guide3": " ou parlez-moi sans engagement.", "pc.guar.b": "Sans risque :", "pc.guar.t": "Si la première proposition de design ne vous convainc pas, vous ne payez rien — et vous gardez les fichiers. Les abonnements mensuels se résilient avec 30 jours de préavis, sans frais.",
       "ps1.p": "Une présence régulière sans aucun effort de votre côté.",
       "ps1.l1": "1–2 réseaux (Instagram / Facebook)", "ps1.l2": "8 publications par mois", "ps1.l3": "Calendrier éditorial mensuel", "ps1.l4": "Rapport de résultats simple",
       "ps2.p": "Pour grandir sérieusement et transformer les abonnés en clients.",
@@ -3171,26 +3191,26 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "pm2.p": "Des campagnes sérieuses sur Google et Meta, avec des landing pages dédiées.",
       "pm2.l1": "Google Ads + Meta Ads", "pm2.l2": "Landing pages de campagne", "pm2.l3": "Tests A/B et optimisation continue", "pm2.l4": "Rapport toutes les deux semaines",
       "pm3.t": "Sur mesure", "pm3.price": "sur demande",
-      "pm3.p": "Email marketing, branding, contenu de blog ou autre chose ? Construisons-le ensemble.",
+      "pm3.p": "Email marketing, branding, contenu de blog ou autre chose ? Construisons-le ensemble.",
       "pm3.l1": "Newsletters et automatisations", "pm3.l2": "Identité visuelle et branding", "pm3.l3": "Photo et vidéo produit", "pm3.l4": "Conseil ponctuel",
-      "pc.note": "À noter : votre budget publicitaire est payé par vous directement à Google/Meta — l'abonnement couvre la stratégie, la création et la gestion. Prix hors TVA.",
+      "pc.note": "À noter : votre budget publicitaire est payé par vous directement à Google/Meta — l'abonnement couvre la stratégie, la création et la gestion. Prix hors TVA.",
       "ab.eyebrow": "À propos",
       "ab.p1": "Je suis portugais, basé à Stalden, et je travaille avec des entreprises de tout le Valais. Formé en gestion et programmation de systèmes informatiques, je construis avec les meilleurs outils actuels — React, TypeScript, Tailwind.",
       "ab.p2": "Au quotidien, je gère le marketing et les réseaux sociaux d'un centre médical en Valais — je sais donc, par la pratique, ce qui attire vraiment des clients locaux en Suisse.",
-      "ab.p3": "Avec moi, vous parlez directement avec moi : pas d'agence entre nous, pas d'intermédiaires, pas de coûts gonflés. Précision suisse dans la livraison, chaleur portugaise dans la relation.",
+      "ab.p3": "Quand vous travaillez avec moi, vous parlez directement avec moi : pas d'agence entre nous, pas d'intermédiaires, pas de coûts gonflés. Précision suisse dans la livraison, chaleur portugaise dans la relation.",
       "ab.k1": "Base", "ab.k2": "Langues", "ab.k3": "Formation", "ab.v3": "Gestion & programmation de systèmes informatiques", "ab.k4": "Stack",
       "fq.title": "Questions fréquentes",
-      "fq1.q": "Quand mon site sera-t-il en ligne ?",
+      "fq1.q": "Quand mon site sera-t-il en ligne ?",
       "fq1.a": "Une landing page est prête en 7 jours environ, un site complet en 1 mois environ, une boutique en ligne ou une web app en 3 mois maximum. Le délai exact est fixé dans la proposition avant de commencer.",
-      "fq2.q": "Le site m'appartient-il vraiment ?",
+      "fq2.q": "Le site m'appartient-il vraiment ?",
       "fq2.a": "Oui, à 100 %. Le domaine, le contenu et le code sont à vous. Si vous voulez un jour changer de prestataire, vous emportez tout — sans engagement, sans petites lignes.",
-      "fq3.q": "Puis-je résilier les abonnements mensuels (réseaux sociaux ou marketing) ?",
+      "fq3.q": "Puis-je résilier les abonnements mensuels (réseaux sociaux ou marketing) ?",
       "fq3.a": "Oui, avec 30 jours de préavis. Je ne fais pas de contrats à long engagement — je préfère que vous restiez pour les résultats, pas parce qu'un contrat vous y oblige.",
-      "fq4.q": "Comment fonctionne le budget publicitaire ?",
+      "fq4.q": "Comment fonctionne le budget publicitaire ?",
       "fq4.a": "Ce que vous investissez en publicité est payé par vous directement à Google ou Meta, avec votre propre carte — transparence totale. Mon abonnement couvre la stratégie, la création des annonces et l'optimisation continue.",
-      "fq5.q": "Travaillez-vous en allemand ?",
-      "fq5.a": "Ja, gerne ! Je travaille en allemand, portugais et anglais, et je crée des sites et contenus multilingues — un énorme avantage en Valais, où vos clients parlent plusieurs langues.",
-      "fq6.q": "J'ai déjà un site — pouvez-vous gérer uniquement les réseaux sociaux ou la publicité ?",
+      "fq5.q": "Travaillez-vous avec des entreprises germanophones ?",
+      "fq5.a": "Ja, gerne ! Je travaille en allemand, portugais et anglais, et je crée des sites et contenus multilingues — un énorme avantage en Valais, où vos clients parlent plusieurs langues.",
+      "fq6.q": "J'ai déjà un site — pouvez-vous gérer uniquement les réseaux sociaux ou la publicité ?",
       "fq6.a": "Bien sûr. Les trois services fonctionnent indépendamment. Je commence par un audit gratuit de l'existant et je vous dis, honnêtement, où cela vaut la peine d'investir.",
       "ct.eyebrow": "Contact", "ct.title": "Parlons de votre projet",
       "ct.sub": "Premier échange gratuit et sans engagement. Je réponds en moins de 24 heures — souvent bien plus vite.",
@@ -3207,13 +3227,14 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Réponse en moins de 24 h"
     },
     it: {
+      "tpl.close": "✕ Chiudi", "a11y.nav": "Menu", "a11y.lang": "Lingua", "a11y.menuOpen": "Apri il menu", "a11y.why": "Perché lavorare con me", "a11y.filter": "Filtra il portfolio", "a11y.priceTabs": "Categorie di prezzi",
       "nav.services": "Servizi", "nav.folio": "Esempi", "nav.process": "Processo", "nav.pricing": "Prezzi", "nav.contact": "Contatto",
       "hero.eyebrow": "Stalden · Vallese · Svizzera",
       "hero.h1a": "La tua presenza digitale, ", "hero.h1b": "completa",
       "hero.pitch": "Creo il tuo sito, ti porto clienti con pubblicità e SEO e gestisco i tuoi social — con ",
       "hero.acc1": "precisione svizzera", "hero.join": " e ", "hero.acc2": "anima portoghese",
       "hero.cta1": "Preventivo gratuito", "hero.cta2": "Vedi i servizi",
-      "hero.tr1": "✓ Risposta entro 24 ore", "hero.tr2": "✓ Parli direttamente con me, senza agenzia", "hero.tr3": "✓ Multilingue — IT · DE · EN",
+      "hero.tr1": "✓ Risposta entro 24 ore", "hero.tr2": "✓ Parli direttamente con me, senza agenzia", "hero.tr3": "✓ Multilingue — DE · PT · EN",
       "proof.k1": "Tempo di risposta", "proof.k2": "Prima consegna", "proof.v2": "giorni", "proof.k3": "Intermediari", "proof.k4": "Il sito è", "proof.v4": "tuo",
       "sv.eyebrow": "Cosa faccio", "sv.title": "Tre servizi, un partner",
       "sv.sub": "Prenota ogni servizio separatamente — o combina tutto e affida l'intera tua presenza digitale a una sola persona.",
@@ -3237,7 +3258,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Ristorante", "fo1.s": "menù + prenotazioni", "fo2.b": "Palestra", "fo2.s": "abbonamenti + iscrizione", "fo3.b": "Barbiere", "fo3.s": "prenotazione online",
       "fo4.b": "Studio medico", "fo4.s": "appuntamenti + team", "fo5.b": "Fotografia", "fo5.s": "galleria + prenotazione", "fo6.b": "Immobiliare", "fo6.s": "annunci + visite",
       "fo.note": "* Template dimostrativi con attività fittizie — tocca una card per aprire il template completo.",
-      "fo.ctaTxt": "Ti piace quello che vedi? Questi sono modelli — il tuo è disegnato da zero per la tua attività. Dimmi il tuo settore e in 24 ore ti mostro come potrebbe essere.", "fo.ctaBtn": "Ne voglio uno per la mia attività", "tw.eyebrow": "Lavori recenti", "tw.title": "Quello che ho disegnato questo mese", "tw.sub": "Sei post Instagram per due attività dell'Alto Vallese: un ristorante di montagna sopra Zermatt e una pizzeria familiare a Briga. Li ho disegnati di mia iniziativa e regalati — senza incarico e senza contropartita.", "tw.badge": "Concetto · non commissionato", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Briga", "tw.n1": "01 · L'insegna", "tw.n2": "02 · La cornice per le foto", "tw.n3": "03 · La frase che resta", "tw.note": "Entrambe le attività sono reali e il design è mio. Nessuna delle due mi ha incaricato o pagato: ho regalato i pezzi. Qui nulla è presentato come lavoro per un cliente.",
+      "fo.ctaTxt": "Ti piace quello che vedi? Questi sono modelli — il tuo è disegnato da zero per la tua attività. Dimmi il tuo settore e in 24 ore ti mostro come potrebbe essere.", "fo.ctaBtn": "Ne voglio uno per la mia attività", "tw.eyebrow": "Lavori recenti", "tw.title": "Quello che ho disegnato questo mese", "tw.sub": "Sei post Instagram per due attività dell'Alto Vallese: un ristorante di montagna sopra Zermatt e una pizzeria familiare a Briga. Li ho disegnati di mia iniziativa e regalati — senza incarico e senza contropartita.", "tw.badge": "Concetto · non commissionato", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Briga", "tw.n1": "01 · L'insegna", "tw.n2": "02 · La cornice per le foto", "tw.n3": "03 · La frase che resta", "zn.h": "Lavoro in tutto il Vallese", "zn.t": "Stalden, Visp, Briga-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Incontro di persona nell'Alto Vallese, videochiamata nel resto del cantone — e il preventivo arriva sempre nella tua lingua.", "tw.a1": "Post: Fluhalp, ristorante di montagna a 2606 metri sopra lo Stellisee, Zermatt", "tw.a2": "Modello riutilizzabile: spazio per la foto con barra fissa Fluhalp 2606 m", "tw.a3": "Post: il tavolo con la vista migliore della valle non è nella valle", "tw.a4": "Post: Channa, pizzeria in Furkastrasse 5, Briga", "tw.a5": "Modello riutilizzabile: spazio per la foto con la firma Channa", "tw.a6": "Post: un'attività di famiglia nel cuore di Briga", "tw.note": "Entrambe le attività sono reali e il design è mio. Nessuna delle due mi ha incaricato o pagato: ho regalato i pezzi. Qui nulla è presentato come lavoro per un cliente.",
       "fo.view": "Vedi la demo", "fo.fAll": "Tutti", "fo.fServ": "Servizi & Ristorazione", "fo.fShop": "E-commerce & Prenotazioni", "fo.fLand": "Landing page",
       "fo1.c": "Menù digitale · Prenotazioni · SEO locale", "fo2.c": "Abbonamenti · Iscrizione online · Corsi", "fo3.c": "Prenotazione online · Google Maps",
       "fo4.c": "Multilingue · Appuntamenti · Team", "fo5.c": "Galleria · Prenotazione · Alta risoluzione", "fo6.c": "Annunci · Filtri · Valutazione",
@@ -3308,7 +3329,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   });
 
   var LG_I18N = {
-    de: { "lg.btn": "Login", "lg.title": "Kundenbereich", "lg.sub": "Verfolgen Sie Ihr Projekt und schreiben Sie direkt mit mir — das Gespräch bleibt hier gespeichert.", "lg.soon": "IN AKTIVIERUNG · IN KÜRZE VERFÜGBAR", "lg.enter": "Anmelden", "lg.signup": "Konto erstellen", "lg.back": "Zurück", "lg.title2": "Nachrichten", "lg.out": "Abmelden", "lg.send": "Senden" },
+    de: { "lg.btn": "Login", "lg.title": "Kundenbereich", "lg.sub": "Verfolgen Sie Ihr Projekt und schreiben Sie mir direkt — das Gespräch bleibt hier gespeichert.", "lg.soon": "IN AKTIVIERUNG · IN KÜRZE VERFÜGBAR", "lg.enter": "Anmelden", "lg.signup": "Konto erstellen", "lg.back": "Zurück", "lg.title2": "Nachrichten", "lg.out": "Abmelden", "lg.send": "Senden" },
     fr: { "lg.btn": "Login", "lg.title": "Espace client", "lg.sub": "Suivez votre projet et écrivez-moi directement — la conversation reste enregistrée ici.", "lg.soon": "EN ACTIVATION · DISPONIBLE TRÈS BIENTÔT", "lg.enter": "Se connecter", "lg.signup": "Créer un compte", "lg.back": "Retour", "lg.title2": "Messages", "lg.out": "Déconnexion", "lg.send": "Envoyer" },
     it: { "lg.btn": "Login", "lg.title": "Area clienti", "lg.sub": "Segui il tuo progetto e scrivimi direttamente — la conversazione resta salvata qui.", "lg.soon": "IN ATTIVAZIONE · DISPONIBILE A BREVE", "lg.enter": "Accedi", "lg.signup": "Crea account", "lg.back": "Indietro", "lg.title2": "Messaggi", "lg.out": "Esci", "lg.send": "Invia" },
     en: { "lg.btn": "Login", "lg.title": "Client area", "lg.sub": "Follow your project and message me directly — the conversation stays saved here.", "lg.soon": "BEING ACTIVATED · AVAILABLE VERY SOON", "lg.enter": "Sign in", "lg.signup": "Create account", "lg.back": "Back", "lg.title2": "Messages", "lg.out": "Sign out", "lg.send": "Send" }
@@ -3324,14 +3345,14 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 
   var WA_TEXT = {
     pt: "Olá Pedro! Vi o teu site e gostava de falar contigo.",
-    de: "Guten Tag Pedro! Ich habe Ihre Website gesehen und möchte gerne sprechen.",
+    de: "Guten Tag, Pedro! Ich habe Ihre Website gesehen und möchte gerne mit Ihnen sprechen.",
     fr: "Bonjour Pedro ! J'ai vu votre site et j'aimerais discuter avec vous.",
     it: "Ciao Pedro! Ho visto il tuo sito e mi piacerebbe parlarne.",
     en: "Hi Pedro! I saw your website and would like to talk."
   };
   var MAIL = {
     pt: { s: "Pedido de orçamento — ", g: "Olá Pedro," },
-    de: { s: "Offertenanfrage — ", g: "Guten Tag Pedro," },
+    de: { s: "Offertenanfrage — ", g: "Guten Tag, Pedro," },
     fr: { s: "Demande de devis — ", g: "Bonjour Pedro," },
     it: { s: "Richiesta di preventivo — ", g: "Ciao Pedro," },
     en: { s: "Quote request — ", g: "Hi Pedro," }
@@ -3373,6 +3394,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     nodes.forEach(function (el) {
       var t = dict[el.getAttribute("data-i18n")];
       if (t != null) el.textContent = t;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var t = dict[el.getAttribute("data-i18n-aria")];
+      if (t != null) el.setAttribute("aria-label", t);
     });
     document.querySelectorAll('a[href^="https://wa.me"]').forEach(function (a) {
       a.href = "https://wa.me/41798257078?text=" + encodeURIComponent(WA_TEXT[lang]);
@@ -3426,11 +3451,11 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* Sugestão de idioma: em vez de redirecionar automaticamente (o Google
      desaconselha), oferece um link para a versão na língua do browser. */
   var LANG_HINT = {
-    de: ["Diese Seite gibt's auch auf Deutsch.", "Zur deutschen Version"],
-    fr: ["Ce site existe aussi en français.", "Voir la version française"],
-    it: ["Questo sito è disponibile anche in italiano.", "Vai alla versione italiana"],
-    en: ["This site is also available in English.", "Go to the English version"],
-    pt: ["Este site também está em português.", "Ver a versão portuguesa"]
+    de: ["Diese Seite gibt's auch auf Deutsch.", "Zur deutschen Version", "Schliessen"],
+    fr: ["Ce site existe aussi en français.", "Voir la version française", "Fermer"],
+    it: ["Questo sito è disponibile anche in italiano.", "Vai alla versione italiana", "Chiudi"],
+    en: ["This site is also available in English.", "Go to the English version", "Close"],
+    pt: ["Este site também está em português.", "Ver a versão portuguesa", "Fechar"]
   };
   (function langHint() {
     if (!window.__PR_STATIC) return;
@@ -3444,7 +3469,9 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var tx = LANG_HINT[want];
     var bar = document.createElement("div");
     bar.className = "lang-hint";
-    bar.innerHTML = '<span></span><a href="' + LANG_HREF[want] + '"></a><button type="button" aria-label="Fechar">&times;</button>';
+    bar.setAttribute("lang", want === "pt" ? "pt-PT" : want === "en" ? "en" : want + "-CH");
+    bar.innerHTML = '<span></span><a href="' + LANG_HREF[want] + '"></a><button type="button">&times;</button>';
+    bar.querySelector("button").setAttribute("aria-label", tx[2]);
     bar.querySelector("span").textContent = tx[0];
     var a = bar.querySelector("a");
     a.textContent = tx[1] + " →";
@@ -3625,7 +3652,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Mousse de chocolate negro": "Dunkle Schokoladenmousse", "flor de sal, azeite": "Fleur de Sel, Olivenöl",
       "Horário": "Öffnungszeiten", "Ter–Dom · 11h30–22h": "Di–So · 11.30–22.00", "Morada": "Adresse",
       "A nossa história": "Unsere Geschichte", "Três gerações à mesa": "Drei Generationen am Tisch",
-      "Desde 1974 que a família Zurbriggen recebe quem sobe o vale. Os produtos vêm dos pastos e hortas da região, o pão sai do nosso forno todas as manhãs e a garrafeira guarda mais de 80 vinhos do Valais.": "Seit 1974 empfängt die Familie Zurbriggen alle, die ins Tal hinaufkommen. Die Produkte stammen von den Weiden und Gärten der Region, das Brot kommt jeden Morgen aus unserem Ofen und der Keller birgt über 80 Walliser Weine.",
+      "Desde 1974 que a família Zurbriggen recebe quem sobe o vale. Os produtos vêm dos pastos e hortas da região, o pão sai do nosso forno todas as manhãs e a garrafeira guarda mais de 80 vinhos do Valais.": "Seit 1974 empfängt die Familie Zurbriggen alle, die das Tal hinaufkommen. Die Produkte stammen von den Weiden und Gärten der Region, das Brot kommt jeden Morgen aus unserem Ofen und der Keller birgt über 80 Walliser Weine.",
       "No inverno, a lareira está sempre acesa. No verão, o terraço tem vista para o rio.": "Im Winter brennt immer das Kaminfeuer. Im Sommer blickt die Terrasse auf den Fluss.",
       "Testemunhos": "Stimmen unserer Gäste", "Quem cá volta": "Wer immer wiederkommt",
       "A melhor raclette que já comi no vale. Reservámos pelo site em 30 segundos.": "Das beste Raclette, das ich je im Tal gegessen habe. Über die Website in 30 Sekunden reserviert.",
@@ -3640,7 +3667,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Gostas deste estilo? Faço um assim para o teu restaurante.": "Gefällt Ihnen dieser Stil? Ich baue so eine Website für Ihr Restaurant.",
       "Quero um site destes": "Ich will so eine Website",
       "Aulas": "Kurse", "Planos": "Abos", "Equipa": "Team",
-      "Treina": "Trainiere", "mais forte": "stärker", "Vive melhor.": "Lebe besser.",
+      "Treina": "Härter", "mais forte": "trainieren", "Vive melhor.": "Besser leben.",
       "Ginásio aberto todos os dias, treinadores certificados e planos sem complicações. A primeira sessão é por nossa conta.": "Täglich geöffnet, zertifizierte Trainer und unkomplizierte Abos. Das erste Training geht auf uns.",
       "Sessão experimental grátis": "Gratis Probetraining",
       "de área de treino": "Trainingsfläche", "todos os dias": "jeden Tag", "aulas por semana": "Kurse pro Woche",
@@ -3691,7 +3718,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Consultas com marcação no próprio dia, equipa multilingue (DE/PT/FR) e acompanhamento de proximidade para toda a família.": "Termine oft noch am selben Tag, mehrsprachiges Team (DE/PT/FR) und persönliche Betreuung für die ganze Familie.",
       "Marcar consulta": "Termin vereinbaren",
       "Medicina geral": "Allgemeinmedizin", "Consultas, check-ups e medicina preventiva": "Sprechstunden, Check-ups und Präventivmedizin",
-      "Fisioterapia": "Physiotherapie", "Recuperação, desporto e reabilitação": "Erholung, Sport und Rehabilitation",
+      "Fisioterapia": "Physiotherapie", "Recuperação, desporto e reabilitação": "Regeneration, Sport und Rehabilitation",
       "Pediatria": "Pädiatrie", "Acompanhamento desde o primeiro dia": "Begleitung vom ersten Tag an",
       "Como funciona": "So funktioniert es", "Simples do início ao fim": "Einfach von Anfang bis Ende",
       "1 · Marcar": "1 · Termin", "Online ou por telefone — muitas vezes para o próprio dia.": "Online oder per Telefon — oft noch für denselben Tag.",
@@ -3772,7 +3799,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Encontraram-nos o apartamento certo antes de chegar ao mercado.": "Sie fanden uns die richtige Wohnung, bevor sie auf den Markt kam.",
       "Processo transparente do início à escritura. Recomendo.": "Transparenter Prozess vom Anfang bis zur Beurkundung. Empfehlenswert.",
       "Quanto vale a tua casa?": "Was ist Ihr Zuhause wert?",
-      "Avaliação gratuita e sem compromisso, em 48 horas.": "Gratis und unverbindliche Bewertung, innert 48 Stunden.",
+      "Avaliação gratuita e sem compromisso, em 48 horas.": "Kostenlose und unverbindliche Bewertung, innert 48 Stunden.",
       "Pedido de avaliação registado — resposta em 48h": "Bewertungsanfrage registriert — Antwort innert 48 Std.",
       "Pedir avaliação gratuita": "Gratis Bewertung anfragen", "✓ Pedido registado!": "✓ Anfrage registriert!",
       "Seg–Sex 8h30–18h · Sáb por marcação · +41 27 000 00 00": "Mo–Fr 8.30–18.00 · Sa nach Vereinbarung · +41 27 000 00 00",
@@ -3788,15 +3815,15 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "data": "Datum", "pessoas": "Personen", "contacto": "Kontakt", "dia": "Tag", "serviço": "Leistung", "especialidade": "Fachgebiet", "email": "E-Mail",
       "às": "um", "Plano": "Abo", "Pack": "Paket",
       "a tua 1.ª sessão é grátis.": "Ihr erstes Training ist gratis.",
-      "respondo hoje com as datas disponíveis.": "ich melde mich heute mit den verfügbaren Daten.",
+      "respondo hoje com as datas disponíveis.": "ich melde mich heute mit den verfügbaren Terminen.",
       "contactamos-te hoje para combinar a hora.": "wir melden uns heute, um die Zeit zu vereinbaren.",
       "peça(s)": "Artikel", "Encomenda": "Bestellung",
       "recebes email com o envio em 48h.": "Sie erhalten eine E-Mail, Versand innert 48 Std.",
       "Telefone": "Telefon", "Ver no Google Maps": "Auf Google Maps ansehen",
       "Vem treinar connosco": "Komm trainieren", "Todos os dias · 06h–23h": "Jeden Tag · 06.00–23.00",
-      "Vem conhecer a casa": "Lern das Haus kennen", "· sem marcação aos sábados de manhã": "· samstagmorgens ohne Termin",
+      "Vem conhecer a casa": "Lernen Sie das Haus kennen", "· sem marcação aos sábados de manhã": "· samstagmorgens ohne Termin",
       "Estamos perto de si": "Wir sind in Ihrer Nähe", "Seg–Sex · 8h–18h": "Mo–Fr · 8.00–18.00", "Urgências": "Notfall",
-      "Vamos falar sobre a tua sessão": "Sprechen wir über deine Session", "Área de atuação": "Einsatzgebiet",
+      "Vamos falar sobre a tua sessão": "Sprechen wir über Ihr Shooting", "Área de atuação": "Einsatzgebiet",
       "Valais & além, por marcação": "Wallis & darüber hinaus, nach Vereinbarung",
       "Apoio ao cliente": "Kundenservice", "Compra com confiança": "Sicher einkaufen",
       "Envios": "Versand", "48h para toda a Suíça e Europa, com rastreio incluído.": "Versand in 48 Stunden in die ganze Schweiz und nach Europa, inklusive Sendungsverfolgung.",
@@ -3831,21 +3858,21 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Garante a tua mesa": "Garantissez votre table",
       "Data": "Date", "Pessoas": "Personnes", "Contacto (telemóvel ou email)": "Contact (téléphone ou email)",
       "+41 79 … ou email": "+41 79 … ou email",
-      "Mesa reservada": "Table réservée", "Reservar": "Réserver", "✓ Mesa reservada!": "✓ Table réservée !",
+      "Mesa reservada": "Table réservée", "Reservar": "Réserver", "✓ Mesa reservada!": "✓ Table réservée !",
       "Confirmação imediata · cancela até 2h antes por telefone": "Confirmation immédiate · annulation jusqu'à 2h avant par téléphone",
       "Ter–Dom 11h30–22h · +41 27 000 00 00": "Mar–Dim 11h30–22h · +41 27 000 00 00",
-      "Gostas deste estilo? Faço um assim para o teu restaurante.": "Ce style vous plaît ? Je crée un site comme celui-ci pour votre restaurant.",
+      "Gostas deste estilo? Faço um assim para o teu restaurante.": "Ce style vous plaît ? Je crée un site comme celui-ci pour votre restaurant.",
       "Quero um site destes": "Je veux un site comme ça",
       "Aulas": "Cours", "Planos": "Abonnements", "Equipa": "Équipe",
-      "Treina": "Entraîne-toi", "mais forte": "plus fort", "Vive melhor.": "Vis mieux.",
-      "Ginásio aberto todos os dias, treinadores certificados e planos sem complicações. A primeira sessão é por nossa conta.": "Salle ouverte tous les jours, coachs certifiés et abonnements sans complications. La première séance est pour nous.",
+      "Treina": "Entraînez-vous", "mais forte": "plus fort", "Vive melhor.": "Vivez mieux.",
+      "Ginásio aberto todos os dias, treinadores certificados e planos sem complicações. A primeira sessão é por nossa conta.": "Salle ouverte tous les jours, coachs certifiés et abonnements sans complications. La première séance est offerte.",
       "Sessão experimental grátis": "Séance d'essai gratuite",
       "de área de treino": "d'espace d'entraînement", "todos os dias": "tous les jours", "aulas por semana": "cours par semaine",
       "✓ Acesso livre ao ginásio": "✓ Accès libre à la salle", "✓ Sem fidelização": "✓ Sans engagement",
       "Escolher": "Choisir",
       "✓ Ginásio + todas as aulas": "✓ Salle + tous les cours", "✓ Plano de treino incluído": "✓ Plan d'entraînement inclus",
       "✓ Para dois": "✓ Pour deux", "✓ Tudo do plano Full": "✓ Tout du plan Full",
-      "✓ Plano selecionado!": "✓ Abonnement choisi !",
+      "✓ Plano selecionado!": "✓ Abonnement choisi !",
       "CHF 59/mês": "CHF 59/mois", "CHF 79/mês": "CHF 79/mois", "CHF 139/mês": "CHF 139/mois",
       "Mais de 40 aulas por semana": "Plus de 40 cours par semaine",
       "Todas": "Tous", "Seg": "Lun", "Ter": "Mar", "Qua": "Mer", "Qui": "Jeu", "Sex": "Ven", "Sáb": "Sam",
@@ -3863,7 +3890,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Aulas às 7h antes do trabalho — mudou-me os dias por completo.": "Les cours à 7h avant le travail — ça a complètement changé mes journées.",
       "Sem fidelização e horário até às 23h. Exatamente o que procurava.": "Sans engagement et ouvert jusqu'à 23h. Exactement ce que je cherchais.",
       "Todos os dias 06h–23h · +41 27 000 00 00": "Tous les jours 6h–23h · +41 27 000 00 00",
-      "Um site assim para o teu ginásio ou estúdio? Trato disso.": "Un site comme ça pour votre salle ou studio ? Je m'en occupe.",
+      "Um site assim para o teu ginásio ou estúdio? Trato disso.": "Un site comme ça pour votre salle ou studio ? Je m'en occupe.",
       "Serviços": "Services", "Marcar": "Réserver",
       "Corte clássico,": "Coupe classique,", "mãos de mestre": "mains de maître",
       "Barbearia tradicional com marcação online. Chegas, sentas-te, sais impecável.": "Barbier traditionnel avec réservation en ligne. Vous arrivez, vous vous asseyez, vous repartez impeccable.",
@@ -3879,8 +3906,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Levo lá os meus dois filhos. Preço justo e trabalho impecável.": "J'y emmène mes deux fils. Prix juste et travail impeccable.",
       "Marcação": "Rendez-vous", "Escolhe o teu horário": "Choisissez votre horaire",
       "Dia": "Jour", "Serviço": "Service", "Corte": "Coupe", "Barba": "Barbe",
-      "Horários disponíveis:": "Horaires disponibles :",
-      "Marcação confirmada": "Rendez-vous confirmé", "Confirmar marcação": "Confirmer le rendez-vous", "✓ Marcação confirmada!": "✓ Rendez-vous confirmé !",
+      "Horários disponíveis:": "Horaires disponibles :",
+      "Marcação confirmada": "Rendez-vous confirmé", "Confirmar marcação": "Confirmer le rendez-vous", "✓ Marcação confirmada!": "✓ Rendez-vous confirmé !",
       "Ter–Sáb 9h–19h · +41 27 000 00 00": "Mar–Sam 9h–19h · +41 27 000 00 00",
       "A tua barbearia merece uma presença assim.": "Votre salon mérite une présence comme celle-ci.",
       "Especialidades": "Spécialités",
@@ -3900,10 +3927,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Equipa fantástica com os miúdos. Marcação online facílima.": "Équipe fantastique avec les enfants. Réservation en ligne très facile.",
       "Marque a sua consulta": "Prenez votre rendez-vous",
       "Especialidade": "Spécialité", "Data preferida": "Date souhaitée",
-      "Pedido de consulta enviado": "Demande de rendez-vous envoyée", "Pedir marcação": "Demander un rendez-vous", "✓ Pedido enviado!": "✓ Demande envoyée !",
+      "Pedido de consulta enviado": "Demande de rendez-vous envoyée", "Pedir marcação": "Demander un rendez-vous", "✓ Pedido enviado!": "✓ Demande envoyée !",
       "Ligamos-te no próprio dia útil para confirmar a hora.": "Nous vous appelons le jour ouvrable même pour confirmer l'heure.",
-      "Seg–Sex 8h–18h · Urgências: 144 · +41 27 000 00 00": "Lun–Ven 8h–18h · Urgences : 144 · +41 27 000 00 00",
-      "Clínicas e consultórios: presença profissional que inspira confiança.": "Cliniques et cabinets : une présence professionnelle qui inspire confiance.",
+      "Seg–Sex 8h–18h · Urgências: 144 · +41 27 000 00 00": "Lun–Ven 8h–18h · Urgences : 144 · +41 27 000 00 00",
+      "Clínicas e consultórios: presença profissional que inspira confiança.": "Cliniques et cabinets : une présence professionnelle qui inspire confiance.",
       "Portfólio": "Portfolio", "Packs": "Forfaits", "Processo": "Processus",
       "Histórias em luz": "Des histoires en lumière",
       "Fotografia de casamento, retrato e produto — Valais e além.": "Photographie de mariage, portrait et produit — Valais et au-delà.",
@@ -3924,10 +3951,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "As fotos de produto duplicaram o aspeto profissional da nossa loja.": "Les photos produit ont doublé l'aspect professionnel de notre boutique.",
       "LUME STUDIO · Valais & além": "LUME STUDIO · Valais & au-delà",
       "Por marcação · +41 27 000 00 00": "Sur rendez-vous · +41 27 000 00 00",
-      "Fotógrafos e criativos: um portfólio que faz justiça ao trabalho.": "Photographes et créatifs : un portfolio à la hauteur du travail.",
+      "Fotógrafos e criativos: um portfólio que faz justiça ao trabalho.": "Photographes et créatifs : un portfolio à la hauteur du travail.",
       "Coleção": "Collection", "Carrinho": "Panier",
       "O teu carrinho": "Votre panier", "O carrinho está vazio.": "Le panier est vide.",
-      "Total": "Total", "Finalizar compra": "Passer commande", "✓ Encomenda confirmada!": "✓ Commande confirmée !",
+      "Total": "Total", "Finalizar compra": "Passer commande", "✓ Encomenda confirmada!": "✓ Commande confirmée !",
       "Peças que ficam,": "Des pièces qui restent,", "estações que passam": "des saisons qui passent",
       "Moda feminina desenhada com calma e produzida em pequenas séries. Envios em 48h para toda a Suíça e Europa.": "Mode féminine dessinée avec calme et produite en petites séries. Livraison en 48h dans toute la Suisse et en Europe.",
       "Ver coleção": "Voir la collection",
@@ -3935,7 +3962,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Vestido Lina": "Robe Lina", "Adicionar": "Ajouter", "Camisola Ava": "Pull Ava", "Lenço Sena": "Foulard Sena",
       "Vestido Odda": "Robe Odda", "Cardigã Noa": "Cardigan Noa", "Cinto Iva": "Ceinture Iva",
       "O atelier": "L'atelier", "Feito devagar, para durar": "Fait lentement, pour durer",
-      "Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.": "Chaque pièce naît dans notre atelier : tissus naturels choisis à la main, coupes qui respectent le corps et petites séries pour ne jamais voir votre pièce partout. Échanges gratuits sous 30 jours.",
+      "Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.": "Chaque pièce naît dans notre atelier : tissus naturels choisis à la main, coupes qui respectent le corps et petites séries pour ne jamais voir votre pièce partout. Échanges gratuits sous 30 jours.",
       "Quem já veste Atelier": "Celles qui portent déjà Atelier",
       "O vestido Lina tornou-se a peça que mais uso. Qualidade rara.": "La robe Lina est devenue ma pièce préférée. Une qualité rare.",
       "Encomendei à terça, chegou à quinta, impecavelmente embalado.": "Commandé mardi, arrivé jeudi, impeccablement emballé.",
@@ -3943,10 +3970,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Recebe a próxima coleção em primeira mão": "Recevez la prochaine collection en avant-première",
       "o-teu@email.ch": "votre@email.ch",
       "Subscrição feita — bem-vinda à lista": "Inscription faite — bienvenue sur la liste",
-      "Subscrever": "S'inscrire", "✓ Subscrito!": "✓ Inscrit !",
+      "Subscrever": "S'inscrire", "✓ Subscrito!": "✓ Inscrit !",
       "ATELIER · moda em pequenas séries": "ATELIER · mode en petites séries",
       "Envios 48h · Trocas grátis 30 dias": "Livraison 48h · Échanges gratuits 30 jours",
-      "Marcas e lojas: uma loja online com esta elegância vende sozinha.": "Marques et boutiques : une boutique en ligne aussi élégante vend toute seule.",
+      "Marcas e lojas: uma loja online com esta elegância vende sozinha.": "Marques et boutiques : une boutique en ligne aussi élégante vend toute seule.",
       "Imóveis": "Biens", "Avaliação": "Estimation",
       "A tua próxima casa no Valais": "Votre prochaine maison en Valais",
       "Compra, venda e avaliação com quem conhece cada vila do vale. Visitas com marcação online.": "Achat, vente et estimation avec quelqu'un qui connaît chaque village de la vallée. Visites sur rendez-vous en ligne.",
@@ -3959,7 +3986,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Chalé 6.5 — Zermatt": "Chalet 6.5 — Zermatt", "195 m² · vista Matterhorn · sauna": "195 m² · vue Cervin · sauna",
       "Apartamento 2.5 — Brig": "Appartement 2.5 — Brig", "68 m² · terraço · perto da estação": "68 m² · terrasse · près de la gare",
       "Estúdio 1.5 — Saas-Fee": "Studio 1.5 — Saas-Fee", "42 m² · mobilado · renda garantida": "42 m² · meublé · loyer garanti",
-      "✓ Visita marcada!": "✓ Visite réservée !",
+      "✓ Visita marcada!": "✓ Visite réservée !",
       "Comprar, vender, avaliar": "Acheter, vendre, estimer",
       "Vender": "Vendre", "Avaliação gratuita, fotos profissionais e anúncio nas principais plataformas suíças.": "Estimation gratuite, photos professionnelles et annonce sur les principales plateformes suisses.",
       "Comprar": "Acheter", "Alertas personalizados e acompanhamento nas visitas e no notário.": "Alertes personnalisées et accompagnement aux visites et chez le notaire.",
@@ -3968,12 +3995,12 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Venderam o nosso chalé em seis semanas, acima do valor de avaliação.": "Ils ont vendu notre chalet en six semaines, au-dessus de la valeur estimée.",
       "Encontraram-nos o apartamento certo antes de chegar ao mercado.": "Ils nous ont trouvé le bon appartement avant sa mise sur le marché.",
       "Processo transparente do início à escritura. Recomendo.": "Processus transparent du début à l'acte notarié. Je recommande.",
-      "Quanto vale a tua casa?": "Combien vaut votre maison ?",
+      "Quanto vale a tua casa?": "Combien vaut votre maison ?",
       "Avaliação gratuita e sem compromisso, em 48 horas.": "Estimation gratuite et sans engagement, sous 48 heures.",
       "Pedido de avaliação registado — resposta em 48h": "Demande d'estimation enregistrée — réponse sous 48h",
-      "Pedir avaliação gratuita": "Demander une estimation gratuite", "✓ Pedido registado!": "✓ Demande enregistrée !",
+      "Pedir avaliação gratuita": "Demander une estimation gratuite", "✓ Pedido registado!": "✓ Demande enregistrée !",
       "Seg–Sex 8h30–18h · Sáb por marcação · +41 27 000 00 00": "Lun–Ven 8h30–18h · Sam sur rendez-vous · +41 27 000 00 00",
-      "Imobiliárias: listagens bonitas vendem mais depressa.": "Agences immobilières : de belles annonces vendent plus vite.",
+      "Imobiliárias: listagens bonitas vendem mais depressa.": "Agences immobilières : de belles annonces vendent plus vite.",
       "Alpenrose — template restaurante": "Alpenrose — template restaurant",
       "Momentum — template ginásio": "Momentum — template fitness",
       "Barba & Navalha — template barbearia": "Barba & Navalha — template barbier",
@@ -3990,15 +4017,15 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "peça(s)": "article(s)", "Encomenda": "Commande",
       "recebes email com o envio em 48h.": "vous recevez un email, envoi sous 48h.",
       "Telefone": "Téléphone", "Ver no Google Maps": "Voir sur Google Maps",
-      "Vem treinar connosco": "Viens t'entraîner avec nous", "Todos os dias · 06h–23h": "Tous les jours · 6h–23h",
-      "Vem conhecer a casa": "Viens découvrir la maison", "· sem marcação aos sábados de manhã": "· sans rendez-vous le samedi matin",
+      "Vem treinar connosco": "Venez vous entraîner avec nous", "Todos os dias · 06h–23h": "Tous les jours · 6h–23h",
+      "Vem conhecer a casa": "Venez découvrir la maison", "· sem marcação aos sábados de manhã": "· sans rendez-vous le samedi matin",
       "Estamos perto de si": "Nous sommes près de chez vous", "Seg–Sex · 8h–18h": "Lun–Ven · 8h–18h", "Urgências": "Urgences",
-      "Vamos falar sobre a tua sessão": "Parlons de ta séance", "Área de atuação": "Zone d'intervention",
+      "Vamos falar sobre a tua sessão": "Parlons de votre séance", "Área de atuação": "Zone d'intervention",
       "Valais & além, por marcação": "Valais & au-delà, sur rendez-vous",
       "Apoio ao cliente": "Service client", "Compra com confiança": "Achetez en toute confiance",
       "Envios": "Livraison", "48h para toda a Suíça e Europa, com rastreio incluído.": "Livraison en 48h dans toute la Suisse et en Europe, suivi inclus.",
       "Trocas": "Retours", "30 dias para trocar ou devolver, sem perguntas.": "30 jours pour échanger ou retourner, sans questions.",
-      "Dúvidas?": "Des questions ?", "Apoio": "Aide",
+      "Dúvidas?": "Des questions ?", "Apoio": "Aide",
       "Fala com a agência": "Parlez à l'agence", "Seg–Sex 8h30–18h · Sáb por marcação": "Lun–Ven 8h30–18h · Sam sur rendez-vous"
     },
     it: {

@@ -1,0 +1,15 @@
+{
+  "name": "Pedro Ribeiro — PR Studio",
+  "short_name": "PR Studio",
+  "description": "Websites, marketing digital e gestão de redes sociais para negócios do Valais.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#04060B",
+  "theme_color": "#05070F",
+  "lang": "pt",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
