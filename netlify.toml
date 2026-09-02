@@ -1,0 +1,4 @@
+# Site estático: nada para construir, publica a pasta como está.
+[build]
+  publish = "."
+  command = "echo 'site estático'"
