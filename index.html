@@ -70,7 +70,7 @@
   --red-ink: #6FA0FF;
   --ember: #6FA0FF;
   --peach: rgba(46, 107, 255, 0.14);
-  --grad: linear-gradient(115deg, #2E6BFF, #3D7BFF 60%, #4D8DFF);
+  --grad: linear-gradient(115deg, #2257E8, #2E6BFF 60%, #2E6BFF); /* branco ≥ 4.5:1 em todo o gradiente */
   --red-soft: rgba(46, 107, 255, 0.08);
   --on-red: #FFFFFF;
   --on-dark: #F2F5FF;
@@ -1291,6 +1291,31 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 @media (max-width: 700px) { .stat { padding: 20px 16px 16px; } .stat-v { font-size: 1.7rem; } }
 @media (max-width: 700px) { .hero-ctas .btn { width: 100%; letter-spacing: 0.08em; padding: 15px 16px; } }
 @media (max-width: 640px) { section { padding: 64px 0; } .hero { padding: 56px 0 64px; } .hero-pitch { font-size: 1.02rem; } .hero-chips { margin-top: 22px; } .tabs { width: 100%; } .tabs button { flex: 1 1 0; padding: 10px 8px; letter-spacing: 0.08em; text-align: center; } }
+
+/* ---- revisão mobile (turno 2): contraste, rodapé, FAB, preços, dica de idioma, alvos de toque ---- */
+.pillar-price .mono, .pillar-price a { white-space: nowrap; }
+.pillar-art { font-weight: 500; padding: 8px 0; margin: 0 0 12px; }
+.fbtn { min-height: 44px; padding: 11px 16px; }
+.chip { font-size: 0.72rem; }
+.foot-langs { font-size: 0.75rem; }
+.foot .mono { font-size: 0.78rem; }
+.faq-a a, .read-more, .pillar-art { display: inline-block; padding: 10px 0; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(111, 160, 255, 0.5); }
+.faq-a a:hover, .read-more:hover, .pillar-art:hover { text-decoration-color: currentColor; }
+@media (min-width: 400px) { #siteHeader .langs button { min-width: 44px; } }
+@media (max-width: 700px) {
+  .foot2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .foot-col a.wa2 { overflow-wrap: anywhere; }
+  .has-sticky .wa-fab { opacity: 0; pointer-events: none; transform: translateY(20px); }
+  .wa-fab { transition: opacity 0.2s ease, transform 0.2s ease; }
+  footer .foot { padding-bottom: 96px; }
+  .foot-col:has(a.wa2) { grid-column: 1 / -1; }
+  .foot-col a.wa2 { width: auto; max-width: 100%; }
+  .sticky-cta a { font-size: 0.8rem; letter-spacing: 0.06em; padding: 13px 4px; }
+  .lang-hint { padding: 6px 52px 6px 16px; gap: 0 10px; font-size: 0.82rem; justify-content: flex-start; text-align: left; }
+  .lang-hint a { display: inline-block; padding: 11px 0; }
+}
+@media (max-width: 420px) { .pillar-price { flex-direction: column; align-items: flex-start; gap: 8px; } }
+
 </style>
 </head>
 <body>
