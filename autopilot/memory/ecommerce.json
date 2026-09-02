@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 14,
+  "count": 15,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -138,6 +138,16 @@
         "autopilot",
         "deploy",
         "policy"
+      ]
+    },
+    {
+      "key": "autopilot/v3/publish",
+      "namespace": "ecommerce",
+      "value": "2026-09-02: publishing swarm (container restarted mid-run, partial output salvaged + finished by hand). Shipped: privacidade.html (revDSG, ~10k chars x5 langs), termos.html, informacao-legal.html — cookie banner no longer links to 404; og.png 1200x630 recompressed 415KB->95KB; favicon.ico (real ICO), 16/32/180/192/512 PNGs, site.webmanifest; 7 portfolio thumbnails rendered from the page's own templates (webp+jpg); icon paths made relative so they work on the /website/ Pages copy. Verified in Chromium: 0 broken images, 0 failed requests, legal pages render 1 language with JS and full content without. PLACEHOLDERS still to fill: legal form, street address, CHE/UID, VAT status, hosting provider name, and replace the icloud email with one on prstudio.ch.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "publish"
       ]
     }
   ]

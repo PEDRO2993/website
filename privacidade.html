@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<!--
+  PLACEHOLDERS A PREENCHER ANTES DE PUBLICAR (procurar por "["):
+    [forma jurídica: empresa individual / Sàrl]  → forma jurídica real
+    [Strasse Nr., PLZ Stalden VS]                → morada postal completa
+    [CHE-000.000.000]                            → n.º IDE/UID real (uid.admin.ch)
+    [Netlify, Inc. / GitHub, Inc.]               → indicar o alojador em produção
+    [região do projeto Supabase]                 → p. ex. eu-central-1 (Frankfurt)
+  NOTA: o único endereço de email do repositório é um endereço icloud pessoal.
+  Um endereço próprio do domínio (p. ex. contacto@prstudio.ch) seria melhor
+  para o Impressum e para os pedidos de acesso — trocar aqui e em index.html.
+-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — PR Studio</title>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://prstudio.ch/privacidade.html">
+<meta name="theme-color" content="#05070F">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="img/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" sizes="180x180">
+<meta name="description" content="Que dados pessoais são tratados em prstudio.ch, para quê, com que fundamento, quem os vê e como exercer os teus direitos — segundo a nLPD suíça.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Política de Privacidade — PR Studio">
+<meta property="og:description" content="Que dados pessoais são tratados em prstudio.ch, para quê, com que fundamento, quem os vê e como exercer os teus direitos — segundo a nLPD suíça.">
+<meta property="og:url" content="https://prstudio.ch/privacidade.html">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spline+Sans+Mono:wght@300..700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Spline+Sans+Mono:wght@300..700&display=swap"></noscript>
+<style>
+:root {
+  --bg:#04060B; --card:#0A1120; --ink:#F2F6FE; --ink-2:#8A97AF; --ink-3:#75829D;
+  --line: rgba(160,190,255,0.14); --line-2: rgba(160,190,255,0.26); --red:#2E6BFF; --red-ink:#6FA0FF;
+}
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; }
+body {
+  background:var(--bg); color:var(--ink); font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  line-height:1.6; font-size:1rem;
+}
+a { color:var(--red-ink); }
+.wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+header.lg-head { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:22px 0; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+.lg-back { text-decoration:none; color:var(--ink-2); font-size:0.9rem; }
+.lg-back:hover { color:var(--red-ink); }
+.logo { font-family:"Bricolage Grotesque",sans-serif; font-weight:600; font-size:1.1rem; text-decoration:none; color:var(--ink); }
+.logo .dot { color:var(--red); }
+.langs { display:flex; gap:6px; }
+.langs button {
+  font-family:"Spline Sans Mono",monospace; font-size:0.72rem; letter-spacing:0.04em;
+  background:transparent; border:1px solid var(--line-2); color:var(--ink-2); border-radius:999px;
+  padding:6px 11px; cursor:pointer; transition:all .15s ease;
+}
+.langs button[aria-pressed="true"] { background:var(--red); border-color:var(--red); color:#fff; }
+main { padding:40px 0 60px; }
+main h1 { font-family:"Bricolage Grotesque",sans-serif; font-weight:600; font-size:2rem; margin:0 0 6px; line-height:1.15; }
+main h2 { font-family:"Bricolage Grotesque",sans-serif; font-weight:600; font-size:1.2rem; margin:34px 0 10px; }
+main p { color:var(--ink-2); margin:0 0 14px; }
+main ul { color:var(--ink-2); padding-left:1.2em; }
+main li { margin-bottom:8px; }
+main code { background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:5px; font-family:"Spline Sans Mono",monospace; font-size:0.88em; }
+.lg-updated { font-family:"Spline Sans Mono",monospace; font-size:0.78rem; color:var(--ink-3); margin-bottom:28px; }
+.lg-tbl { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:0.88rem; }
+.lg-tbl-wrap { overflow-x:auto; }
+.lg-tbl th, .lg-tbl td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+.lg-tbl th { color:var(--ink); font-family:"Spline Sans Mono",monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
+.lg-tbl td { color:var(--ink-2); }
+footer.lg-foot { border-top:1px solid var(--line); padding:24px 0 40px; display:flex; gap:16px; flex-wrap:wrap; justify-content:space-between; align-items:center; }
+footer.lg-foot .lg-links { display:flex; gap:16px; flex-wrap:wrap; }
+footer.lg-foot a { color:var(--ink-2); text-decoration:none; font-size:0.86rem; }
+footer.lg-foot a:hover { color:var(--red-ink); }
+.lg-mono { font-family:"Spline Sans Mono",monospace; font-size:0.76rem; color:var(--ink-3); }
+/* escondido só quando há JS para revelar um idioma; sem JS mostra-se tudo em vez de nada */
+html.js .i18n-doc { display:none; }
+html.js footer.lg-foot .lg-links.i18n-doc { display:none; }
+.blog-list { display:flex; flex-direction:column; gap:18px; margin-top:10px; }
+.blog-card { display:block; text-decoration:none; background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:16px; padding:22px 24px; transition:border-color .15s ease, transform .15s ease; }
+.blog-card:hover { border-color:var(--red); transform:translateY(-2px); }
+.blog-card h2 { margin:0 0 8px; font-size:1.1rem; }
+.blog-card p { margin:0 0 10px; }
+.blog-card span { color:var(--red-ink); font-size:0.86rem; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="lg-head">
+    <a class="logo" href="index.html">PR<span class="dot">.</span></a>
+    <div class="langs"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="fr" aria-pressed="false">FR</button><button type="button" data-lang="it" aria-pressed="false">IT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+  </header>
+  <main>
+    <div class="i18n-doc" data-lang="pt">
+<h1>Política de Privacidade</h1>
+<p class="lg-updated">Versão de 2 de setembro de 2026 · Lei Federal da Proteção de Dados revista (nLPD), em vigor desde 1 de setembro de 2023</p>
+
+<p>Esta página explica, sem rodeios, que dados pessoais são tratados quando visitas prstudio.ch, quando me escreves, quando usas a área de cliente e quando recebes de mim um primeiro email de apresentação. Trato o mínimo necessário, guardo-o o menos tempo possível, e não vendo nem alugo dados a ninguém.</p>
+
+<h2>1. Quem é responsável</h2>
+<p>Responsável pelo tratamento, na aceção do art. 5 let. j da nLPD:</p>
+<p><strong>Pedro Ribeiro — PR Studio</strong> · [forma jurídica: empresa individual / Sàrl]<br>
+[Strasse Nr., PLZ Stalden VS], Suíça<br>
+N.º de identificação das empresas (IDE): [CHE-000.000.000]<br>
+Email: <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> · Telefone e WhatsApp: <a href="https://wa.me/41798257078">+41 79 825 70 78</a></p>
+<p>Não designei um encarregado da proteção de dados: o interlocutor para qualquer questão sou eu, e respondo pessoalmente.</p>
+
+<h2>2. Que dados trato, para quê e por quanto tempo</h2>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Situação</th><th>Dados</th><th>Finalidade</th><th>Conservação</th></tr></thead><tbody>
+<tr><td>Visita ao site</td><td>Endereço IP, data e hora, página pedida, página de origem, navegador e sistema operativo, idioma</td><td>Servir as páginas, segurança, deteção de avarias e de abusos</td><td>Registos técnicos do alojador, apagados ao fim de poucos dias a poucas semanas; não guardo cópia própria</td></tr>
+<tr><td>Formulário de contacto</td><td>Nome, email, telefone (opcional), serviço escolhido e a tua mensagem</td><td>Responder-te e preparar uma proposta</td><td>24 meses após o último contacto — se houver contrato, ver a linha «Clientes»</td></tr>
+<tr><td>WhatsApp, email, telefone</td><td>Número ou endereço, nome, conteúdo da conversa</td><td>O mesmo</td><td>O mesmo</td></tr>
+<tr><td>Banner de cookies</td><td>A tua escolha (aceitar tudo / só o essencial) e o idioma preferido, guardados no <code>localStorage</code> do teu navegador</td><td>Respeitar a tua decisão e conseguir demonstrá-la</td><td>Fica no teu dispositivo até apagares os dados do site</td></tr>
+<tr><td>Relatório automático de erros</td><td>Mensagem do erro, ficheiro e linha, idioma e identificação do navegador</td><td>Detetar avarias antes de alguém ter de as reportar (no máximo um aviso por sessão)</td><td>12 meses</td></tr>
+<tr><td>Demonstrações de templates</td><td>A ação feita na demonstração e, se o escreveres, o contacto que introduzires</td><td>Perceber que demonstrações interessam e responder a pedidos</td><td>12 meses</td></tr>
+<tr><td>Área de cliente (opcional)</td><td>Email, palavra-passe (guardada cifrada), mensagens, encomendas e reuniões</td><td>Gerir o teu projeto num sítio só</td><td>Enquanto a conta existir; apago-a assim que pedires</td></tr>
+<tr><td>Clientes e faturação</td><td>Nome, morada de faturação, contactos, contrato, faturas</td><td>Executar o contrato e cumprir a lei contabilística</td><td>10 anos a contar do fim do exercício (art. 958f CO)</td></tr>
+<tr><td>Prospeção comercial B2B</td><td>Nome do estabelecimento, localidade, email e telefone profissionais publicados, morada, site e uma nota sobre a presença online</td><td>Apresentar os meus serviços à tua empresa</td><td>Retiro-te da lista assim que pedires; sem resposta, no máximo 12 meses</td></tr>
+</tbody></table></div>
+
+<h2>3. A lista de prospeção, explicada</h2>
+<p>Contacto hotéis, restaurantes e outros negócios do Valais por email. Os contactos vêm de fontes publicamente acessíveis — o site do próprio estabelecimento, o registo <em>search.ch</em>, diretórios turísticos, portais de reserva e resultados de pesquisa — e limitam-se a dados profissionais publicados para serem usados: nome do estabelecimento, endereço, telefone e email geral. Não recolho dados sensíveis, não compro listas e não uso robôs para enviar campanhas em massa.</p>
+<p>Cada email é escrito para um destinatário concreto, identifica-me claramente como remetente e inclui sempre uma forma simples e gratuita de recusar novos contactos — basta responder «stop». Este tratamento apoia-se no interesse preponderante em dar a conhecer a minha atividade a empresas do meu mercado (art. 31 al. 2 nLPD) e respeita o art. 3 al. 1 let. o da Lei contra a concorrência desleal, que proíbe a publicidade de massa automatizada sem consentimento. Se preferires não receber nada, escreve-me e apago-te da lista no próprio dia.</p>
+
+<h2>4. Com que fundamento trato os dados</h2>
+<p>A nLPD não exige, ao contrário do RGPD, uma base legal para cada tratamento: o tratamento é lícito quando respeita os princípios do art. 6 — licitude, boa-fé, proporcionalidade, finalidade reconhecível, exatidão e segurança. Quando um tratamento pudesse afetar a personalidade de alguém, justifica-se pelo consentimento, por um interesse preponderante privado ou público, ou pela lei (art. 30 e 31 nLPD). Em concreto:</p>
+<ul>
+<li><strong>Contrato e pedidos de orçamento:</strong> tratamento diretamente ligado à celebração ou execução de um contrato (art. 31 al. 2 let. a nLPD).</li>
+<li><strong>Estatísticas e marketing:</strong> só com o teu consentimento explícito, dado no banner (art. 6 al. 6 e 7 nLPD).</li>
+<li><strong>Segurança e registos técnicos:</strong> interesse preponderante em manter o site a funcionar e protegido.</li>
+<li><strong>Faturação e contabilidade:</strong> obrigação legal.</li>
+</ul>
+<p>Se estiveres na União Europeia, os mesmos tratamentos assentam no art. 6 n.º 1 al. b (contrato), al. f (interesse legítimo) e al. a (consentimento) do RGPD.</p>
+
+<h2>5. Cookies, armazenamento local e ferramentas de terceiros</h2>
+<p>Este site não usa cookies próprios de seguimento. Usa o <code>localStorage</code> do teu navegador para três coisas técnicas: o idioma escolhido, a tua decisão sobre o banner e a memória de que já viste um aviso. O art. 45c let. b da Lei das telecomunicações exige que sejas informado deste tratamento no teu equipamento e que possas recusá-lo; a diretriz do PFPDT sobre cookies de 6 de outubro de 2025 acrescenta que o comportamento passivo — continuar a navegar ou fazer <em>scroll</em> — não vale como consentimento. Por isso nada de estatística ou de marketing carrega antes de clicares em «Aceitar tudo».</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Ferramenta</th><th>Fornecedor</th><th>Para quê</th><th>Estado hoje</th></tr></thead><tbody>
+<tr><td>Google Analytics 4</td><td>Google Ireland Ltd (Google LLC, EUA)</td><td>Estatísticas de visitas, com o IP anonimizado</td><td>Só com consentimento — sem identificador configurado, não chega a carregar</td></tr>
+<tr><td>Meta Pixel</td><td>Meta Platforms Ireland Ltd</td><td>Medir o resultado de anúncios</td><td>Só com consentimento — sem identificador configurado, não chega a carregar</td></tr>
+<tr><td>Tawk.to</td><td>tawk.to Ltd</td><td>Chat ao vivo</td><td>Só com consentimento — sem identificador configurado, não chega a carregar</td></tr>
+<tr><td>Google Fonts</td><td>Google Ireland Ltd (Google LLC, EUA)</td><td>Tipos de letra do site</td><td>Carrega sempre; nesse pedido, o teu endereço IP e o teu navegador são comunicados à Google</td></tr>
+</tbody></table></div>
+<p>Mudar de ideias é simples: apaga os dados deste site no teu navegador (Definições → Privacidade → Dados de sites) e o banner volta a aparecer na visita seguinte, com a decisão outra vez nas tuas mãos.</p>
+
+<h2>6. Quem mais vê estes dados</h2>
+<p>Trabalho sozinho. Os únicos terceiros envolvidos são fornecedores técnicos que tratam dados por minha conta, como subcontratantes na aceção do art. 9 nLPD, vinculados por contrato a usá-los apenas para o serviço que prestam:</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Fornecedor</th><th>Papel</th><th>Onde</th></tr></thead><tbody>
+<tr><td>[Netlify, Inc. / GitHub, Inc.]</td><td>Alojamento do site e receção das mensagens do formulário</td><td>EUA, com infraestrutura também na UE</td></tr>
+<tr><td>Supabase Inc.</td><td>Base de dados e autenticação da área de cliente</td><td>Projeto alojado em [região do projeto Supabase]</td></tr>
+<tr><td>Google Ireland Ltd</td><td>Tipos de letra; estatísticas apenas se consentires</td><td>Irlanda / EUA</td></tr>
+<tr><td>Meta Platforms Ireland Ltd</td><td>Pixel de anúncios, apenas se consentires</td><td>Irlanda / EUA</td></tr>
+<tr><td>tawk.to Ltd</td><td>Chat, apenas se consentires</td><td>UE / EUA</td></tr>
+</tbody></table></div>
+<p>Além destes, a fiduciária que trata a minha contabilidade vê as faturas, e as autoridades recebem dados quando a lei o impõe. Nada mais sai daqui.</p>
+
+<h2>7. Transferências para o estrangeiro</h2>
+<p>Alguns destes fornecedores estão sediados fora da Suíça, sobretudo nos Estados Unidos. Uma comunicação de dados ao estrangeiro só é admissível nas condições dos art. 16 e 17 nLPD. O Conselho Federal publica no anexo 1 da Ordenança sobre a proteção de dados a lista dos Estados com proteção adequada; desde 15 de setembro de 2024 essa lista inclui os Estados Unidos para as empresas certificadas no <em>Swiss–U.S. Data Privacy Framework</em>. Quando um fornecedor não estiver coberto por essa decisão, a transferência assenta nas cláusulas contratuais-tipo reconhecidas pelo PFPDT, acompanhadas de uma avaliação do país de destino.</p>
+
+<h2>8. Segurança</h2>
+<p>O site é servido exclusivamente por HTTPS, com HSTS e uma política de segurança de conteúdo (CSP) restritiva. Os acessos administrativos estão protegidos por palavras-passe fortes e verificação em duas etapas, e as cópias de segurança são regulares. Nenhum sistema é infalível: se ocorrer uma violação da segurança dos dados com risco elevado, comunico-a ao PFPDT e, quando a lei o exigir, também a ti (art. 24 nLPD).</p>
+
+<h2>9. Os teus direitos</h2>
+<ul>
+<li><strong>Acesso</strong> (art. 25 nLPD): saber se trato dados teus, quais, com que finalidade, de onde vieram, a quem os comunico e por quanto tempo os guardo. É gratuito e respondo em regra no prazo de 30 dias.</li>
+<li><strong>Retificação</strong> (art. 32 nLPD) de dados inexatos ou incompletos.</li>
+<li><strong>Apagamento ou destruição</strong> dos dados que já não sejam necessários.</li>
+<li><strong>Oposição</strong> a um tratamento — incluindo sair da lista de prospeção, com efeito imediato.</li>
+<li><strong>Entrega ou transmissão</strong> dos teus dados num formato eletrónico corrente (art. 28 nLPD).</li>
+<li><strong>Retirar o consentimento</strong> a qualquer momento, sem que isso afete o que foi feito antes.</li>
+</ul>
+<p>Para exercer qualquer um destes direitos, escreve para <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a>. Posso ter de te pedir um comprovativo de identidade — é a única forma de não entregar os teus dados à pessoa errada.</p>
+<p>Se não ficares satisfeito com a minha resposta, podes dirigir-te ao <strong>Preposto Federal da Proteção de Dados e da Transparência (PFPDT/EDÖB)</strong>, Feldeggweg 1, 3003 Berna, <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a>, e recorrer aos tribunais civis.</p>
+
+<h2>10. Sem decisões automatizadas</h2>
+<p>Não tomo decisões individuais automatizadas nem faço perfis de risco elevado (art. 21 nLPD). Os preços, as propostas e as respostas são escritos por uma pessoa: eu.</p>
+
+<h2>11. Alterações a esta política</h2>
+<p>Se o site mudar — outro alojador, uma ferramenta nova, um serviço a mais — atualizo esta página e a data no topo. A versão publicada aqui é sempre a que vale.</p>
+    </div>
+    <div class="i18n-doc" data-lang="de">
+<h1>Datenschutzerklärung</h1>
+<p class="lg-updated">Fassung vom 2. September 2026 · Revidiertes Bundesgesetz über den Datenschutz (revDSG), in Kraft seit 1. September 2023</p>
+
+<p>Diese Seite erklärt ohne Umschweife, welche Personendaten bearbeitet werden, wenn Sie prstudio.ch besuchen, mir schreiben, den Kundenbereich nutzen oder von mir eine erste geschäftliche E-Mail erhalten. Ich bearbeite nur das Nötigste, bewahre es so kurz wie möglich auf und verkaufe oder vermiete keine Daten.</p>
+
+<h2>1. Verantwortlich</h2>
+<p>Verantwortlicher im Sinne von Art. 5 lit. j revDSG:</p>
+<p><strong>Pedro Ribeiro — PR Studio</strong> · [forma jurídica: empresa individual / Sàrl]<br>
+[Strasse Nr., PLZ Stalden VS], Schweiz<br>
+Unternehmens-Identifikationsnummer (UID): [CHE-000.000.000]<br>
+E-Mail: <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> · Telefon und WhatsApp: <a href="https://wa.me/41798257078">+41 79 825 70 78</a></p>
+<p>Ich habe keinen Datenschutzberater bezeichnet: Ansprechperson für alle Fragen bin ich selbst, und ich antworte persönlich.</p>
+
+<h2>2. Welche Daten ich bearbeite, wofür und wie lange</h2>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Situation</th><th>Daten</th><th>Zweck</th><th>Aufbewahrung</th></tr></thead><tbody>
+<tr><td>Besuch der Website</td><td>IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, verweisende Seite, Browser und Betriebssystem, Sprache</td><td>Auslieferung der Seiten, Sicherheit, Erkennen von Störungen und Missbrauch</td><td>Technische Logs beim Hoster, nach wenigen Tagen bis Wochen gelöscht; ich führe keine eigene Kopie</td></tr>
+<tr><td>Kontaktformular</td><td>Name, E-Mail, Telefon (freiwillig), gewählte Leistung und Ihre Nachricht</td><td>Ihre Anfrage beantworten und eine Offerte vorbereiten</td><td>24 Monate nach dem letzten Kontakt — bei einem Vertrag siehe Zeile «Kundschaft»</td></tr>
+<tr><td>WhatsApp, E-Mail, Telefon</td><td>Nummer oder Adresse, Name, Gesprächsinhalt</td><td>Dasselbe</td><td>Dasselbe</td></tr>
+<tr><td>Cookie-Banner</td><td>Ihr Entscheid (alles akzeptieren / nur das Nötige) und die gewählte Sprache, im <code>localStorage</code> Ihres Browsers</td><td>Ihren Entscheid einhalten und belegen können</td><td>Bleibt auf Ihrem Gerät, bis Sie die Websitedaten löschen</td></tr>
+<tr><td>Automatische Fehlermeldung</td><td>Fehlermeldung, Datei und Zeile, Sprache und Browserkennung</td><td>Störungen entdecken, bevor jemand sie melden muss (höchstens eine Meldung pro Sitzung)</td><td>12 Monate</td></tr>
+<tr><td>Template-Demos</td><td>Die in der Demo ausgelöste Aktion und, falls Sie ihn eintragen, der angegebene Kontakt</td><td>Verstehen, welche Demos interessieren, und Anfragen beantworten</td><td>12 Monate</td></tr>
+<tr><td>Kundenbereich (freiwillig)</td><td>E-Mail, Passwort (verschlüsselt gespeichert), Nachrichten, Aufträge und Termine</td><td>Ihr Projekt an einem Ort führen</td><td>Solange das Konto besteht; auf Wunsch lösche ich es</td></tr>
+<tr><td>Kundschaft und Rechnungen</td><td>Name, Rechnungsadresse, Kontaktangaben, Vertrag, Rechnungen</td><td>Vertragserfüllung und Buchführungspflichten</td><td>10 Jahre ab Ende des Geschäftsjahres (Art. 958f OR)</td></tr>
+<tr><td>Geschäftliche Erstansprache (B2B)</td><td>Name des Betriebs, Ort, veröffentlichte geschäftliche E-Mail und Telefonnummer, Adresse, Website und eine Notiz zum Online-Auftritt</td><td>Ihrem Betrieb meine Dienstleistungen vorstellen</td><td>Streichung aus der Liste, sobald Sie es verlangen; ohne Antwort höchstens 12 Monate</td></tr>
+</tbody></table></div>
+
+<h2>3. Die Akquiseliste, offen erklärt</h2>
+<p>Ich schreibe Hotels, Restaurants und andere Betriebe im Wallis per E-Mail an. Die Kontakte stammen aus öffentlich zugänglichen Quellen — der Website des Betriebs selbst, dem Verzeichnis <em>search.ch</em>, Tourismusverzeichnissen, Buchungsportalen und Suchergebnissen — und beschränken sich auf geschäftliche Angaben, die genau dafür veröffentlicht wurden: Betriebsname, Adresse, allgemeine Telefonnummer und E-Mail-Adresse. Ich erhebe keine besonders schützenswerten Daten, kaufe keine Listen und versende keine automatisierten Massenkampagnen.</p>
+<p>Jede E-Mail ist für einen konkreten Empfänger geschrieben, weist mich klar als Absender aus und enthält immer eine einfache und kostenlose Möglichkeit, weitere Kontaktaufnahmen abzulehnen — eine Antwort mit «Stopp» genügt. Grundlage ist das überwiegende Interesse, meine Tätigkeit den Unternehmen meines Marktes bekannt zu machen (Art. 31 Abs. 2 revDSG); Art. 3 Abs. 1 lit. o UWG, der automatisierte Massenwerbung ohne Einwilligung verbietet, wird eingehalten. Wenn Sie nichts erhalten möchten, schreiben Sie mir — ich streiche Sie noch am selben Tag.</p>
+
+<h2>4. Auf welcher Grundlage ich Daten bearbeite</h2>
+<p>Anders als die DSGVO verlangt das revDSG nicht für jede Bearbeitung eine Rechtsgrundlage: Die Bearbeitung ist rechtmässig, wenn die Grundsätze von Art. 6 eingehalten werden — Rechtmässigkeit, Treu und Glauben, Verhältnismässigkeit, erkennbarer Zweck, Richtigkeit und Sicherheit. Wo eine Bearbeitung die Persönlichkeit verletzen könnte, rechtfertigt sie sich durch Einwilligung, ein überwiegendes privates oder öffentliches Interesse oder durch Gesetz (Art. 30 und 31 revDSG). Konkret:</p>
+<ul>
+<li><strong>Vertrag und Offertanfragen:</strong> Bearbeitung in unmittelbarem Zusammenhang mit Abschluss oder Erfüllung eines Vertrags (Art. 31 Abs. 2 lit. a revDSG).</li>
+<li><strong>Statistik und Marketing:</strong> nur mit Ihrer ausdrücklichen Einwilligung über den Banner (Art. 6 Abs. 6 und 7 revDSG).</li>
+<li><strong>Sicherheit und technische Logs:</strong> überwiegendes Interesse am Betrieb und Schutz der Website.</li>
+<li><strong>Rechnungen und Buchhaltung:</strong> gesetzliche Pflicht.</li>
+</ul>
+<p>Befinden Sie sich in der EU, stützen sich dieselben Bearbeitungen auf Art. 6 Abs. 1 lit. b (Vertrag), lit. f (berechtigtes Interesse) und lit. a (Einwilligung) DSGVO.</p>
+
+<h2>5. Cookies, lokale Speicherung und Dienste Dritter</h2>
+<p>Diese Website setzt keine eigenen Tracking-Cookies. Sie nutzt den <code>localStorage</code> Ihres Browsers für drei technische Dinge: die gewählte Sprache, Ihren Entscheid zum Banner und die Notiz, dass Sie einen Hinweis bereits gesehen haben. Art. 45c lit. b des Fernmeldegesetzes verlangt, dass Sie über diese Bearbeitung auf Ihrem Gerät informiert werden und sie ablehnen können; der Cookie-Leitfaden des EDÖB vom 6. Oktober 2025 hält zudem fest, dass passives Verhalten — Weiterlesen oder Scrollen — keine gültige Einwilligung ist. Deshalb lädt vor einem Klick auf «Alles akzeptieren» weder Statistik noch Marketing.</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Dienst</th><th>Anbieter</th><th>Wofür</th><th>Stand heute</th></tr></thead><tbody>
+<tr><td>Google Analytics 4</td><td>Google Ireland Ltd (Google LLC, USA)</td><td>Besuchsstatistik mit anonymisierter IP</td><td>Nur mit Einwilligung — ohne konfigurierte Kennung wird gar nichts geladen</td></tr>
+<tr><td>Meta Pixel</td><td>Meta Platforms Ireland Ltd</td><td>Wirkung von Werbung messen</td><td>Nur mit Einwilligung — ohne konfigurierte Kennung wird gar nichts geladen</td></tr>
+<tr><td>Tawk.to</td><td>tawk.to Ltd</td><td>Live-Chat</td><td>Nur mit Einwilligung — ohne konfigurierte Kennung wird gar nichts geladen</td></tr>
+<tr><td>Google Fonts</td><td>Google Ireland Ltd (Google LLC, USA)</td><td>Schriften der Website</td><td>Wird immer geladen; dabei werden Ihre IP-Adresse und Ihr Browser an Google übermittelt</td></tr>
+</tbody></table></div>
+<p>Sie dürfen es sich jederzeit anders überlegen: Löschen Sie die Websitedaten in Ihrem Browser (Einstellungen → Datenschutz → Websitedaten), und beim nächsten Besuch erscheint der Banner erneut — der Entscheid liegt wieder bei Ihnen.</p>
+
+<h2>6. Wer diese Daten sonst noch sieht</h2>
+<p>Ich arbeite allein. Beteiligt sind nur technische Anbieter, die Daten in meinem Auftrag bearbeiten — Auftragsbearbeiter im Sinne von Art. 9 revDSG, vertraglich verpflichtet, die Daten ausschliesslich für ihre Leistung zu verwenden:</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Anbieter</th><th>Rolle</th><th>Wo</th></tr></thead><tbody>
+<tr><td>[Netlify, Inc. / GitHub, Inc.]</td><td>Hosting der Website und Empfang der Formularnachrichten</td><td>USA, mit Infrastruktur auch in der EU</td></tr>
+<tr><td>Supabase Inc.</td><td>Datenbank und Anmeldung des Kundenbereichs</td><td>Projekt gehostet in [região do projeto Supabase]</td></tr>
+<tr><td>Google Ireland Ltd</td><td>Schriften; Statistik nur bei Einwilligung</td><td>Irland / USA</td></tr>
+<tr><td>Meta Platforms Ireland Ltd</td><td>Werbe-Pixel, nur bei Einwilligung</td><td>Irland / USA</td></tr>
+<tr><td>tawk.to Ltd</td><td>Chat, nur bei Einwilligung</td><td>EU / USA</td></tr>
+</tbody></table></div>
+<p>Dazu sieht das Treuhandbüro, das meine Buchhaltung führt, die Rechnungen, und Behörden erhalten Daten, wenn das Gesetz es verlangt. Weiter geht nichts.</p>
+
+<h2>7. Bekanntgabe ins Ausland</h2>
+<p>Einige dieser Anbieter haben ihren Sitz ausserhalb der Schweiz, vor allem in den USA. Eine Bekanntgabe ins Ausland ist nur unter den Voraussetzungen von Art. 16 und 17 revDSG zulässig. Der Bundesrat führt in Anhang 1 der Datenschutzverordnung die Staaten mit angemessenem Schutz auf; seit dem 15. September 2024 gehören dazu die USA für Unternehmen, die unter dem <em>Swiss–U.S. Data Privacy Framework</em> zertifiziert sind. Ist ein Anbieter davon nicht erfasst, stützt sich die Übermittlung auf die vom EDÖB anerkannten Standardvertragsklauseln, ergänzt durch eine Prüfung des Ziellandes.</p>
+
+<h2>8. Sicherheit</h2>
+<p>Die Website wird ausschliesslich über HTTPS ausgeliefert, mit HSTS und einer restriktiven Content-Security-Policy. Administrative Zugänge sind mit starken Passwörtern und Zwei-Faktor-Authentifizierung geschützt, Sicherungskopien werden regelmässig erstellt. Kein System ist unfehlbar: Kommt es zu einer Verletzung der Datensicherheit mit hohem Risiko, melde ich sie dem EDÖB und, wo das Gesetz es verlangt, auch Ihnen (Art. 24 revDSG).</p>
+
+<h2>9. Ihre Rechte</h2>
+<ul>
+<li><strong>Auskunft</strong> (Art. 25 revDSG): erfahren, ob ich Daten über Sie bearbeite, welche, zu welchem Zweck, woher sie stammen, an wen ich sie bekanntgebe und wie lange ich sie aufbewahre. Kostenlos, Antwort in der Regel innert 30 Tagen.</li>
+<li><strong>Berichtigung</strong> (Art. 32 revDSG) unrichtiger oder unvollständiger Daten.</li>
+<li><strong>Löschung oder Vernichtung</strong> von Daten, die nicht mehr nötig sind.</li>
+<li><strong>Widerspruch</strong> gegen eine Bearbeitung — einschliesslich Streichung aus der Akquiseliste, mit sofortiger Wirkung.</li>
+<li><strong>Herausgabe oder Übertragung</strong> Ihrer Daten in einem gängigen elektronischen Format (Art. 28 revDSG).</li>
+<li><strong>Widerruf der Einwilligung</strong> jederzeit, ohne dass das bisher Geschehene davon berührt wird.</li>
+</ul>
+<p>Für all das genügt eine E-Mail an <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a>. Unter Umständen muss ich einen Identitätsnachweis verlangen — nur so gebe ich Ihre Daten nicht der falschen Person heraus.</p>
+<p>Sind Sie mit meiner Antwort nicht zufrieden, können Sie sich an den <strong>Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB)</strong>, Feldeggweg 1, 3003 Bern, <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a>, wenden und den Zivilweg beschreiten.</p>
+
+<h2>10. Keine automatisierten Entscheidungen</h2>
+<p>Ich treffe keine automatisierten Einzelentscheidungen und erstelle kein Profiling mit hohem Risiko (Art. 21 revDSG). Preise, Offerten und Antworten schreibt ein Mensch: ich.</p>
+
+<h2>11. Änderungen dieser Erklärung</h2>
+<p>Ändert sich etwas an der Website — ein anderer Hoster, ein neues Werkzeug, ein zusätzlicher Dienst —, aktualisiere ich diese Seite und das Datum oben. Massgebend ist immer die hier veröffentlichte Fassung.</p>
+    </div>
+    <div class="i18n-doc" data-lang="fr">
+<h1>Politique de confidentialité</h1>
+<p class="lg-updated">Version du 2 septembre 2026 · Loi fédérale sur la protection des données révisée (nLPD), en vigueur depuis le 1er septembre 2023</p>
+
+<p>Cette page explique sans détour quelles données personnelles sont traitées lorsque vous visitez prstudio.ch, lorsque vous m'écrivez, lorsque vous utilisez l'espace client et lorsque vous recevez de ma part un premier courriel de présentation. Je traite le strict nécessaire, je le conserve le moins longtemps possible, et je ne vends ni ne loue aucune donnée.</p>
+
+<h2>1. Qui est responsable</h2>
+<p>Responsable du traitement au sens de l'art. 5 let. j nLPD :</p>
+<p><strong>Pedro Ribeiro — PR Studio</strong> · [forma jurídica: empresa individual / Sàrl]<br>
+[Strasse Nr., PLZ Stalden VS], Suisse<br>
+Numéro d'identification des entreprises (IDE) : [CHE-000.000.000]<br>
+Courriel : <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> · Téléphone et WhatsApp : <a href="https://wa.me/41798257078">+41 79 825 70 78</a></p>
+<p>Je n'ai pas désigné de conseiller à la protection des données : l'interlocuteur pour toute question, c'est moi, et je réponds personnellement.</p>
+
+<h2>2. Quelles données je traite, pourquoi et combien de temps</h2>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Situation</th><th>Données</th><th>Finalité</th><th>Conservation</th></tr></thead><tbody>
+<tr><td>Visite du site</td><td>Adresse IP, date et heure, page demandée, page d'origine, navigateur et système, langue</td><td>Servir les pages, sécurité, détection des pannes et des abus</td><td>Journaux techniques de l'hébergeur, effacés après quelques jours à quelques semaines ; je n'en garde pas de copie</td></tr>
+<tr><td>Formulaire de contact</td><td>Nom, courriel, téléphone (facultatif), prestation choisie et votre message</td><td>Vous répondre et préparer une offre</td><td>24 mois après le dernier contact — en cas de contrat, voir la ligne « Clients »</td></tr>
+<tr><td>WhatsApp, courriel, téléphone</td><td>Numéro ou adresse, nom, contenu de l'échange</td><td>Idem</td><td>Idem</td></tr>
+<tr><td>Bandeau cookies</td><td>Votre choix (tout accepter / uniquement l'essentiel) et la langue retenue, dans le <code>localStorage</code> de votre navigateur</td><td>Respecter votre décision et pouvoir la démontrer</td><td>Reste sur votre appareil jusqu'à ce que vous effaciez les données du site</td></tr>
+<tr><td>Rapport d'erreur automatique</td><td>Message d'erreur, fichier et ligne, langue et identification du navigateur</td><td>Détecter les pannes avant que quelqu'un doive les signaler (au plus un avis par session)</td><td>12 mois</td></tr>
+<tr><td>Démonstrations de modèles</td><td>L'action effectuée dans la démo et, si vous l'inscrivez, le contact indiqué</td><td>Comprendre quelles démos intéressent et répondre aux demandes</td><td>12 mois</td></tr>
+<tr><td>Espace client (facultatif)</td><td>Courriel, mot de passe (conservé chiffré), messages, commandes et rendez-vous</td><td>Suivre votre projet à un seul endroit</td><td>Tant que le compte existe ; je le supprime sur demande</td></tr>
+<tr><td>Clients et facturation</td><td>Nom, adresse de facturation, coordonnées, contrat, factures</td><td>Exécuter le contrat et respecter les obligations comptables</td><td>10 ans dès la fin de l'exercice (art. 958f CO)</td></tr>
+<tr><td>Prospection commerciale B2B</td><td>Nom de l'établissement, localité, courriel et téléphone professionnels publiés, adresse, site web et une note sur la présence en ligne</td><td>Présenter mes services à votre entreprise</td><td>Retrait de la liste dès que vous le demandez ; sans réponse, 12 mois au maximum</td></tr>
+</tbody></table></div>
+
+<h2>3. La liste de prospection, expliquée</h2>
+<p>Je contacte par courriel des hôtels, des restaurants et d'autres entreprises du Valais. Les coordonnées proviennent de sources publiquement accessibles — le site de l'établissement lui-même, l'annuaire <em>search.ch</em>, les répertoires touristiques, les portails de réservation et les résultats de recherche — et se limitent à des données professionnelles publiées précisément pour être utilisées : nom de l'établissement, adresse, téléphone et courriel général. Je ne collecte aucune donnée sensible, je n'achète pas de listes et je n'envoie pas de campagnes de masse automatisées.</p>
+<p>Chaque courriel est écrit pour un destinataire précis, m'identifie clairement comme expéditeur et comporte toujours un moyen simple et gratuit de refuser tout nouveau contact — il suffit de répondre « stop ». Ce traitement repose sur l'intérêt prépondérant à faire connaître mon activité aux entreprises de mon marché (art. 31 al. 2 nLPD) et respecte l'art. 3 al. 1 let. o de la loi contre la concurrence déloyale, qui interdit la publicité de masse automatisée sans consentement. Si vous préférez ne rien recevoir, écrivez-moi : je vous retire de la liste le jour même.</p>
+
+<h2>4. Sur quel fondement</h2>
+<p>Contrairement au RGPD, la nLPD n'exige pas une base légale pour chaque traitement : le traitement est licite s'il respecte les principes de l'art. 6 — licéité, bonne foi, proportionnalité, finalité reconnaissable, exactitude et sécurité. Lorsqu'un traitement pourrait porter atteinte à la personnalité, il se justifie par le consentement, par un intérêt prépondérant privé ou public, ou par la loi (art. 30 et 31 nLPD). Concrètement :</p>
+<ul>
+<li><strong>Contrat et demandes d'offre :</strong> traitement en lien direct avec la conclusion ou l'exécution d'un contrat (art. 31 al. 2 let. a nLPD).</li>
+<li><strong>Statistiques et marketing :</strong> uniquement avec votre consentement explicite donné dans le bandeau (art. 6 al. 6 et 7 nLPD).</li>
+<li><strong>Sécurité et journaux techniques :</strong> intérêt prépondérant à faire fonctionner et à protéger le site.</li>
+<li><strong>Facturation et comptabilité :</strong> obligation légale.</li>
+</ul>
+<p>Si vous vous trouvez dans l'Union européenne, ces mêmes traitements reposent sur l'art. 6 par. 1 let. b (contrat), let. f (intérêt légitime) et let. a (consentement) du RGPD.</p>
+
+<h2>5. Cookies, stockage local et outils tiers</h2>
+<p>Ce site ne pose aucun cookie de suivi qui lui soit propre. Il utilise le <code>localStorage</code> de votre navigateur pour trois choses techniques : la langue choisie, votre décision sur le bandeau et le fait que vous avez déjà vu un avis. L'art. 45c let. b de la loi sur les télécommunications exige que vous soyez informé de ce traitement sur votre appareil et que vous puissiez le refuser ; le guide du PFPDT sur les cookies du 6 octobre 2025 précise en outre qu'un comportement passif — poursuivre la navigation ou faire défiler la page — ne vaut pas consentement. C'est pourquoi rien de statistique ni de marketing ne se charge avant que vous ayez cliqué sur « Tout accepter ».</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Outil</th><th>Fournisseur</th><th>Pour quoi</th><th>État actuel</th></tr></thead><tbody>
+<tr><td>Google Analytics 4</td><td>Google Ireland Ltd (Google LLC, États-Unis)</td><td>Statistiques de visite, IP anonymisée</td><td>Uniquement avec consentement — sans identifiant configuré, rien n'est chargé</td></tr>
+<tr><td>Meta Pixel</td><td>Meta Platforms Ireland Ltd</td><td>Mesurer le résultat des annonces</td><td>Uniquement avec consentement — sans identifiant configuré, rien n'est chargé</td></tr>
+<tr><td>Tawk.to</td><td>tawk.to Ltd</td><td>Chat en direct</td><td>Uniquement avec consentement — sans identifiant configuré, rien n'est chargé</td></tr>
+<tr><td>Google Fonts</td><td>Google Ireland Ltd (Google LLC, États-Unis)</td><td>Polices de caractères du site</td><td>Chargé systématiquement ; à cette occasion, votre adresse IP et votre navigateur sont transmis à Google</td></tr>
+</tbody></table></div>
+<p>Changer d'avis est simple : effacez les données de ce site dans votre navigateur (Paramètres → Confidentialité → Données de sites) et le bandeau réapparaîtra à la visite suivante, la décision de nouveau entre vos mains.</p>
+
+<h2>6. Qui d'autre voit ces données</h2>
+<p>Je travaille seul. Les seuls tiers impliqués sont des prestataires techniques qui traitent des données pour mon compte, en qualité de sous-traitants au sens de l'art. 9 nLPD, contractuellement tenus de ne les utiliser que pour la prestation fournie :</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Prestataire</th><th>Rôle</th><th>Où</th></tr></thead><tbody>
+<tr><td>[Netlify, Inc. / GitHub, Inc.]</td><td>Hébergement du site et réception des messages du formulaire</td><td>États-Unis, avec une infrastructure également dans l'UE</td></tr>
+<tr><td>Supabase Inc.</td><td>Base de données et authentification de l'espace client</td><td>Projet hébergé en [região do projeto Supabase]</td></tr>
+<tr><td>Google Ireland Ltd</td><td>Polices de caractères ; statistiques uniquement si vous y consentez</td><td>Irlande / États-Unis</td></tr>
+<tr><td>Meta Platforms Ireland Ltd</td><td>Pixel publicitaire, uniquement si vous y consentez</td><td>Irlande / États-Unis</td></tr>
+<tr><td>tawk.to Ltd</td><td>Chat, uniquement si vous y consentez</td><td>UE / États-Unis</td></tr>
+</tbody></table></div>
+<p>S'y ajoutent la fiduciaire qui tient ma comptabilité, qui voit les factures, et les autorités, lorsque la loi l'impose. Rien d'autre ne sort d'ici.</p>
+
+<h2>7. Communication à l'étranger</h2>
+<p>Certains de ces prestataires sont établis hors de Suisse, principalement aux États-Unis. Une communication de données à l'étranger n'est admissible qu'aux conditions des art. 16 et 17 nLPD. Le Conseil fédéral énumère à l'annexe 1 de l'ordonnance sur la protection des données les États offrant une protection adéquate ; depuis le 15 septembre 2024, cette liste inclut les États-Unis pour les entreprises certifiées sous le <em>Swiss–U.S. Data Privacy Framework</em>. Lorsqu'un prestataire n'est pas couvert par cette décision, le transfert s'appuie sur les clauses contractuelles types reconnues par le PFPDT, assorties d'une évaluation du pays de destination.</p>
+
+<h2>8. Sécurité</h2>
+<p>Le site est servi exclusivement en HTTPS, avec HSTS et une politique de sécurité du contenu (CSP) restrictive. Les accès d'administration sont protégés par des mots de passe forts et une vérification en deux étapes, et les sauvegardes sont régulières. Aucun système n'est infaillible : en cas de violation de la sécurité des données entraînant un risque élevé, je l'annonce au PFPDT et, lorsque la loi l'exige, à vous également (art. 24 nLPD).</p>
+
+<h2>9. Vos droits</h2>
+<ul>
+<li><strong>Accès</strong> (art. 25 nLPD) : savoir si je traite des données vous concernant, lesquelles, à quelles fins, d'où elles viennent, à qui je les communique et combien de temps je les conserve. C'est gratuit, et je réponds en principe dans les 30 jours.</li>
+<li><strong>Rectification</strong> (art. 32 nLPD) des données inexactes ou incomplètes.</li>
+<li><strong>Effacement ou destruction</strong> des données qui ne sont plus nécessaires.</li>
+<li><strong>Opposition</strong> à un traitement — y compris la sortie de la liste de prospection, avec effet immédiat.</li>
+<li><strong>Remise ou transmission</strong> de vos données dans un format électronique courant (art. 28 nLPD).</li>
+<li><strong>Retrait du consentement</strong> à tout moment, sans effet sur ce qui a été fait auparavant.</li>
+</ul>
+<p>Pour tout cela, un courriel à <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> suffit. Il se peut que je doive demander une preuve d'identité — c'est la seule façon de ne pas remettre vos données à la mauvaise personne.</p>
+<p>Si ma réponse ne vous satisfait pas, vous pouvez vous adresser au <strong>Préposé fédéral à la protection des données et à la transparence (PFPDT)</strong>, Feldeggweg 1, 3003 Berne, <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a>, et saisir les tribunaux civils.</p>
+
+<h2>10. Pas de décision automatisée</h2>
+<p>Je ne prends aucune décision individuelle automatisée et je ne réalise aucun profilage à risque élevé (art. 21 nLPD). Les prix, les offres et les réponses sont écrits par une personne : moi.</p>
+
+<h2>11. Modifications de cette politique</h2>
+<p>Si le site évolue — autre hébergeur, nouvel outil, service supplémentaire —, je mets à jour cette page et la date en tête. La version publiée ici fait toujours foi.</p>
+    </div>
+    <div class="i18n-doc" data-lang="it">
+<h1>Informativa sulla privacy</h1>
+<p class="lg-updated">Versione del 2 settembre 2026 · Legge federale sulla protezione dei dati riveduta (nLPD), in vigore dal 1° settembre 2023</p>
+
+<p>Questa pagina spiega senza giri di parole quali dati personali vengono trattati quando visiti prstudio.ch, quando mi scrivi, quando usi l'area clienti e quando ricevi da me una prima email di presentazione. Tratto solo il necessario, lo conservo per il minor tempo possibile e non vendo né affitto dati a nessuno.</p>
+
+<h2>1. Chi è il titolare</h2>
+<p>Titolare del trattamento ai sensi dell'art. 5 lett. j nLPD:</p>
+<p><strong>Pedro Ribeiro — PR Studio</strong> · [forma jurídica: empresa individual / Sàrl]<br>
+[Strasse Nr., PLZ Stalden VS], Svizzera<br>
+Numero d'identificazione delle imprese (IDI): [CHE-000.000.000]<br>
+Email: <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> · Telefono e WhatsApp: <a href="https://wa.me/41798257078">+41 79 825 70 78</a></p>
+<p>Non ho designato un consulente per la protezione dei dati: l'interlocutore per qualsiasi domanda sono io, e rispondo personalmente.</p>
+
+<h2>2. Quali dati tratto, per quale scopo e per quanto tempo</h2>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Situazione</th><th>Dati</th><th>Scopo</th><th>Conservazione</th></tr></thead><tbody>
+<tr><td>Visita al sito</td><td>Indirizzo IP, data e ora, pagina richiesta, pagina di provenienza, browser e sistema operativo, lingua</td><td>Consegnare le pagine, sicurezza, individuazione di guasti e abusi</td><td>Log tecnici dell'hoster, cancellati dopo pochi giorni o poche settimane; non ne conservo copia</td></tr>
+<tr><td>Modulo di contatto</td><td>Nome, email, telefono (facoltativo), servizio scelto e il tuo messaggio</td><td>Risponderti e preparare un'offerta</td><td>24 mesi dall'ultimo contatto — in caso di contratto, vedi la riga «Clienti»</td></tr>
+<tr><td>WhatsApp, email, telefono</td><td>Numero o indirizzo, nome, contenuto della conversazione</td><td>Lo stesso</td><td>Lo stesso</td></tr>
+<tr><td>Banner dei cookie</td><td>La tua scelta (accetta tutto / solo l'essenziale) e la lingua preferita, nel <code>localStorage</code> del tuo browser</td><td>Rispettare la tua decisione e poterla dimostrare</td><td>Resta sul tuo dispositivo finché non cancelli i dati del sito</td></tr>
+<tr><td>Segnalazione automatica di errori</td><td>Messaggio d'errore, file e riga, lingua e identificazione del browser</td><td>Scoprire i guasti prima che qualcuno debba segnalarli (al massimo un avviso per sessione)</td><td>12 mesi</td></tr>
+<tr><td>Dimostrazioni dei modelli</td><td>L'azione compiuta nella demo e, se lo scrivi, il contatto che inserisci</td><td>Capire quali demo interessano e rispondere alle richieste</td><td>12 mesi</td></tr>
+<tr><td>Area clienti (facoltativa)</td><td>Email, password (conservata cifrata), messaggi, ordini e riunioni</td><td>Seguire il tuo progetto in un unico posto</td><td>Finché l'account esiste; lo cancello su richiesta</td></tr>
+<tr><td>Clienti e fatturazione</td><td>Nome, indirizzo di fatturazione, recapiti, contratto, fatture</td><td>Eseguire il contratto e rispettare gli obblighi contabili</td><td>10 anni dalla fine dell'esercizio (art. 958f CO)</td></tr>
+<tr><td>Prospezione commerciale B2B</td><td>Nome dell'esercizio, località, email e telefono professionali pubblicati, indirizzo, sito web e una nota sulla presenza online</td><td>Presentare i miei servizi alla tua azienda</td><td>Ti tolgo dalla lista appena me lo chiedi; senza risposta, al massimo 12 mesi</td></tr>
+</tbody></table></div>
+
+<h2>3. La lista di prospezione, spiegata</h2>
+<p>Contatto per email alberghi, ristoranti e altre attività del Vallese. I recapiti provengono da fonti pubblicamente accessibili — il sito dell'esercizio stesso, l'elenco <em>search.ch</em>, le guide turistiche, i portali di prenotazione e i risultati di ricerca — e si limitano a dati professionali pubblicati proprio per essere usati: nome dell'esercizio, indirizzo, telefono ed email generale. Non raccolgo dati degni di particolare protezione, non compro liste e non invio campagne di massa automatizzate.</p>
+<p>Ogni email è scritta per un destinatario preciso, mi identifica chiaramente come mittente e contiene sempre un modo semplice e gratuito per rifiutare ulteriori contatti — basta rispondere «stop». Il trattamento si fonda sull'interesse preponderante a far conoscere la mia attività alle imprese del mio mercato (art. 31 cpv. 2 nLPD) e rispetta l'art. 3 cpv. 1 lett. o della legge contro la concorrenza sleale, che vieta la pubblicità di massa automatizzata senza consenso. Se preferisci non ricevere nulla, scrivimi: ti tolgo dalla lista in giornata.</p>
+
+<h2>4. Su quale fondamento</h2>
+<p>A differenza del GDPR, la nLPD non richiede una base giuridica per ogni trattamento: il trattamento è lecito se rispetta i principi dell'art. 6 — liceità, buona fede, proporzionalità, scopo riconoscibile, esattezza e sicurezza. Quando un trattamento potrebbe ledere la personalità, si giustifica con il consenso, con un interesse preponderante privato o pubblico, oppure con la legge (art. 30 e 31 nLPD). In concreto:</p>
+<ul>
+<li><strong>Contratto e richieste di preventivo:</strong> trattamento in relazione diretta con la conclusione o l'esecuzione di un contratto (art. 31 cpv. 2 lett. a nLPD).</li>
+<li><strong>Statistiche e marketing:</strong> solo con il tuo consenso esplicito dato nel banner (art. 6 cpv. 6 e 7 nLPD).</li>
+<li><strong>Sicurezza e log tecnici:</strong> interesse preponderante a far funzionare e proteggere il sito.</li>
+<li><strong>Fatturazione e contabilità:</strong> obbligo di legge.</li>
+</ul>
+<p>Se ti trovi nell'Unione europea, gli stessi trattamenti si fondano sull'art. 6 par. 1 lett. b (contratto), lett. f (interesse legittimo) e lett. a (consenso) del GDPR.</p>
+
+<h2>5. Cookie, archiviazione locale e strumenti di terzi</h2>
+<p>Questo sito non usa cookie di tracciamento propri. Usa il <code>localStorage</code> del tuo browser per tre cose tecniche: la lingua scelta, la tua decisione sul banner e il fatto che hai già visto un avviso. L'art. 45c lett. b della legge sulle telecomunicazioni richiede che tu sia informato di questo trattamento sul tuo apparecchio e che tu possa rifiutarlo; la guida dell'IFPDT sui cookie del 6 ottobre 2025 aggiunge che il comportamento passivo — continuare a navigare o scorrere la pagina — non vale come consenso. Per questo nulla di statistico o di marketing viene caricato prima che tu clicchi su «Accetta tutto».</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Strumento</th><th>Fornitore</th><th>Per che cosa</th><th>Stato attuale</th></tr></thead><tbody>
+<tr><td>Google Analytics 4</td><td>Google Ireland Ltd (Google LLC, USA)</td><td>Statistiche di visita, con IP anonimizzato</td><td>Solo con consenso — senza identificatore configurato non viene caricato</td></tr>
+<tr><td>Meta Pixel</td><td>Meta Platforms Ireland Ltd</td><td>Misurare il risultato degli annunci</td><td>Solo con consenso — senza identificatore configurato non viene caricato</td></tr>
+<tr><td>Tawk.to</td><td>tawk.to Ltd</td><td>Chat dal vivo</td><td>Solo con consenso — senza identificatore configurato non viene caricato</td></tr>
+<tr><td>Google Fonts</td><td>Google Ireland Ltd (Google LLC, USA)</td><td>Caratteri tipografici del sito</td><td>Viene caricato sempre; in quella richiesta il tuo indirizzo IP e il tuo browser sono comunicati a Google</td></tr>
+</tbody></table></div>
+<p>Cambiare idea è semplice: cancella i dati di questo sito nel tuo browser (Impostazioni → Privacy → Dati dei siti) e alla visita successiva il banner ricompare, con la decisione di nuovo nelle tue mani.</p>
+
+<h2>6. Chi altro vede questi dati</h2>
+<p>Lavoro da solo. Gli unici terzi coinvolti sono fornitori tecnici che trattano dati per mio conto, come responsabili del trattamento ai sensi dell'art. 9 nLPD, vincolati per contratto a usarli soltanto per il servizio che erogano:</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Fornitore</th><th>Ruolo</th><th>Dove</th></tr></thead><tbody>
+<tr><td>[Netlify, Inc. / GitHub, Inc.]</td><td>Hosting del sito e ricezione dei messaggi del modulo</td><td>USA, con infrastruttura anche nell'UE</td></tr>
+<tr><td>Supabase Inc.</td><td>Banca dati e autenticazione dell'area clienti</td><td>Progetto ospitato in [região do projeto Supabase]</td></tr>
+<tr><td>Google Ireland Ltd</td><td>Caratteri tipografici; statistiche solo se acconsenti</td><td>Irlanda / USA</td></tr>
+<tr><td>Meta Platforms Ireland Ltd</td><td>Pixel pubblicitario, solo se acconsenti</td><td>Irlanda / USA</td></tr>
+<tr><td>tawk.to Ltd</td><td>Chat, solo se acconsenti</td><td>UE / USA</td></tr>
+</tbody></table></div>
+<p>A questi si aggiungono il fiduciario che tiene la mia contabilità, che vede le fatture, e le autorità, quando la legge lo impone. Nient'altro esce da qui.</p>
+
+<h2>7. Comunicazione all'estero</h2>
+<p>Alcuni di questi fornitori hanno sede fuori dalla Svizzera, soprattutto negli Stati Uniti. La comunicazione di dati all'estero è ammessa solo alle condizioni degli art. 16 e 17 nLPD. Il Consiglio federale elenca nell'allegato 1 dell'ordinanza sulla protezione dei dati gli Stati con una protezione adeguata; dal 15 settembre 2024 vi figurano gli Stati Uniti per le imprese certificate secondo lo <em>Swiss–U.S. Data Privacy Framework</em>. Se un fornitore non è coperto da quella decisione, il trasferimento si fonda sulle clausole contrattuali tipo riconosciute dall'IFPDT, accompagnate da una valutazione del Paese di destinazione.</p>
+
+<h2>8. Sicurezza</h2>
+<p>Il sito è servito esclusivamente in HTTPS, con HSTS e una politica di sicurezza dei contenuti (CSP) restrittiva. Gli accessi amministrativi sono protetti da password robuste e verifica in due passaggi, e i backup sono regolari. Nessun sistema è infallibile: in caso di violazione della sicurezza dei dati con rischio elevato, la notifico all'IFPDT e, quando la legge lo esige, anche a te (art. 24 nLPD).</p>
+
+<h2>9. I tuoi diritti</h2>
+<ul>
+<li><strong>Accesso</strong> (art. 25 nLPD): sapere se tratto dati che ti riguardano, quali, per quale scopo, da dove provengono, a chi li comunico e per quanto tempo li conservo. È gratuito e rispondo di regola entro 30 giorni.</li>
+<li><strong>Rettifica</strong> (art. 32 nLPD) di dati inesatti o incompleti.</li>
+<li><strong>Cancellazione o distruzione</strong> dei dati non più necessari.</li>
+<li><strong>Opposizione</strong> a un trattamento — compresa l'uscita dalla lista di prospezione, con effetto immediato.</li>
+<li><strong>Consegna o trasmissione</strong> dei tuoi dati in un formato elettronico corrente (art. 28 nLPD).</li>
+<li><strong>Revoca del consenso</strong> in qualsiasi momento, senza effetto su quanto già avvenuto.</li>
+</ul>
+<p>Per tutto questo basta un'email a <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a>. Potrei doverti chiedere una prova d'identità: è l'unico modo per non consegnare i tuoi dati alla persona sbagliata.</p>
+<p>Se la mia risposta non ti soddisfa, puoi rivolgerti all'<strong>Incaricato federale della protezione dei dati e della trasparenza (IFPDT)</strong>, Feldeggweg 1, 3003 Berna, <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a>, e adire le vie civili.</p>
+
+<h2>10. Nessuna decisione automatizzata</h2>
+<p>Non prendo decisioni individuali automatizzate e non eseguo profilazione a rischio elevato (art. 21 nLPD). Prezzi, offerte e risposte li scrive una persona: io.</p>
+
+<h2>11. Modifiche a questa informativa</h2>
+<p>Se il sito cambia — un altro hoster, uno strumento nuovo, un servizio in più — aggiorno questa pagina e la data in alto. Vale sempre la versione qui pubblicata.</p>
+    </div>
+    <div class="i18n-doc" data-lang="en">
+<h1>Privacy Policy</h1>
+<p class="lg-updated">Version of 2 September 2026 · Revised Swiss Federal Act on Data Protection (revFADP), in force since 1 September 2023</p>
+
+<p>This page explains, plainly, which personal data are processed when you visit prstudio.ch, when you write to me, when you use the client area and when you receive a first business email from me. I process the minimum needed, keep it for as short a time as possible, and never sell or rent data to anyone.</p>
+
+<h2>1. Who is responsible</h2>
+<p>Controller within the meaning of art. 5 lit. j revFADP:</p>
+<p><strong>Pedro Ribeiro — PR Studio</strong> · [forma jurídica: empresa individual / Sàrl]<br>
+[Strasse Nr., PLZ Stalden VS], Switzerland<br>
+Business identification number (UID): [CHE-000.000.000]<br>
+Email: <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> · Phone and WhatsApp: <a href="https://wa.me/41798257078">+41 79 825 70 78</a></p>
+<p>I have not appointed a data protection adviser: I am the contact for every question, and I answer personally.</p>
+
+<h2>2. What I process, why, and for how long</h2>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Situation</th><th>Data</th><th>Purpose</th><th>Retention</th></tr></thead><tbody>
+<tr><td>Visiting the site</td><td>IP address, date and time, page requested, referring page, browser and operating system, language</td><td>Serving the pages, security, spotting faults and abuse</td><td>Technical logs held by the host, deleted after a few days to a few weeks; I keep no separate copy</td></tr>
+<tr><td>Contact form</td><td>Name, email, phone (optional), the service you picked and your message</td><td>Answering you and preparing an offer</td><td>24 months after the last contact — if a contract follows, see the "Clients" row</td></tr>
+<tr><td>WhatsApp, email, phone</td><td>Number or address, name, content of the conversation</td><td>The same</td><td>The same</td></tr>
+<tr><td>Cookie banner</td><td>Your choice (accept all / essential only) and your preferred language, in your browser's <code>localStorage</code></td><td>Honouring your decision and being able to show it</td><td>Stays on your device until you clear the site data</td></tr>
+<tr><td>Automatic error report</td><td>Error message, file and line, language and browser identification</td><td>Catching faults before anyone has to report them (at most one notice per session)</td><td>12 months</td></tr>
+<tr><td>Template demos</td><td>The action you took in the demo and, if you type one, the contact detail you enter</td><td>Understanding which demos are of interest and answering enquiries</td><td>12 months</td></tr>
+<tr><td>Client area (optional)</td><td>Email, password (stored encrypted), messages, orders and meetings</td><td>Running your project in one place</td><td>As long as the account exists; I delete it on request</td></tr>
+<tr><td>Clients and invoicing</td><td>Name, billing address, contact details, contract, invoices</td><td>Performing the contract and meeting accounting duties</td><td>10 years from the end of the financial year (art. 958f CO)</td></tr>
+<tr><td>B2B outreach</td><td>Business name, locality, published business email and phone, address, website and a note on the online presence</td><td>Introducing my services to your business</td><td>Removed from the list as soon as you ask; without a reply, 12 months at most</td></tr>
+</tbody></table></div>
+
+<h2>3. The outreach list, explained</h2>
+<p>I email hotels, restaurants and other businesses in Valais. The contact details come from publicly accessible sources — the business's own website, the <em>search.ch</em> directory, tourism listings, booking portals and search results — and are limited to business data published precisely to be used: business name, address, general phone number and email. I collect no sensitive data, buy no lists, and send no automated mass campaigns.</p>
+<p>Every email is written for one specific recipient, identifies me clearly as the sender, and always includes a simple, free way to refuse further contact — replying "stop" is enough. The processing rests on the overriding interest in making my work known to businesses in my market (art. 31 para. 2 revFADP) and complies with art. 3 para. 1 lit. o of the Unfair Competition Act, which prohibits automated mass advertising without consent. If you would rather hear nothing, write to me and I will remove you the same day.</p>
+
+<h2>4. On what basis I process data</h2>
+<p>Unlike the GDPR, the revFADP does not require a legal basis for each processing operation: processing is lawful where it respects the principles of art. 6 — lawfulness, good faith, proportionality, recognisable purpose, accuracy and security. Where processing could infringe someone's personality, it is justified by consent, by an overriding private or public interest, or by law (art. 30 and 31 revFADP). Specifically:</p>
+<ul>
+<li><strong>Contracts and quote requests:</strong> processing in direct connection with the conclusion or performance of a contract (art. 31 para. 2 lit. a revFADP).</li>
+<li><strong>Statistics and marketing:</strong> only with your explicit consent given in the banner (art. 6 para. 6 and 7 revFADP).</li>
+<li><strong>Security and technical logs:</strong> the overriding interest in keeping the site running and protected.</li>
+<li><strong>Invoicing and accounting:</strong> a legal obligation.</li>
+</ul>
+<p>If you are in the European Union, the same processing rests on art. 6(1)(b) (contract), (f) (legitimate interest) and (a) (consent) GDPR.</p>
+
+<h2>5. Cookies, local storage and third-party tools</h2>
+<p>This site sets no tracking cookies of its own. It uses your browser's <code>localStorage</code> for three technical things: the language you chose, your decision on the banner, and the fact that you have already seen a notice. Art. 45c lit. b of the Telecommunications Act requires that you be informed about this processing on your device and be able to refuse it; the FDPIC's cookie guidance of 6 October 2025 adds that passive behaviour — reading on or scrolling — is not valid consent. That is why nothing statistical or marketing-related loads before you click "Accept all".</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Tool</th><th>Provider</th><th>What for</th><th>Status today</th></tr></thead><tbody>
+<tr><td>Google Analytics 4</td><td>Google Ireland Ltd (Google LLC, USA)</td><td>Visit statistics, with the IP anonymised</td><td>Only with consent — with no ID configured, it never loads</td></tr>
+<tr><td>Meta Pixel</td><td>Meta Platforms Ireland Ltd</td><td>Measuring advertising results</td><td>Only with consent — with no ID configured, it never loads</td></tr>
+<tr><td>Tawk.to</td><td>tawk.to Ltd</td><td>Live chat</td><td>Only with consent — with no ID configured, it never loads</td></tr>
+<tr><td>Google Fonts</td><td>Google Ireland Ltd (Google LLC, USA)</td><td>The site's typefaces</td><td>Always loaded; in that request your IP address and browser are transmitted to Google</td></tr>
+</tbody></table></div>
+<p>Changing your mind is easy: clear this site's data in your browser (Settings → Privacy → Site data) and the banner reappears on your next visit, with the decision back in your hands.</p>
+
+<h2>6. Who else sees this data</h2>
+<p>I work alone. The only third parties involved are technical providers processing data on my behalf, as processors within the meaning of art. 9 revFADP, contractually bound to use it only for the service they deliver:</p>
+<div class="lg-tbl-wrap"><table class="lg-tbl"><thead><tr><th>Provider</th><th>Role</th><th>Where</th></tr></thead><tbody>
+<tr><td>[Netlify, Inc. / GitHub, Inc.]</td><td>Hosting the site and receiving contact form messages</td><td>USA, with infrastructure in the EU as well</td></tr>
+<tr><td>Supabase Inc.</td><td>Database and authentication for the client area</td><td>Project hosted in [região do projeto Supabase]</td></tr>
+<tr><td>Google Ireland Ltd</td><td>Typefaces; statistics only if you consent</td><td>Ireland / USA</td></tr>
+<tr><td>Meta Platforms Ireland Ltd</td><td>Advertising pixel, only if you consent</td><td>Ireland / USA</td></tr>
+<tr><td>tawk.to Ltd</td><td>Chat, only if you consent</td><td>EU / USA</td></tr>
+</tbody></table></div>
+<p>Beyond those, the accountant who keeps my books sees the invoices, and authorities receive data where the law requires it. Nothing else leaves here.</p>
+
+<h2>7. Transfers abroad</h2>
+<p>Some of these providers are based outside Switzerland, mainly in the United States. Disclosing data abroad is permitted only under the conditions of art. 16 and 17 revFADP. The Federal Council lists the states with adequate protection in Annex 1 to the Data Protection Ordinance; since 15 September 2024 that list includes the United States for companies certified under the <em>Swiss–U.S. Data Privacy Framework</em>. Where a provider is not covered by that decision, the transfer relies on the standard contractual clauses recognised by the FDPIC, together with an assessment of the destination country.</p>
+
+<h2>8. Security</h2>
+<p>The site is served over HTTPS only, with HSTS and a restrictive Content Security Policy. Administrative accounts are protected by strong passwords and two-step verification, and backups run regularly. No system is infallible: should a data security breach with high risk occur, I report it to the FDPIC and, where the law requires, to you as well (art. 24 revFADP).</p>
+
+<h2>9. Your rights</h2>
+<ul>
+<li><strong>Access</strong> (art. 25 revFADP): to learn whether I process data about you, which data, for what purpose, where it came from, to whom I disclose it and how long I keep it. It is free, and I normally reply within 30 days.</li>
+<li><strong>Rectification</strong> (art. 32 revFADP) of inaccurate or incomplete data.</li>
+<li><strong>Erasure or destruction</strong> of data that is no longer needed.</li>
+<li><strong>Objection</strong> to a processing operation — including leaving the outreach list, with immediate effect.</li>
+<li><strong>Handover or transfer</strong> of your data in a common electronic format (art. 28 revFADP).</li>
+<li><strong>Withdrawal of consent</strong> at any time, without affecting what was done before.</li>
+</ul>
+<p>An email to <a href="mailto:pedrooribeiro7555@icloud.com">pedrooribeiro7555@icloud.com</a> is enough for any of this. I may have to ask for proof of identity — it is the only way not to hand your data to the wrong person.</p>
+<p>If my answer does not satisfy you, you can turn to the <strong>Federal Data Protection and Information Commissioner (FDPIC)</strong>, Feldeggweg 1, 3003 Bern, <a href="https://www.edoeb.admin.ch">edoeb.admin.ch</a>, and take the matter to the civil courts.</p>
+
+<h2>10. No automated decisions</h2>
+<p>I make no automated individual decisions and carry out no high-risk profiling (art. 21 revFADP). Prices, offers and answers are written by a person: me.</p>
+
+<h2>11. Changes to this policy</h2>
+<p>If the site changes — a different host, a new tool, one more service — I update this page and the date at the top. The version published here is always the one that applies.</p>
+    </div>
+  </main>
+  <footer class="lg-foot">
+    <span class="i18n-doc lg-links" data-display="flex" data-lang="pt"><a href="index.html">Voltar ao site</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="de"><a href="index.html">Zurück zur Website</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="fr"><a href="index.html">Retour au site</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="it"><a href="index.html">Torna al sito</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="en"><a href="index.html">Back to site</a></span>
+    <span class="lg-mono">© <span id="year"></span> Pedro Ribeiro · Stalden VS</span>
+  </footer>
+</div>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script>
+document.documentElement.className += " js";
+(function () {
+  var LANGS = ["pt","de","fr","it","en"];
+  var TITLES = {"pt":"Política de Privacidade — PR Studio","de":"Datenschutzerklärung — PR Studio","fr":"Politique de confidentialité — PR Studio","it":"Informativa sulla privacy — PR Studio","en":"Privacy Policy — PR Studio"};
+  function detect() {
+    var saved = null;
+    try { saved = localStorage.getItem("pr-lang"); } catch (e) {}
+    try {
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q && LANGS.indexOf(q) !== -1) saved = q;
+    } catch (e) {}
+    if (!saved) {
+      var nav = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase();
+      if (nav.indexOf("de") === 0) saved = "de";
+      else if (nav.indexOf("fr") === 0) saved = "fr";
+      else if (nav.indexOf("it") === 0) saved = "it";
+      else if (nav.indexOf("en") === 0) saved = "en";
+    }
+    return (saved && LANGS.indexOf(saved) !== -1) ? saved : "pt";
+  }
+  var HTML_LANG = { pt: "pt-PT", de: "de-CH", fr: "fr-CH", it: "it-CH", en: "en" };
+  function setLang(lang) {
+    document.querySelectorAll(".i18n-doc").forEach(function (el) {
+      var active = el.getAttribute("data-lang") === lang;
+      el.style.display = active ? (el.getAttribute("data-display") || "block") : "none";
+    });
+    document.documentElement.lang = HTML_LANG[lang] || lang;
+    document.querySelectorAll(".langs button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+    if (TITLES[lang]) document.title = TITLES[lang];
+    try { localStorage.setItem("pr-lang", lang); } catch (e) {}
+  }
+  document.querySelectorAll(".langs button").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+  });
+  setLang(detect());
+})();
+</script>
+</body>
+</html>
