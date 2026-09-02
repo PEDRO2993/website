@@ -19,3 +19,5 @@ ruvector.db*
 *.db-shm
 *.db-wal
 .hive-mind/
+.claude-flow/daemon.pid
+.claude-flow/metrics/
