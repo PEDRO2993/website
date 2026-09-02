@@ -3678,17 +3678,22 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   var header = document.getElementById("siteHeader");
   var progress = document.getElementById("progress");
   var heroWrap = document.querySelector(".hero .wrap");
-  function onScroll() {
+  /* scroll: uma leitura por frame; scrollHeight (força layout) só de 500 em 500 ms */
+  var scrollMax = 0, scrollMaxAt = 0, scrollQueued = false;
+  function onScrollFrame(now) {
+    scrollQueued = false;
     var y = window.scrollY || 0;
     header.classList.toggle("scrolled", y > 12);
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+    if (now - scrollMaxAt > 500) { scrollMax = document.documentElement.scrollHeight - window.innerHeight; scrollMaxAt = now; }
+    progress.style.transform = "scaleX(" + (scrollMax > 0 ? Math.min(1, y / scrollMax) : 0) + ")";
     if (!REDUCED && y < 900) {
       heroWrap.style.transform = "translateY(" + y * 0.1 + "px)";
       heroWrap.style.opacity = Math.max(0, 1 - y / 750);
     }
   }
+  function onScroll() { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(onScrollFrame); } }
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", function () { scrollMaxAt = 0; onScroll(); }, { passive: true });
   onScroll();
 
   /* ---------- mobile menu ---------- */
