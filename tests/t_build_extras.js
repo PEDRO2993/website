@@ -35,7 +35,7 @@ for (const l of LANGS) {
   }
 }
 for (const l of LANGS) ok(l + 'index.html: teaser do blog com 3 cartões do idioma', (read(l + 'index.html').match(new RegExp('class="card reveal" href="/' + l + '[a-z-]+\\.html"', 'g')) || []).length === 3);
-ok('preco-site-suica: tabela dentro de .lg-tbl-wrap', /<div class="lg-tbl-wrap"><table class="lg-tbl">/.test(read('de/preco-site-suica.html')));
+ok('preco-site-suica: tabela dentro de .lg-tbl-wrap', /<div class="lg-tbl-wrap"[^>]*><table class="lg-tbl">/.test(read('de/preco-site-suica.html')));
 const HP = { 'de/': 'Nicht ausfüllen:', 'fr/': 'Ne pas remplir', 'it/': 'Non compilare:', 'en/': 'Do not fill in:' };
 for (const [l, t] of Object.entries(HP)) ok(l + 'index.html: honeypot traduzido', read(l + 'index.html').includes(t));
 for (const l of LANGS) {

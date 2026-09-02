@@ -32,7 +32,8 @@ async function fetchPosts() {
 }
 
 // caminho público de um post
-const wrapTables = (h) => String(h || '').replace(/<table class="lg-tbl">[\s\S]*?<\/table>/g, (t) => '<div class="lg-tbl-wrap">' + t + '</div>');
+const TBL_LABEL = { pt: 'Tabela', de: 'Tabelle', fr: 'Tableau', it: 'Tabella', en: 'Table' };
+const wrapTables = (h, lang) => String(h || '').replace(/<table class="lg-tbl">[\s\S]*?<\/table>/g, (t) => '<div class="lg-tbl-wrap" tabindex="0" role="region" aria-label="' + (TBL_LABEL[lang] || 'Table') + '">' + t + '</div>');
 const shareRow = (ui) => `<p class="lg-share"><span>${ui.share[0]}</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="${esc(ui.share[2])}">${esc(ui.share[1])}</button></p>`;
 const SHARE_JS = "<script>\n/* partilha: URLs construídos no browser (título + endereço da página); copiar link com fallback */\n(function () {\n  var t = document.title, u = location.href, e = encodeURIComponent;\n  document.querySelectorAll('.lg-share').forEach(function (p) {\n    p.querySelector('[data-share=\"wa\"]').href = 'https://wa.me/?text=' + e(t + ' ' + u);\n    p.querySelector('[data-share=\"li\"]').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + e(u);\n    var b = p.querySelector('[data-share=\"copy\"]'), txt = b.textContent;\n    b.addEventListener('click', function () {\n      var done = function () { b.textContent = b.getAttribute('data-done'); b.classList.add('done'); setTimeout(function () { b.textContent = txt; b.classList.remove('done'); }, 2200); };\n      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(done, function () { window.prompt('Link:', u); });\n      else window.prompt('Link:', u);\n    });\n  });\n})();\n</script>";
 const pathFor = (PREFIX, lang, slug) => `${PREFIX[lang]}blog/${slug}.html`;
@@ -121,7 +122,7 @@ ${alts.join('\n')}
     <article>
       <h1>${esc(p.title)}</h1>
       <p class="lg-updated"><time datetime="${esc(String(p.published_at).slice(0, 10))}">${esc(fmtDate(p.published_at, p.lang))}</time> · Pedro Ribeiro · ${Math.max(1, Math.round(words / 200))} min</p>
-      ${wrapTables(p.body_html)}
+      ${wrapTables(p.body_html, p.lang)}
     </article>
     <aside class="cta">
       <h2>${ui.cta}</h2>

@@ -398,6 +398,16 @@ function buildDocPage(file) {
         { '@type': 'ListItem', position: 2, name: 'Blog', item: ORIGIN + PREFIX[lang] + 'blog.html' } ] };
       html = html.replace('</head>', '<script type="application/ld+json">' + JSON.stringify(bcb) + '</script>\n</head>');
     }
+    /* WebPage JSON-LD para páginas sem Article nem ld+json (legais) */
+    if (!/"@type":\s*"Article"/.test(html) && file !== 'blog.html' && !/application\/ld\+json/.test(html)) {
+      const h1w = (block.match(/<h1[^>]*>([^<]*)/) || [, ''])[1].replace(/&amp;/g, '&');
+      const wp = { '@context': 'https://schema.org', '@type': 'WebPage', name: h1w, description: desc, inLanguage: HTML_LANG[lang], url: ORIGIN + pathFor(lang),
+        isPartOf: { '@type': 'WebSite', name: 'PR Studio', url: ORIGIN + '/' },
+        breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[lang] },
+          { '@type': 'ListItem', position: 2, name: h1w, item: ORIGIN + pathFor(lang) } ] } };
+      html = html.replace('</head>', '<script type="application/ld+json">' + JSON.stringify(wp).replace(/</g, '\\u003c') + '</script>\n</head>');
+    }
     /* BreadcrumbList: início → blog → artigo (só páginas com Article) */
     if (/"@type":\s*"Article"/.test(html) && !/BreadcrumbList/.test(html)) {
       const BLOG = { pt: 'Blog', de: 'Blog', fr: 'Blog', it: 'Blog', en: 'Blog' };
