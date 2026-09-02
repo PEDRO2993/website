@@ -23,7 +23,7 @@ function serve() {
   const srv = await serve();
   const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await chromium.launch({ executablePath: CHROME });
-  for (const file of ['preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html']) {
+  for (const file of ['preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html', 'fotografia-site-negocio.html']) {
     const ctx = await browser.newContext();
     const pg = await ctx.newPage();
     const errs = [];
