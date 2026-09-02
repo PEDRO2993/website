@@ -53,3 +53,28 @@ Sem domínio, sem Shopify, sem anúncios nesta etapa. Ricardo e tutti são o tr�
 - https://www.plentyone.com/de/blog/auf-galaxus-verkaufen
 - https://aurinutra.com/low-moq-supplement-manufacturing-complete-2026-guide/
 - https://wonnda.com/magazine/private-label-supplements-manufacturers-europe/
+
+---
+## Adenda 2026-09-02 · Etapa 1 · candidato "carregador 3 em 1" CHUMBADO
+Verificação de preço de retalho CH antes de comprar (fonte: pesquisa Galaxus/Ricardo):
+| Produto | Onde | CHF |
+|---|---|---|
+| Belkin BoostCharge 3-in-1 Qi2 15 W (marca) | Galaxus | 20.70 |
+| Tech-Protect A12 3-in-1 15 W | Galaxus | 23.90 |
+| ESR HaloLock 3-in-1 15 W (novo) | Ricardo | 10.00 |
+| Genérico Alibaba MOQ 10 | compra | ~USD 23.50 |
+Conclusão: um genérico a CHF 29–34 não vende contra Belkin a CHF 20.70 com entrega Galaxus. Margem real ≈ 0. **Não comprar.**
+
+## Filtro obrigatório para qualquer candidato da etapa 1 ("teste Galaxus")
+1. Procurar o produto na Galaxus/Digitec e no Ricardo (5 min).
+2. Se existir marca conhecida a menos de **2× o teu custo de compra**, chumba.
+3. Se não existir na Galaxus, ou só a > 3× o custo, passa.
+4. Confirmar 5+ vendas recentes no Ricardo (listagens "verkauft") a preço ≥ 3× custo.
+
+## Próximos candidatos (a verificar com o filtro; ordenados por probabilidade de passar)
+| # | Produto | Porquê | Risco principal |
+|---|---|---|---|
+| 1 | Suportes/acessórios de nicho para desportos de montanha (ex.: fixação GoPro para capacete de ski, protetor de bastões) | Valais, procura sazonal forte out–mar, pouca oferta na Galaxus, preço 3–5× custo | sazonalidade |
+| 2 | Recondicionado: comprar no tutti/Ricardo (AirPods, Apple Watch, Kindle com defeito ligeiro), limpar/testar, revender com garantia 30 dias | capital 50–120 por peça, margem 40–80 %, zero alfândega | tempo/técnica |
+| 3 | Kit de ferramentas para bicicleta/e-bike (mini-bomba + multitool + remendos, embalado) | Valais tem tráfego ciclista, bundles não existem na Galaxus como conjunto | preço unitário baixo |
+Regra: só passa para compra o candidato que sobreviver ao filtro. Se nenhum passar em 7 dias, a etapa 1 muda para o candidato 2 (recondicionado), que não depende de importação.
