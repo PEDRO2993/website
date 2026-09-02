@@ -9,6 +9,7 @@ Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLO
 - [x] PROSPEÇÃO: 66 alvos Valais (40 hotéis + 26 restaurantes/caves) com evidência → pipeline.csv
 - [x] IMPROVE-1: hotel-direkt.html (5 línguas, calculadora Booking, CTA WhatsApp) · IMPROVE-2: 3 demos em demos/ · IMPROVE-3: relatório investidor #1
 - [x] BOT + PAINEL: prospector.js (Places + audit), painel de alvos com estado/notas/email gerado (65 alvos carregados)
+- [x] IMPROVE-13: 35 emails encontrados (49/65 alvos com email); pipeline e painel atualizados
 - [ ] ENVIO: 14 rascunhos criados no Gmail (02/09) → utilizador revê e envia; 52 restantes precisam de email (search.ch)
 - [ ] DEMOS: 2 demos personalizadas/semana para quem responder
 - [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
