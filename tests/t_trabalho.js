@@ -12,7 +12,7 @@ const EXP = {
  '/':    { eyebrow:'Trabalho recente',  badge:'Publicação Instagram',   n1:'01 · O letreiro' },
  '/de/': { eyebrow:'Aktuelle Arbeiten', badge:'Instagram-Beitrag',   n1:'01 · Das Aushängeschild' },
  '/fr/': { eyebrow:'Travaux récents',   badge:'Publication Instagram',       n1:"01 · L'enseigne" },
- '/it/': { eyebrow:'Lavori recenti',    badge:'Post Instagram', n1:"01 · L'insegna" },
+ '/it/': { eyebrow:'Lavori recenti',    badge:'Post Instagram', n1:"01 · L’insegna" },
  '/en/': { eyebrow:'Recent work',       badge:'Instagram post',   n1:'01 · The signboard' },
 };
 
