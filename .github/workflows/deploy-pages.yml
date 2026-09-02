@@ -23,7 +23,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Remove private working folders from the public site
-        run: rm -rf autopilot store .github
+        run: |
+          rm -rf autopilot store .github
+          find . -name 'GET-READY.md' -delete
+          find . -name 'build-demo.sh' -delete
       - uses: actions/configure-pages@v5
         with:
           enablement: true

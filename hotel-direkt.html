@@ -61,7 +61,9 @@ main ul { color:var(--ink-2); padding-left:1.2em; } main li { margin-bottom:8px;
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--red); color:#fff; text-decoration:none; font-weight:600; padding:13px 22px; border-radius:999px; min-height:48px; margin:6px 10px 6px 0; }
 .btn.ghost { background:transparent; border:1px solid var(--line-2); color:var(--ink); }
 .cta { margin:26px 0 8px; }
-.i18n-doc { display:none; }
+/* escondido só quando há JS para revelar um idioma; sem JS mostra-se tudo em vez de nada */
+html.js .i18n-doc { display:none; }
+html.js footer.lg-foot .lg-links.i18n-doc { display:none; }
 footer.lg-foot { border-top:1px solid var(--line); padding:24px 0 40px; display:flex; gap:16px; flex-wrap:wrap; justify-content:space-between; align-items:center; }
 footer.lg-foot .lg-links { display:flex; gap:16px; flex-wrap:wrap; }
 footer.lg-foot a { color:var(--ink-2); text-decoration:none; font-size:0.86rem; }
@@ -120,6 +122,7 @@ footer.lg-foot a { color:var(--ink-2); text-decoration:none; font-size:0.86rem; 
 </div>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 <script>
+document.documentElement.className += " js";
 (function () {
   var LANGS = ["de","fr","it","en","pt"];
   var TITLES = {"de":"Hotel Direkt — Website mit Direktbuchung für Walliser Hotels · PR Studio","fr":"Hôtel Direct — site avec réservation directe pour les hôtels valaisans · PR Studio","it":"Hotel Diretto — sito con prenotazione diretta per gli hotel del Vallese · PR Studio","en":"Hotel Direct — website with direct booking for Valais hotels · PR Studio","pt":"Hotel Direto — site com reserva direta para hotéis do Valais · PR Studio"};

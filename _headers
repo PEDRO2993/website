@@ -5,7 +5,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin-allow-popups
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.tawk.to https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.facebook.com; connect-src 'self' https://rinfpezlwqmblwpzfdlm.supabase.co wss://rinfpezlwqmblwpzfdlm.supabase.co https://*.tawk.to wss://*.tawk.to https://www.google-analytics.com https://analytics.google.com; frame-src https://*.tawk.to; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.tawk.to https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.facebook.com https://hotelalpinagraechen.ch; connect-src 'self' https://www.simplebooking.it https://rinfpezlwqmblwpzfdlm.supabase.co wss://rinfpezlwqmblwpzfdlm.supabase.co https://*.tawk.to wss://*.tawk.to https://www.google-analytics.com https://analytics.google.com; frame-src https://*.tawk.to https://www.simplebooking.it; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
@@ -16,8 +16,6 @@
 /termos.html
   Cache-Control: public, max-age=0, must-revalidate
 /informacao-legal.html
-  Cache-Control: public, max-age=0, must-revalidate
-/blog.html
   Cache-Control: public, max-age=0, must-revalidate
 /de/*
   Cache-Control: public, max-age=0, must-revalidate
