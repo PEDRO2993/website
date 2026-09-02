@@ -43,7 +43,7 @@ const NOINDEX_PAGES = ['privacidade.html', 'termos.html', 'informacao-legal.html
 /* ficheiros copiados tal e qual para a raiz de dist/ */
 const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
-  'site.webmanifest', '_headers',
+  'site.webmanifest', '_headers', '404.html',
 ];
 const COPY_DIRS = ['img'];
 

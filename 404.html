@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página não encontrada — PR Studio</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#05070F">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/img/favicon-32x32.png" type="image/png" sizes="32x32">
+<style>
+:root { --bg:#04060B; --ink:#F2F6FE; --ink-2:#8A97AF; --ink-3:#75829D; --line-2:rgba(160,190,255,0.26); --red:#2E6BFF; --red-ink:#6FA0FF; }
+* { box-sizing:border-box; } html,body { margin:0; height:100%; }
+body { background:var(--bg); color:var(--ink); font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; display:grid; place-items:center; padding:24px; }
+main { max-width:560px; text-align:center; }
+.code { font-family:ui-monospace,"Spline Sans Mono",monospace; font-size:0.78rem; letter-spacing:0.18em; color:var(--red-ink); margin-bottom:18px; }
+h1 { font-size:clamp(1.8rem,5vw,2.6rem); line-height:1.15; margin:0 0 12px; }
+h1 span { color:var(--red); }
+p { color:var(--ink-2); margin:0 0 26px; }
+.btns { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.btn { display:inline-block; padding:13px 20px; border-radius:6px; text-decoration:none; font-weight:600; font-size:0.95rem; min-height:44px; }
+.btn-red { background:var(--red); color:#fff; } .btn-ghost { border:1px solid var(--line-2); color:var(--ink); }
+.langs { margin-top:34px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+.langs a { font-family:ui-monospace,monospace; font-size:0.74rem; letter-spacing:0.06em; padding:8px 12px; border:1px solid var(--line-2); border-radius:999px; color:var(--ink-2); text-decoration:none; min-height:36px; }
+.langs a:hover, .btn:hover { filter:brightness(1.15); }
+:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="code">404 · PR STUDIO</div>
+  <h1 id="h">Esta página não existe<span>.</span></h1>
+  <p id="p">O endereço pode ter mudado ou ter um erro. O site continua aqui — e eu também.</p>
+  <div class="btns">
+    <a class="btn btn-red" id="home" href="/">Ir para o início</a>
+    <a class="btn btn-ghost" id="contact" href="/#contacto">Falar comigo</a>
+  </div>
+  <nav class="langs" aria-label="Idioma">
+    <a href="/">PT</a><a href="/de/">DE</a><a href="/fr/">FR</a><a href="/it/">IT</a><a href="/en/">EN</a>
+  </nav>
+</main>
+<script>
+/* adapta o texto ao idioma do URL pedido (/de/…, /fr/…) */
+(function () {
+  var T = {
+    de: ["Diese Seite gibt es nicht", "Die Adresse hat sich geändert oder enthält einen Fehler. Die Website ist weiterhin da — und ich auch.", "Zur Startseite", "Kontakt aufnehmen", "de-CH"],
+    fr: ["Cette page n’existe pas", "L’adresse a changé ou contient une erreur. Le site est toujours là — et moi aussi.", "Retour à l’accueil", "Me contacter", "fr-CH"],
+    it: ["Questa pagina non esiste", "L’indirizzo è cambiato o contiene un errore. Il sito è ancora qui — e anch’io.", "Vai alla home", "Contattami", "it-CH"],
+    en: ["This page doesn’t exist", "The address may have changed or has a typo. The site is still here — and so am I.", "Go to the homepage", "Get in touch", "en"]
+  };
+  var m = location.pathname.match(/^\/(de|fr|it|en)(\/|$)/); if (!m) return;
+  var t = T[m[1]]; document.documentElement.lang = t[4];
+  document.getElementById("h").innerHTML = t[0] + "<span>.</span>";
+  document.getElementById("p").textContent = t[1];
+  var h = document.getElementById("home"), c = document.getElementById("contact");
+  h.textContent = t[2]; h.href = "/" + m[1] + "/"; c.textContent = t[3]; c.href = "/" + m[1] + "/#contacto";
+})();
+</script>
+</body>
+</html>
