@@ -6211,7 +6211,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var prPct = document.getElementById("prPct");
     var pv = 0, pt0 = performance.now();
     (function ptick(now) {
-      var target = Math.min(100, ((now - pt0) / 250) * 100);
+      var target = Math.min(100, ((now - pt0) / 160) * 100); /* arranque curto: ~0.25 s no total */
       pv += (target - pv) * 0.35;
       var sh = Math.min(100, Math.round(pv));
       prPct.textContent = (sh < 10 ? "0" : "") + sh + "%";
