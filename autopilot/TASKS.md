@@ -7,7 +7,7 @@ Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLO
 - [x] EMAILS: DE/FR 1.º contacto, restaurante, follow-ups (autopilot/business/emails.md)
 - [x] DEMO: script de personalização em 1 comando (demo-personalizar.sh)
 - [x] PROSPEÇÃO: 66 alvos Valais (40 hotéis + 26 restaurantes/caves) com evidência → pipeline.csv
-- [ ] ENVIO: 20 emails/semana personalizados (utilizador envia)
+- [ ] ENVIO: 14 rascunhos criados no Gmail (02/09) → utilizador revê e envia; 52 restantes precisam de email (search.ch)
 - [ ] DEMOS: 2 demos personalizadas/semana para quem responder
 - [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
 - [ ] FIX SITE: telefone real em vez de +41 27 000 00 00 (precisa do número do utilizador)

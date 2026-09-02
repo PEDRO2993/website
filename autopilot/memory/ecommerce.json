@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 5,
+  "count": 6,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -47,6 +47,16 @@
       "tags": [
         "autopilot",
         "test"
+      ]
+    },
+    {
+      "key": "autopilot/v3/envio",
+      "namespace": "ecommerce",
+      "value": "2026-09-02: 14 Gmail drafts created (DE/FR) for prospects with visible email: Ancienne Poste, Kreuzboden, City Hotel Zermatt, Waldegg, Garni Simplon, Aaron am See, Au Manoir, Europe Brig, Mediterraneo, 3 Couronnes, Walliserstube, Planchouet, Au 17, Hohsaas. User must review+send. 52 prospects lack email; phones in pipeline.csv. Follow-up +4d.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "envio"
       ]
     }
   ]
