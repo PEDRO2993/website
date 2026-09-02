@@ -17,6 +17,7 @@ for (const l of LANGS) {
     ok(l + a + ': "Ler também" com 3 links', (more.match(/<a /g) || []).length === 3);
     ok(l + a + ': BreadcrumbList + Article', /BreadcrumbList/.test(h) && /"@type":\s*"Article"/.test(h));
     ok(l + a + ': aside CTA presente', /<aside class="cta">/.test(h));
+    ok(l + a + ': linha de partilha + script', /<p class="lg-share">/.test(h) && /data-share="wa"\]/.test(h));
   }
   for (const p of ['privacidade.html', 'termos.html', 'informacao-legal.html']) {
     ok(l + p + ': og:url do idioma', read(l + p).includes('property="og:url" content="https://prstudio.ch/' + l + p + '"'));
