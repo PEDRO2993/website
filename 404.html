@@ -23,6 +23,11 @@ p { color:var(--ink-2); margin:0 0 26px; }
 .langs { margin-top:34px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
 .langs a { font-family:ui-monospace,monospace; font-size:0.74rem; letter-spacing:0.06em; padding:8px 12px; border:1px solid var(--line-2); border-radius:999px; color:var(--ink-2); text-decoration:none; min-height:36px; }
 .langs a:hover, .btn:hover { filter:brightness(1.15); }
+.arts { margin-top:38px; text-align:left; border-top:1px solid var(--line-2); padding-top:22px; }
+.arts p { font-family:ui-monospace,"Spline Sans Mono",monospace; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); margin:0 0 10px; }
+.arts ul { list-style:none; margin:0; padding:0; }
+.arts a { display:block; padding:10px 0; color:var(--ink); text-decoration:none; font-weight:600; }
+.arts a:hover { color:var(--red-ink); }
 :focus-visible { outline:2px solid var(--red); outline-offset:3px; }
 @media (max-width:480px) { .langs button, .langs a { min-width:44px; min-height:44px; padding:10px 12px; box-sizing:border-box; } }
 </style>
@@ -36,11 +41,13 @@ p { color:var(--ink-2); margin:0 0 26px; }
     <a class="btn btn-red" id="home" href="/">Ir para o início</a>
     <a class="btn btn-ghost" id="contact" href="/#contacto">Falar comigo</a>
   </div>
+  <div class="arts" id="arts" hidden><p id="artsT">Talvez procures:</p><ul id="artsL"></ul></div>
   <nav class="langs" aria-label="Idioma">
     <a href="/">PT</a><a href="/de/">DE</a><a href="/fr/">FR</a><a href="/it/">IT</a><a href="/en/">EN</a>
   </nav>
 </main>
 <script>
+/*__ARTS__*/
 /* adapta o texto ao idioma do URL pedido (/de/…, /fr/…) */
 (function () {
   var T = {
@@ -49,7 +56,9 @@ p { color:var(--ink-2); margin:0 0 26px; }
     it: ["Questa pagina non esiste", "L’indirizzo potrebbe essere cambiato o contenere un errore. Il sito è ancora qui — e anch’io.", "Vai alla home", "Contattami", "it-CH", "Pagina non trovata — PR Studio"],
     en: ["This page doesn’t exist", "The address may have changed or has a typo. The site is still here — and so am I.", "Go to the homepage", "Get in touch", "en", "Page not found — PR Studio"]
   };
-  var m = location.pathname.match(/^\/(de|fr|it|en)(\/|$)/); if (!m) return;
+  var AT = { pt: "Talvez procures:", de: "Vielleicht suchen Sie:", fr: "Vous cherchez peut-être\u00a0:", it: "Forse cerchi:", en: "Maybe you were looking for:" };
+  window.__renderArts = function (l) { var a = window.__ARTS && window.__ARTS[l]; if (!a || !a.length) return; var ul = document.getElementById("artsL"); ul.innerHTML = ""; a.forEach(function (x) { var li = document.createElement("li"), aa = document.createElement("a"); aa.href = x.href; aa.textContent = x.title; li.appendChild(aa); ul.appendChild(li); }); document.getElementById("artsT").textContent = AT[l] || AT.pt; document.getElementById("arts").hidden = false; };
+  var m = location.pathname.match(/^\/(de|fr|it|en)(\/|$)/); window.__renderArts(m ? m[1] : "pt"); if (!m) return;
   var t = T[m[1]]; document.documentElement.lang = t[4]; document.title = t[5];
   document.getElementById("h").innerHTML = t[0] + "<span>.</span>";
   document.getElementById("p").textContent = t[1];

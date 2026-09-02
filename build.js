@@ -264,7 +264,7 @@ function buildHome() {
     html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"'); // RSS do idioma (homepage)
     if (fs.existsSync(path.join(ROOT, 'img/og/home-' + lang + '.jpg'))) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/home-' + lang + '.jpg');
     /* teaser do blog: os 3 artigos mais recentes do idioma */
-    const teaser = STATIC_FEED[lang].slice().sort((x, y) => String(y.published_at).localeCompare(String(x.published_at))).slice(0, 3)
+    const teaser = newestFirst(STATIC_FEED[lang]).slice(0, 3)
       .map((e) => '<a class="card reveal" href="' + e.href + '"><span class="lg-meta">' + posts.fmtDate(e.published_at, lang) + ' · ' + e.mins + ' min</span><h3>' + e.title.replace(/&/g, '&amp;') + '</h3><p>' + e.description.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</p></a>').join('');
     if (teaser) html = html.replace('<div class="blog-teaser" id="blogTeaser"></div>', () => '<div class="blog-teaser" id="blogTeaser">' + teaser + '</div>');
     html = rewriteHead(html, lang, pathFor, TITLES[lang].t, TITLES[lang].d);
@@ -430,7 +430,7 @@ function buildDocPage(file) {
     /* blog.html: BreadcrumbList (início → blog) + ItemList dos artigos do idioma */
     if (file === 'blog.html') {
       const items = DB_POSTS.filter((p) => p.lang === lang).map((p) => ({ title: p.title, url: ORIGIN + posts.pathFor(PREFIX, lang, p.slug), published_at: p.published_at }))
-        .concat(STATIC_FEED[lang]).sort((x, y) => String(y.published_at).localeCompare(String(x.published_at)));
+        .concat(newestFirst(STATIC_FEED[lang]));
       const ld = [
         { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[lang] },
@@ -541,6 +541,8 @@ function buildRedirects() {
 /* ------------------------------------------------------------------ */
 
 const STATIC_FEED = { pt: [], de: [], fr: [], it: [], en: [] };
+/* mais recentes primeiro; em empate de data, o último adicionado (DOC_PAGES) é o mais novo */
+function newestFirst(arr) { return arr.map((e, i) => [e, i]).sort((x, y) => String(y[0].published_at).localeCompare(String(x[0].published_at)) || (y[1] - x[1])).map((x) => x[0]); }
 async function buildPosts() {
   DB_POSTS = await posts.fetchPosts();
   // artigos fixos (páginas .i18n-doc com Article) entram no feed com os posts da BD
@@ -583,6 +585,12 @@ async function main() {
   buildRedirects();
 
   COPY_FILES.forEach(copyInto);
+  // 404: 3 artigos mais recentes por idioma (o JS da página escolhe pelo prefixo do URL)
+  {
+    const arts = {}; posts.LANGS.forEach((l) => { arts[l] = newestFirst(STATIC_FEED[l]).slice(0, 3).map((e) => ({ title: e.title, href: e.href })); });
+    const f = path.join(DIST, '404.html');
+    if (fs.existsSync(f)) fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('/*__ARTS__*/', 'window.__ARTS = ' + JSON.stringify(arts).replace(/</g, '\\u003c') + ';'));
+  }
   COPY_DIRS.forEach(copyInto);
   console.log('  estáticos             ' + (COPY_FILES.length + COPY_DIRS.length) + ' itens copiados');
 
