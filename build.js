@@ -417,11 +417,19 @@ function today() {
 
 function buildSitemap() {
   const stamp = today();
-  const groups = [{ pathFor: (l) => PREFIX[l], priority: '1.0', freq: 'weekly' }];
+  // lastmod real: data do último commit do ficheiro de origem (fallback: hoje)
+  const lastModOf = (file) => {
+    try {
+      const d = require('child_process').execSync('git log -1 --format=%cI -- ' + JSON.stringify(file), { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+      return d ? d.slice(0, 10) : stamp;
+    } catch (e) { return stamp; }
+  };
+  const groups = [{ pathFor: (l) => PREFIX[l], priority: '1.0', freq: 'weekly', file: 'index.html' }];
   DOC_PAGES.forEach((f) => {
     const legal = NOINDEX_PAGES.indexOf(f) >= 0;
     groups.push({
       pathFor: (l) => PREFIX[l] + f,
+      file: f,
       priority: legal ? '0.3' : '0.7',
       freq: legal ? 'yearly' : 'monthly',
     });
@@ -429,6 +437,7 @@ function buildSitemap() {
 
   const urls = [];
   groups.forEach((g) => {
+    const mod = lastModOf(g.file);
     LANGS.forEach((lang) => {
       const alts = LANGS
         .map((l) => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + ORIGIN + g.pathFor(l) + '"/>')
@@ -437,7 +446,7 @@ function buildSitemap() {
       urls.push(
         '  <url>\n' +
         '    <loc>' + ORIGIN + g.pathFor(lang) + '</loc>\n' +
-        '    <lastmod>' + stamp + '</lastmod>\n' +
+        '    <lastmod>' + mod + '</lastmod>\n' +
         '    <changefreq>' + g.freq + '</changefreq>\n' +
         '    <priority>' + g.priority + '</priority>\n' +
         alts + '\n' +
