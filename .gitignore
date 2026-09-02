@@ -25,3 +25,7 @@ ruvector.db*
 ruvector.db
 *.db
 .claude/security-scans/
+
+# estado de execução do ruflo (muda a cada sessão)
+.claude-flow/policy/state.json
+.claude-flow/**/*.log
