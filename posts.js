@@ -32,6 +32,7 @@ async function fetchPosts() {
 }
 
 // caminho público de um post
+const wrapTables = (h) => String(h || '').replace(/<table class="lg-tbl">[\s\S]*?<\/table>/g, (t) => '<div class="lg-tbl-wrap">' + t + '</div>');
 const pathFor = (PREFIX, lang, slug) => `${PREFIX[lang]}blog/${slug}.html`;
 
 // CSS partilhado com os artigos fixos (preco-site-suica.html)
@@ -61,7 +62,8 @@ main code{background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:5px;fo
 .blog-card h2,.blog-card h3{margin:0 0 6px;font-size:1.02rem;color:var(--ink)}.blog-card p{margin:0 0 8px;font-size:0.92rem}.blog-card span{color:var(--red-ink);font-size:0.86rem;font-weight:600}
 footer.lg-foot{border-top:1px solid var(--line);padding:24px 0 40px;display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
 footer.lg-foot .lg-links{display:flex;gap:16px;flex-wrap:wrap}footer.lg-foot a{color:var(--ink-2);text-decoration:none;font-size:0.86rem}footer.lg-foot a:hover{color:var(--red-ink)}
-.lg-mono{font-family:"Spline Sans Mono",monospace;font-size:0.76rem;color:var(--ink-3)}`;
+.lg-mono{font-family:"Spline Sans Mono",monospace;font-size:0.76rem;color:var(--ink-3)}
+body{font-size:1.0625rem;line-height:1.7;}.wrap{max-width:700px;padding:0 24px;}header.lg-head{padding:16px 0;}.logo{font-weight:700;font-size:1rem;letter-spacing:0.14em;}.langs{gap:2px;padding:2px;border:1px solid var(--line-2);border-radius:4px;background:var(--card);}.langs button,.langs a{border:0;border-radius:3px;font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0;padding:6px 11px;color:var(--ink-2);background:transparent;text-decoration:none;}.langs button[aria-pressed="true"],.langs a[aria-current="page"]{background:linear-gradient(115deg,#2E6BFF,#3D7BFF 60%,#4D8DFF);border-color:transparent;color:#fff;}.langs button:focus-visible,.langs a:focus-visible{outline:2px solid var(--red);outline-offset:1px;}main h1{font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1.1;letter-spacing:-0.02em;margin:0 0 14px;}.lg-updated{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 36px;}.lg-sub{color:var(--ink-2);font-size:1rem;max-width:58ch;margin:0 0 28px;}.lg-more{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-family:"Spline Sans Mono",monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);}.lg-more a{font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif;font-size:1rem;letter-spacing:0;text-transform:none;font-weight:600;color:var(--ink);margin-top:10px;padding:6px 0;}.lg-more a:hover{color:var(--red-ink);text-decoration:none;}.lg-tbl{display:table;overflow:visible;}.lg-tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px -24px 20px;padding:0 24px;}.lg-tbl-wrap .lg-tbl{min-width:560px;margin:0;}.cta{border-radius:24px;}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:15px 24px;border-radius:4px;font-family:"Spline Sans Mono",monospace;font-size:0.8rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;line-height:1;text-align:center;}.btn-red{background:linear-gradient(115deg,#2E6BFF,#3D7BFF 60%,#4D8DFF);color:#fff;box-shadow:0 6px 18px rgba(46,107,255,0.22);}.btn-ghost{background:var(--card);border:1px solid var(--line-2);color:var(--ink);}footer.lg-foot a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;}footer.lg-foot .lg-links{gap:12px;}.blog-card{border-radius:24px;background:var(--card);box-shadow:inset 0 1px 0 rgba(255,255,255,0.06),0 10px 30px rgba(0,0,0,0.45);padding:26px 28px;}.blog-card h2{color:var(--ink);font-size:1.35rem;line-height:1.2;letter-spacing:-0.02em;margin:0 0 10px;}.blog-card p{font-size:0.97rem;margin:0 0 14px;}.blog-card span{font-family:"Spline Sans Mono",monospace;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;}.blog-card:hover h2{color:var(--red-ink);}@media (max-width:700px){.lg-tbl{display:table;overflow:visible;}}@media (max-width:480px){.langs button,.langs a{min-width:44px;min-height:40px;padding:10px 8px;}.cta{padding:22px 20px;}.cta .btns{flex-direction:column;gap:8px;}.cta .btn{width:100%;}}`;
 
 const FONTS = 'https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:wght@200..800&family=Spline+Sans+Mono:wght@300..700&display=swap';
 
@@ -117,7 +119,7 @@ ${alts.join('\n')}
     <article>
       <h1>${esc(p.title)}</h1>
       <p class="lg-updated"><time datetime="${esc(String(p.published_at).slice(0, 10))}">${esc(fmtDate(p.published_at, p.lang))}</time> · Pedro Ribeiro · ${Math.max(1, Math.round(words / 200))} min</p>
-      ${p.body_html}
+      ${wrapTables(p.body_html)}
     </article>
     <aside class="cta">
       <h2>${ui.cta}</h2>
