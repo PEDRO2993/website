@@ -31,14 +31,15 @@ const OG_LOCALE = { pt: 'pt_PT', de: 'de_CH', fr: 'fr_CH', it: 'it_CH', en: 'en_
 const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 
 /* páginas com o sistema .i18n-doc (um bloco por idioma no mesmo ficheiro) */
-const DOC_PAGES = ['blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'hotel-direkt.html'];
+const DOC_PAGES = ['blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'hotel-direkt.html']
+  .filter((f) => fs.existsSync(path.join(ROOT, f)));
 /* ficheiros copiados tal e qual para a raiz de dist/ */
 const COPY_FILES = [
   'privacidade.html', 'termos.html', 'informacao-legal.html',
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
   'site.webmanifest', '_headers',
 ];
-const COPY_DIRS = ['img', 'store', 'hotel-alpina', 'demos'];
+const COPY_DIRS = ['img', 'hotel-alpina', 'demos'];  /* store/ só quando a loja arrancar */
 
 /* ------------------------------------------------------------------ */
 /* utilitários                                                         */
