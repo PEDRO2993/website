@@ -29,3 +29,6 @@ ruvector.db
 # estado de execução do ruflo (muda a cada sessão)
 .claude-flow/policy/state.json
 .claude-flow/**/*.log
+tests/.claude-flow/neural/
+tests/.claude-flow/policy/state.json
+tests/.claude-flow/**/*.log
