@@ -356,6 +356,15 @@ function buildDocPage(file) {
     ) || [, ''])[1];
 
     const desc = firstParagraph(block);
+    /* BreadcrumbList: início → blog → artigo (só páginas com Article) */
+    if (/"@type": "Article"/.test(html) && !/BreadcrumbList/.test(html)) {
+      const BLOG = { pt: 'Blog', de: 'Blog', fr: 'Blog', it: 'Blog', en: 'Blog' };
+      const bc = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[lang] },
+        { '@type': 'ListItem', position: 2, name: BLOG[lang], item: ORIGIN + PREFIX[lang] + 'blog.html' },
+        { '@type': 'ListItem', position: 3, name: (block.match(/<h1[^>]*>([^<]*)/) || [, ''])[1].replace(/&amp;/g, '&'), item: ORIGIN + pathFor(lang) } ] };
+      html = html.replace('</head>', '<script type="application/ld+json">' + JSON.stringify(bc) + '</script>\n</head>');
+    }
     /* Article JSON-LD: headline/description/inLanguage/mainEntityOfPage por idioma */
     if (/"@type": "Article"/.test(html)) {
       const h1 = (block.match(/<h1>([\s\S]*?)<\/h1>/) || [, ''])[1].replace(/<[^>]+>/g, '').trim();
