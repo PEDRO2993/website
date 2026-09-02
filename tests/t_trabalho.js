@@ -58,8 +58,8 @@ const EXP = {
    const ctx=await b.newContext({locale:'pt-PT'});
    await ctx.addInitScript(()=>{localStorage.setItem('pr-consent','denied');sessionStorage.setItem('pr-seen','1');});
    const pg=await ctx.newPage(); await pg.goto(base+'/'); await pg.waitForTimeout(400);
-   const labels=await pg.$$eval('#trabalho .tw-mock',els=>els.map(e=>({r:e.getAttribute('role'),a:e.getAttribute('aria-label')})));
-   ok('todos os mockups têm role=img', labels.every(l=>l.r==='img'));
+   const labels=await pg.$$eval('#trabalho .tw-mock',els=>els.map(e=>({r:e.getAttribute('role'),a:e.getAttribute('aria-label'),tag:e.tagName})));
+   ok('todos os mockups têm role=img ou são ligações com aria-label', labels.every(l=>l.r==='img'||l.tag==='A'));
    ok('todos têm aria-label descritivo', labels.every(l=>l.a&&l.a.length>25), JSON.stringify(labels.map(l=>l.a&&l.a.length)));
    await ctx.close();
  }

@@ -1045,6 +1045,14 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
 .mp-row i { width: 12px; height: 12px; border: 1.5px solid #222; border-radius: 50%; }
 .mp-cap { padding: 2px 11px 11px; color: #333; }
 @media (max-width: 480px) { .tw-mock { padding: 18px; } .mp { width: 180px; } }
+
+.tw-mock-img { padding: 0; display: block; }
+.tw-mock-img img { width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block; transition: transform 0.5s ease; }
+.tw-card:hover .tw-mock-img img { transform: scale(1.03); }
+.tw-card-b h3 a { color: inherit; text-decoration: none; }
+.tw-card-b h3 a:hover { color: var(--red-ink, #7FA6FF); }
+.tw-link { font-family: "Spline Sans Mono", monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #8FB2FF; text-decoration: none; border-bottom: 1px solid rgba(143,178,255,0.4); padding-bottom: 2px; }
+.tw-link:hover { border-color: #8FB2FF; }
 </style>
 </head>
 <body>
@@ -1167,36 +1175,30 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       </div>
       <div class="tw-cards">
         <article class="tw-card reveal">
-          <div class="tw-mock" role="img" data-i18n-aria="tw.a1" aria-label="Maqueta do site do Hotel Alpina Grächen: cabeçalho, título e botão de reserva">
-            <div class="mb">
-              <div class="mb-bar"><i></i><i></i><i></i><span>Hotel Alpina Grächen</span></div>
-              <div class="mb-body">
-                <div class="mb-nav"><b>Hotel Alpina</b><span>Zimmer · Spa · Küche · DE FR IT EN</span></div>
-                <div class="mb-pill">Matterhorn Valley · Wallis</div>
-                <div class="mb-h1">Boutique-Berghotel im Sonnendorf Grächen</div>
-                <div class="mb-cta">Verfügbarkeit prüfen</div>
-              </div>
-            </div>
-          </div>
+          <a class="tw-mock tw-mock-img" href="https://pedro2993.github.io/website/hotel-alpina/" target="_blank" rel="noopener" data-i18n-aria="tw.a1" aria-label="Maqueta do site do Hotel Alpina Grächen: cabeçalho, título e botão de reserva">
+            <img src="img/work-alpina.jpg" width="1000" height="625" alt="" loading="lazy" decoding="async">
+          </a>
           <div class="tw-card-b">
             <span class="tw-badge" data-i18n="tw.b1">Website</span>
-            <h3 data-i18n="tw.p1n">Hotel Alpina · Grächen</h3>
+            <h3><a href="https://pedro2993.github.io/website/hotel-alpina/" target="_blank" rel="noopener" data-i18n="tw.p1n">Hotel Alpina · Grächen</a></h3>
             <p data-i18n="tw.p1d">Site em 4 línguas com reservas diretas: quartos e datas em 3 passos, motor de reservas integrado, SEO e dados estruturados.</p>
+            <a class="tw-link" href="https://pedro2993.github.io/website/hotel-alpina/" target="_blank" rel="noopener" data-i18n="tw.l1">Ver o site ↗</a>
           </div>
         </article>
         <article class="tw-card reveal">
           <div class="tw-mock" role="img" data-i18n-aria="tw.a2" aria-label="Maqueta de uma publicação do MedVisp nas redes sociais">
             <div class="mp">
-              <div class="mp-top"><b>medvisp</b><span>Visp · Wallis</span></div>
+              <div class="mp-top"><b>walkinvisp</b><span>Visp · Wallis</span></div>
               <div class="mp-img"><span>MedVisp</span></div>
               <div class="mp-row"><i></i><i></i><i></i></div>
-              <div class="mp-cap"><b>medvisp</b> · Marketing &amp; Social Media</div>
+              <div class="mp-cap"><b>walkinvisp</b> · MedVisp · Marketing &amp; Social Media</div>
             </div>
           </div>
           <div class="tw-card-b">
             <span class="tw-badge" data-i18n="tw.b2">Marketing · Redes sociais</span>
-            <h3 data-i18n="tw.p2n">MedVisp · Visp</h3>
+            <h3><a href="https://www.instagram.com/walkinvisp/" target="_blank" rel="noopener" data-i18n="tw.p2n">MedVisp · Visp</a></h3>
             <p data-i18n="tw.p2d">Gestão contínua do marketing e das redes sociais de um centro médico: conteúdo, publicações e campanhas locais.</p>
+            <a class="tw-link" href="https://www.instagram.com/walkinvisp/" target="_blank" rel="noopener" data-i18n="tw.l2">Ver no Instagram ↗</a>
           </div>
         </article>
       </div>
@@ -2807,7 +2809,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
 
   /* ---------- i18n ---------- */
   var I18N = {
-    de: { "cb1.t": "Sagen Sie mir, was Sie tun — ich sage Ihnen, was ich auf Ihrer Website ändern würde.", "cb1.s": "Kostenlose Einschätzung innert 48 Stunden. Unverbindlich, ohne Fachjargon.", "cb1.b": "Kostenlose Einschätzung anfragen", "cb2.t": "Sagen Sie mir, was Sie tun — ich sage Ihnen, was ich auf Ihrer Website ändern würde.", "cb2.s": "Kostenlose Einschätzung innert 48 Stunden. Unverbindlich, ohne Fachjargon.", "cb2.b": "Kostenlose Einschätzung anfragen",
+    de: { "tw.l1": "Website ansehen ↗", "tw.l2": "Auf Instagram ansehen ↗", "cb1.t": "Sagen Sie mir, was Sie tun — ich sage Ihnen, was ich auf Ihrer Website ändern würde.", "cb1.s": "Kostenlose Einschätzung innert 48 Stunden. Unverbindlich, ohne Fachjargon.", "cb1.b": "Kostenlose Einschätzung anfragen", "cb2.t": "Sagen Sie mir, was Sie tun — ich sage Ihnen, was ich auf Ihrer Website ändern würde.", "cb2.s": "Kostenlose Einschätzung innert 48 Stunden. Unverbindlich, ohne Fachjargon.", "cb2.b": "Kostenlose Einschätzung anfragen",
       "tpl.prev": "Zurück", "tpl.next": "Weiter",
       "ct.f6": "Firma (optional)",
       "fq9.q": "Kümmern Sie sich auch um das Google-Business-Profil?", "fq9.a": "Ja. Es gehört zum lokalen Marketing und zur Firmenwebsite: richtige Kategorie, Fotos, Öffnungszeiten, Leistungen und Antworten auf Bewertungen — und ich verknüpfe Profil und Website, damit Google beiden vertraut.", "fq9.l": "Leitfaden lesen: Google-Business-Profil im Wallis →", "fq7.l": "Leitfaden lesen: Restaurant-Website im Wallis →", "fq7.q": "Erstellen Sie Websites für Hotels, Restaurants und Tourismus im Wallis?", "fq7.a": "Ja. Restaurants, Unterkünfte, Wellness und lokale Dienstleistungen sind die Branchen, mit denen ich im Oberwallis am meisten arbeite. Eine Tourismus-Website braucht einfache Reservationen, mehrere Sprachen und Fotos, die verkaufen — genau das baue ich, zum vorher vereinbarten Fixpreis.", "fq8.q": "Und wer kümmert sich um die Website, wenn sie online ist?", "fq8.a": "Ich — Sie müssen nichts von Technik verstehen. Das Wartungsabo (CHF 95–290/Mt.) übernimmt Hosting, SSL, Backups und kleine Anpassungen. Ohne Abo übergebe ich Ihnen die gebrauchsfertige Website, mit den Dateien, die Ihnen gehören.",
@@ -2905,7 +2907,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "cookie.msg": "Nur das technisch Nötige. Statistik und Marketing (Google Analytics / Meta) nur mit Ihrer Zustimmung. ", "cookie.link": "Datenschutzerklärung", "cookie.deny": "Nur das Nötigste", "cookie.accept": "Alles akzeptieren",
       "ft.resp": "Antwort innert 24 Stunden"
     },
-    en: { "cb1.t": "Tell me what you do and I’ll tell you what I’d change on your website.", "cb1.s": "Free assessment within 48 hours. No commitment, no jargon.", "cb1.b": "Request a free assessment", "cb2.t": "Tell me what you do and I’ll tell you what I’d change on your website.", "cb2.s": "Free assessment within 48 hours. No commitment, no jargon.", "cb2.b": "Request a free assessment",
+    en: { "tw.l1": "View the website ↗", "tw.l2": "View on Instagram ↗", "cb1.t": "Tell me what you do and I’ll tell you what I’d change on your website.", "cb1.s": "Free assessment within 48 hours. No commitment, no jargon.", "cb1.b": "Request a free assessment", "cb2.t": "Tell me what you do and I’ll tell you what I’d change on your website.", "cb2.s": "Free assessment within 48 hours. No commitment, no jargon.", "cb2.b": "Request a free assessment",
       "tpl.prev": "Previous", "tpl.next": "Next",
       "ct.f6": "Company (optional)",
       "fq9.q": "Do you also look after the Google Business Profile?", "fq9.a": "Yes. It’s part of local marketing and of your business website: the right category, photos, opening hours, services and replies to reviews — and I link the profile to the website so Google trusts both.", "fq9.l": "Read the guide: Google Business Profile in Valais →", "fq7.l": "Read the guide: a restaurant website in Valais →", "fq7.q": "Do you build websites for hotels, restaurants and tourism in Valais?", "fq7.a": "Yes. Restaurants, accommodation, wellness and local services are the sectors I work with most in Upper Valais. A tourism website needs easy bookings, several languages and photos that sell — that is what I build, at a fixed price agreed upfront.", "fq8.q": "And once the site is live, who looks after it?", "fq8.a": "I do — you don’t need to understand any technology. The maintenance plan (CHF 95–290/month) covers hosting, SSL, backups and small changes. Without a plan, I hand you the site ready to use, with the files yours to keep.",
@@ -3003,7 +3005,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "cookie.msg": "Only what the site needs to work. Statistics and marketing (Google Analytics / Meta) only with your consent. ", "cookie.link": "Privacy Policy", "cookie.deny": "Essential only", "cookie.accept": "Accept all",
       "ft.resp": "Reply within 24 hours"
     },
-    fr: { "cb1.t": "Dites-moi ce que vous faites, je vous dis ce que je changerais sur votre site.", "cb1.s": "Évaluation gratuite en 48 heures. Sans engagement, sans jargon.", "cb1.b": "Demander une évaluation gratuite", "cb2.t": "Dites-moi ce que vous faites, je vous dis ce que je changerais sur votre site.", "cb2.s": "Évaluation gratuite en 48 heures. Sans engagement, sans jargon.", "cb2.b": "Demander une évaluation gratuite",
+    fr: { "tw.l1": "Voir le site ↗", "tw.l2": "Voir sur Instagram ↗", "cb1.t": "Dites-moi ce que vous faites, je vous dis ce que je changerais sur votre site.", "cb1.s": "Évaluation gratuite en 48 heures. Sans engagement, sans jargon.", "cb1.b": "Demander une évaluation gratuite", "cb2.t": "Dites-moi ce que vous faites, je vous dis ce que je changerais sur votre site.", "cb2.s": "Évaluation gratuite en 48 heures. Sans engagement, sans jargon.", "cb2.b": "Demander une évaluation gratuite",
       "tpl.prev": "Précédent", "tpl.next": "Suivant",
       "ct.f6": "Entreprise (facultatif)",
       "fq9.q": "Vous occupez-vous aussi de la fiche Google Business ?", "fq9.a": "Oui. Elle fait partie du marketing local et du site institutionnel : bonne catégorie, photos, horaires, services et réponses aux avis — et je relie la fiche au site pour que Google fasse confiance aux deux.", "fq9.l": "Lire le guide : fiche Google Business en Valais →", "fq7.l": "Lire le guide : site de restaurant en Valais →", "fq7.q": "Créez-vous des sites pour les hôtels, restaurants et le tourisme en Valais ?", "fq7.a": "Oui. Restaurants, hébergement, bien-être et services locaux sont les secteurs avec lesquels je travaille le plus dans le Haut-Valais. Un site touristique a besoin de réservations simples, de plusieurs langues et de photos qui vendent — c’est ce que je construis, à prix fixe convenu à l’avance.", "fq8.q": "Et une fois le site en ligne, qui s’en occupe ?", "fq8.a": "Moi — vous n’avez pas besoin de comprendre la technique. Le forfait de maintenance (CHF 95–290/mois) couvre l’hébergement, le SSL, les sauvegardes et les petites modifications. Sans forfait, je vous livre le site prêt à l’emploi, et les fichiers vous appartiennent.",
@@ -3101,7 +3103,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "cookie.msg": "Seulement le strict nécessaire au fonctionnement du site. Statistiques et marketing (Google Analytics / Meta) uniquement avec votre accord. ", "cookie.link": "Politique de confidentialité", "cookie.deny": "Seulement l’essentiel", "cookie.accept": "Tout accepter",
       "ft.resp": "Réponse en moins de 24 h"
     },
-    it: { "cb1.t": "Dimmi cosa fai e ti dico cosa cambierei nel tuo sito.", "cb1.s": "Valutazione gratuita entro 48 ore. Senza impegno, senza gergo tecnico.", "cb1.b": "Richiedi una valutazione gratuita", "cb2.t": "Dimmi cosa fai e ti dico cosa cambierei nel tuo sito.", "cb2.s": "Valutazione gratuita entro 48 ore. Senza impegno, senza gergo tecnico.", "cb2.b": "Richiedi una valutazione gratuita",
+    it: { "tw.l1": "Vedi il sito ↗", "tw.l2": "Vedi su Instagram ↗", "cb1.t": "Dimmi cosa fai e ti dico cosa cambierei nel tuo sito.", "cb1.s": "Valutazione gratuita entro 48 ore. Senza impegno, senza gergo tecnico.", "cb1.b": "Richiedi una valutazione gratuita", "cb2.t": "Dimmi cosa fai e ti dico cosa cambierei nel tuo sito.", "cb2.s": "Valutazione gratuita entro 48 ore. Senza impegno, senza gergo tecnico.", "cb2.b": "Richiedi una valutazione gratuita",
       "tpl.prev": "Precedente", "tpl.next": "Successivo",
       "ct.f6": "Azienda (facoltativo)",
       "fq9.q": "Ti occupi anche del Profilo Google Business?", "fq9.a": "Sì. Fa parte del marketing locale e del sito istituzionale: categoria giusta, foto, orari, servizi e risposte alle recensioni — e collego il profilo al sito perché Google si fidi di entrambi.", "fq9.l": "Leggi la guida: Profilo Google Business in Vallese →", "fq7.l": "Leggi la guida: sito per ristorante in Vallese →", "fq7.q": "Realizzi siti per hotel, ristoranti e turismo in Vallese?", "fq7.a": "Sì. Ristoranti, alloggi, benessere e servizi locali sono i settori con cui lavoro di più nell’Alto Vallese. Un sito per il turismo ha bisogno di prenotazioni facili, più lingue e foto che vendono — è quello che costruisco, a prezzo fisso concordato prima.", "fq8.q": "E dopo che il sito è online, chi se ne occupa?", "fq8.a": "Ci penso io — non devi capire di tecnologia. Il piano di manutenzione (CHF 95–290/mese) si occupa di hosting, SSL, backup e piccole modifiche. Senza piano, ti consegno il sito pronto all’uso, con i file che restano tuoi.",
