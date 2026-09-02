@@ -5600,6 +5600,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   var clPanelCur = "Msg";
   function applyClLabels() {
     clText.placeholder = LX("ph");
+    clText.setAttribute("aria-label", LX("ph"));
     document.getElementById("clForgot").textContent = LX("forgot");
     document.getElementById("clResetLbl").textContent = LX("newp");
     document.getElementById("clNewPass").placeholder = LX("newpPh");
