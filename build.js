@@ -549,11 +549,26 @@ async function buildPosts() {
   console.log('  posts (BD)            ' + DB_POSTS.length + ' páginas');
 }
 
+/* Limpeza pontual (a pedido do Pedro, 2026-09-02): apaga o post de teste "teste" no Netlify,
+   onde existe SUPABASE_SERVICE_ROLE_KEY. Nunca falha o build; sem env, não faz nada. Remover depois de correr. */
+async function cleanupTestPost() {
+  const SB = process.env.SUPABASE_URL, KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!SB || !KEY) { console.log('  limpeza: sem SUPABASE_SERVICE_ROLE_KEY — nada a fazer'); return; }
+  try {
+    const r = await fetch(SB + '/rest/v1/posts?slug=eq.teste', {
+      method: 'DELETE', headers: { apikey: KEY, Authorization: 'Bearer ' + KEY, Prefer: 'return=representation' },
+    });
+    const rows = r.ok ? await r.json() : [];
+    console.log('  limpeza: post "teste" — ' + (r.ok ? rows.length + ' linha(s) apagada(s)' : 'erro HTTP ' + r.status));
+  } catch (e) { console.log('  limpeza: falhou (' + e.message + ')'); }
+}
+
 async function main() {
   fs.rmSync(DIST, { recursive: true, force: true });
   fs.mkdirSync(DIST, { recursive: true });
 
   console.log('PR Studio — a gerar site multilingue em dist/\n');
+  await cleanupTestPost();
   await buildPosts();                       // antes: blog.html e o sitemap precisam de DB_POSTS
   buildHome();
   DOC_PAGES.forEach(buildDocPage);
