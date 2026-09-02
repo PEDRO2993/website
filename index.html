@@ -485,6 +485,10 @@ header.scrolled { border-bottom-color: var(--line); background: rgba(5, 7, 15, 0
 .care .mono { font-size: 0.96rem; white-space: nowrap; color: var(--red-ink); font-weight: 600; }
 .care-cta { display: inline-block; margin-top: 4px; padding: 11px 0; font-size: 0.9rem; font-weight: 600; color: var(--red-ink); text-decoration: none; }
 .care-cta:hover { text-decoration: underline; }
+.form-done { padding: 28px 26px; border: 1px solid var(--line-2); border-radius: var(--r); background: rgba(46,107,255,0.08); }
+.form-done strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.3rem; margin-bottom: 6px; }
+.form-done p { color: var(--ink-2); margin: 0; }
+.form-done:focus { outline: 2px solid var(--red); outline-offset: 4px; }
 .read-more { color: var(--red-ink); text-decoration: none; font-weight: 600; }
 .read-more:hover { text-decoration: underline; }
 .zona .read-more { flex-basis: 100%; font-size: 0.9rem; }
@@ -4690,7 +4694,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     im.alt = "";
     im.loading = "lazy";
     im.decoding = "async";
-    im.onerror = function () { im.onerror = null; im.src = "img/" + key + ".jpg"; };
+    im.onerror = function () { im.onerror = null; im.removeAttribute("srcset"); im.removeAttribute("sizes"); im.src = "img/" + key + ".jpg"; };
+    im.srcset = "img/" + key + "-480.webp 480w, img/" + key + ".webp 960w"; im.sizes = "(max-width: 480px) 100vw, 362px";
     im.src = "img/" + key + ".webp";
     return im;
   }
@@ -5134,16 +5139,24 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     if (location.protocol !== "https:" && location.protocol !== "http:") { mailFallback(); return; }
     var btn = form.querySelector('button[type="submit"]');
     if (btn.disabled) return; /* double-submit guard */
-    btn.disabled = true;
+    var CT_ST = { pt: ["A enviar…", "Mensagem enviada ✓", "Respondo em menos de 24 horas, para o teu email ou telefone."], de: ["Wird gesendet…", "Nachricht gesendet ✓", "Ich antworte innert 24 Stunden, per E-Mail oder Telefon."], fr: ["Envoi en cours…", "Message envoyé ✓", "Je réponds sous 24 heures, par e-mail ou téléphone."], it: ["Invio in corso…", "Messaggio inviato ✓", "Rispondo entro 24 ore, via email o telefono."], en: ["Sending…", "Message sent ✓", "I reply within 24 hours, by email or phone."] };
+    var st = CT_ST[currentLang] || CT_ST.pt, btnLabel = btn.textContent;
+    btn.disabled = true; btn.setAttribute("aria-busy", "true"); btn.textContent = st[0];
+    function ctRestore() { btn.disabled = false; btn.removeAttribute("aria-busy"); btn.textContent = btnLabel; }
+    function ctDone() {
+      ctRestore(); form.reset();
+      var done = document.createElement("div"); done.className = "form-done"; done.setAttribute("role", "status"); done.tabIndex = -1;
+      done.innerHTML = "<strong></strong><p></p>"; done.querySelector("strong").textContent = st[1]; done.querySelector("p").textContent = st[2];
+      form.hidden = true; form.parentNode.insertBefore(done, form); done.focus();
+    }
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(new FormData(form)).toString()
     }).then(function (r) {
-      btn.disabled = false;
-      if (r.ok) { form.reset(); showToast(TOASTS_SENT[currentLang]); fireLead(); }
-      else mailFallback();
-    }).catch(function () { btn.disabled = false; mailFallback(); });
+      if (r.ok) { ctDone(); showToast(TOASTS_SENT[currentLang]); fireLead(); }
+      else { ctRestore(); mailFallback(); }
+    }).catch(function () { ctRestore(); mailFallback(); });
   });
 
   /* ===================== ÁREA DE CLIENTE (Supabase) ===================== */
