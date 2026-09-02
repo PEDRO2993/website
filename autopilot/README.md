@@ -18,3 +18,6 @@ Nota: `ruflo task create` não alimenta o autopilot (store separado); só `.clau
 O autopilot corre como stop-hook do Claude Code: enquanto houver `- [ ]` em `autopilot/TASKS.md` (ou tarefas no swarm), volta a acionar o agente.
 
 Os ficheiros gerados por `init` (`.claude/`, `.claude-flow/`, `.mcp.json`) não estão versionados de propósito: instalam hooks que executam código a cada sessão. Cada máquina faz o seu `init`.
+
+## MONITOR
+Colocar CSV diários em `autopilot/metrics/` (cabeçalho em `_template.csv`) e correr `node autopilot/metrics/kpi.js`. Escreve `decisao.md` com ROAS, CPA, ações de corte e a decisão escalar/pivot ao dia 5.

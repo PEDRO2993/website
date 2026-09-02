@@ -7,7 +7,7 @@
     {
       "key": "autopilot/phase",
       "namespace": "ecommerce",
-      "value": "RESEARCH,PLAN,BUILD,TEST,FIX=done; next=DEPLOY (needs user: Shopify account, valmag.ch domain, CHF300 ads). E2E 40/40, Lighthouse 90/100/96/100. Campaign plan autopilot/deploy/campanha.md. Kill-switch ROAS<2.0 day5 -> skincare",
+      "value": "RESEARCH,PLAN,BUILD,TEST,FIX=done; DEPLOY=preview published (artifact), go-live blocked on user (Shopify IDs, valmag.ch, CHF300 ads). MONITOR tooling ready: autopilot/metrics/kpi.js reads CSV -> decisao.md (ROAS>=2.0 day5 scale / <2.0 pivot skincare).",
       "tags": [
         "autopilot",
         "phase"
