@@ -1,7 +1,7 @@
 const { ROOT, DIST, DISTURL, CHROME } = require('./_env');
 const { chromium } = require('playwright');
 (async () => { const b = await chromium.launch({ executablePath: CHROME });
-  const pages = ['index.html','de/index.html','fr/index.html','blog.html','de/preco-site-suica.html','fr/multilingue-valais.html','privacidade.html'];
+  const pages = ['index.html','de/index.html','fr/index.html','blog.html','de/preco-site-suica.html','fr/multilingue-valais.html','it/google-business-valais.html','privacidade.html'];
   const out = [];
   for (const pg of pages) for (const w of [320, 430, 768, 1024, 1280, 1920]) {
     const p = await b.newPage({ viewport: { width: w, height: 900 }, locale: 'pt-PT' });
