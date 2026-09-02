@@ -1,0 +1,83 @@
+{
+  "schema": "ruflo-memory-export/v1",
+  "exportedAt": "2026-09-02T14:45:00.000Z",
+  "namespace": "ecommerce",
+  "count": 8,
+  "entries": [
+    {
+      "key": "autopilot/phase",
+      "namespace": "ecommerce",
+      "value": "v3 MAIN (capital 0): PR Studio 'Hotel Direkt' — multilingual hotel/restaurant sites with direct booking, Valais. Packages CHF 2400/4900/9800, 50% upfront, free 48h personalized demo (demo-personalizar.sh). Kit in autopilot/business/. Next: PROSPEÇÃO (swarm agents hunting 60 targets) -> ENVIO 20 emails/week. v2 side cash: AirPods Pro 2 flip (buy<=75, sell 99). v1 Valmag parked until capital >= 3000. Site phone is placeholder.",
+      "tags": [
+        "autopilot",
+        "phase"
+      ]
+    },
+    {
+      "key": "autopilot/research/2026-09-02",
+      "namespace": "ecommerce",
+      "value": "Top3 margin CH/EU 2026-09: (1) supplements digestive/magnesium 60-75% margin, CH market CHF200-400M, double-digit growth; (2) niche skincare beef tallow/serums 55-70%, beauty +11% YoY; (3) smart home/tech accessories 40-60%, AOV CHF50-200. CH: 74% switch brand on price -> premium or low-cost, no mid-range. Full report: autopilot/research/2026-09-02-high-margin-products.md",
+      "tags": [
+        "autopilot",
+        "research"
+      ]
+    },
+    {
+      "key": "autopilot/plan",
+      "namespace": "ecommerce",
+      "value": "Unit P&L CHF44: product 8, shipping 7.5, payment 1, VAT 1.11, ads 17.6 -> contribution 8.79 (20%), gross w/o ads 60%. Scale only when LTV>=3 orders. Full: autopilot/plan/2026-09-plan.md",
+      "tags": [
+        "autopilot",
+        "plan"
+      ]
+    },
+    {
+      "key": "autopilot/build",
+      "namespace": "ecommerce",
+      "value": "Static store validated with Playwright: 375px and 1366px, i18n FR ok, subscription toggle updates price+href, no horizontal overflow. Pending: real Shopify variant/selling_plan IDs, domain valmag.ch, pixels.",
+      "tags": [
+        "autopilot",
+        "build"
+      ]
+    },
+    {
+      "key": "autopilot/test",
+      "namespace": "ecommerce",
+      "value": "Playwright 40/40 mobile+desktop; Lighthouse mobile perf90 a11y100 bp96 seo100; fixes: 24px tap targets, non-blocking Google Fonts. Pending real Shopify checkout (TWINT) once IDs exist.",
+      "tags": [
+        "autopilot",
+        "test"
+      ]
+    },
+    {
+      "key": "autopilot/v3/envio",
+      "namespace": "ecommerce",
+      "value": "2026-09-02: 14 Gmail drafts created (DE/FR) for prospects with visible email: Ancienne Poste, Kreuzboden, City Hotel Zermatt, Waldegg, Garni Simplon, Aaron am See, Au Manoir, Europe Brig, Mediterraneo, 3 Couronnes, Walliserstube, Planchouet, Au 17, Hohsaas. User must review+send. 52 prospects lack email; phones in pipeline.csv. Follow-up +4d.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "envio"
+      ]
+    },
+    {
+      "key": "autopilot/v3/painel",
+      "namespace": "ecommerce",
+      "value": "Control panel artifact https://claude.ai/code/artifact/02e267a8-1dcd-429b-93e7-7985e53dfa1b (db capability, collection 'alvos', 65 docs seeded 2026-09-02; fields nome, localidade, tipo, site, fraqueza, contacto, idioma, estado, score, notas). User approves targets there; read_db to find estado=='aprovado' then create Gmail drafts. Bot: autopilot/business/bot (prospector.js needs GOOGLE_PLACES_KEY; audit.js scores weakness; to-panel.js -> out/panel/*.json to import via write_db).",
+      "tags": [
+        "autopilot",
+        "v3",
+        "painel"
+      ]
+    },
+    {
+      "key": "autopilot/v3/improve",
+      "namespace": "ecommerce",
+      "value": "2026-09-02 improvements: hotel-direkt.html (5 langs, OTA commission calculator, packages, WhatsApp +41 79 825 70 78 real), demos/les-berges|mayen2003|portjengrat, investor report autopilot/investor/2026-09-02-relatorio-1.md, ruflo IMPROVE-1..6 backlog, routine trig_01ALgiHwT6gJfNDG5Uj4H4x6 weekdays 06:30 UTC (follow-ups, drafts for approved, 5 new targets). Old AirPods routine deleted. Pending: deploy (branch not production), user sends 14 drafts.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "improve"
+      ]
+    }
+  ]
+}

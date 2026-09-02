@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hôtel Garni Les Berges Chippis — Boutique-Berghotel im Wallis · Direkt buchen</title>
+<meta name="description" content="Boutique-Berghotel im Sonnendorf Chippis: 19 Zimmer mit Panoramabalkon, Hannigspa, Walliser Küche. Direkt buchen mit Bestpreisgarantie — Zimmer ab CHF 97.">
+<meta property="og:title" content="Hôtel Garni Les Berges Chippis — Boutique-Berghotel im Wallis">
+<meta property="og:description" content="300 Sonnentage. 270° Bergpanorama. Ihr Zuhause auf 1'620 m — direkt buchen mit Bestpreisgarantie.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://prstudio.ch/demos/">
+<meta property="og:image" content="https://prstudio.ch/demos/wp-content/uploads/2023/05/Header-Home-Garni Les Berges_aussen_Sommer-2.jpg">
+<meta property="og:locale" content="de_CH">
+<link rel="canonical" href="https://prstudio.ch/demos/">
+<meta name="theme-color" content="#0A0D12">
+<link rel="preload" as="image" href="https://prstudio.ch/demos/wp-content/uploads/2023/05/Header-Home-Garni Les Berges_aussen_Sommer-2.jpg" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Hôtel Garni Les Berges Chippis",
+  "description": "Boutique-Berghotel im Sonnendorf Chippis, Wallis. 19 Zimmer mit Panoramabalkon, Spa und Restaurant.",
+  "url": "https://prstudio.ch/demos/",
+  "telephone": "+41270000000",
+  "email": "info@prstudio.ch/demos",
+  "image": "https://prstudio.ch/demos/wp-content/uploads/2023/05/Header-Home-Garni Les Berges_aussen_Sommer-2.jpg",
+  "priceRange": "CHF 97–262",
+  "starRating": { "@type": "Rating", "ratingValue": "3" },
+  "petsAllowed": true,
+  "checkinTime": "14:00",
+  "checkoutTime": "10:00",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "bestRating": "5", "reviewCount": "40" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Hofe 454",
+    "postalCode": "3965",
+    "addressLocality": "Chippis",
+    "addressRegion": "VS",
+    "addressCountry": "CH"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": "46.1953", "longitude": "7.8384" },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "WLAN", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Spa", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Haustierfreundlich", "value": true }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230E1512%22/><path d=%22M18 72 L42 32 L56 54 L66 40 L82 72 Z%22 fill=%22%23C7A35B%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<noscript><style>
+  .preloader, .cursor-dot, .cursor-ring, #snowCanvas, .book-dock { display: none !important; }
+  .reveal, .reveal-hero, .split-line > span { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .kin-line { opacity: 1; }
+</style></noscript>
+</head>
+<body><div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#C5A059;color:#0A0D12;font:600 12px/1.4 system-ui;text-align:center;padding:6px">DEMO · PR Studio · Vorschau für Hôtel Garni Les Berges – unverbindlich</div>
+
+<!-- ================= CINEMATIC PRELOADER ================= -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <svg class="pre-mark" viewBox="0 0 100 100">
+    <path d="M18 72 L42 32 L56 54 L66 40 L82 72 Z" fill="none" stroke="#C5A059" stroke-width="2.5"/>
+    <circle cx="70" cy="28" r="6" fill="#C5A059"/>
+  </svg>
+  <div class="pre-title">
+    <strong>GARNI LES BERGES</strong>
+    <small>Chippis — Switzerland</small>
+  </div>
+  <div class="pre-progress">
+    <span class="pre-label">Initializing Alpine Experience</span>
+    <span class="pre-count" id="preCount">00%</span>
+    <div class="pre-bar"><i id="preBar"></i></div>
+  </div>
+  <div class="pre-beam"></div>
+</div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"><span data-i18n="cursor.view">Entdecken</span></div>
+
+<!-- Atmospheric snow -->
+<canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+<!-- Booking dock -->
+<div class="book-dock" id="bookDock" aria-hidden="true">
+  <div class="dock-info">
+    <strong data-i18n="dock.line">Zimmer ab <b>CHF 97</b> / Nacht</strong>
+    <small data-i18n="dock.sub">Bestpreisgarantie · Keine Anzahlung</small>
+  </div>
+  <button class="btn btn-gold btn-sm" id="dockBtn" data-magnetic data-i18n="dock.btn">Jetzt buchen</button>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Hotel Garni Les Berges — Startseite">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M18 72 L42 32 L56 54 L66 40 L82 72 Z" fill="currentColor"/>
+        <circle cx="70" cy="28" r="7" fill="#C7A35B"/>
+      </svg>
+      <span class="brand-text">
+        <strong>GARNI LES BERGES</strong>
+        <small>Chippis · Wallis · 1'620 m</small>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="#zimmer" data-i18n="nav.zimmer">Zimmer</a>
+      <a href="#angebote" data-i18n="nav.angebote">Angebote</a>
+      <a href="#gastronomie" data-i18n="nav.gastronomie">Gastronomie</a>
+      <a href="#wellness" data-i18n="nav.wellness">Wellness</a>
+      <a href="#erleben" data-i18n="nav.graechen">Chippis</a>
+      <a href="#kontakt" data-i18n="nav.kontakt">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" aria-label="Sprache"><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+      <a class="header-phone" href="tel:+41270000000">+41 27 955 26 00</a>
+      <a class="btn btn-gold btn-sm" href="#buchen" data-magnetic data-i18n="nav.cta">Direkt buchen</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Fullscreen mobile menu -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="overlay-nav" aria-label="Mobile Navigation">
+    <a href="#zimmer"><em>01</em> <span data-i18n="menu.zimmer">Zimmer &amp; Ferienwohnung</span></a>
+    <a href="#angebote"><em>02</em> <span data-i18n="menu.angebote">Angebote</span></a>
+    <a href="#gastronomie"><em>03</em> <span data-i18n="menu.gastronomie">Gastronomie</span></a>
+    <a href="#wellness"><em>04</em> <span data-i18n="menu.wellness">Hannigspa</span></a>
+    <a href="#erleben"><em>05</em> <span data-i18n="menu.erleben">Chippis erleben</span></a>
+    <a href="#kontakt"><em>06</em> <span data-i18n="menu.kontakt">Kontakt &amp; Anreise</span></a>
+  </nav>
+  <div class="overlay-foot">
+    <div class="lang-switch" aria-label="Sprache"><button data-lang="de">DE</button><button data-lang="fr">FR</button><button data-lang="it">IT</button><button data-lang="en">EN</button></div>
+    <a href="tel:+41270000000">+41 27 955 26 00</a>
+    <a href="mailto:info@prstudio.ch/demos">info@prstudio.ch/demos</a>
+  </div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-media" aria-hidden="true">
+    <img src="https://prstudio.ch/demos/wp-content/uploads/2023/05/Header-Home-Garni Les Berges_aussen_Sommer-2.jpg"
+         alt="" class="hero-img" id="heroImg">
+    <div class="hero-shade"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-meta reveal-hero">
+      <span class="pill" data-i18n="hero.pill1"><span class="star">★</span> 4,6 / 5 · Gästebewertungen</span>
+      <span class="pill pill-outline" data-i18n="hero.pill2">Matterhorn Valley · Wallis</span>
+    </div>
+    <h1 class="reveal-hero d1" data-i18n="hero.h1">Hoch über<br>dem <em>Alltag.</em></h1>
+    <p class="hero-sub reveal-hero d2" data-i18n="hero.sub">Ihr Boutique-Berghotel im Sonnendorf Chippis — 300 Sonnentage,
+    270° Bergpanorama und ein Balkon mit Blick auf die Walliser Viertausender. Zu jedem Zimmer.</p>
+    <div class="hero-ctas reveal-hero d3">
+      <a class="btn btn-gold" href="#buchen" data-magnetic data-i18n="hero.cta1">Verfügbarkeit prüfen</a>
+      <a class="btn btn-glass" href="#zimmer" data-magnetic data-i18n="hero.cta2">Zimmer entdecken</a>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#buchen" aria-label="Weiter scrollen"><span></span></a>
+</section>
+
+<!-- ================= BOOKING BAR ================= -->
+<section class="bookbar-wrap" id="buchen">
+  <div class="bookbar reveal">
+    <div class="bookbar-head">
+      <p class="bookbar-title" data-i18n="bb.title">Direkt buchen — <em>mit Bestpreisgarantie</em></p>
+      <p class="bookbar-note" data-i18n="bb.note">Keine Anzahlung · Keine Buchungsgebühr · Offizielle Website</p>
+    </div>
+    <form class="bookbar-form" id="bookingForm" novalidate>
+      <div class="bb-field">
+        <label for="bbInBtn" data-i18n="bb.in">Anreise</label>
+        <button type="button" class="date-trigger" id="bbInBtn" data-scope="bb" data-role="in">
+          <span class="dt-text">Datum wählen</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </button>
+        <input type="hidden" id="bbIn" name="anreise">
+      </div>
+      <div class="bb-sep" aria-hidden="true"></div>
+      <div class="bb-field">
+        <label for="bbOutBtn" data-i18n="bb.out">Abreise</label>
+        <button type="button" class="date-trigger" id="bbOutBtn" data-scope="bb" data-role="out">
+          <span class="dt-text">Datum wählen</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+        </button>
+        <input type="hidden" id="bbOut" name="abreise">
+      </div>
+      <div class="bb-sep" aria-hidden="true"></div>
+      <div class="bb-field">
+        <label for="bbGuests" data-i18n="bb.guests">Gäste</label>
+        <select id="bbGuests" name="gaeste">
+          <option value="1" data-i18n="bb.g1">1 Gast</option>
+          <option value="2" selected data-i18n="bb.g2">2 Gäste</option>
+          <option value="3" data-i18n="bb.g3">3 Gäste</option>
+          <option value="4" data-i18n="bb.g4">4 Gäste</option>
+          <option value="5" data-i18n="bb.g5">5+ / Familie</option>
+        </select>
+      </div>
+      <button class="btn btn-gold bb-btn" type="submit" data-magnetic data-i18n="bb.btn">Jetzt buchen&nbsp;→</button>
+    </form>
+    <p class="bookbar-sub" id="bookNote" data-i18n="bb.sub">Sicher online buchen &amp; bezahlen oder vor Ort — Sie entscheiden.
+      Fragen? <a href="tel:+41270000000">027 000 00 00</a></p>
+  </div>
+</section>
+
+
+
+<!-- ================= KINETIC MANIFESTO ================= -->
+<section class="kinetic" aria-hidden="true">
+  <div class="kin-line" data-dir="1" data-i18n="kin.1">Panorama-Zimmer. <em>Walliser Genuss.</em> Panorama-Zimmer.</div>
+  <div class="kin-line" data-dir="-1" data-i18n="kin.2"><em>Hannigspa.</em> 300 Sonnentage. <em>Hannigspa.</em></div>
+  <div class="kin-line" data-dir="1" data-i18n="kin.3">Pure Erholung. <em>Einfach Garni Les Berges.</em> Pure Erholung.</div>
+</section>
+
+<!-- ================= WILLKOMMEN ================= -->
+<section class="section intro">
+  <div class="container grid-split">
+    <div class="intro-text">
+      <p class="eyebrow reveal" data-i18n="intro.eyebrow">Willkommen im Garni Les Berges</p>
+      <h2 class="reveal" data-i18n="intro.h2">Ankommen. Durchatmen.<br><em>Bleiben wollen.</em></h2>
+      <p class="lead reveal" data-i18n="intro.lead">Einfach Ferien. Einfach gut. Einfach Garni Les Berges. Im autofreien Dorfteil
+      gelegen, nahe bei den Bergbahnen und fussläufig zum Dorfzentrum, zeichnet sich
+      das Hotel Garni Les Berges durch tollen Service aus — begleitet von aufmerksamem und
+      freundlichem Personal.</p>
+      <p class="reveal" data-i18n="intro.p2">Morgens weckt Sie die Alpenwelt auf dem eigenen Balkon, tagsüber liegen
+      Ihnen Pisten, Höhenwege und die Wälder von Chippis zu Füssen. Abends verwöhnen Sie
+      die preisgekrönten Köche in unserem Schwesterhotel Désirée — und im Partnerhotel
+      Hannigalp nutzen Sie das einzige Hallenschwimmbad in Chippis kostenlos.</p>
+      <div class="stats-row reveal">
+        <div class="stat"><span class="stat-num" data-count="19">0</span><span class="stat-label" data-i18n="intro.stat1">Zimmer &amp; FeWo</span></div>
+        <div class="stat"><span class="stat-num" data-count="300">0</span><span class="stat-label" data-i18n="intro.stat2">Sonnentage</span></div>
+        <div class="stat"><span class="stat-num" data-count="270">0</span><span class="stat-label" data-i18n="intro.stat3">° Panorama</span></div>
+        <div class="stat"><span class="stat-num" data-count="4.6" data-decimal="1">0</span><span class="stat-label" data-i18n="intro.stat4">Bewertung</span></div>
+      </div>
+    </div>
+    <div class="intro-media reveal">
+      <figure class="photo-main">
+        <img src="https://prstudio.ch/demos/wp-content/uploads/2023/05/Empfang-Home-Garni Les Berges.jpg" alt="Empfang im Hotel Garni Les Berges" data-i18n-alt="img.reception" loading="lazy">
+      </figure>
+      <figure class="photo-float">
+        <img src="https://prstudio.ch/demos/wp-content/uploads/2023/05/Header-Mobil-Home-Garni Les Berges_aussen_Sommer.jpg" alt="Hotel Garni Les Berges Aussenansicht im Sommer" data-i18n-alt="img.exterior" loading="lazy">
+      </figure>
+      <div class="photo-badge"><span data-i18n="intro.badge1">Einfach Ferien. Einfach gut.</span><strong data-i18n="intro.badge2">Einfach Garni Les Berges.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ZIMMER ================= -->
+<section class="section section-dark rooms" id="zimmer">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow gold reveal" data-i18n="rooms.eyebrow">Zimmer &amp; Suiten</p>
+        <h2 class="reveal" data-i18n="rooms.h2">Jedes Zimmer mit Balkon.<br><em>Jeder Balkon mit Panorama.</em></h2>
+      </div>
+      <p class="section-head-note reveal" data-i18n="rooms.note">19 charmant eingerichtete Einzel-, Doppel- &amp;
+      Familienzimmer sowie eine Ferienwohnung — alle mit Balkon und Panoramablick
+      auf die Walliser Alpen, WLAN, Sat-TV, Safe und Kaffee- &amp; Teestation.</p>
+    </div>
+
+    <div class="room-grid">
+      <!-- Featured -->
+      <article class="room-card room-featured reveal">
+        <div class="room-media" data-gallery="dz">
+          <img src="https://prstudio.ch/demos/wp-content/uploads/2020/01/Zimmer-DZ-Home-Hotel-Garni Les Berges.jpg" alt="Doppelzimmer mit Bergblick" data-i18n-alt="room.dz.alt" loading="lazy">
+          <span class="room-tag" data-i18n="rooms.tag">Am beliebtesten</span>
+        </div>
+        <div class="room-body">
+          <div class="room-title-row">
+            <h3 data-i18n="room.dz.name">Doppelzimmer</h3>
+            <p class="room-price"><span data-i18n="rooms.from">ab</span> <strong>CHF 163</strong> <small data-i18n="rooms.perNight">/ Nacht</small></p>
+          </div>
+          <p data-i18n="room.dz.desc">Pures Ferienglück zu Zweit: gemütliche 20 m² mit Panoramabalkon und
+          Frühstück inklusive — mit Bett in 200×180 cm.</p>
+          <ul class="room-feats">
+            <li data-i18n="room.dz.f1">20 m²</li><li data-i18n="room.dz.f2">2 Personen</li><li data-i18n="room.dz.f3">Balkon &amp; Bergblick</li><li data-i18n="room.dz.f4">Frühstück inkl.</li>
+          </ul>
+          <a class="room-link" href="#buchen" data-room="doppelzimmer" data-i18n="rooms.book">Jetzt buchen <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="room-card reveal">
+        <div class="room-media" data-gallery="ez">
+          <img src="https://prstudio.ch/demos/wp-content/uploads/2020/01/Zimmer-EZ-Home-Hotel-Garni Les Berges.jpg" alt="Einzelzimmer" data-i18n-alt="room.ez.alt" loading="lazy">
+        </div>
+        <div class="room-body">
+          <div class="room-title-row">
+            <h3 data-i18n="room.ez.name">Einzelzimmer</h3>
+            <p class="room-price"><span data-i18n="rooms.from">ab</span> <strong>CHF 97</strong> <small data-i18n="rooms.perNight">/ Nacht</small></p>
+          </div>
+          <p data-i18n="room.ez.desc">Die perfekte Ferieninsel für Einzelreisende: 15 m² mit Balkon,
+          Panoramablick und Frühstück inklusive.</p>
+          <ul class="room-feats"><li data-i18n="room.ez.f1">15 m²</li><li data-i18n="room.ez.f2">1 Person</li><li data-i18n="room.ez.f3">Balkon &amp; Bergblick</li></ul>
+          <a class="room-link" href="#buchen" data-room="einzelzimmer" data-i18n="rooms.book">Jetzt buchen <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="room-card reveal">
+        <div class="room-media" data-gallery="drz">
+          <img src="https://prstudio.ch/demos/wp-content/uploads/2023/05/Zimmer-DRZ-Home-Hotel-Garni Les Berges.jpg" alt="Dreibettzimmer" data-i18n-alt="room.drz.alt" loading="lazy">
+        </div>
+        <div class="room-body">
+          <div class="room-title-row">
+            <h3 data-i18n="room.drz.name">Dreibettzimmer</h3>
+            <p class="room-price"><span data-i18n="rooms.from">ab</span> <strong>CHF 163</strong> <small data-i18n="rooms.perNight">/ Nacht</small></p>
+          </div>
+          <p data-i18n="room.drz.desc">Ferienreich für Gross und Klein: 22 m² mit zwei Badezimmern — ideal
+          für Eltern mit einem Kind.</p>
+          <ul class="room-feats"><li data-i18n="room.drz.f1">22 m²</li><li data-i18n="room.drz.f2">3 Personen</li><li data-i18n="room.drz.f3">2 Badezimmer</li></ul>
+          <a class="room-link" href="#buchen" data-room="dreibettzimmer" data-i18n="rooms.book">Jetzt buchen <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="room-card reveal">
+        <div class="room-media" data-gallery="fz">
+          <img src="https://prstudio.ch/demos/wp-content/uploads/2020/01/Zimmer-FZ-Preview-Hotel-Garni Les Berges.jpg" alt="Familienzimmer" data-i18n-alt="room.fz.alt" loading="lazy">
+        </div>
+        <div class="room-body">
+          <div class="room-title-row">
+            <h3 data-i18n="room.fz.name">Familienzimmer</h3>
+            <p class="room-price"><span data-i18n="rooms.from">ab</span> <strong>CHF 177</strong> <small data-i18n="rooms.perNight">/ Nacht</small></p>
+          </div>
+          <p data-i18n="room.fz.desc">Grosszügiges Ferienparadies: 45 m² mit Etagenbetten für die Kinder —
+          alles, was das Urlauberherz begehrt.</p>
+          <ul class="room-feats"><li data-i18n="room.fz.f1">45 m²</li><li data-i18n="room.fz.f2">2 Erw. + Kinder</li><li data-i18n="room.fz.f3">Etagenbetten</li></ul>
+          <a class="room-link" href="#buchen" data-room="familienzimmer" data-i18n="rooms.book">Jetzt buchen <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="room-card reveal">
+        <div class="room-media" data-gallery="fewo">
+          <img src="https://prstudio.ch/demos/wp-content/uploads/2020/01/Zimmer-FeWo1-Hotel-Garni Les Berges.jpg" alt="Ferienwohnung" data-i18n-alt="room.fewo.alt" loading="lazy">
+        </div>
+        <div class="room-body">
+          <div class="room-title-row">
+            <h3 data-i18n="room.fewo.name">Ferienwohnung</h3>
+            <p class="room-price"><span data-i18n="rooms.from">ab</span> <strong>CHF 262</strong> <small data-i18n="rooms.perNight">/ Nacht</small></p>
+          </div>
+          <p data-i18n="room.fewo.desc">120 m² pures Ferienglück für bis zu 5 Personen: zwei Schlafzimmer,
+          zwei Bäder, Küche mit Fondue-Rechaud und zwei Balkone.</p>
+          <ul class="room-feats"><li data-i18n="room.fewo.f1">120 m²</li><li data-i18n="room.fewo.f2">2 Erw. + 3 Kinder</li><li data-i18n="room.fewo.f3">2 Balkone</li></ul>
+          <a class="room-link" href="#buchen" data-room="ferienwohnung" data-i18n="rooms.book">Jetzt buchen <span>→</span></a>
+        </div>
+      </article>
+    </div>
+    <p class="section-note" style="color: rgba(245,240,230,.55); font-size: 13px; margin-top: 28px;">
+    <span data-i18n="rooms.foot">«Ab»-Preise für die Nebensaison, pro Zimmer/Nacht inkl. Frühstück — in Stosszeiten höher.
+    Der definitive Preis wird im offiziellen Buchungssystem angezeigt · exkl. Kurtaxe.</span></p>
+  </div>
+</section>
+
+<!-- ================= DIREKT BUCHEN ================= -->
+<section class="section direct">
+  <div class="container">
+    <div class="direct-inner reveal">
+      <p class="eyebrow gold" data-i18n="direct.eyebrow">Warum direkt?</p>
+      <h2 data-i18n="direct.h2">Direkt buchen.<br><em>Besser schlafen.</em></h2>
+      <div class="direct-perks">
+        <div class="perk">
+          <span class="perk-num">N° 1</span>
+          <h3 data-i18n="direct.p1t">Bestpreisgarantie</h3>
+          <p data-i18n="direct.p1">Der beste Tarif — garantiert. Nur auf der offiziellen Website, keine Buchungsgebühr.</p>
+        </div>
+        <div class="perk">
+          <span class="perk-num">0.–</span>
+          <h3 data-i18n="direct.p2t">Keine Anzahlung</h3>
+          <p data-i18n="direct.p2">Book now, pay later: Sie zahlen bequem im Hotel — mit kostenloser Stornierung
+          bei der flexiblen Rate.</p>
+        </div>
+        <div class="perk">
+          <span class="perk-num">−10%</span>
+          <h3 data-i18n="direct.p3t">Generations-Rabatt</h3>
+          <p data-i18n="direct.p3">Mit 3 Generationen der Familie anreisen und 10% sparen — exklusiv bei
+          direkter Buchung.</p>
+        </div>
+      </div>
+      <a class="btn btn-gold btn-lg" href="#buchen" data-magnetic data-i18n="direct.cta">Jetzt Verfügbarkeit prüfen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANGEBOTE ================= -->
+<section class="section offers" id="angebote">
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="offers.eyebrow">Spezialangebote</p>
+    <h2 class="reveal" data-i18n="offers.h2">Mehr Ferien <em>fürs Geld.</em></h2>
+    <div class="offer-grid">
+      <article class="offer-card reveal">
+        <img src="https://prstudio.ch/demos/wp-content/uploads/2026/04/Garni Les Berges-Angebote-3.webp" alt="Retreat Woche in Chippis" data-i18n-alt="offer.1.alt" loading="lazy">
+        <div class="offer-body">
+          <h3 data-i18n="offer.1t">Retreat Woche — Entschleunigung &amp; Selfcare</h3>
+          <p data-i18n="offer.1">Eine Woche raus aus dem Alltag: tägliches Morgen-Yoga, Meditation &amp;
+          Atemarbeit, geführte Retreats zu Selfcare und Resilienz — mit Halbpension
+          (Abendessen im Hotel Désirée) und professionellem Kinderprogramm.</p>
+          <p class="offer-price" data-i18n="offer.1p">Ab <strong>CHF 145.–</strong> pro Person/Tag</p>
+          <a class="room-link" href="#buchen" data-offer="Retreat Woche" data-i18n="offers.ask">Jetzt anfragen <span>→</span></a>
+        </div>
+      </article>
+      <article class="offer-card reveal">
+        <img src="https://prstudio.ch/demos/wp-content/uploads/2023/06/desiree-graechen-mountainbike.png" alt="Mountainbike Familienferien" data-i18n-alt="offer.2.alt" loading="lazy">
+        <div class="offer-body">
+          <h3 data-i18n="offer.2t">Mountainbike Familienferien</h3>
+          <p data-i18n="offer.2">Ereignisreiche Bike-Ferien im Mattertal: 4 Übernachtungen inkl. Frühstück,
+          Nutzung des Mountainbike-Raums und freie Nutzung der Wellnessanlagen.</p>
+          <p class="offer-price" data-i18n="offer.2p">Ab <strong>CHF 799.–</strong> für 2 Personen</p>
+          <a class="room-link" href="#buchen" data-offer="Mountainbike Familienferien" data-i18n="offers.ask">Jetzt anfragen <span>→</span></a>
+        </div>
+      </article>
+      <article class="offer-card reveal">
+        <img src="https://prstudio.ch/demos/wp-content/uploads/2019/12/matterhorn-valley-hotels-angebote-5.jpg" alt="Generationen-Ferien" data-i18n-alt="offer.3.alt" loading="lazy">
+        <div class="offer-body">
+          <h3 data-i18n="offer.3t">Generations-Rabatt</h3>
+          <p data-i18n="offer.3">Kommen Sie mit 3 Generationen Ihrer Familie in die Ferien und buchen Sie
+          Ihre Zimmer inklusive Frühstück 10% günstiger — nur bei direkter Buchung
+          erhältlich.</p>
+          <p class="offer-price" data-i18n="offer.3p"><strong>−10%</strong> auf Zimmer inkl. Frühstück</p>
+          <a class="room-link" href="#buchen" data-offer="Generations-Rabatt" data-i18n="offers.ask">Jetzt anfragen <span>→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GASTRONOMIE ================= -->
+<section class="section feature" id="gastronomie">
+  <div class="container grid-split">
+    <figure class="feature-media reveal">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2023/05/LesTroisFondues-Home-Garni Les Berges.jpg" alt="Fondue im Restaurant" data-i18n-alt="gastro.alt" loading="lazy">
+      <figcaption data-i18n="gastro.cap">Les Trois Fondues — Walliser Klassiker, neu gedacht</figcaption>
+    </figure>
+    <div class="feature-text">
+      <p class="eyebrow reveal" data-i18n="gastro.eyebrow">Gastronomie</p>
+      <h2 class="reveal" data-i18n="gastro.h2">Kulinarische <em>Höhenflüge.</em></h2>
+      <p class="lead reveal" data-i18n="gastro.lead">Starten Sie den Tag mit unserem vielfältigen Frühstück — täglich bis
+      10:30 Uhr, mit frischen Eiern, köstlichem Käse und erstklassiger Wurst vom
+      heimischen Metzger. Abends verwöhnen Sie die preisgekrönten Köche in unserem
+      Schwesterhotel Désirée mit frischen, regionalen Menüs.</p>
+      <ul class="checklist reveal">
+        <li data-i18n="gastro.c1">Frühstück im Haus — täglich bis 10:30 Uhr</li>
+        <li data-i18n="gastro.c2">Abendessen im Family Hotel &amp; Spa Désirée (auf Vorreservation)</li>
+        <li data-i18n="gastro.c3">Les Trois Fondues — drei Käsefondues im handgefertigten Caquelon</li>
+        <li data-i18n="gastro.c4">Aufenthaltsraum mit Spielen &amp; Gratis-Kühlschrank</li>
+      </ul>
+      <a class="btn btn-dark reveal" href="tel:+41270000000" data-i18n="gastro.btn">Tisch reservieren</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WELLNESS ================= -->
+<section class="section feature reverse" id="wellness">
+  <div class="container grid-split">
+    <div class="feature-text">
+      <p class="eyebrow reveal" data-i18n="well.eyebrow">Hannigspa</p>
+      <h2 class="reveal" data-i18n="well.h2">Erst der Berg,<br><em>dann die Ruhe.</em></h2>
+      <p class="lead reveal" data-i18n="well.lead">Keine zehn Gehminuten entfernt, im Partnerhotel Aktiv Hotel &amp; Spa
+      Hannigalp, tanken Körper, Geist und Seele neue Energie: das einzige Hallenbad
+      in Chippis und ein grosszügiger SPA-Bereich in den farbenfrohen Welten des
+      Feng Shui.</p>
+      <ul class="checklist reveal">
+        <li data-i18n="well.c1">Hallenschwimmbad (6×12 m) mit Whirlpool — für Garni Les Berges-Gäste gratis</li>
+        <li data-i18n="well.c2">Finnische Sauna, Bio-Sauna &amp; Dampfbad mit Panoramafenster</li>
+        <li data-i18n="well.c3">Wellness- &amp; Beauty-Angebote (kleiner Aufpreis für den SPA-Bereich)</li>
+        <li data-i18n="well.c4">Thermalbad Brigerbad nur 30 Min. entfernt</li>
+      </ul>
+      <a class="btn btn-dark reveal" href="#kontakt" data-i18n="well.btn">Mehr erfahren</a>
+    </div>
+    <figure class="feature-media reveal">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2023/05/Spa-Home-Garni Les Berges.jpg" alt="Hannigspa Wellnessbereich" data-i18n-alt="well.alt" loading="lazy">
+      <figcaption data-i18n="well.cap">Hannigspa — Ihre Auszeit in den Alpen, 10 Gehminuten vom Garni Les Berges</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= GRÄCHEN ERLEBEN ================= -->
+<section class="section section-dark erleben" id="erleben">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow gold reveal" data-i18n="erleben.eyebrow">Chippis erleben</p>
+        <h2 class="reveal" data-i18n="erleben.h2">365 Tage <em>Berge vor der Tür.</em></h2>
+      </div>
+      <p class="section-head-note reveal" data-i18n="erleben.note">Insider-Tipps unserer Gastgeber — erleben Sie
+      Chippis und das Mattertal wie die Einheimischen.</p>
+    </div>
+  </div>
+  <div class="scroller" id="tipScroller">
+    <article class="tip-card">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2021/10/graechen-erleben-win-mob_2.jpg" alt="Wintersport in Chippis" data-i18n-alt="tip.1.alt" loading="lazy">
+      <div class="tip-body"><h3 data-i18n="tip.1t">Winter auf der Hannigalp</h3><p data-i18n="tip.1">Sonnige, familienfreundliche Pisten — die Bergbahn liegt fünf Gehminuten vom Hotel.</p></div>
+    </article>
+    <article class="tip-card">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2019/10/Family-Hotel-Spa-Desiree-Brigerbad-Graechen-Goldcard-1.jpg" alt="Thermalbad Brigerbad" data-i18n-alt="tip.2.alt" loading="lazy">
+      <div class="tip-body"><h3 data-i18n="tip.2t">Thermalbad Brigerbad</h3><p data-i18n="tip.2">2'600 m² Thermal- und Wellnessoase mit Blick auf die Walliser Alpen — ganzjährig.</p></div>
+    </article>
+    <article class="tip-card">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2019/10/Family-Spa-Hotel-Desiree-Graechen-Moosalp-Jungen-1.png" alt="Seilbahn Jungen und Moosalp" data-i18n-alt="tip.3.alt" loading="lazy">
+      <div class="tip-body"><h3 data-i18n="tip.3t">Jungen &amp; Moosalp</h3><p data-i18n="tip.3">Seilbahnfahrt zum idyllischen Jungensee, dann Höhenweg mit atemberaubendem Panorama.</p></div>
+    </article>
+    <article class="tip-card">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2019/10/Familiy-Spa-Hotel-Desiree-Graechen-Zermatt-Kletterpark-Seilpark-Forest-Fun-Park.png" alt="Zermatt und Forest Fun Park" data-i18n-alt="tip.4.alt" loading="lazy">
+      <div class="tip-body"><h3 data-i18n="tip.4t">Ausflug nach Zermatt</h3><p data-i18n="tip.4">Das Matterhorn vor der Linse und der grösste Kids-Seilpark der Schweiz gleich daneben.</p></div>
+    </article>
+    <article class="tip-card">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2023/06/Family-Spa-Hotel-Desiree-Feeblitz-Rodelbahn.png" alt="Feeblitz Rodelbahn Saas-Fee" data-i18n-alt="tip.5.alt" loading="lazy">
+      <div class="tip-body"><h3 data-i18n="tip.5t">Feeblitz Saas-Fee</h3><p data-i18n="tip.5">Mit bis zu 40 km/h die höchste Alpen-Achterbahn hinunter — Adrenalin inklusive.</p></div>
+    </article>
+    <article class="tip-card">
+      <img src="https://prstudio.ch/demos/wp-content/uploads/2019/10/Family-Spa-Hotel-Desiree-Graechen-Kneipp.png" alt="Kneipp-Garten Chippis" data-i18n-alt="tip.6.alt" loading="lazy">
+      <div class="tip-body"><h3 data-i18n="tip.6t">Kneipp-Garten Taa</h3><p data-i18n="tip.6">Zwischen Waldrand und Grächersee: Wassertreten und Erfrischung nach der Wanderung.</p></div>
+    </article>
+  </div>
+  <div class="scroller-hint container" aria-hidden="true" data-i18n="erleben.hint">← Ziehen zum Entdecken →</div>
+</section>
+
+<!-- ================= BEWERTUNGEN ================= -->
+<section class="section reviews-sec">
+  <div class="container">
+    <div class="rating-hero reveal">
+      <span class="big-score">4,6</span>
+      <div class="rating-side">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <p data-i18n="rev.sub">aus 40 Bewertungen auf Tripadvisor &amp; Google</p>
+      </div>
+    </div>
+    <!-- Beispieltexte — vor Livegang durch echte Gästezitate ersetzen -->
+    <div class="review-grid">
+      <blockquote class="review-card reveal">
+        <p data-i18n="rev.1">«Hier ein echtes Gästezitat von Tripadvisor oder Google einsetzen — z. B. zum
+        Frühstück, zur Aussicht oder zum Team.»</p>
+        <footer data-i18n="rev.1f">Gast aus der Schweiz · Winter</footer>
+      </blockquote>
+      <blockquote class="review-card reveal">
+        <p data-i18n="rev.2">«Hier ein echtes Gästezitat einsetzen — die eigenen Gäste verkaufen das Hotel
+        besser als jeder Werbetext.»</p>
+        <footer data-i18n="rev.2f">Gast aus Deutschland · Sommer</footer>
+      </blockquote>
+      <blockquote class="review-card reveal">
+        <p data-i18n="rev.3">«Hier ein echtes Gästezitat einsetzen — idealerweise eines, das die Lage und
+        das Panorama erwähnt.»</p>
+        <footer data-i18n="rev.3f">Gast aus Belgien · Herbst</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAKT ================= -->
+<section class="section contact" id="kontakt">
+  <div class="container grid-split">
+    <div class="feature-text">
+      <p class="eyebrow reveal" data-i18n="ct.eyebrow">Kontakt &amp; Anreise</p>
+      <h2 class="reveal" data-i18n="ct.h2">Wir freuen uns <em>auf Sie.</em></h2>
+      <address class="contact-block reveal">
+        <p data-i18n="ct.addr"><strong>Hotel Garni Les Berges***</strong><br>Hofe 454 · 3965 Chippis<br>Wallis, Schweiz</p>
+        <p><a href="tel:+41270000000">+41 27 955 26 00</a><br>
+        <a href="mailto:info@prstudio.ch/demos">info@prstudio.ch/demos</a></p>
+      </address>
+      <div class="travel reveal">
+        <div><h3 data-i18n="ct.car">Mit dem Auto</h3><p data-i18n="ct.carP">Zufahrt bis zum Dorfzentrum (teilweise autofrei). Parkplätze
+        &amp; Parkhaus im Zentrum — gerne holen wir Sie dort mit unserem Elektroauto ab.</p></div>
+        <div><h3 data-i18n="ct.train">Mit dem Zug</h3><p data-i18n="ct.trainP">SBB bis Visp, Matterhorn Gotthard Bahn bis St.&nbsp;Niklaus,
+        dann Bus 551 bis Chippis Dorf — durch das am tiefsten eingeschnittene Tal der Schweiz.</p></div>
+        <div><h3 data-i18n="ct.checkin">Check-in</h3><p>14:00 – 19:00 Uhr</p></div>
+        <div><h3 data-i18n="ct.checkout">Check-out</h3><p>07:30 – 10:00 Uhr</p></div>
+      </div>
+      <a class="btn btn-dark reveal" href="https://www.google.com/maps/search/?api=1&query=Hotel+Garni Les Berges+Hofe+454+3965+Gr%C3%A4chen" target="_blank" rel="noopener" data-i18n="ct.maps">Route in Google Maps</a>
+    </div>
+    <form class="contact-form reveal" id="contactForm" novalidate>
+      <h3 data-i18n="ct.formT">Schreiben Sie uns</h3>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cfName" data-i18n="ct.fName">Name</label>
+          <input id="cfName" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="cfNameErr">
+          <small class="field-err" id="cfNameErr" hidden></small>
+        </div>
+        <div class="cf-field">
+          <label for="cfMail" data-i18n="ct.fMail">E-Mail</label>
+          <input id="cfMail" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="120" required aria-describedby="cfMailErr">
+          <small class="field-err" id="cfMailErr" hidden></small>
+        </div>
+      </div>
+      <div class="cf-field">
+        <label for="cfMsg" data-i18n="ct.fMsg">Nachricht</label>
+        <textarea id="cfMsg" name="message" rows="5" maxlength="1500" data-i18n-ph="ct.fPh" placeholder="Wann möchten Sie kommen? Haben Sie Wünsche?" required aria-describedby="cfMsgErr"></textarea>
+        <small class="field-err" id="cfMsgErr" hidden></small>
+      </div>
+      <button class="btn btn-gold" type="submit" data-i18n="ct.fBtn">Nachricht senden</button>
+      <p class="form-note" id="formNote" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand light" href="#top">
+        <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M18 72 L42 32 L56 54 L66 40 L82 72 Z" fill="currentColor"/>
+          <circle cx="70" cy="28" r="7" fill="#C7A35B"/>
+        </svg>
+        <span class="brand-text"><strong>GARNI LES BERGES</strong><small>Chippis · Wallis</small></span>
+      </a>
+      <p data-i18n="ft.tag">Boutique-Berghotel im Sonnendorf Chippis.<br>300 Sonnentage. Ein Zuhause.</p>
+    </div>
+    <nav aria-label="Footer">
+      <h4 data-i18n="ft.h1">Entdecken</h4>
+      <a href="#zimmer" data-i18n="ft.l1">Zimmer &amp; Suiten</a>
+      <a href="#gastronomie" data-i18n="ft.l2">Gastronomie</a>
+      <a href="#wellness" data-i18n="ft.l3">Wellness &amp; Spa</a>
+      <a href="#erleben" data-i18n="ft.l4">Chippis erleben</a>
+    </nav>
+    <div>
+      <h4 data-i18n="ft.h2">Kontakt</h4>
+      <p>Hofe 454 · 3965 Chippis<br>
+      <a href="tel:+41270000000">+41 27 955 26 00</a><br>
+      <a href="mailto:info@prstudio.ch/demos">info@prstudio.ch/demos</a></p>
+    </div>
+    <div>
+      <h4 data-i18n="ft.h3">Direkt buchen</h4>
+      <p data-i18n="ft.direct">Bestpreisgarantie, keine Anzahlung, keine Buchungsgebühr — nur auf der
+      offiziellen Website.</p>
+      <a class="btn btn-gold btn-sm" href="#buchen" data-i18n="ft.btn">Verfügbarkeit prüfen</a>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2026 Hotel Garni Les Berges, Chippis · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+    <p class="credit" data-i18n="ft.credit">Konzept &amp; Design: Pedro Ribeiro Digital</p>
+  </div>
+</footer>
+
+<!-- ================= BOOKING CHECKOUT MODAL ================= -->
+<div class="bmodal" id="bookModal" aria-hidden="true">
+  <div class="bmodal-backdrop" data-close></div>
+  <div class="bmodal-card" role="dialog" aria-modal="true" aria-labelledby="bmTitle">
+    <button class="bmodal-close" data-close aria-label="Schliessen">✕</button>
+
+    <div class="bm-steps" aria-hidden="true">
+      <span class="bm-step-dot active" data-dot="1"><i>1</i> <span data-i18n="bm.s1">Zimmer</span></span>
+      <span class="bm-step-line"></span>
+      <span class="bm-step-dot" data-dot="2"><i>2</i> <span data-i18n="bm.s2">Gäste</span></span>
+      <span class="bm-step-line"></span>
+      <span class="bm-step-dot" data-dot="3"><i>3</i> <span data-i18n="bm.s3">Zahlung</span></span>
+    </div>
+
+    <!-- STEP 1: room + dates -->
+    <section class="bm-pane active" data-pane="1">
+      <h3 id="bmTitle" data-i18n="bm.h1">Wählen Sie Ihr Zimmer</h3>
+      <div class="bm-dates">
+        <div class="bm-field">
+          <label for="bmInBtn" data-i18n="bb.in">Anreise</label>
+          <button type="button" class="date-trigger boxed" id="bmInBtn" data-scope="bm" data-role="in">
+            <span class="dt-text">Datum wählen</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <input type="hidden" id="bmIn">
+        </div>
+        <div class="bm-field">
+          <label for="bmOutBtn" data-i18n="bb.out">Abreise</label>
+          <button type="button" class="date-trigger boxed" id="bmOutBtn" data-scope="bm" data-role="out">
+            <span class="dt-text">Datum wählen</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </button>
+          <input type="hidden" id="bmOut">
+        </div>
+        <div class="bm-field">
+          <label for="bmGuests" data-i18n="bb.guests">Gäste</label>
+          <select id="bmGuests">
+            <option value="1" data-i18n="bb.g1">1 Gast</option>
+            <option value="2" selected data-i18n="bb.g2">2 Gäste</option>
+            <option value="3" data-i18n="bb.g3">3 Gäste</option>
+            <option value="4" data-i18n="bb.g4">4 Gäste</option>
+            <option value="5" data-i18n="bb.g5">5 Gäste</option>
+          </select>
+        </div>
+      </div>
+      <div class="bm-avail">
+        <div class="bm-avail-head">
+          <span class="bm-avail-title" data-i18n="avail.title">Verfügbarkeit der nächsten Tage</span>
+          <span class="bm-avail-badge" data-i18n="avail.demo">Beispieldaten — nicht live</span>
+        </div>
+        <div class="bm-avail-scroll">
+          <table class="bm-avail-table" id="bmAvailTable"><!-- JS renders --></table>
+        </div>
+        <div class="bm-avail-legend">
+          <span class="avail-ok">✓ <span data-i18n="avail.ok">Verfügbar</span></span>
+          <span class="avail-no">✕ <span data-i18n="avail.no">Nicht verfügbar</span></span>
+        </div>
+      </div>
+      <div class="bm-rooms" id="bmRooms"><!-- JS renders room options --></div>
+      <div class="bm-summary" id="bmSummary" hidden>
+        <div class="bm-sum-row"><span id="sumNights">—</span><span id="sumBase">—</span></div>
+        <div class="bm-sum-row discount"><span data-i18n="bm.sumPerk">Bestpreisgarantie · keine Buchungsgebühr</span><span id="sumDisc">✓</span></div>
+        <div class="bm-sum-row total"><span data-i18n="bm.total">Total ab</span><span id="sumTotal">—</span></div>
+        <p class="bm-sum-note" data-i18n="bm.sumNote">inkl. Frühstück · günstigste Rate (saisonabhängig) · exkl. Kurtaxe</p>
+      </div>
+      <div class="bm-actions">
+        <span></span>
+        <button type="button" class="btn btn-gold" id="bmNext1" disabled data-i18n="bm.next">Weiter&nbsp;→</button>
+      </div>
+    </section>
+
+    <!-- STEP 2: guest details -->
+    <section class="bm-pane" data-pane="2">
+      <h3 data-i18n="bm.h2">Ihre Angaben</h3>
+      <div class="bm-form">
+        <div class="bm-field">
+          <label for="bmName" data-i18n="bm.name">Name *</label>
+          <input type="text" id="bmName" name="name" autocomplete="name" maxlength="80" required aria-describedby="bmNameErr">
+          <small class="field-err" id="bmNameErr" hidden></small>
+        </div>
+        <div class="bm-field">
+          <label for="bmMail" data-i18n="bm.mail">E-Mail *</label>
+          <input type="email" id="bmMail" name="email" autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false" maxlength="120" required aria-describedby="bmMailErr">
+          <small class="field-err" id="bmMailErr" hidden></small>
+        </div>
+        <div class="bm-field">
+          <label for="bmPhone" data-i18n="bm.phone">Telefon</label>
+          <input type="tel" id="bmPhone" name="phone" autocomplete="tel" maxlength="40" aria-describedby="bmPhoneErr">
+          <small class="field-err" id="bmPhoneErr" hidden></small>
+        </div>
+        <div class="bm-field bm-field-full">
+          <label for="bmNote" data-i18n="bm.wishes">Wünsche (optional)</label>
+          <textarea id="bmNote" name="note" rows="3" maxlength="500" data-i18n-ph="bm.wishesPh" placeholder="z. B. Haustier, Anreisezeit, Zimmerlage…"></textarea>
+        </div>
+      </div>
+      <div class="bm-actions">
+        <button type="button" class="btn btn-outline-dark" data-back="1" data-i18n="bm.back">←&nbsp;Zurück</button>
+        <button type="button" class="btn btn-gold" id="bmNext2" disabled data-i18n="bm.toPay">Weiter zur Zahlung&nbsp;→</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: payment -->
+    <section class="bm-pane" data-pane="3">
+      <h3 data-i18n="bm.h3">Zahlung</h3>
+      <div class="bm-recap" id="bmRecap"><!-- JS --></div>
+      <div class="bm-pay-options">
+        <button type="button" class="bm-pay-card" id="payOnline">
+          <span class="bm-pay-head">
+            <strong data-i18n="bm.pay1">Jetzt online buchen &amp; bezahlen</strong>
+            <span class="bm-pay-badges"><i>VISA</i><i>Mastercard</i><i data-i18n="bm.pay1b">Sofort bestätigt</i></span>
+          </span>
+          <span class="bm-pay-sub" data-i18n="bm.pay1s">Sichere Zahlung über das offizielle Buchungssystem — Ihre Daten
+          werden übernommen · auch «Book now, pay later» wählbar</span>
+        </button>
+        <button type="button" class="bm-pay-card alt" id="payLater">
+          <span class="bm-pay-head"><strong data-i18n="bm.pay2">Per E-Mail anfragen — vor Ort bezahlen</strong></span>
+          <span class="bm-pay-sub" data-i18n="bm.pay2s">Wir bestätigen persönlich innert 24 h · keine Anzahlung</span>
+        </button>
+      </div>
+      <p class="bm-pay-note" id="payNote" role="status"></p>
+      <div class="bm-actions">
+        <button type="button" class="btn btn-outline-dark" data-back="2" data-i18n="bm.back">←&nbsp;Zurück</button>
+        <span class="bm-secure" data-i18n="bm.ssl">🔒 SSL-verschlüsselt</span>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

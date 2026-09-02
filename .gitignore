@@ -1,0 +1,7 @@
+
+# ruflo runtime (gerado por `ruflo init`, não versionar)
+.claude-flow/
+.claude/
+.mcp.json
+.swarm/
+CLAUDE.md
