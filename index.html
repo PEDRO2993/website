@@ -2268,6 +2268,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <div class="bp-actions">
           <button class="btn btn-red" id="bpSave" type="button">Guardar</button>
           <button class="btn btn-ghost" id="bpNew" type="button" hidden>Novo artigo</button>
+          <button class="btn btn-ghost" id="bpPreview" type="button" title="Abre o artigo renderizado numa nova janela">Pré-visualizar</button>
           <span class="admin-note-hint" id="bpState" role="status" aria-live="polite"></span>
         </div>
         <div class="bp-list" id="bpList"></div>
@@ -6044,7 +6045,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---- Blog (tabela posts): publicar sem SQL. O trigger da BD dispara o build. ---- */
   var bpEditId = null;
   var bpEl = {};
-  ["bpTitle","bpSlug","bpLang","bpStatus","bpDesc","bpAt","bpBody","bpSave","bpNew","bpState","bpList"].forEach(function (id) { bpEl[id] = document.getElementById(id); });
+  ["bpTitle","bpSlug","bpLang","bpStatus","bpDesc","bpAt","bpBody","bpSave","bpNew","bpPreview","bpState","bpList"].forEach(function (id) { bpEl[id] = document.getElementById(id); });
   function bpSlugify(t) {
     return String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
       .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80);
@@ -6110,6 +6111,21 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     bpEl.bpAt.value = p.publish_at ? new Date(new Date(p.publish_at).getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16) : "";
     bpEl.bpNew.hidden = false; bpEl.bpSave.textContent = "Guardar alterações";
     bpEl.bpTitle.focus();
+  });
+
+  /* pré-visualização do rascunho: mesma coluna e tipografia dos artigos, numa nova janela */
+  bpEl.bpPreview.addEventListener("click", function () {
+    var lang = bpEl.bpLang.value || "pt", title = bpEl.bpTitle.value.trim() || "(sem título)", desc = bpEl.bpDesc.value.trim();
+    var body = bpToHtml(bpEl.bpBody.value);
+    var css = "body{margin:0;background:#04060B;color:#F2F6FE;font-family:\"Instrument Sans\",-apple-system,BlinkMacSystemFont,sans-serif;font-size:1.0625rem;line-height:1.7}" +
+      ".wrap{max-width:700px;margin:0 auto;padding:40px 24px 60px}.tag{font-family:ui-monospace,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#75829D;margin:0 0 18px}" +
+      "h1{font-size:2.2rem;line-height:1.1;letter-spacing:-.02em;margin:0 0 14px}h2{font-size:1.2rem;margin:34px 0 10px}p,li{color:#8A97AF}ul{padding-left:1.2em}a{color:#6FA0FF}" +
+      ".desc{color:#8A97AF;font-size:1rem;border-left:3px solid #2E6BFF;padding-left:12px;margin:0 0 28px}table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid rgba(160,190,255,.14);vertical-align:top}";
+    var w = window.open("", "_blank");
+    if (!w) { bpEl.bpState.textContent = "O browser bloqueou a nova janela — permite pop-ups para prstudio.ch."; return; }
+    w.document.open();
+    w.document.write("<!doctype html><html lang=\"" + escH(lang) + "\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta name=\"robots\" content=\"noindex\"><title>Pré-visualização — " + escH(title) + "</title><style>" + css + "</style></head><body><div class=\"wrap\"><p class=\"tag\">Pré-visualização · " + escH(lang.toUpperCase()) + " · " + escH(bpEl.bpStatus.value) + "</p><h1>" + escH(title) + "</h1>" + (desc ? "<p class=\"desc\">" + escH(desc) + "</p>" : "") + body + "</div></body></html>");
+    w.document.close();
   });
   bpEl.bpSave.addEventListener("click", function () {
     var title = bpEl.bpTitle.value.trim(), slug = bpSlugify(bpEl.bpSlug.value || title), desc = bpEl.bpDesc.value.trim(), body = bpEl.bpBody.value.trim();
