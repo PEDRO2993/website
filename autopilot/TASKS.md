@@ -4,7 +4,7 @@ Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLOY ➔ MONITOR ➔ OP
 
 - [x] RESEARCH: top 3 produtos por margem (ver research/2026-09-02-high-margin-products.md)
 - [x] PLAN: loja de 1 produto (suplemento digestivo/magnésio), fornecedor EU certificado, preço CHF 39–49, margem ≥65%
-- [ ] BUILD: storefront + checkout + subscrição mensal (-15%) + email/SMS pós-compra
+- [x] BUILD: storefront + checkout + subscrição mensal (-15%) + email/SMS pós-compra
 - [ ] TEST: checkout e2e, mobile, pagamento CH (TWINT/PostFinance), legal (Impressum/Datenschutz)
 - [ ] FIX: corrigir falhas do TEST
 - [ ] DEPLOY: go-live + teste Meta/TikTok CHF 300, 3 criativos UGC

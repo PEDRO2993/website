@@ -38,7 +38,7 @@ const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
   'site.webmanifest', '_headers',
 ];
-const COPY_DIRS = ['img'];
+const COPY_DIRS = ['img', 'store'];
 
 /* ------------------------------------------------------------------ */
 /* utilitários                                                         */

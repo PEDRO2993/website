@@ -2,12 +2,12 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 3,
+  "count": 4,
   "entries": [
     {
       "key": "autopilot/phase",
       "namespace": "ecommerce",
-      "value": "RESEARCH=done; PLAN=done; next=BUILD. Product: magnesium bisglycinate+B6 90caps CHF44, Shopify+Shopify Payments (TWINT), brand Valmag (valmag.ch), suppliers Era Scientifico/Nutrikal/Evivita MOQ500. Kill-switch ROAS<2.0 day5 -> skincare",
+      "value": "RESEARCH=done; PLAN=done; BUILD=done; next=TEST. Store: store/ (DE/FR landing, plan toggle once CHF44 / sub CHF37.40, checkout permalink Shopify with placeholder IDs in store/js/store.js CONFIG), legal impressum/datenschutz/agb, emails autopilot/build/emails.md, setup autopilot/build/shopify-setup.md. Kill-switch ROAS<2.0 day5 -> skincare",
       "tags": [
         "autopilot",
         "phase"
@@ -29,6 +29,15 @@
       "tags": [
         "autopilot",
         "plan"
+      ]
+    },
+    {
+      "key": "autopilot/build",
+      "namespace": "ecommerce",
+      "value": "Static store validated with Playwright: 375px and 1366px, i18n FR ok, subscription toggle updates price+href, no horizontal overflow. Pending: real Shopify variant/selling_plan IDs, domain valmag.ch, pixels.",
+      "tags": [
+        "autopilot",
+        "build"
       ]
     }
   ]
