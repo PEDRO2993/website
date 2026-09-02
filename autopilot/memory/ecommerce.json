@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 6,
+  "count": 7,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -57,6 +57,16 @@
         "autopilot",
         "v3",
         "envio"
+      ]
+    },
+    {
+      "key": "autopilot/v3/painel",
+      "namespace": "ecommerce",
+      "value": "Control panel artifact https://claude.ai/code/artifact/02e267a8-1dcd-429b-93e7-7985e53dfa1b (db capability, collection 'alvos', 65 docs seeded 2026-09-02; fields nome, localidade, tipo, site, fraqueza, contacto, idioma, estado, score, notas). User approves targets there; read_db to find estado=='aprovado' then create Gmail drafts. Bot: autopilot/business/bot (prospector.js needs GOOGLE_PLACES_KEY; audit.js scores weakness; to-panel.js -> out/panel/*.json to import via write_db).",
+      "tags": [
+        "autopilot",
+        "v3",
+        "painel"
       ]
     }
   ]

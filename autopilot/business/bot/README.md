@@ -37,3 +37,12 @@ Regra prática: score ≥ 40 = enviar email; 25–39 = ligar; < 25 = ignorar.
 
 ## 4. Fluxo
 prospector → painel de controlo (aprovar/rejeitar, notas) → eu gero o email DE/FR e o rascunho no Gmail → tu envias → resposta → demo em 48 h → contrato.
+
+## 5. Painel de controlo (onde tu decides)
+https://claude.ai/code/artifact/02e267a8-1dcd-429b-93e7-7985e53dfa1b — privado, funciona no telemóvel.
+- Lista dos alvos com score, fraqueza, contacto e estado (novo → aprovado → rascunho → enviado → respondeu → cliente, ou rejeitado).
+- Clicar num alvo abre: botões de estado, notas, edição, e o **email gerado em DE ou FR** com botão "Copiar" e "Abrir no Gmail".
+- Formulário no fundo para acrescentar alvos à mão.
+- Tudo o que mudares fica guardado para todos os teus dispositivos.
+
+Fluxo com o bot: `node prospector.js` → `node to-panel.js --min 40` → dizes-me "importa out/panel" → aparecem no painel como "novo" → aprovas os que queres → eu crio os rascunhos no Gmail dos aprovados.
