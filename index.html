@@ -407,7 +407,7 @@ header.scrolled { border-bottom-color: var(--line); background: rgba(5, 7, 15, 0
 }
 .plan h3 { font-weight: 600; font-size: 1.24rem; letter-spacing: -0.02em; }
 .plan-amount { font-family: "Spline Sans Mono", monospace; font-size: 1.8rem; font-weight: 600; line-height: 1; letter-spacing: -0.02em; }
-.plan-amount small { font-size: 0.82rem; font-weight: 400; color: var(--ink-3); letter-spacing: 0.02em; }
+.plan-amount small { font-size: 0.82rem; font-weight: 400; color: var(--ink-3); letter-spacing: 0.02em; display: block; margin-top: 8px; }
 .plan p.blurb { color: var(--ink-2); font-size: 0.91rem; }
 .plan ul { list-style: none; display: grid; gap: 10px; }
 .plan li { display: flex; gap: 11px; font-size: 0.93rem; align-items: baseline; color: var(--ink-2); }
@@ -652,7 +652,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 .hero h1 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; min-height: 2.2em; text-shadow: 0 0 60px rgba(46, 107, 255, 0.35); }
 .logo { font-weight: 700; letter-spacing: 0.14em; font-size: 1rem; }
 .serif { font-weight: 600; }
-.btn { border-radius: 4px; font-family: "Spline Sans Mono", monospace; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; padding: 15px 24px; }
+.btn { border-radius: 4px; font-family: "Spline Sans Mono", monospace; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; padding: 15px 24px; text-align: center; }
 .btn-nav { padding: 10px 16px; font-size: 0.68rem; }
 .eyebrow { border-radius: 4px; background: transparent; border: 1px solid var(--line-2); font-family: "Spline Sans Mono", monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
 .eyebrow::before { border-radius: 0; width: 6px; height: 6px; box-shadow: 0 0 12px rgba(46, 107, 255, 0.5); }
@@ -1283,6 +1283,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 @media (max-width: 360px) { .nav { gap: 8px; } .langs button { min-width: 36px; padding: 10px 4px; } .stats { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .stat-k { overflow-wrap: anywhere; }
+@media (max-width: 700px) { .stat { padding: 20px 16px 16px; } .stat-v { font-size: 1.7rem; } }
 @media (max-width: 700px) { .hero-ctas .btn { width: 100%; letter-spacing: 0.08em; padding: 15px 16px; } }
 @media (max-width: 640px) { section { padding: 64px 0; } .hero { padding: 56px 0 64px; } }
 </style>
@@ -3028,7 +3029,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "hero.h1a": "Ihr digitaler Auftritt, ", "hero.h1b": "komplett",
       "hero.pitch": "Ich baue Ihre Website, bringe Ihnen Kunden mit Ads und SEO und betreue Ihre Social-Media-Kanäle — mit ",
       "hero.acc1": "Schweizer Präzision", "hero.join": " und ", "hero.acc2": "portugiesischem Herz",
-      "hero.cta1": "Gratis Offerte per WhatsApp anfragen", "hero.cta2": "Leistungen ansehen",
+      "hero.cta1": "Gratis Offerte per WhatsApp", "hero.cta2": "Leistungen ansehen",
       "hero.tr1": "✓ Antwort innert 24 Stunden", "hero.tr2": "✓ Direkter Kontakt zu mir, ohne Agentur", "hero.tr3": "✓ Mehrsprachig — DE · PT · EN",
       "proof.k1": "Antwort", "proof.k2": "Erste Lieferung", "proof.v2": "Tage", "proof.k3": "Umwege", "proof.k4": "Die Website gehört", "proof.v4": "Ihnen",
       "sv.eyebrow": "Was ich mache", "sv.title": "Drei Leistungen, ein Partner",
@@ -3042,7 +3043,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "sv3.l1": "Strategie und Content-Kalender", "sv3.l2": "Posts, Reels und Stories", "sv3.l3": "Community Management & Nachrichten", "sv3.l4": "Werbung auf Instagram und Facebook", "sv3.l5": "Monatlicher Ergebnisbericht", "sv3.price": "ab CHF 690/Mt.",
       "bd.title": "Alles-in-einem-Paket",
       "bd.p": "Neue professionelle Website + Social-Media-Betreuung + lokales Marketing in einem Monatsabo. Ideal für Restaurants, Salons, Praxen und lokales Gewerbe.",
-      "bd.price": "ab CHF 1'890/Mt.", "bd.small": "Website inklusive · min. 6 Monate", "bd.cta": "Mein Paket zusammenstellen",
+      "bd.price": "ab CHF 1'890/Mt.", "bd.small": "Website inklusive · min. 6 Monate", "bd.cta": "Paket zusammenstellen",
       "pr.eyebrow": "So funktioniert es", "pr.title": "Einfach und ohne Überraschungen",
       "pr1.t": "Gespräch", "pr1.p": "30 Minuten gratis, per WhatsApp oder bei einem Kaffee. Wir sprechen über Ihre Ziele und Ihr Budget — in Ihrer Sprache.",
       "pr2.t": "Offerte", "pr2.p": "Sie erhalten eine klare Offerte mit Fixpreis und Terminen. Sie wissen genau, was Sie zahlen und was Sie bekommen.",
@@ -3060,7 +3061,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo7.b": "Mode", "fo7.s": "Shop + Kollektionen", "fo7.c": "Onlineshop · Warenkorb · Filter",
       "pc.eyebrow": "Preise", "pc.title": "Transparent, in CHF",
       "pc.sub": "Fixpreis, vereinbart bevor es losgeht. Keine versteckten Kosten, keine langen Vertragsbindungen — Monatsabos sind mit 30 Tagen Frist kündbar.",
-      "pc.once": "einmalig", "pc.from": "Richtpreis, einmalig", "pc.cta": "Offerte anfragen", "pc.cta2": "Offerte anfragen", "pc.cta3": "Individuelle Offerte anfragen", "pc.hot": "Beliebteste Wahl", "pc.mo": "/Mt.", "pc.once2": "einmalig", "pc.hot2": "Beliebteste Wahl", "pc.hot3": "Beliebteste Wahl", "pc.mo2": "/Mt.", "pc.mo3": "/Mt.", "pc.mo4": "/Mt.", "pc.mo5": "/Mt.", "pc.mo6": "/Mt.",
+      "pc.once": "einmalig", "pc.from": "Richtpreis, einmalig", "pc.cta": "Offerte anfragen", "pc.cta2": "Offerte anfragen", "pc.cta3": "Offerte nach Mass", "pc.hot": "Beliebteste Wahl", "pc.mo": "/Mt.", "pc.once2": "einmalig", "pc.hot2": "Beliebteste Wahl", "pc.hot3": "Beliebteste Wahl", "pc.mo2": "/Mt.", "pc.mo3": "/Mt.", "pc.mo4": "/Mt.", "pc.mo5": "/Mt.", "pc.mo6": "/Mt.",
       "pw1.p": "Um eine Idee, Kampagne oder Dienstleistung schnell zu lancieren.",
       "pw1.l1": "Landing Page (1 Seite)", "pw1.l2": "Massgeschneidertes Design, mobile-first", "pw1.l3": "Kontaktformular / WhatsApp", "pw1.l4": "Lieferung in 7 Tagen",
       "pw2.p": "Bis zu 5 Seiten mit Basis-SEO und Google-Business-Profil — damit Ihr Geschäft gefunden wird, wenn im Wallis nach Ihnen gesucht wird.",
@@ -3220,8 +3221,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "hero.h1a": "Votre présence digitale, ", "hero.h1b": "complète",
       "hero.pitch": "Je crée votre site web, je vous amène des clients avec la publicité et le SEO, et je gère vos réseaux sociaux — avec ",
       "hero.acc1": "précision suisse", "hero.join": " et ", "hero.acc2": "âme portugaise",
-      "hero.cta1": "Demander un devis gratuit sur WhatsApp", "hero.cta2": "Voir les services",
-      "hero.tr1": "✓ Réponse en moins de 24h", "hero.tr2": "✓ Vous me parlez directement, sans agence", "hero.tr3": "✓ Multilingue — DE · PT · EN",
+      "hero.cta1": "Devis gratuit sur WhatsApp", "hero.cta2": "Voir les services",
+      "hero.tr1": "✓ Réponse en moins de 24h", "hero.tr2": "✓ Contact direct, sans agence", "hero.tr3": "✓ Multilingue — DE · PT · EN",
       "proof.k1": "Temps de réponse", "proof.k2": "Première livraison", "proof.v2": "jours", "proof.k3": "Intermédiaires", "proof.k4": "Le site est", "proof.v4": "à vous",
       "sv.eyebrow": "Ce que je fais", "sv.title": "Trois services, un partenaire",
       "sv.sub": "Choisissez chaque service séparément — ou combinez le tout et confiez l'ensemble de votre présence digitale à une seule personne.",
@@ -3252,7 +3253,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo7.b": "Mode", "fo7.s": "boutique + collections", "fo7.c": "Boutique en ligne · Panier · Filtres",
       "pc.eyebrow": "Tarifs", "pc.title": "Transparents, en CHF",
       "pc.sub": "Un prix fixe convenu avant de commencer. Pas de frais cachés, pas d'engagement de longue durée — les abonnements mensuels sont résiliables avec 30 jours de préavis.",
-      "pc.once": "paiement unique", "pc.from": "dès, paiement unique", "pc.cta": "Demander un devis", "pc.cta2": "Demander un devis", "pc.cta3": "Demander un devis sur mesure", "pc.hot": "Le plus demandé", "pc.mo": "/mois", "pc.once2": "paiement unique", "pc.hot2": "Le plus demandé", "pc.hot3": "Le plus demandé", "pc.mo2": "/mois", "pc.mo3": "/mois", "pc.mo4": "/mois", "pc.mo5": "/mois", "pc.mo6": "/mois",
+      "pc.once": "paiement unique", "pc.from": "dès, paiement unique", "pc.cta": "Demander un devis", "pc.cta2": "Demander un devis", "pc.cta3": "Devis sur mesure", "pc.hot": "Le plus demandé", "pc.mo": "/mois", "pc.once2": "paiement unique", "pc.hot2": "Le plus demandé", "pc.hot3": "Le plus demandé", "pc.mo2": "/mois", "pc.mo3": "/mois", "pc.mo4": "/mois", "pc.mo5": "/mois", "pc.mo6": "/mois",
       "pw1.p": "Pour lancer rapidement une idée, une campagne ou un service.",
       "pw1.l1": "Landing page d'une page", "pw1.l2": "Design sur mesure, mobile-first", "pw1.l3": "Formulaire de contact / WhatsApp", "pw1.l4": "Livré en 7 jours",
       "pw2.p": "Jusqu’à 5 pages avec SEO de base et fiche Google Business — pour que votre entreprise apparaisse quand on vous cherche en Valais.",
