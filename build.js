@@ -361,6 +361,11 @@ function buildDocPage(file) {
     }
     // blog.html: cartões dos posts da BD, antes dos cartões fixos
     if (file === 'blog.html') {
+      /* cartões fixos: data e tempo de leitura do artigo nesse idioma */
+      html = html.replace(/(<a class="blog-card" href="([a-z0-9-]+\.html)"><h2>[\s\S]*?<\/h2>)/g, (m, open, href) => {
+        const e = STATIC_FEED[lang].find((x) => x.file === href);
+        return e ? open + '<span class="lg-meta">' + posts.fmtDate(e.published_at, lang) + ' · ' + e.mins + ' min</span>' : m;
+      });
       const cards = DB_POSTS.filter((p) => p.lang === lang).map((p) => posts.renderCard(p, { PREFIX })).join('');
       if (cards) html = html.replace(/<div class="blog-list">/, () => '<div class="blog-list">' + cards);
     }
@@ -521,7 +526,8 @@ async function buildPosts() {
       const block = extractBlock(src, lang);
       const title = ((block.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]).replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
       if (!title) return;
-      STATIC_FEED[lang].push({ lang, title, description: firstParagraph(block), published_at: date, href: PREFIX[lang] + file, url: ORIGIN + PREFIX[lang] + file });
+      const mins = Math.max(1, Math.round(block.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').length / 200));
+      STATIC_FEED[lang].push({ lang, title, description: firstParagraph(block), published_at: date, mins, file, href: PREFIX[lang] + file, url: ORIGIN + PREFIX[lang] + file });
     });
   });
   const bySlug = {};
