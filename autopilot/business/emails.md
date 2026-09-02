@@ -15,7 +15,7 @@ Pedro Ribeiro · PR Studio · prstudio.ch · {{telefon}}
 **Objet :** {{Hôtel}} – réservations directes au lieu de la commission Booking
 Bonjour {{Prénom}},
 J'ai regardé {{site}} : vos clients ne peuvent réserver que via Booking.com et le site est difficile à utiliser sur mobile. À 15–18 % de commission par réservation, cela représente chaque année un montant à cinq chiffres.
-Je suis Pedro Ribeiro, studio web en Valais. Voici un exemple de site d'hôtel avec réservation directe en 4 langues : {{demo-link}}.
+Je suis Pedro Ribeiro, studio web en Valais. Voici un exemple de site d'hôtel avec réservation directe en 4 langues : {{demo-link}}. Ce que la commission vous coûte par an, calculez-le ici en 10 secondes : https://pedro2993.github.io/website/hotel-direkt.html
 Si vous le souhaitez, je vous prépare gratuitement en 48 h un aperçu avec votre nom et vos photos, sans engagement. Auriez-vous 15 minutes cette semaine pour un bref appel ?
 Cordialement,
 Pedro Ribeiro · PR Studio · prstudio.ch · {{téléphone}}

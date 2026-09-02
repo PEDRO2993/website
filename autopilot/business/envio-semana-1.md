@@ -6,7 +6,7 @@ Enviar terça a quinta, 08:30–10:00, 3–4 por dia. Registar data em pipeline.
 **Objet :** Les Berges – réservations directes au lieu de la commission Booking
 Bonjour,
 J'ai cherché l'Hôtel Garni Les Berges en ligne : on ne vous trouve que sur Booking.com et les comparateurs, sans site à vous. Chaque nuit réservée par ces canaux vous coûte 15 à 18 % de commission.
-Je suis Pedro Ribeiro, studio web en Valais. Voici un exemple d'hôtel en 4 langues avec réservation directe : https://prstudio.ch/hotel-alpina/
+Je suis Pedro Ribeiro, studio web en Valais. Voici un exemple d'hôtel en 4 langues avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Je vous prépare gratuitement, en 48 h, un aperçu avec le nom et les photos des Berges, sans engagement. Auriez-vous 15 minutes cette semaine ?
 Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
@@ -14,7 +14,7 @@ Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 **Objet :** Mayen2003 – 253 avis à 9.3, mais pas de site à vous
 Bonjour,
 253 avis et une note de 9.3 sur Booking.com : peu d'hôtes en Valais ont cette réputation. Pourtant, quand on cherche « Mayen2003 », on ne trouve que Booking, Airbnb et des sites d'agrégateurs qui prennent leur commission.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple de site d'hôtel avec réservation directe : https://prstudio.ch/hotel-alpina/
+Je suis Pedro Ribeiro, studio web en Valais. Exemple de site d'hôtel avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Je vous propose un aperçu gratuit en 48 h avec vos photos et vos 9 chambres, sans engagement. 15 minutes au téléphone cette semaine ?
 Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
@@ -22,7 +22,7 @@ Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 **Betreff:** Portjengrat – Direktbuchungen vor der Wintersaison
 Grüezi
 Ich habe das Hotel Portjengrat online gesucht: Man findet Sie nur auf Booking.com, Tripadvisor und Kopier-Seiten wie «swissalpshotels», aber keine eigene Website. Für ein renoviertes 3-Sterne-Familienhotel ist das jeden Winter ein fünfstelliger Kommissionsbetrag.
-Ich bin Pedro Ribeiro, Webstudio aus dem Wallis. Beispiel einer Hotelseite mit Direktbuchung in 4 Sprachen: https://prstudio.ch/hotel-alpina/
+Ich bin Pedro Ribeiro, Webstudio aus dem Wallis. Beispiel einer Hotelseite mit Direktbuchung in 4 Sprachen: https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Ich baue Ihnen in 48 Stunden kostenlos eine Vorschau mit Ihrem Namen und Ihren Zimmern, unverbindlich. Hätten Sie diese Woche 15 Minuten?
 Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
@@ -38,7 +38,7 @@ Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 **Betreff:** Pension Taverne – Familienzimmer direkt buchbar
 Grüezi
 Ihre Familienzimmer mit Kitchenette sind genau das, was Familien aus der Deutschschweiz und Holland suchen, aber sie können Sie nur über Booking.com und Holidaycheck buchen. Eine eigene Seite fehlt.
-Ich bin Pedro Ribeiro, Webstudio aus dem Wallis, und habe für Grächen bereits eine Hotelseite als Beispiel gebaut: https://prstudio.ch/hotel-alpina/
+Ich bin Pedro Ribeiro, Webstudio aus dem Wallis, und habe für Grächen bereits eine Hotelseite als Beispiel gebaut: https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Kostenlose Vorschau mit Ihrem Namen in 48 Stunden, unverbindlich. Darf ich Sie diese Woche kurz anrufen?
 Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
@@ -46,7 +46,7 @@ Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 **Objet :** Les Touristes – le plus ancien hôtel de Verbier mérite son propre site
 Bonjour,
 L'hôtel Les Touristes existe depuis les années 1930, mais en ligne il ne vit que sur Booking.com et des pages copiées. Votre histoire, vos 24 chambres et vos tarifs directs n'apparaissent nulle part.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple d'hôtel de montagne avec réservation directe : https://prstudio.ch/hotel-alpina/
+Je suis Pedro Ribeiro, studio web en Valais. Exemple d'hôtel de montagne avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Aperçu gratuit en 48 h, sans engagement. 15 minutes au téléphone cette semaine ?
 Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
@@ -62,7 +62,7 @@ Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 **Objet :** Ancienne Poste – votre site de 2008 fait fuir les clients mobiles
 Bonjour Madame,
 Votre site ancienneposte.ch date de 2008, n'est pas sécurisé (pas de https) et s'affiche mal sur téléphone, alors que 7 clients sur 10 réservent depuis leur mobile. Dommage pour une chambre aussi bien rénovée.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple de ce que je fais : https://prstudio.ch/hotel-alpina/
+Je suis Pedro Ribeiro, studio web en Valais. Exemple de ce que je fais : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Un site B&B moderne en FR/DE/EN avec calendrier de réservation coûte CHF 2'400, prêt en 15 jours. Je vous montre gratuitement un aperçu avec vos photos avant toute décision. 15 minutes cette semaine ?
 Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
@@ -70,7 +70,7 @@ Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 **Objet :** Le Trift – réouverture en novembre sans site, on corrige ça ?
 Bonjour,
 J'ai lu que Le Trift rouvre en novembre 2026. Aujourd'hui, l'hôtel n'a pas de site à lui : une réouverture qui dépend à 100 % de Booking.com démarre avec 15 % de marge en moins.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple d'hôtel avec réservation directe : https://prstudio.ch/hotel-alpina/
+Je suis Pedro Ribeiro, studio web en Valais. Exemple d'hôtel avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
 Je peux livrer un site FR/DE/EN avec réservation avant l'ouverture. Aperçu gratuit en 48 h, sans engagement. 15 minutes cette semaine ?
 Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 

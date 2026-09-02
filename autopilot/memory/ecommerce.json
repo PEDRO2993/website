@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 8,
+  "count": 10,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -73,6 +73,26 @@
       "key": "autopilot/v3/improve",
       "namespace": "ecommerce",
       "value": "2026-09-02 improvements: hotel-direkt.html (5 langs, OTA commission calculator, packages, WhatsApp +41 79 825 70 78 real), demos/les-berges|mayen2003|portjengrat, investor report autopilot/investor/2026-09-02-relatorio-1.md, ruflo IMPROVE-1..6 backlog, routine trig_01ALgiHwT6gJfNDG5Uj4H4x6 weekdays 06:30 UTC (follow-ups, drafts for approved, 5 new targets). Old AirPods routine deleted. Pending: deploy (branch not production), user sends 14 drafts.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "improve"
+      ]
+    },
+    {
+      "key": "autopilot/v3/deploy",
+      "namespace": "ecommerce",
+      "value": "2026-09-02 16:30 UTC: PR #2 merged into production branch claude/forms-bugs-improvement-2578kq; Pages run #17 success (step removes autopilot/ store/ .github from artifact). Live: pedro2993.github.io/website/hotel-direkt.html and /demos/{les-berges,mayen2003,portjengrat}/ ; prstudio.ch depends on user's DNS. Work branch fast-forwarded to merge commit.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "deploy"
+      ]
+    },
+    {
+      "key": "autopilot/v3/improve-2",
+      "namespace": "ecommerce",
+      "value": "2026-09-02 batch 2: IMPROVE-7 site links+sitemap+robots (PR #3 open, needs user DEPLOY); IMPROVE-8 offer link (pedro2993.github.io/website/hotel-direkt.html) in templates + panel generator; IMPROVE-9 all 14 Gmail drafts updated with offer link; IMPROVE-10 panel v2: follow-up email generator, 'follow-up' state, 'follow-ups hoje' stat (enviado >= 4 days). Backlog left: IMPROVE-5 A/B subjects (needs sends), IMPROVE-6 phone/contact form (needs user's number), IMPROVE-11 Lighthouse prod, IMPROVE-12 bot weekly (needs Places key).",
       "tags": [
         "autopilot",
         "v3",
