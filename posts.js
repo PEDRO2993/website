@@ -49,6 +49,7 @@ main p{color:var(--ink-2);margin:0 0 14px}main ul,main ol{color:var(--ink-2);pad
 main img{max-width:100%;height:auto;border-radius:12px}main blockquote{margin:18px 0;padding:10px 18px;border-left:3px solid var(--red);color:var(--ink-2)}
 main code{background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:5px;font-family:"Spline Sans Mono",monospace;font-size:0.88em}
 .lg-updated{font-family:"Spline Sans Mono",monospace;font-size:0.78rem;color:var(--ink-3);margin-bottom:28px}
+@media (max-width:700px){.lg-tbl{display:block;overflow-x:auto}}
 .lg-tbl{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:0.88rem}.lg-tbl th,.lg-tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 .lg-tbl th{color:var(--ink);font-family:"Spline Sans Mono",monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.04em}.lg-tbl td{color:var(--ink-2)}
 .cta{margin:44px 0 0;padding:26px 28px;border:1px solid var(--line-2);border-radius:18px;background:linear-gradient(135deg,rgba(46,107,255,0.12),rgba(46,107,255,0.03))}

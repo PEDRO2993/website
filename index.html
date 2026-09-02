@@ -485,6 +485,9 @@ header.scrolled { border-bottom-color: var(--line); background: rgba(5, 7, 15, 0
 .care .mono { font-size: 0.96rem; white-space: nowrap; color: var(--red-ink); font-weight: 600; }
 .care-cta { display: inline-block; margin-top: 4px; padding: 11px 0; font-size: 0.9rem; font-weight: 600; color: var(--red-ink); text-decoration: none; }
 .care-cta:hover { text-decoration: underline; }
+.read-more { color: var(--red-ink); text-decoration: none; font-weight: 600; }
+.read-more:hover { text-decoration: underline; }
+.zona .read-more { flex-basis: 100%; font-size: 0.9rem; }
 .price-guide { color: var(--ink-2); font-size: 0.92rem; margin-top: 10px; max-width: 58ch; }
 .price-guide a { color: var(--red-ink); }
 @media (max-width: 900px) { .plans { grid-template-columns: 1fr; } .care { grid-template-columns: 1fr; } }
@@ -1676,6 +1679,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <h2 class="display" data-i18n="pc.title">Transparentes, em CHF</h2>
         <p class="section-sub" data-i18n="pc.sub">Preço fixo acordado antes de começar. Sem taxas escondidas, sem fidelizações longas — os planos mensais cancelam-se com 30 dias de aviso.</p>
         <p class="price-guide"><span data-i18n="pc.guide1">Não sabes qual escolher? Se tens um negócio local com serviços fixos, o plano do meio cobre o essencial — </span><a href="#faq" data-i18n="pc.guide2">vê as perguntas frequentes</a><span data-i18n="pc.guide3"> ou fala comigo sem compromisso.</span></p>
+        <p class="price-guide"><a class="read-more" href="preco-site-suica.html" data-i18n="pc.art">Artigo: quanto custa um site profissional na Suíça? →</a></p>
       </div>
       <div class="tabs" role="tablist" data-i18n-aria="a11y.priceTabs" aria-label="Categorias de preços">
         <button type="button" role="tab" id="tab-web" aria-controls="panel-web" aria-selected="true" data-tab="web">Websites</button>
@@ -1854,6 +1858,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       <div class="zona reveal">
         <span class="zona-h" data-i18n="zn.h">Trabalho em todo o Valais</span>
         <p class="zona-t" data-i18n="zn.t">Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Café presencial no Alto Valais, videochamada no resto do cantão — e a proposta chega sempre na tua língua.</p>
+        <a class="read-more" href="multilingue-valais.html" data-i18n="zn.art">Porque a tua empresa no Valais precisa de um site multilingue →</a>
       </div>
     </div>
   </section>
@@ -3006,6 +3011,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---------- i18n ---------- */
   var I18N = {
     de: {
+      "pc.art": "Artikel: Was kostet eine Website in der Schweiz? →", "zn.art": "Warum Ihr Unternehmen im Wallis eine mehrsprachige Website braucht →",
       "tpl.close": "✕ Schliessen", "a11y.nav": "Menü", "a11y.lang": "Sprache", "a11y.menuOpen": "Menü öffnen", "a11y.why": "Warum mit mir arbeiten", "a11y.filter": "Portfolio filtern", "a11y.priceTabs": "Preiskategorien",
       "nav.services": "Leistungen", "nav.folio": "Beispiele", "nav.process": "Ablauf", "nav.pricing": "Preise", "nav.contact": "Kontakt",
       "hero.eyebrow": "Stalden · Wallis · Schweiz",
@@ -3099,6 +3105,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Antwort innert 24 Stunden"
     },
     en: {
+      "pc.art": "Article: how much does a website cost in Switzerland? →", "zn.art": "Why your Valais business needs a multilingual website →",
       "tpl.close": "✕ Close", "a11y.nav": "Menu", "a11y.lang": "Language", "a11y.menuOpen": "Open menu", "a11y.why": "Why work with me", "a11y.filter": "Filter portfolio", "a11y.priceTabs": "Pricing categories",
       "nav.services": "Services", "nav.folio": "Examples", "nav.process": "Process", "nav.pricing": "Pricing", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Switzerland",
@@ -3192,6 +3199,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Reply within 24 hours"
     },
     fr: {
+      "pc.art": "Article : combien coûte un site web en Suisse ? →", "zn.art": "Pourquoi votre entreprise en Valais a besoin d’un site multilingue →",
       "tpl.close": "✕ Fermer", "a11y.nav": "Menu", "a11y.lang": "Langue", "a11y.menuOpen": "Ouvrir le menu", "a11y.why": "Pourquoi travailler avec moi", "a11y.filter": "Filtrer le portfolio", "a11y.priceTabs": "Catégories de prix",
       "nav.services": "Services", "nav.folio": "Exemples", "nav.process": "Processus", "nav.pricing": "Tarifs", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Suisse",
@@ -3285,6 +3293,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Réponse en moins de 24 h"
     },
     it: {
+      "pc.art": "Articolo: quanto costa un sito web in Svizzera? →", "zn.art": "Perché la tua azienda in Vallese ha bisogno di un sito multilingue →",
       "tpl.close": "✕ Chiudi", "a11y.nav": "Menu", "a11y.lang": "Lingua", "a11y.menuOpen": "Apri il menu", "a11y.why": "Perché lavorare con me", "a11y.filter": "Filtra il portfolio", "a11y.priceTabs": "Categorie di prezzi",
       "nav.services": "Servizi", "nav.folio": "Esempi", "nav.process": "Processo", "nav.pricing": "Prezzi", "nav.contact": "Contatto",
       "hero.eyebrow": "Stalden · Vallese · Svizzera",
@@ -3439,8 +3448,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   };
   var TITLES = {
     pt: { t: "PR Studio — Websites, Marketing & Social Media no Valais", d: "Websites, marketing digital e gestão de redes sociais para negócios do Valais. Preços transparentes em CHF. Stalden, Suíça." },
-    de: { t: "PR Studio — Websites, Marketing & Social Media im Wallis", d: "Websites, digitales Marketing und Social-Media-Betreuung für Unternehmen im Wallis. Transparente Preise in CHF. Stalden, Schweiz." },
-    fr: { t: "PR Studio — Sites web, Marketing & Social Media en Valais", d: "Sites web, marketing digital et gestion des réseaux sociaux pour les entreprises du Valais. Prix transparents en CHF. Stalden, Suisse." },
+    de: { t: "PR Studio — Websites, Marketing & Social Media im Wallis", d: "Webdesign und Website-Erstellung, digitales Marketing und Social-Media-Betreuung für Unternehmen im Wallis. Transparente Preise in CHF. Stalden, Schweiz." },
+    fr: { t: "PR Studio — Sites web, Marketing & Social Media en Valais", d: "Création de sites web, marketing digital et gestion des réseaux sociaux pour les entreprises du Valais. Prix transparents en CHF. Stalden, Suisse." },
     it: { t: "PR Studio — Siti web, Marketing & Social Media in Vallese", d: "Siti web, marketing digitale e gestione social per le aziende del Vallese. Prezzi trasparenti in CHF. Stalden, Svizzera." },
     en: { t: "PR Studio — Websites, Marketing & Social Media in Valais", d: "Websites, digital marketing and social media management for Valais businesses. Transparent pricing in CHF. Stalden, Switzerland." }
   };
