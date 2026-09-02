@@ -356,6 +356,14 @@ function buildDocPage(file) {
     ) || [, ''])[1];
 
     const desc = firstParagraph(block);
+    /* tempo de leitura por bloco de idioma (só artigos) */
+    if (/"@type": "Article"/.test(html)) {
+      html = html.replace(/(<div class="i18n-doc" data-lang="[a-z]{2}">)([\s\S]*?)(?=<div class="i18n-doc"|<\/main>)/g, (m, open, body) => {
+        const words = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').length;
+        const mins = Math.max(1, Math.round(words / 200));
+        return open + body.replace(/(<p class="lg-updated">)([^<]*)(<\/p>)/, (mm, o, t, c) => o + t + ' · ' + mins + ' min' + c);
+      });
+    }
     /* BreadcrumbList: início → blog → artigo (só páginas com Article) */
     if (/"@type": "Article"/.test(html) && !/BreadcrumbList/.test(html)) {
       const BLOG = { pt: 'Blog', de: 'Blog', fr: 'Blog', it: 'Blog', en: 'Blog' };

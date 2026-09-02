@@ -115,7 +115,7 @@ ${alts.join('\n')}
   <main>
     <article>
       <h1>${esc(p.title)}</h1>
-      <p class="lg-updated"><time datetime="${esc(String(p.published_at).slice(0, 10))}">${esc(fmtDate(p.published_at, p.lang))}</time> · Pedro Ribeiro</p>
+      <p class="lg-updated"><time datetime="${esc(String(p.published_at).slice(0, 10))}">${esc(fmtDate(p.published_at, p.lang))}</time> · Pedro Ribeiro · ${Math.max(1, Math.round(words / 200))} min</p>
       ${p.body_html}
     </article>
     <aside class="cta">
