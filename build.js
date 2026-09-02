@@ -408,6 +408,9 @@ function buildDocPage(file) {
       /* imagem OG por artigo e idioma (img/og/<página>-<lang>.jpg, gerada offline) */
       if (ogRel) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/' + ogRel);
     }
+    if (file === 'blog.html' && fs.existsSync(path.join(ROOT, 'img/og/blog-' + lang + '.jpg'))) {
+      html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/blog-' + lang + '.jpg');
+    }
     html = rewriteHead(html, lang, pathFor, TITLES[lang], desc);
     html = injectLangGlobals(html, lang);
     if (lang !== 'pt') html = absolutize(html, lang);

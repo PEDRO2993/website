@@ -79,7 +79,7 @@ function renderPost(p, langsForSlug, { ORIGIN, PREFIX }, related = []) {
     headline: p.title, description: p.description, inLanguage: HTML_LANG[p.lang], wordCount: words,
     author: { '@type': 'Person', name: 'Pedro Ribeiro', url: `${ORIGIN}/` },
     publisher: { '@type': 'Organization', name: 'PR Studio', logo: { '@type': 'ImageObject', url: `${ORIGIN}/img/icon-512.png` } },
-    mainEntityOfPage: self, datePublished: p.published_at, dateModified: p.updated_at, image: `${ORIGIN}/og.png`,
+    mainEntityOfPage: self, datePublished: p.published_at, dateModified: p.updated_at, image: `${ORIGIN}/img/og/blog-${p.lang}.jpg`,
   };
   const ui = UI[p.lang];
   const langBar = langsForSlug.map((l) => `<a href="${pathFor(PREFIX, l, p.slug)}" hreflang="${l}"${l === p.lang ? ' aria-current="page"' : ''}>${l.toUpperCase()}</a>`).join('');
@@ -99,7 +99,7 @@ ${alts.join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(ui.feed)}" href="${PREFIX[p.lang]}feed.xml">
 <meta property="og:type" content="article"><meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${self}">
-<meta property="og:image" content="${ORIGIN}/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="${ORIGIN}/img/og/blog-${p.lang}.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="article:published_time" content="${esc(p.published_at)}"><meta property="article:modified_time" content="${esc(p.updated_at)}">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>

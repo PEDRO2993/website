@@ -13,6 +13,11 @@ const FOOT = { pt: 'prstudio.ch — Stalden · Valais · Suíça', de: 'prstudio
     const src = fs.readFileSync(path.join(ROOT, f + '.html'), 'utf8');
     for (const lang of ['pt', 'de', 'fr', 'it', 'en']) {
       const title = ((src.match(new RegExp('<div class="i18n-doc" data-lang="' + lang + '"><h1>([^<]*)</h1>')) || [])[1] || '').replace(/&amp;/g, '&');
+      await render(lang, title, path.join(ROOT, 'img/og', f + '-' + lang + '.jpg'));
+    }
+  }
+  async function render(lang, title, out) {
+    {
       const size = title.length > 70 ? 54 : title.length > 55 ? 60 : 66;
       const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:B;src:url(${font('bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff2')}) format('woff2');font-weight:700}
@@ -33,10 +38,15 @@ h1{font-family:B;font-weight:700;font-size:${size}px;line-height:1.08;letter-spa
 .foot{font-size:24px;color:#8A97AF;font-weight:500}
 </style></head><body><div class="grid"></div><div class="glow2"></div><div class="glow"></div><div class="in"><div><div class="logo">PR<i>.</i></div><div class="eye">${EYE[lang]}</div><h1>${title.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</h1><div class="bar"></div></div><div class="foot">${FOOT[lang]}</div></div></body></html>`;
       await p.setContent(html, { waitUntil: 'load' }); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(80);
-      const out = path.join(ROOT, 'img/og', f + '-' + lang + '.jpg');
       await p.screenshot({ path: out, type: 'jpeg', quality: 84 });
       console.log(path.basename(out), fs.statSync(out).size, 'B', 'fonts=' + await p.evaluate(() => document.fonts.check('700 20px B') && document.fonts.check('500 20px I')));
     }
+  }
+  /* blog.html: imagem por idioma com a frase de introdução (.lg-sub) */
+  const blogSrc = fs.readFileSync(path.join(ROOT, "blog.html"), "utf8");
+  for (const lang of ["pt", "de", "fr", "it", "en"]) {
+    const t = ((blogSrc.match(new RegExp('<div class="i18n-doc" data-lang="' + lang + '">[\\s\\S]*?<p class="lg-sub">([^<]*)')) || [])[1] || "Blog").replace(/\.$/, "");
+    await render(lang, t, path.join(ROOT, "img/og", "blog-" + lang + ".jpg"));
   }
   await b.close();
 })();
