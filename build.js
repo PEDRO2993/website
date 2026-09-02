@@ -420,6 +420,7 @@ function buildDocPage(file) {
           o.inLanguage = HTML_LANG[lang];
           o.mainEntityOfPage = ORIGIN + pathFor(lang);
           if (ogRel) o.image = ORIGIN + '/' + ogRel;
+          o.dateModified = lastModOf(file); /* data real do último commit do artigo */
           return open + JSON.stringify(o) + close;
         });
       /* imagem OG por artigo e idioma (img/og/<página>-<lang>.jpg, gerada offline) */
@@ -449,15 +450,16 @@ function today() {
     String(d.getDate()).padStart(2, '0');
 }
 
+// lastmod real: data do último commit do ficheiro de origem (fallback: hoje)
+function lastModOf(file) {
+  try {
+    const d = require('child_process').execSync('git log -1 --format=%cI -- ' + JSON.stringify(file), { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    return d ? d.slice(0, 10) : today();
+  } catch (e) { return today(); }
+}
+
 function buildSitemap() {
   const stamp = today();
-  // lastmod real: data do último commit do ficheiro de origem (fallback: hoje)
-  const lastModOf = (file) => {
-    try {
-      const d = require('child_process').execSync('git log -1 --format=%cI -- ' + JSON.stringify(file), { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
-      return d ? d.slice(0, 10) : stamp;
-    } catch (e) { return stamp; }
-  };
   const groups = [{ pathFor: (l) => PREFIX[l], priority: '1.0', freq: 'weekly', file: 'index.html' }];
   DOC_PAGES.forEach((f) => {
     const legal = NOINDEX_PAGES.indexOf(f) >= 0;
