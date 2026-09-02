@@ -1,0 +1,29 @@
+// Verificações estáticas do dist/: feed RSS por idioma, links "Ler também", honeypot traduzido, og:url, tabela com scroll.
+const { DIST } = require('./_env');
+const fs = require('fs');
+const path = require('path');
+let pass = 0, fail = 0;
+function ok(name, cond, extra) { if (cond) { pass++; console.log('  ✓ ' + name); } else { fail++; console.log('  ✗ ' + name + (extra ? ' — ' + extra : '')); } }
+const read = (rel) => fs.readFileSync(path.join(DIST, rel), 'utf8');
+const LANGS = ['', 'de/', 'fr/', 'it/', 'en/'];
+for (const l of LANGS) {
+  const feed = read(l + 'feed.xml');
+  ok(l + 'feed.xml com >= 3 itens', (feed.match(/<item>/g) || []).length >= 3);
+  ok(l + 'feed.xml sem entidades HTML por escapar', !/&nbsp;|&amp;amp;/.test(feed));
+  ok(l + 'blog.html liga ao feed do idioma', read(l + 'blog.html').includes('href="/' + l + 'feed.xml"'));
+  for (const a of ['preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html']) {
+    const h = read(l + a);
+    const more = (h.match(/<p class="lg-more">[\s\S]*?<\/p>/) || [''])[0];
+    ok(l + a + ': "Ler também" com 2 links', (more.match(/<a /g) || []).length === 2);
+    ok(l + a + ': BreadcrumbList + Article', /BreadcrumbList/.test(h) && /"@type":\s*"Article"/.test(h));
+    ok(l + a + ': aside CTA presente', /<aside class="cta">/.test(h));
+  }
+  for (const p of ['privacidade.html', 'termos.html', 'informacao-legal.html']) {
+    ok(l + p + ': og:url do idioma', read(l + p).includes('property="og:url" content="https://prstudio.ch/' + l + p + '"'));
+  }
+}
+ok('preco-site-suica: tabela dentro de .lg-tbl-wrap', /<div class="lg-tbl-wrap"><table class="lg-tbl">/.test(read('de/preco-site-suica.html')));
+const HP = { 'de/': 'Nicht ausfüllen:', 'fr/': 'Ne pas remplir', 'it/': 'Non compilare:', 'en/': 'Do not fill in:' };
+for (const [l, t] of Object.entries(HP)) ok(l + 'index.html: honeypot traduzido', read(l + 'index.html').includes(t));
+console.log('\nResultado: ' + pass + ' passaram, ' + fail + ' falharam');
+process.exit(fail ? 1 : 0);
