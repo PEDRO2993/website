@@ -7,7 +7,7 @@
     {
       "key": "autopilot/phase",
       "namespace": "ecommerce",
-      "value": "RESEARCH,PLAN,BUILD,TEST,FIX=done; DEPLOY=preview published (artifact), go-live blocked on user (Shopify IDs, valmag.ch, CHF300 ads). MONITOR tooling ready: autopilot/metrics/kpi.js reads CSV -> decisao.md (ROAS>=2.0 day5 scale / <2.0 pivot skincare).",
+      "value": "v1 (Valmag supplements) parked: needs capital >= CHF 3000; landing+plan kept for stage 3. v2 active: last CHF 300, rule never spend >50% on one stock buy. Stage 1 = refurbished AirPods Pro 2 arbitrage: buy <=95 on tutti/Ricardo (serial+battery+ANC check), sell 139 Ricardo w/ 30d warranty, margin ~34/unit, 3 units. Rejected: 3-in-1 charger, GoPro mounts, bike kits (Galaxus price-crush). Next: BUY.",
       "tags": [
         "autopilot",
         "phase"

@@ -78,3 +78,37 @@ Conclusão: um genérico a CHF 29–34 não vende contra Belkin a CHF 20.70 com 
 | 2 | Recondicionado: comprar no tutti/Ricardo (AirPods, Apple Watch, Kindle com defeito ligeiro), limpar/testar, revender com garantia 30 dias | capital 50–120 por peça, margem 40–80 %, zero alfândega | tempo/técnica |
 | 3 | Kit de ferramentas para bicicleta/e-bike (mini-bomba + multitool + remendos, embalado) | Valais tem tráfego ciclista, bundles não existem na Galaxus como conjunto | preço unitário baixo |
 Regra: só passa para compra o candidato que sobreviver ao filtro. Se nenhum passar em 7 dias, a etapa 1 muda para o candidato 2 (recondicionado), que não depende de importação.
+
+---
+## Adenda 2 · 2026-09-02 · Filtro aplicado aos 3 candidatos
+| Candidato | Retalho CH encontrado | Resultado |
+|---|---|---|
+| Fixação GoPro capacete | GoPro original CHF 24.70 (Brack), genéricos CHF 10–15 na Galaxus | chumba |
+| Kit ferramentas bicicleta | Galaxus cheia de kits; Park Tool remendos CHF 6 | chumba |
+| Recondicionado Apple | AirPods Pro 2 usados CHF 90 no Ricardo; recondicionados com garantia CHF 130–150 (Revendo/MobileUp); Apple Watch S9 usado mediana CHF 249, faixa 220–330 | **passa** |
+
+Lição: com CHF 300 na Suíça, importar produto novo genérico perde para a Galaxus/Digitec em quase todas as categorias. O que sobra é comprar abaixo do mercado (particulares, pressa, sem garantia) e vender ao preço "com garantia e testado".
+
+## ETAPA 1 (definitiva) · Recondicionado AirPods Pro 2 · capital ≤ CHF 270
+Porquê AirPods e não Apple Watch: 3 peças em vez de 1 (um defeito não afunda o capital), envio em envelope, procura constante.
+
+**Compra (tutti.ch e Ricardo, só particulares, só levantamento em mão ou TWINT com foto do número de série):**
+- Preço-alvo ≤ CHF 95, negociar a partir de 80. Só AirPods Pro 2 (USB-C ou Lightning), com caixa de carga.
+- Verificar antes de pagar: número de série na caixa = nas duas peças (Definições → Bluetooth → i); checkcoverage.apple.com com o número de série; ambos os auscultadores carregam; ANC funciona; bateria dos auscultadores ≥ 85 % (app "Battery" ou Definições). Sem estes 4 pontos, não compras.
+- Fakes: preço abaixo de 60, sem número de série na caixa, sem MagSafe na caixa de carga.
+
+**Recondicionar (custo ≈ CHF 3/peça):** limpeza com álcool isopropílico e escova, pontas novas de silicone (pack de 3 tamanhos ≈ CHF 8 para 3 unidades), reset de fábrica, fotos em fundo branco.
+
+**Venda (Ricardo, Sofort-Kaufen):** CHF 139 com "getestet, gereinigt, 30 Tage Garantie, Versand 24 h". Ricardo cobra ≈ 8 % → CHF 11. Envio pago pelo comprador (A-Post ≈ CHF 3.50 em envelope almofadado).
+
+| Por unidade | CHF |
+|---|---|
+| Compra | 90 |
+| Pontas + limpeza + envelope | 4 |
+| Comissão Ricardo | 11 |
+| **Margem** | **≈ 34 (25 %)** |
+3 unidades = CHF 270 investidos → ≈ CHF 100 de margem em 2–3 semanas. Não enriquece; **prova o método sem perder o capital**, porque um AirPods testado revende-se sempre.
+
+**Gate 1:** 3 unidades vendidas em ≤ 21 dias, zero devoluções. Depois: 5–6 unidades com o dinheiro das vendas, e Apple Watch S9 (margem CHF 60–80) quando a reserva > CHF 500.
+
+**Perda máxima realista:** 1 unidade com defeito escondido = −CHF 90. Mitigação: só comprar com teste presencial ou garantia de devolução TWINT dentro de 24 h.
