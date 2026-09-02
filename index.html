@@ -633,7 +633,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 #cookieBanner {
-  position: fixed; right: 16px; bottom: 16px; z-index: 140;
+  position: fixed; right: 16px; bottom: 16px; z-index: 110; /* abaixo das demos (120) */
   max-width: 400px;
   background: #0A1120; border: 1px solid var(--line-2); border-radius: var(--r);
   box-shadow: var(--sh-lg); padding: 20px 22px;
@@ -1046,7 +1046,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 .tpl-nav2 { margin-left: auto; display: flex; gap: 18px; font-family: "Instrument Sans", sans-serif; font-size: 0.88rem; }
 .tpl-nav2 a { cursor: pointer; text-decoration: none; color: var(--tp-muted); transition: color 0.15s ease; }
 .tpl-nav2 a:hover { color: var(--tp-accent); }
-@media (max-width: 700px) { .tpl-nav2 { display: none; } }
+@media (max-width: 700px) { .tpl-nav2 { display: flex; margin-left: 0; gap: 14px; font-size: 0.8rem; white-space: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; flex: 1 1 100%; order: 9; padding-top: 6px; } .tpl-nav2 a { padding: 8px 0; } }
 .tpl-body [id] { scroll-margin-top: 74px; }
 .dm-fs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
 .dm-f { all: unset; cursor: pointer; font-family: "Instrument Sans", sans-serif; font-weight: 600; font-size: 0.82rem; color: var(--tp-muted); padding: 8px 16px; border-radius: 999px; border: 1px solid var(--tp-line); transition: 0.15s ease; }
@@ -1104,7 +1104,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 }
 .t-r-nav a:not(.tpl-cta):hover { color: #E8B04B; }
 .t-r-nav .tpl-cta { padding: 9px 20px; font-size: 0.78rem; letter-spacing: 0.04em; }
-@media (max-width: 700px) { .t-r-nav a:not(.tpl-cta) { display: none; } .t-r-nav { gap: 0; } }
+@media (max-width: 700px) { .t-r-nav { gap: 12px; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; } .t-r-nav a:not(.tpl-cta) { padding: 8px 0; } }
 .t-r-hero { padding: 70px 0 60px; text-align: center; }
 .t-r-hero .kicker { color: #E8B04B; letter-spacing: 0.24em; font-size: 0.78rem; text-transform: uppercase; font-family: "Instrument Sans", sans-serif; }
 .t-r-hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 400; margin: 16px 0 12px; line-height: 1.15; }
@@ -3856,7 +3856,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Moda feminina desenhada com calma e produzida em pequenas séries. Envios em 48h para toda a Suíça e Europa.": "Damenmode, in Ruhe entworfen und in kleinen Serien gefertigt. Versand in 48 Std. in die ganze Schweiz und nach Europa.",
       "Ver coleção": "Kollektion ansehen",
       "Vestidos": "Kleider", "Malhas": "Strick", "Acessórios": "Accessoires",
-      "Vestido Lina": "Kleid Lina", "Adicionar": "Hinzufügen", "Camisola Ava": "Pullover Ava", "Lenço Sena": "Tuch Sena",
+      "Vestido Lina": "Kleid Lina", "Adicionar": "Hinzufügen", "✓ No carrinho": "✓ Im Warenkorb", "Casamento — Zermatt": "Hochzeit — Zermatt", "Editorial — inverno": "Editorial — Winter", "Paisagem — vale ao amanhecer": "Landschaft — Tal im Morgengrauen", "Produto — cerâmica local": "Produkt — lokale Keramik", "Retrato — estúdio": "Porträt — Studio", "Retrato — luz de fim de tarde": "Porträt — Abendlicht", "Camisola Ava": "Pullover Ava", "Lenço Sena": "Tuch Sena",
       "Vestido Odda": "Kleid Odda", "Cardigã Noa": "Cardigan Noa", "Cinto Iva": "Gürtel Iva",
       "O atelier": "Das Atelier", "Feito devagar, para durar": "Langsam gemacht, um zu bleiben",
       "Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.": "Jedes Stück entsteht in unserem Atelier: handverlesene Naturstoffe, Schnitte, die den Körper respektieren, und kleine Serien, damit Sie Ihr Stück nie überall sehen. Gratis Umtausch innert 30 Tagen.",
@@ -4053,7 +4053,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Moda feminina desenhada com calma e produzida em pequenas séries. Envios em 48h para toda a Suíça e Europa.": "Mode féminine dessinée avec calme et produite en petites séries. Livraison en 48h dans toute la Suisse et en Europe.",
       "Ver coleção": "Voir la collection",
       "Vestidos": "Robes", "Malhas": "Mailles", "Acessórios": "Accessoires",
-      "Vestido Lina": "Robe Lina", "Adicionar": "Ajouter", "Camisola Ava": "Pull Ava", "Lenço Sena": "Foulard Sena",
+      "Vestido Lina": "Robe Lina", "Adicionar": "Ajouter", "✓ No carrinho": "✓ Dans le panier", "Casamento — Zermatt": "Mariage — Zermatt", "Editorial — inverno": "Éditorial — hiver", "Paisagem — vale ao amanhecer": "Paysage — vallée à l’aube", "Produto — cerâmica local": "Produit — céramique locale", "Retrato — estúdio": "Portrait — studio", "Retrato — luz de fim de tarde": "Portrait — lumière du soir", "Camisola Ava": "Pull Ava", "Lenço Sena": "Foulard Sena",
       "Vestido Odda": "Robe Odda", "Cardigã Noa": "Cardigan Noa", "Cinto Iva": "Ceinture Iva",
       "O atelier": "L'atelier", "Feito devagar, para durar": "Fait lentement, pour durer",
       "Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.": "Chaque pièce naît dans notre atelier : tissus naturels choisis à la main, coupes qui respectent le corps et petites séries pour ne jamais voir votre pièce partout. Échanges gratuits sous 30 jours.",
@@ -4250,7 +4250,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Moda feminina desenhada com calma e produzida em pequenas séries. Envios em 48h para toda a Suíça e Europa.": "Moda femminile disegnata con calma e prodotta in piccole serie. Spedizioni in 48 ore in tutta la Svizzera e in Europa.",
       "Ver coleção": "Vedi la collezione",
       "Vestidos": "Abiti", "Malhas": "Maglieria", "Acessórios": "Accessori",
-      "Vestido Lina": "Abito Lina", "Adicionar": "Aggiungi", "Camisola Ava": "Maglione Ava", "Lenço Sena": "Foulard Sena",
+      "Vestido Lina": "Abito Lina", "Adicionar": "Aggiungi", "✓ No carrinho": "✓ Nel carrello", "Casamento — Zermatt": "Matrimonio — Zermatt", "Editorial — inverno": "Editoriale — inverno", "Paisagem — vale ao amanhecer": "Paesaggio — valle all’alba", "Produto — cerâmica local": "Prodotto — ceramica locale", "Retrato — estúdio": "Ritratto — studio", "Retrato — luz de fim de tarde": "Ritratto — luce della sera", "Camisola Ava": "Maglione Ava", "Lenço Sena": "Foulard Sena",
       "Vestido Odda": "Abito Odda", "Cardigã Noa": "Cardigan Noa", "Cinto Iva": "Cintura Iva",
       "O atelier": "L'atelier", "Feito devagar, para durar": "Fatto con calma, per durare",
       "Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.": "Ogni capo nasce nel nostro atelier: tessuti naturali scelti a mano, tagli che rispettano il corpo e piccole serie per non vedere mai il tuo capo ovunque. Cambi gratuiti entro 30 giorni.",
@@ -4447,7 +4447,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "Moda feminina desenhada com calma e produzida em pequenas séries. Envios em 48h para toda a Suíça e Europa.": "Womenswear designed with calm and produced in small runs. 48h shipping across Switzerland and Europe.",
       "Ver coleção": "View collection",
       "Vestidos": "Dresses", "Malhas": "Knitwear", "Acessórios": "Accessories",
-      "Vestido Lina": "Lina Dress", "Adicionar": "Add", "Camisola Ava": "Ava Sweater", "Lenço Sena": "Sena Scarf",
+      "Vestido Lina": "Lina Dress", "Adicionar": "Add", "✓ No carrinho": "✓ In basket", "Casamento — Zermatt": "Wedding — Zermatt", "Editorial — inverno": "Editorial — winter", "Paisagem — vale ao amanhecer": "Landscape — valley at dawn", "Produto — cerâmica local": "Product — local ceramics", "Retrato — estúdio": "Portrait — studio", "Retrato — luz de fim de tarde": "Portrait — evening light", "Camisola Ava": "Ava Sweater", "Lenço Sena": "Sena Scarf",
       "Vestido Odda": "Odda Dress", "Cardigã Noa": "Noa Cardigan", "Cinto Iva": "Iva Belt",
       "O atelier": "The atelier", "Feito devagar, para durar": "Made slowly, to last",
       "Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.": "Every piece is born in our atelier: hand-picked natural fabrics, cuts that respect the body and small runs so you never see your piece everywhere. Free exchanges within 30 days.",
@@ -4533,7 +4533,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       var r = map[el.getAttribute("placeholder")];
       if (r) el.setAttribute("placeholder", r);
     });
-    ["data-msg", "data-pack", "data-prop", "data-plan"].forEach(function (a) {
+    ["data-msg", "data-pack", "data-prop", "data-plan", "data-cap", "aria-label"].forEach(function (a) {
       root.querySelectorAll("[" + a + "]").forEach(function (el) {
         var r = map[el.getAttribute(a)];
         if (r) el.setAttribute(a, r);
@@ -4716,7 +4716,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     im.loading = "lazy";
     im.decoding = "async";
     im.onerror = function () { im.onerror = null; im.removeAttribute("srcset"); im.removeAttribute("sizes"); im.src = "img/" + key + ".jpg"; };
-    im.srcset = "img/" + key + "-480.webp 480w, img/" + key + ".webp 960w"; im.sizes = "(max-width: 480px) 100vw, 362px";
+    im.srcset = "img/" + key + "-480.webp 480w, " + "img/" + key + ".webp 960w"; im.sizes = "(max-width: 480px) 100vw, 362px";
     im.src = "img/" + key + ".webp";
     return im;
   }
@@ -4847,6 +4847,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   var dmFrame = document.getElementById("dmLframe");
   var dmCount = document.getElementById("dmCount");
   var dmReturnFocus = null;
+  var lightUntrap = null;
   function openLight(i) {
     if (!galleryEls.length) return;
     if (dmLight.hidden) dmReturnFocus = document.activeElement;
@@ -4855,10 +4856,12 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     dmFrame.style.background = el.style.background;
     dmCount.textContent = (galleryIdx + 1) + " / " + galleryEls.length + " · " + (el.getAttribute("data-cap") || "");
     dmLight.hidden = false;
+    if (!lightUntrap) lightUntrap = trapFocus(dmLight);
     document.getElementById("dmClose").focus();
   }
   function closeLight() {
     dmLight.hidden = true;
+    if (lightUntrap) { lightUntrap(); lightUntrap = null; }
     if (dmReturnFocus && dmReturnFocus.focus) dmReturnFocus.focus();
     dmReturnFocus = null;
   }
@@ -4866,6 +4869,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   document.getElementById("dmPrev").addEventListener("click", function () { openLight(galleryIdx - 1); });
   document.getElementById("dmNext").addEventListener("click", function () { openLight(galleryIdx + 1); });
   dmLight.addEventListener("click", function (e) { if (e.target === dmLight) closeLight(); });
+  dmLight.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); openLight(galleryIdx + 1); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); openLight(galleryIdx - 1); }
+  });
 
   tplBody.addEventListener("click", function (e) {
     /* loja: adicionar ao carrinho */
@@ -4877,8 +4884,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       if (cn) cn.classList.remove("show");
       renderCart();
       add.classList.add("ok");
-      add.textContent = "✓ No carrinho";
-      setTimeout(function () { add.classList.remove("ok"); add.textContent = "Adicionar"; }, 1200);
+      add.textContent = TU("✓ No carrinho");
+      setTimeout(function () { add.classList.remove("ok"); add.textContent = TU("Adicionar"); }, 1200);
       return;
     }
     /* loja: drawer */
@@ -5096,11 +5103,13 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   }
 
   /* ---------- contact form: Netlify Forms com fallback para email ---------- */
+  var toastT = null;
   function showToast(text) {
     var toast = document.getElementById("toast");
     toast.textContent = text;
     toast.classList.add("show");
-    setTimeout(function () { toast.classList.remove("show"); }, 3600);
+    clearTimeout(toastT);
+    toastT = setTimeout(function () { toast.classList.remove("show"); }, 3600);
   }
   var form = document.getElementById("contactForm");
   var CT_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
