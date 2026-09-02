@@ -2,19 +2,34 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 2,
+  "count": 3,
   "entries": [
     {
       "key": "autopilot/phase",
       "namespace": "ecommerce",
-      "value": "RESEARCH=done; next=PLAN; niche#1=supplements CH premium CHF39-49 margin>=65%; kill-switch ROAS<2.0 day5 -> skincare",
-      "tags": ["autopilot", "phase"]
+      "value": "RESEARCH=done; PLAN=done; next=BUILD. Product: magnesium bisglycinate+B6 90caps CHF44, Shopify+Shopify Payments (TWINT), brand Valmag (valmag.ch), suppliers Era Scientifico/Nutrikal/Evivita MOQ500. Kill-switch ROAS<2.0 day5 -> skincare",
+      "tags": [
+        "autopilot",
+        "phase"
+      ]
     },
     {
       "key": "autopilot/research/2026-09-02",
       "namespace": "ecommerce",
       "value": "Top3 margin CH/EU 2026-09: (1) supplements digestive/magnesium 60-75% margin, CH market CHF200-400M, double-digit growth; (2) niche skincare beef tallow/serums 55-70%, beauty +11% YoY; (3) smart home/tech accessories 40-60%, AOV CHF50-200. CH: 74% switch brand on price -> premium or low-cost, no mid-range. Full report: autopilot/research/2026-09-02-high-margin-products.md",
-      "tags": ["autopilot", "research"]
+      "tags": [
+        "autopilot",
+        "research"
+      ]
+    },
+    {
+      "key": "autopilot/plan",
+      "namespace": "ecommerce",
+      "value": "Unit P&L CHF44: product 8, shipping 7.5, payment 1, VAT 1.11, ads 17.6 -> contribution 8.79 (20%), gross w/o ads 60%. Scale only when LTV>=3 orders. Full: autopilot/plan/2026-09-plan.md",
+      "tags": [
+        "autopilot",
+        "plan"
+      ]
     }
   ]
 }
