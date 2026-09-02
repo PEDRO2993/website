@@ -340,6 +340,8 @@ function buildDocPage(file) {
       'if (window.__PR_STATIC) { location.href = ' + JSON.stringify(PREFIX) +
       '[l] + location.pathname.split("/").pop(); return; } setLang(l); });');
 
+    // blog.html: feed RSS do idioma
+    if (file === 'blog.html') html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"');
     // blog.html: cartões dos posts da BD, antes dos cartões fixos
     if (file === 'blog.html') {
       const cards = DB_POSTS.filter((p) => p.lang === lang).map((p) => posts.renderCard(p, { PREFIX })).join('');
