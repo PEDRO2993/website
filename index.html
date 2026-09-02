@@ -6082,8 +6082,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       if (!document.hidden && window.scrollY < window.innerHeight && now - pfLast >= 32) { pfLast = now; pT += 0.032; pfDraw(); }
       requestAnimationFrame(pfLoop);
     }
-    /* arranca só depois do load: a primeira frame custava ~110 ms antes do FCP */
-    window.addEventListener("load", function () { setTimeout(function () { pfSize(); pfDraw(); if (!REDUCED) requestAnimationFrame(pfLoop); }, 0); });
+    /* primeira frame só depois do load; a animação arranca em idle (fora da janela do TBT) */
+    window.addEventListener("load", function () { pfSize(); pfDraw(); (window.requestIdleCallback || function (f) { setTimeout(f, 800); })(function () { if (!REDUCED) requestAnimationFrame(pfLoop); }, { timeout: 2000 }); });
     window.addEventListener("resize", function () { pfSize(); pfDraw(); });
     if (FINE) document.addEventListener("pointermove", function (e) {
       ptx = e.clientX / window.innerWidth - 0.5;
