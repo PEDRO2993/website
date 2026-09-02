@@ -261,6 +261,7 @@ function buildHome() {
       }
     }
 
+    html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"'); // RSS do idioma (homepage)
     html = rewriteHead(html, lang, pathFor, TITLES[lang].t, TITLES[lang].d);
     html = injectLangGlobals(html, lang);
     if (lang !== 'pt') html = absolutize(html, lang);
