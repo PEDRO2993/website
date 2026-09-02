@@ -6,7 +6,7 @@ Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLO
 - [x] OFERTA: pacotes, condições 50/50, meta do mês (autopilot/business/oferta.md)
 - [x] EMAILS: DE/FR 1.º contacto, restaurante, follow-ups (autopilot/business/emails.md)
 - [x] DEMO: script de personalização em 1 comando (demo-personalizar.sh)
-- [ ] PROSPEÇÃO: 60 alvos Valais (hotéis + restaurantes) com evidência de fraqueza → pipeline.csv
+- [x] PROSPEÇÃO: 66 alvos Valais (40 hotéis + 26 restaurantes/caves) com evidência → pipeline.csv
 - [ ] ENVIO: 20 emails/semana personalizados (utilizador envia)
 - [ ] DEMOS: 2 demos personalizadas/semana para quem responder
 - [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
