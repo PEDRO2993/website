@@ -33,7 +33,7 @@ const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 
 /* páginas com o sistema .i18n-doc (um bloco por idioma no mesmo ficheiro) */
 const DOC_PAGES = [
-  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html',
+  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html',
   'privacidade.html', 'termos.html', 'informacao-legal.html',
 ];
 /* as páginas legais não precisam de posição no Google, mas precisam de

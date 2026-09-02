@@ -14,7 +14,7 @@ for (const l of LANGS) {
   for (const a of ['preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html']) {
     const h = read(l + a);
     const more = (h.match(/<p class="lg-more">[\s\S]*?<\/p>/) || [''])[0];
-    ok(l + a + ': "Ler também" com 2 links', (more.match(/<a /g) || []).length === 2);
+    ok(l + a + ': "Ler também" com 3 links', (more.match(/<a /g) || []).length === 3);
     ok(l + a + ': BreadcrumbList + Article', /BreadcrumbList/.test(h) && /"@type":\s*"Article"/.test(h));
     ok(l + a + ': aside CTA presente', /<aside class="cta">/.test(h));
   }
@@ -26,7 +26,7 @@ for (const l of LANGS) {
   const lg = l ? l.slice(0, 2) : 'pt';
   ok(l + 'index.html: og:image do idioma', read(l + 'index.html').includes('og:image" content="https://prstudio.ch/img/og/home-' + lg + '.jpg"'));
   ok(l + 'blog.html: og:image do idioma', read(l + 'blog.html').includes('/img/og/blog-' + lg + '.jpg"'));
-  for (const a of ['preco-site-suica', 'multilingue-valais', 'google-business-valais']) {
+  for (const a of ['preco-site-suica', 'multilingue-valais', 'google-business-valais', 'site-restaurante-valais']) {
     const h = read(l + a + '.html');
     ok(l + a + ': og:image + alt do idioma', h.includes('/img/og/' + a + '-' + lg + '.jpg"') && /og:image:alt" content="[^"]{10,}"/.test(h));
     ok(l + a + ': imagem OG existe em dist', fs.existsSync(path.join(DIST, 'img/og', a + '-' + lg + '.jpg')));
