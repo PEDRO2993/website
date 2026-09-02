@@ -9,6 +9,12 @@ Site estático (HTML/CSS/JS, sem build) feito por **PR Studio** — Pedro Ribeir
 | `alpina-demo.html` | Ficheiro único para mostrar numa reunião (abre com duplo clique) |
 | `GET-READY.md` | Guia: da reunião ao site no ar |
 
+## Estado
+
+Pré-visualização: todas as páginas levam `noindex, nofollow` e o `robots.txt` bloqueia os motores de busca — o site não compete com o do hotel enquanto for uma proposta. Quando o hotel adotar o site, tirar o `noindex` e abrir o `robots.txt`.
+
+As fotografias ainda são carregadas do site atual do hotel; se o servidor bloquear, cada imagem desaparece sem partir o desenho (fundo neutro). Guardar as originais em `img/` antes do lançamento.
+
 ## Publicar no Netlify
 
 1. Netlify → **Add new project → Import an existing project → GitHub → PEDRO2993/website**.

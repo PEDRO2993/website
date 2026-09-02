@@ -1245,3 +1245,6 @@ body.cursor-photo .cursor-dot, body.cursor-photo .cursor-ring { opacity: 0; }
 .ms-note { font-size: 12.5px; color: var(--muted); }
 .ms-note a { color: var(--gold); font-weight: 500; }
 @media (max-width: 560px) { .ms-actions .btn { width: 100%; } }
+
+/* imagem indisponível: fundo neutro em vez de espaço vazio */
+.img-off { background: linear-gradient(135deg, #1a1f2b, #0e1219); }

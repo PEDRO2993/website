@@ -1,3 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /alpina-demo.html
+Disallow: /

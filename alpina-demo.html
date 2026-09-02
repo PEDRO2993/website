@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hotel Alpina Grächen — Boutique-Berghotel im Wallis · Direkt buchen</title>
 <meta name="description" content="Boutique-Berghotel im Sonnendorf Grächen: 19 Zimmer mit Panoramabalkon, Hannigspa, Walliser Küche. Direkt buchen mit Bestpreisgarantie — Zimmer ab CHF 97.">
@@ -1305,6 +1306,16 @@ body.cursor-photo .cursor-dot, body.cursor-photo .cursor-ring { opacity: 0; }
   .reveal, .reveal-hero, .split-line > span { opacity: 1 !important; transform: none !important; animation: none !important; }
   .kin-line { opacity: 1; }
 </style></noscript>
+<script>
+/* Se uma fotografia nao carregar (hotlink bloqueado), esconde-a e deixa um fundo neutro. */
+document.addEventListener("error", function (e) {
+  var t = e.target;
+  if (!t || t.tagName !== "IMG") return;
+  t.style.visibility = "hidden";
+  var p = t.closest("figure, picture, div, section");
+  if (p) p.classList.add("img-off");
+}, true);
+</script>
 </head>
 <body>
 
