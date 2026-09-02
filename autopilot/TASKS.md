@@ -12,6 +12,7 @@ Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLO
 - [ ] ENVIO: 14 rascunhos criados no Gmail (02/09) → utilizador revê e envia; 52 restantes precisam de email (search.ch)
 - [ ] DEMOS: 2 demos personalizadas/semana para quem responder
 - [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
+- [x] DEPLOY: PR #2 integrado em produção (run #17 verde); hotel-direkt.html + 3 demos online; autopilot/ e store/ excluídos do artefacto público
 - [ ] FIX SITE: telefone real em vez de +41 27 000 00 00 (precisa do número do utilizador)
 
 ## v2 · CAIXA LATERAL · recondicionado AirPods Pro 2 (capital ≤ CHF 210)

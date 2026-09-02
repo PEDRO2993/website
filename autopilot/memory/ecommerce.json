@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 8,
+  "count": 9,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -77,6 +77,16 @@
         "autopilot",
         "v3",
         "improve"
+      ]
+    },
+    {
+      "key": "autopilot/v3/deploy",
+      "namespace": "ecommerce",
+      "value": "2026-09-02 16:30 UTC: PR #2 merged into production branch claude/forms-bugs-improvement-2578kq; Pages run #17 success (step removes autopilot/ store/ .github from artifact). Live: pedro2993.github.io/website/hotel-direkt.html and /demos/{les-berges,mayen2003,portjengrat}/ ; prstudio.ch depends on user's DNS. Work branch fast-forwarded to merge commit.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "deploy"
       ]
     }
   ]
