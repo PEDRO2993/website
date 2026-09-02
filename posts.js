@@ -42,6 +42,7 @@ a{color:var(--red-ink)}.wrap{max-width:760px;margin:0 auto;padding:0 20px}
 header.lg-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.1rem;text-decoration:none;color:var(--ink)}.logo .dot{color:var(--red)}
 .langs{display:flex;gap:6px}.langs a{font-family:"Spline Sans Mono",monospace;font-size:0.72rem;letter-spacing:0.04em;background:transparent;border:1px solid var(--line-2);color:var(--ink-2);border-radius:6px;padding:6px 11px;text-decoration:none}
+@media (max-width:480px){.langs a{min-width:44px;min-height:44px;padding:10px 12px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center}}
 .langs a[aria-current="page"]{background:var(--red);border-color:var(--red);color:#fff}
 main{padding:40px 0 40px}main h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:2rem;margin:0 0 6px;line-height:1.15;overflow-wrap:anywhere;hyphens:auto}
 main h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.2rem;margin:34px 0 10px}main h3{font-size:1.02rem;margin:26px 0 8px}
