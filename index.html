@@ -2272,7 +2272,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <h3 style="margin-top:22px;">Autopilot · fila de temas</h3>
         <p class="admin-note-hint" style="margin-bottom:10px;">Toda a segunda-feira o escritor automático pega no tema mais antigo e cria o artigo nos 5 idiomas como rascunho. Revês acima e publicas.</p>
         <div class="bp-form">
-          <input id="tpTopic" class="full" type="text" placeholder="Tema (ex.: SEO local para restaurantes em Brig)" aria-label="Tema">
+          <input id="tpTopic" class="full" type="text" placeholder="Tema (ex.: SEO local para restaurantes em Brig)" aria-label="Tema" list="tpIdeas">
+          <datalist id="tpIdeas"><option value="Site para hotel de montanha: reservas diretas em vez de comissões"><option value="Instagram para restaurantes no Valais: o que publicar cada semana"><option value="Manutenção de um site: o que inclui e o que acontece sem ela"><option value="Fotografias para o site: como preparar a sessão num negócio local"><option value="Google Ads para negócios locais no Valais: quando faz sentido"><option value="Loja online para produtos regionais: o que precisa antes de vender"><option value="Site para clínica ou consultório: marcação, confiança e privacidade"><option value="Como escolher o domínio e o alojamento de um site na Suíça"></datalist>
           <input id="tpBrief" class="full" type="text" placeholder="Notas opcionais: ângulo, público, palavras-chave" aria-label="Notas">
         </div>
         <div class="bp-actions">
