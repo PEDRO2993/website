@@ -1,0 +1,15 @@
+const { ROOT, DIST, DISTURL, CHROME } = require('./_env');
+const { chromium } = require('playwright'); const http=require('http'), fs=require('fs'), path=require('path');
+const srv = http.createServer((q,r)=>{ let f=path.join(DIST, decodeURIComponent(q.url.split('?')[0])); if(f.endsWith('/')) f+='index.html'; fs.readFile(f,(e,d)=>{ if(e){r.statusCode=404;return r.end();} r.end(d); }); }).listen(45690);
+(async () => { const b = await chromium.launch({ executablePath: CHROME });
+  const p = await b.newPage({ viewport: { width: 390, height: 844 }, locale: 'pt-PT' });
+  await p.route('**/*', r => { const u=r.request().url(); if (u.startsWith('http://127.0.0.1:45690/') && r.request().method()==='POST') return r.fulfill({ status: 200, body: 'ok' }); if (!u.startsWith('http://127.0.0.1')) return r.abort(); r.continue(); });
+  await p.goto('http://127.0.0.1:45690/index.html'); await p.waitForTimeout(700);
+  const srcset = await p.evaluate(() => { const im = document.querySelector('img[srcset]'); return im ? im.getAttribute('srcset') + ' (' + document.querySelectorAll('img[srcset]').length + ')' : null; });
+  await p.fill('#f-name','Teste'); await p.fill('#f-mail','a@b.ch'); await p.fill('#f-msg','olá');
+  await p.click('#contactForm button[type="submit"]'); await p.waitForTimeout(600);
+  const r = await p.evaluate(() => { const d=document.querySelector('.form-done'), f=document.getElementById('contactForm'); return { done: !!d, txt: d && d.textContent.slice(0, 40), hidden: f.hidden, focused: document.activeElement === d }; });
+  console.log('srcset:', srcset, '| form:', JSON.stringify(r));
+  await b.close(); srv.close();
+  if (!srcset || !r.done || !r.hidden) process.exit(1); console.log('form state ok');
+})();

@@ -237,6 +237,6 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - Nunca inventar clientes, testemunhos, estatísticas ou preços. Preços reais só os do site.
 - `SUPABASE_SERVICE_ROLE_KEY` só em `netlify/functions/`. Build hook só no Vault/env.
 - Antes de tocar em traduções: manter registo (DE Sie, FR vous, IT tu, PT tu).
-- Testes: `node build.js` e os testes Playwright em `tests/` (locale pt-PT).
+- Testes: `cd tests && npm i && npm test` (build + Playwright, locale pt-PT). Chromium do sistema em /opt/pw-browsers ou `npx playwright install chromium`.
 
 - Secção "Trabalho recente" (Fluhalp/Channa): só factos neutros. Nunca afirmar se foi encomendado, oferecido ou pago — o Pedro corrigiu isto a 2026-09-02.

@@ -1,6 +1,7 @@
 dist/
 node_modules/
 .env
+tests/node_modules/
 
 # Ruflo local secrets and runtime data
 .env.local
