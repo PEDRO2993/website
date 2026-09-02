@@ -22,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Remove private working folders from the public site
+        run: rm -rf autopilot store .github
       - uses: actions/configure-pages@v5
         with:
           enablement: true
