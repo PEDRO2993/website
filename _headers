@@ -39,6 +39,10 @@
   Cache-Control: public, max-age=0, must-revalidate
 /fotografia-site-negocio.html
   Cache-Control: public, max-age=0, must-revalidate
+/site-hotel-valais.html
+  Cache-Control: public, max-age=0, must-revalidate
+/fotografia-site-negocio.html
+  Cache-Control: public, max-age=0, must-revalidate
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
 /robots.txt

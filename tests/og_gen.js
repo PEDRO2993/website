@@ -2,7 +2,7 @@
 const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
 const ROOT = path.resolve(__dirname, '..'), F = path.join(__dirname, 'node_modules/@fontsource');
 const font = (p) => 'data:font/woff2;base64,' + fs.readFileSync(path.join(F, p)).toString('base64');
-const FILES = ['preco-site-suica', 'multilingue-valais', 'google-business-valais', 'site-restaurante-valais', 'manutencao-site', 'fotografia-site-negocio'];
+const FILES = ['preco-site-suica', 'multilingue-valais', 'google-business-valais', 'site-restaurante-valais', 'manutencao-site', 'fotografia-site-negocio', 'site-hotel-valais'];
 const EYE = { pt: 'BLOG · PR STUDIO', de: 'BLOG · PR STUDIO', fr: 'BLOG · PR STUDIO', it: 'BLOG · PR STUDIO', en: 'BLOG · PR STUDIO' };
 const FOOT = { pt: 'prstudio.ch — Stalden · Valais · Suíça', de: 'prstudio.ch — Stalden · Wallis · Schweiz', fr: 'prstudio.ch — Stalden · Valais · Suisse', it: 'prstudio.ch — Stalden · Vallese · Svizzera', en: 'prstudio.ch — Stalden · Valais · Switzerland' };
 (async () => {
