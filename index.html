@@ -1294,6 +1294,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top" data-i18n="a11y.skip">Saltar para o conteúdo</a>
 <script>
 /* Dica de idioma: corre antes da primeira pintura para não empurrar o cabeçalho (CLS). */
 (function () {
@@ -1329,7 +1330,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       bar.remove();
       try { localStorage.setItem("pr-langhint", "off"); } catch (e) {}
     });
-    document.body.insertBefore(bar, document.body.firstChild);
+    document.body.appendChild(bar); /* corre durante o parse: fica logo a seguir ao skip-link, antes do header */
   })();
 })();
 </script>
@@ -1344,7 +1345,6 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   </div>
   <span class="sweep"></span>
 </div>
-<a class="skip-link" href="#top" data-i18n="a11y.skip">Saltar para o conteúdo</a>
 <header id="siteHeader">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="PR. Pedro Ribeiro Digital — início">PR<span class="dot">.</span></a>
