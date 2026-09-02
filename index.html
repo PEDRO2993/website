@@ -2201,7 +2201,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           <div id="clPanelStats" hidden>
             <div class="cl-statgrid" id="clStatCards"></div>
             <div class="cl-statcols">
-              <div><h4 id="clStLangT">Idioma</h4><div id="clStLang"></div></div>
+              <div><h4 id="clStLangT">Idiomas</h4><div id="clStLang"></div></div>
               <div><h4 id="clStRefT"></h4><div id="clStRef"></div></div>
               <div><h4 id="clStDevT"></h4><div id="clStDev"></div></div>
             </div>
@@ -3540,9 +3540,9 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   });
 
   var LG_I18N = {
-    de: { "lg.btn": "Login", "lg.title": "Kundenbereich", "lg.sub": "Verfolgen Sie Ihr Projekt und schreiben Sie mir direkt — das Gespräch bleibt hier gespeichert.", "lg.soon": "IN AKTIVIERUNG · IN KÜRZE VERFÜGBAR", "lg.enter": "Anmelden", "lg.signup": "Konto erstellen", "lg.back": "Zurück", "lg.title2": "Nachrichten", "lg.out": "Abmelden", "lg.send": "Senden" },
+    de: { "lg.btn": "Login", "lg.title": "Kundenbereich", "lg.sub": "Verfolgen Sie Ihr Projekt und schreiben Sie mir direkt — das Gespräch bleibt hier gespeichert.", "lg.soon": "IN AKTIVIERUNG · SEHR BALD VERFÜGBAR", "lg.enter": "Anmelden", "lg.signup": "Konto erstellen", "lg.back": "Zurück", "lg.title2": "Nachrichten", "lg.out": "Abmelden", "lg.send": "Senden" },
     fr: { "lg.btn": "Login", "lg.title": "Espace client", "lg.sub": "Suivez votre projet et écrivez-moi directement — la conversation reste enregistrée ici.", "lg.soon": "EN ACTIVATION · DISPONIBLE TRÈS BIENTÔT", "lg.enter": "Se connecter", "lg.signup": "Créer un compte", "lg.back": "Retour", "lg.title2": "Messages", "lg.out": "Déconnexion", "lg.send": "Envoyer" },
-    it: { "lg.btn": "Login", "lg.title": "Area clienti", "lg.sub": "Segui il tuo progetto e scrivimi direttamente — la conversazione resta salvata qui.", "lg.soon": "IN ATTIVAZIONE · DISPONIBILE A BREVE", "lg.enter": "Accedi", "lg.signup": "Crea account", "lg.back": "Indietro", "lg.title2": "Messaggi", "lg.out": "Esci", "lg.send": "Invia" },
+    it: { "lg.btn": "Login", "lg.title": "Area clienti", "lg.sub": "Segui il tuo progetto e scrivimi direttamente — la conversazione resta salvata qui.", "lg.soon": "IN ATTIVAZIONE · DISPONIBILE MOLTO PRESTO", "lg.enter": "Accedi", "lg.signup": "Crea account", "lg.back": "Indietro", "lg.title2": "Messaggi", "lg.out": "Esci", "lg.send": "Invia" },
     en: { "lg.btn": "Login", "lg.title": "Client area", "lg.sub": "Follow your project and message me directly — the conversation stays saved here.", "lg.soon": "BEING ACTIVATED · AVAILABLE VERY SOON", "lg.enter": "Sign in", "lg.signup": "Create account", "lg.back": "Back", "lg.title2": "Messages", "lg.out": "Sign out", "lg.send": "Send" }
   };
   Object.keys(LG_I18N).forEach(function (l) { if (I18N[l]) { for (var k in LG_I18N[l]) I18N[l][k] = LG_I18N[l][k]; } });
@@ -5293,11 +5293,11 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   var SB_URL = "https://rinfpezlwqmblwpzfdlm.supabase.co";
   var SB_KEY = "sb_publishable_AkwUkZnNumWFAXKWSXod6g_2h0zIWE-";
   var LGX = {
-    pt: { conn: "A ligar…", login: "A entrar…", up: "Conta criada! Já podes entrar.", upc: "Conta criada — confirma no teu email e depois entra.", err: "Não deu: ", first: "Escreve a primeira mensagem — respondo normalmente em poucas horas.", ph: "Escreve a tua mensagem…", none: "Ainda sem conversas de clientes.", cfg: "O portal está em ativação e abre muito em breve. Até lá, fala comigo pelo WhatsApp ou pelo formulário.", need: "Preenche o email e a password.", today: "Hoje", yest: "Ontem", forgot: "Esqueci-me da password", resent: "Enviámos-te um email com o link para definires nova password.", needmail: "Escreve primeiro o teu email no campo acima.", newp: "Define a tua nova password:", saved: "Password atualizada — já estás dentro.", nomsg: "sem mensagens", tMsg: "Mensagens", tOrd: "Encomendas", tMeet: "Reuniões", stP: "Pedido", stC: "Em curso", stE: "Entregue", stX: "Cancelado", ordNone: "Ainda sem encomendas ou pedidos.", ordPhC: "Descreve o que precisas (ex.: site + Instagram)", ordPhA: "Título da encomenda/projeto", pricePh: "Preço (ex.: CHF 2'400)", ordBtnC: "Pedir orçamento", ordBtnA: "Adicionar", mtP: "Pedida", mtC: "Confirmada", mtX: "Cancelada", meetNone: "Sem reuniões marcadas.", meetTopicPh: "Assunto (ex.: reunião de arranque)", meetBtnC: "Pedir reunião", meetBtnA: "Marcar", mtConfirm: "Confirmar", mtCancel: "Cancelar", savep: "Guardar", newpPh: "nova password", tStats: "Estatísticas", stT: "Hoje", st7: "7 dias", st30: "30 dias", stAll: "Total registado", stLang: "Idiomas", stRef: "Origens", stDev: "Dispositivos", stNone: "Ainda sem visitas registadas.", stDirect: "direto", stMob: "telemóvel", stDesk: "computador" },
-    de: { conn: "Verbinden…", login: "Anmelden…", up: "Konto erstellt! Sie können sich jetzt anmelden.", upc: "Konto erstellt — bitte E-Mail bestätigen und dann anmelden.", err: "Fehlgeschlagen: ", first: "Schreiben Sie die erste Nachricht — ich antworte in der Regel innert weniger Stunden.", ph: "Ihre Nachricht…", none: "Noch keine Kundengespräche.", cfg: "Der Bereich wird gerade aktiviert und öffnet in Kürze. Bis dahin: WhatsApp oder Kontaktformular.", need: "Bitte E-Mail und Passwort ausfüllen.", today: "Heute", yest: "Gestern", forgot: "Passwort vergessen", resent: "Wir haben Ihnen einen Link zum Zurücksetzen per E-Mail geschickt.", needmail: "Bitte zuerst oben Ihre E-Mail eintragen.", newp: "Neues Passwort festlegen:", saved: "Passwort aktualisiert — Sie sind angemeldet.", nomsg: "keine Nachrichten", tMsg: "Nachrichten", tOrd: "Aufträge", tMeet: "Termine", stP: "Angefragt", stC: "In Arbeit", stE: "Geliefert", stX: "Storniert", ordNone: "Noch keine Aufträge oder Anfragen.", ordPhC: "Beschreiben Sie, was Sie brauchen (z. B. Website + Instagram)", ordPhA: "Titel des Auftrags/Projekts", pricePh: "Preis (z. B. CHF 2'400)", ordBtnC: "Offerte anfragen", ordBtnA: "Hinzufügen", mtP: "Angefragt", mtC: "Bestätigt", mtX: "Abgesagt", meetNone: "Keine Termine geplant.", meetTopicPh: "Thema (z. B. Kickoff-Gespräch)", meetBtnC: "Termin anfragen", meetBtnA: "Eintragen", mtConfirm: "Bestätigen", mtCancel: "Absagen", savep: "Speichern", newpPh: "neues Passwort", tStats: "Statistiken", stT: "Heute", st7: "7 Tage", st30: "30 Tage", stAll: "Total erfasst", stLang: "Sprachen", stRef: "Quellen", stDev: "Geräte", stNone: "Noch keine Besuche erfasst.", stDirect: "direkt", stMob: "Handy", stDesk: "Computer" },
-    fr: { conn: "Connexion…", login: "Connexion…", up: "Compte créé ! Vous pouvez vous connecter.", upc: "Compte créé — confirmez votre email puis connectez-vous.", err: "Échec : ", first: "Écrivez le premier message — je réponds en général en quelques heures.", ph: "Votre message…", none: "Pas encore de conversations clients.", cfg: "L'espace est en cours d'activation et ouvre très bientôt. En attendant : WhatsApp ou formulaire.", need: "Remplissez l'email et le mot de passe.", today: "Aujourd'hui", yest: "Hier", forgot: "Mot de passe oublié", resent: "Nous vous avons envoyé un email avec le lien de réinitialisation.", needmail: "Indiquez d'abord votre email ci-dessus.", newp: "Définissez votre nouveau mot de passe :", saved: "Mot de passe mis à jour — vous êtes connecté.", nomsg: "aucun message", tMsg: "Messages", tOrd: "Commandes", tMeet: "Réunions", stP: "Demandé", stC: "En cours", stE: "Livré", stX: "Annulé", ordNone: "Pas encore de commandes ou demandes.", ordPhC: "Décrivez ce qu'il vous faut (ex. : site + Instagram)", ordPhA: "Titre de la commande/du projet", pricePh: "Prix (ex. : CHF 2'400)", ordBtnC: "Demander un devis", ordBtnA: "Ajouter", mtP: "Demandée", mtC: "Confirmée", mtX: "Annulée", meetNone: "Aucune réunion prévue.", meetTopicPh: "Sujet (ex. : réunion de lancement)", meetBtnC: "Demander une réunion", meetBtnA: "Planifier", mtConfirm: "Confirmer", mtCancel: "Annuler", savep: "Enregistrer", newpPh: "nouveau mot de passe", tStats: "Statistiques", stT: "Aujourd'hui", st7: "7 jours", st30: "30 jours", stAll: "Total enregistré", stLang: "Langues", stRef: "Sources", stDev: "Appareils", stNone: "Pas encore de visites enregistrées.", stDirect: "direct", stMob: "mobile", stDesk: "ordinateur" },
-    it: { conn: "Connessione…", login: "Accesso…", up: "Account creato! Puoi accedere.", upc: "Account creato — conferma l'email e poi accedi.", err: "Non riuscito: ", first: "Scrivi il primo messaggio — di solito rispondo in poche ore.", ph: "Il tuo messaggio…", none: "Ancora nessuna conversazione.", cfg: "L'area è in attivazione e apre a breve. Nel frattempo: WhatsApp o modulo di contatto.", need: "Compila email e password.", today: "Oggi", yest: "Ieri", forgot: "Password dimenticata", resent: "Ti abbiamo inviato un'email con il link per reimpostarla.", needmail: "Scrivi prima la tua email qui sopra.", newp: "Imposta la tua nuova password:", saved: "Password aggiornata — sei dentro.", nomsg: "nessun messaggio", tMsg: "Messaggi", tOrd: "Ordini", tMeet: "Riunioni", stP: "Richiesto", stC: "In corso", stE: "Consegnato", stX: "Annullato", ordNone: "Ancora nessun ordine o richiesta.", ordPhC: "Descrivi cosa ti serve (es.: sito + Instagram)", ordPhA: "Titolo dell'ordine/progetto", pricePh: "Prezzo (es.: CHF 2'400)", ordBtnC: "Richiedi un preventivo", ordBtnA: "Aggiungi", mtP: "Richiesta", mtC: "Confermata", mtX: "Annullata", meetNone: "Nessuna riunione in programma.", meetTopicPh: "Argomento (es.: riunione di avvio)", meetBtnC: "Richiedi una riunione", meetBtnA: "Fissa", mtConfirm: "Conferma", mtCancel: "Annulla", savep: "Salva", newpPh: "nuova password", tStats: "Statistiche", stT: "Oggi", st7: "7 giorni", st30: "30 giorni", stAll: "Totale registrato", stLang: "Lingue", stRef: "Fonti", stDev: "Dispositivi", stNone: "Ancora nessuna visita registrata.", stDirect: "diretto", stMob: "cellulare", stDesk: "computer" },
-    en: { conn: "Connecting…", login: "Signing in…", up: "Account created! You can sign in now.", upc: "Account created — confirm your email, then sign in.", err: "Failed: ", first: "Write the first message — I usually reply within a few hours.", ph: "Your message…", none: "No client conversations yet.", cfg: "The client area is being activated and opens very soon. Meanwhile: WhatsApp or the contact form.", need: "Fill in email and password.", today: "Today", yest: "Yesterday", forgot: "Forgot password", resent: "We've emailed you a link to set a new password.", needmail: "Enter your email above first.", newp: "Set your new password:", saved: "Password updated — you're in.", nomsg: "no messages", tMsg: "Messages", tOrd: "Orders", tMeet: "Meetings", stP: "Requested", stC: "In progress", stE: "Delivered", stX: "Cancelled", ordNone: "No orders or requests yet.", ordPhC: "Describe what you need (e.g. website + Instagram)", ordPhA: "Order/project title", pricePh: "Price (e.g. CHF 2'400)", ordBtnC: "Request a quote", ordBtnA: "Add", mtP: "Requested", mtC: "Confirmed", mtX: "Cancelled", meetNone: "No meetings scheduled.", meetTopicPh: "Topic (e.g. kickoff call)", meetBtnC: "Request a meeting", meetBtnA: "Schedule", mtConfirm: "Confirm", mtCancel: "Cancel", savep: "Save", newpPh: "new password", tStats: "Statistics", stT: "Today", st7: "7 days", st30: "30 days", stAll: "Total recorded", stLang: "Languages", stRef: "Sources", stDev: "Devices", stNone: "No visits recorded yet.", stDirect: "direct", stMob: "mobile", stDesk: "desktop" }
+    pt: { needDate: "Escolhe uma data.", signing: "A criar conta…", net: "sem ligação", minp: "mínimo 6 caracteres", sdk: "não foi possível carregar a área de cliente", badLogin: "email ou password errados", notConf: "confirma o email antes de entrar", exists: "já existe uma conta com este email", meetDateA: "Data da reunião", meetTimeA: "Hora da reunião", emailPh: "email", passPh: "password", conn: "A ligar…", login: "A entrar…", up: "Conta criada! Já podes entrar.", upc: "Conta criada — confirma no teu email e depois entra.", err: "Falhou: ", first: "Escreve a primeira mensagem — respondo normalmente em poucas horas.", ph: "Escreve a tua mensagem…", none: "Ainda sem conversas de clientes.", cfg: "A área de cliente está em ativação e abre muito em breve. Até lá, fala comigo pelo WhatsApp ou pelo formulário.", need: "Preenche o email e a password.", today: "Hoje", yest: "Ontem", forgot: "Esqueci-me da password", resent: "Enviámos-te um email com o link para definires nova password.", needmail: "Escreve primeiro o teu email no campo acima.", newp: "Define a tua nova password:", saved: "Password atualizada — já estás dentro.", nomsg: "sem mensagens", tMsg: "Mensagens", tOrd: "Encomendas", tMeet: "Reuniões", stP: "Pedido", stC: "Em curso", stE: "Entregue", stX: "Cancelado", ordNone: "Ainda sem encomendas ou pedidos.", ordPhC: "Descreve o que precisas (ex.: site + Instagram)", ordPhA: "Título da encomenda/projeto", pricePh: "Preço (ex.: CHF 2'400)", ordBtnC: "Pedir orçamento", ordBtnA: "Adicionar", mtP: "Pedida", mtC: "Confirmada", mtX: "Cancelada", meetNone: "Sem reuniões marcadas.", meetTopicPh: "Assunto (ex.: reunião de arranque)", meetBtnC: "Pedir reunião", meetBtnA: "Marcar", mtConfirm: "Confirmar", mtCancel: "Cancelar", savep: "Guardar", newpPh: "nova password", tStats: "Estatísticas", stT: "Hoje", st7: "7 dias", st30: "30 dias", stAll: "Total registado", stLang: "Idiomas", stRef: "Origens", stDev: "Dispositivos", stNone: "Ainda sem visitas registadas.", stDirect: "direto", stMob: "telemóvel", stDesk: "computador" },
+    de: { needDate: "Bitte ein Datum wählen.", signing: "Konto wird erstellt…", net: "keine Verbindung", minp: "mind. 6 Zeichen", sdk: "der Kundenbereich konnte nicht geladen werden", badLogin: "E-Mail oder Passwort falsch", notConf: "bitte zuerst die E-Mail bestätigen", exists: "mit dieser E-Mail existiert bereits ein Konto", meetDateA: "Datum des Termins", meetTimeA: "Uhrzeit", emailPh: "E-Mail", passPh: "Passwort", conn: "Verbinden…", login: "Anmeldung läuft…", up: "Konto erstellt! Sie können sich jetzt anmelden.", upc: "Konto erstellt — bitte E-Mail bestätigen und dann anmelden.", err: "Fehlgeschlagen: ", first: "Schreiben Sie die erste Nachricht — ich antworte in der Regel innert weniger Stunden.", ph: "Ihre Nachricht…", none: "Noch keine Kundengespräche.", cfg: "Der Kundenbereich wird gerade aktiviert und öffnet in Kürze. Bis dahin: WhatsApp oder Kontaktformular.", need: "Bitte E-Mail und Passwort ausfüllen.", today: "Heute", yest: "Gestern", forgot: "Passwort vergessen", resent: "Wir haben Ihnen einen Link zum Zurücksetzen per E-Mail geschickt.", needmail: "Bitte zuerst oben Ihre E-Mail eintragen.", newp: "Neues Passwort festlegen:", saved: "Passwort aktualisiert — Sie sind angemeldet.", nomsg: "keine Nachrichten", tMsg: "Nachrichten", tOrd: "Aufträge", tMeet: "Termine", stP: "Angefragt", stC: "In Arbeit", stE: "Geliefert", stX: "Storniert", ordNone: "Noch keine Aufträge oder Anfragen.", ordPhC: "Beschreiben Sie, was Sie brauchen (z. B. Website + Instagram)", ordPhA: "Titel des Auftrags/Projekts", pricePh: "Preis (z. B. CHF 2'400)", ordBtnC: "Offerte anfragen", ordBtnA: "Hinzufügen", mtP: "Angefragt", mtC: "Bestätigt", mtX: "Abgesagt", meetNone: "Keine Termine geplant.", meetTopicPh: "Thema (z. B. Kickoff-Gespräch)", meetBtnC: "Termin anfragen", meetBtnA: "Eintragen", mtConfirm: "Bestätigen", mtCancel: "Absagen", savep: "Speichern", newpPh: "neues Passwort", tStats: "Statistiken", stT: "Heute", st7: "7 Tage", st30: "30 Tage", stAll: "Total erfasst", stLang: "Sprachen", stRef: "Quellen", stDev: "Geräte", stNone: "Noch keine Besuche erfasst.", stDirect: "direkt", stMob: "Handy", stDesk: "Computer" },
+    fr: { needDate: "Choisissez une date.", signing: "Création du compte…", net: "pas de connexion", minp: "6 caractères minimum", sdk: "impossible de charger l’espace client", badLogin: "e-mail ou mot de passe incorrect", notConf: "confirmez d’abord votre e-mail", exists: "un compte existe déjà avec cet e-mail", meetDateA: "Date de la réunion", meetTimeA: "Heure de la réunion", emailPh: "e-mail", passPh: "mot de passe", conn: "Connexion…", login: "Connexion…", up: "Compte créé ! Vous pouvez vous connecter.", upc: "Compte créé — confirmez votre email puis connectez-vous.", err: "Échec : ", first: "Écrivez le premier message — je réponds en général en quelques heures.", ph: "Votre message…", none: "Pas encore de conversations clients.", cfg: "L’espace client est en cours d’activation et ouvrira très bientôt. En attendant : WhatsApp ou formulaire.", need: "Remplissez l'email et le mot de passe.", today: "Aujourd'hui", yest: "Hier", forgot: "Mot de passe oublié", resent: "Nous vous avons envoyé un email avec le lien de réinitialisation.", needmail: "Indiquez d'abord votre email ci-dessus.", newp: "Définissez votre nouveau mot de passe :", saved: "Mot de passe mis à jour — vous êtes connecté.", nomsg: "aucun message", tMsg: "Messages", tOrd: "Commandes", tMeet: "Réunions", stP: "Demandée", stC: "En cours", stE: "Livrée", stX: "Annulée", ordNone: "Pas encore de commandes ni de demandes.", ordPhC: "Décrivez ce qu'il vous faut (ex. : site + Instagram)", ordPhA: "Titre de la commande/du projet", pricePh: "Prix (ex. : CHF 2'400)", ordBtnC: "Demander un devis", ordBtnA: "Ajouter", mtP: "Demandée", mtC: "Confirmée", mtX: "Annulée", meetNone: "Aucune réunion prévue.", meetTopicPh: "Sujet (ex. : réunion de lancement)", meetBtnC: "Demander une réunion", meetBtnA: "Planifier", mtConfirm: "Confirmer", mtCancel: "Annuler", savep: "Enregistrer", newpPh: "nouveau mot de passe", tStats: "Statistiques", stT: "Aujourd'hui", st7: "7 jours", st30: "30 jours", stAll: "Total enregistré", stLang: "Langues", stRef: "Sources", stDev: "Appareils", stNone: "Pas encore de visites enregistrées.", stDirect: "direct", stMob: "mobile", stDesk: "ordinateur" },
+    it: { needDate: "Scegli una data.", signing: "Creazione account…", net: "nessuna connessione", minp: "minimo 6 caratteri", sdk: "impossibile caricare l’area clienti", badLogin: "email o password errati", notConf: "conferma prima l’email", exists: "esiste già un account con questa email", meetDateA: "Data della riunione", meetTimeA: "Ora della riunione", emailPh: "email", passPh: "password", conn: "Connessione…", login: "Accesso…", up: "Account creato! Puoi accedere.", upc: "Account creato — conferma l'email e poi accedi.", err: "Non riuscito: ", first: "Scrivi il primo messaggio — di solito rispondo in poche ore.", ph: "Il tuo messaggio…", none: "Ancora nessuna conversazione.", cfg: "L’area clienti è in attivazione e aprirà a breve. Nel frattempo: WhatsApp o modulo di contatto.", need: "Compila email e password.", today: "Oggi", yest: "Ieri", forgot: "Password dimenticata", resent: "Ti abbiamo inviato un'email con il link per reimpostarla.", needmail: "Scrivi prima la tua email qui sopra.", newp: "Imposta la tua nuova password:", saved: "Password aggiornata — hai effettuato l’accesso.", nomsg: "nessun messaggio", tMsg: "Messaggi", tOrd: "Ordini", tMeet: "Riunioni", stP: "Richiesto", stC: "In corso", stE: "Consegnato", stX: "Annullato", ordNone: "Ancora nessun ordine o richiesta.", ordPhC: "Descrivi cosa ti serve (es.: sito + Instagram)", ordPhA: "Titolo dell'ordine/progetto", pricePh: "Prezzo (es.: CHF 2'400)", ordBtnC: "Richiedi un preventivo", ordBtnA: "Aggiungi", mtP: "Richiesta", mtC: "Confermata", mtX: "Annullata", meetNone: "Nessuna riunione in programma.", meetTopicPh: "Argomento (es.: riunione di avvio)", meetBtnC: "Richiedi una riunione", meetBtnA: "Fissa", mtConfirm: "Conferma", mtCancel: "Annulla", savep: "Salva", newpPh: "nuova password", tStats: "Statistiche", stT: "Oggi", st7: "7 giorni", st30: "30 giorni", stAll: "Totale registrato", stLang: "Lingue", stRef: "Fonti", stDev: "Dispositivi", stNone: "Ancora nessuna visita registrata.", stDirect: "diretto", stMob: "cellulare", stDesk: "computer" },
+    en: { needDate: "Choose a date.", signing: "Creating account…", net: "no connection", minp: "at least 6 characters", sdk: "the client area could not be loaded", badLogin: "wrong email or password", notConf: "confirm your email first", exists: "an account with this email already exists", meetDateA: "Meeting date", meetTimeA: "Meeting time", emailPh: "email", passPh: "password", conn: "Connecting…", login: "Signing in…", up: "Account created! You can sign in now.", upc: "Account created — confirm your email, then sign in.", err: "Failed: ", first: "Write the first message — I usually reply within a few hours.", ph: "Your message…", none: "No client conversations yet.", cfg: "The client area is being activated and opens very soon. Meanwhile: WhatsApp or the contact form.", need: "Fill in email and password.", today: "Today", yest: "Yesterday", forgot: "Forgot password", resent: "We've emailed you a link to set a new password.", needmail: "Enter your email above first.", newp: "Set your new password:", saved: "Password updated — you're in.", nomsg: "no messages", tMsg: "Messages", tOrd: "Orders", tMeet: "Meetings", stP: "Requested", stC: "In progress", stE: "Delivered", stX: "Cancelled", ordNone: "No orders or requests yet.", ordPhC: "Describe what you need (e.g. website + Instagram)", ordPhA: "Order/project title", pricePh: "Price (e.g. CHF 2'400)", ordBtnC: "Request a quote", ordBtnA: "Add", mtP: "Requested", mtC: "Confirmed", mtX: "Cancelled", meetNone: "No meetings scheduled.", meetTopicPh: "Topic (e.g. kickoff call)", meetBtnC: "Request a meeting", meetBtnA: "Schedule", mtConfirm: "Confirm", mtCancel: "Cancel", savep: "Save", newpPh: "new password", tStats: "Statistics", stT: "Today", st7: "7 days", st30: "30 days", stAll: "Total recorded", stLang: "Languages", stRef: "Sources", stDev: "Devices", stNone: "No visits recorded yet.", stDirect: "direct", stMob: "mobile", stDesk: "desktop" }
   };
   function LX(k) { return (LGX[currentLang] || LGX.pt)[k]; }
   function escH(t) { return String(t == null ? "" : t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -5316,7 +5316,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     if (sb) { cb(sb); return; }
     function ready() {
       if (window.supabase) { sb = window.supabase.createClient(SB_URL, SB_KEY); cb(sb); return; }
-      clStatus.textContent = LX("err") + "SDK";
+      clStatus.textContent = LX("err") + LX("sdk");
       cb(null);
     }
     if (window.supabase) { ready(); return; }
@@ -5416,7 +5416,8 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var diff = Math.round((one - that) / 86400000);
     if (diff === 0) return LX("today");
     if (diff === 1) return LX("yest");
-    return ("0" + t.getDate()).slice(-2) + "/" + ("0" + (t.getMonth() + 1)).slice(-2) + "/" + t.getFullYear();
+    var sep = /^(de|fr|it)/.test(document.documentElement.lang || "") ? "." : "/";
+    return ("0" + t.getDate()).slice(-2) + sep + ("0" + (t.getMonth() + 1)).slice(-2) + sep + t.getFullYear();
   }
   function loadThreads() {
     Promise.all([
@@ -5566,7 +5567,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     sb.from("messages").insert({ thread: clActive, body: body }).select().single().then(function (r) {
       clSending = false;
       sendBtn.disabled = false;
-      if (r.error) { clStatus2.textContent = LX("err") + r.error.message; return; }
+      if (r.error) { clStatus2.textContent = LX("err") + clErrMsg(r.error.message); return; }
       clStatus2.textContent = "";
       clText.value = "";
       if (r.data) appendMsg(r.data);
@@ -5587,10 +5588,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       if (!c) { authBusy = false; return; }
       c.auth.signInWithPassword({ email: em, password: pw }).then(function (r) {
         authBusy = false;
-        if (r.error) { clStatus.textContent = LX("err") + r.error.message; return; }
+        if (r.error) { clStatus.textContent = LX("err") + clErrMsg(r.error.message); return; }
         clStatus.textContent = "";
         showDash(r.data.user);
-      }, function () { authBusy = false; clStatus.textContent = LX("err") + "network"; });
+      }, function () { authBusy = false; clStatus.textContent = LX("err") + LX("net"); });
     });
   });
   ["clEmail", "clPass"].forEach(function (id) {
@@ -5603,12 +5604,12 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var em = document.getElementById("clEmail").value.trim(), pw = document.getElementById("clPass").value;
     if (!em || !pw) { clStatus.textContent = LX("need"); return; }
     authBusy = true;
-    clStatus.textContent = LX("login");
+    clStatus.textContent = LX("signing");
     loadSB(function (c) {
       if (!c) { authBusy = false; return; }
       c.auth.signUp({ email: em, password: pw }).then(function (r) {
         authBusy = false;
-        if (r.error) { clStatus.textContent = LX("err") + r.error.message; return; }
+        if (r.error) { clStatus.textContent = LX("err") + clErrMsg(r.error.message); return; }
         if (r.data && r.data.session) { clStatus.textContent = ""; showDash(r.data.session.user); }
         else clStatus.textContent = LX("upc");
       });
@@ -5621,18 +5622,18 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     loadSB(function (c) {
       if (!c) return;
       c.auth.resetPasswordForEmail(em, { redirectTo: location.origin + location.pathname }).then(function (r) {
-        clStatus.textContent = r.error ? LX("err") + r.error.message : LX("resent");
+        clStatus.textContent = r.error ? LX("err") + clErrMsg(r.error.message) : LX("resent");
       });
     });
   });
   document.getElementById("clSavePass").addEventListener("click", function () {
     var np = document.getElementById("clNewPass").value;
     var rst = document.getElementById("clResetStatus");
-    if (!np || np.length < 6) { rst.textContent = LX("err") + "min. 6"; return; }
-    if (!sb) { rst.textContent = LX("err") + "SDK"; return; }
+    if (!np || np.length < 6) { rst.textContent = LX("err") + LX("minp"); return; }
+    if (!sb) { rst.textContent = LX("err") + LX("sdk"); return; }
     rst.textContent = "";
     sb.auth.updateUser({ password: np }).then(function (r) {
-      if (r.error) { document.getElementById("clResetStatus").textContent = LX("err") + r.error.message; return; }
+      if (r.error) { document.getElementById("clResetStatus").textContent = LX("err") + clErrMsg(r.error.message); return; }
       document.getElementById("clReset").hidden = true;
       document.getElementById("clForm").hidden = false;
       clStatus.textContent = LX("saved");
@@ -5670,12 +5671,25 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   }
   /* ---- etiquetas, tabs, encomendas e reuniões ---- */
   var clPanelCur = "Msg";
+  /* mensagens do Supabase mais comuns, traduzidas; o resto passa tal como vem */
+  function clErrMsg(m) {
+    m = String(m || "");
+    if (/invalid login/i.test(m)) return LX("badLogin");
+    if (/not confirmed/i.test(m)) return LX("notConf");
+    if (/already registered|already exists/i.test(m)) return LX("exists");
+    if (/at least 6/i.test(m)) return LX("minp");
+    if (/fetch|network/i.test(m)) return LX("net");
+    return m;
+  }
   function applyClLabels() {
     clText.placeholder = LX("ph");
     clText.setAttribute("aria-label", LX("ph"));
     document.getElementById("clForgot").textContent = LX("forgot");
     document.getElementById("clResetLbl").textContent = LX("newp");
     document.getElementById("clNewPass").placeholder = LX("newpPh");
+    document.getElementById("clNewPass").setAttribute("aria-label", LX("newpPh"));
+    [["clEmail", "emailPh"], ["clPass", "passPh"]].forEach(function (p) { var e = document.getElementById(p[0]); if (e) { e.placeholder = LX(p[1]); e.setAttribute("aria-label", LX(p[1])); } });
+    [["clMeetDate", "meetDateA"], ["clMeetTime", "meetTimeA"], ["clMeetTopic", "meetTopicPh"]].forEach(function (p) { var e = document.getElementById(p[0]); if (e) e.setAttribute("aria-label", LX(p[1])); });
     document.getElementById("clSavePass").textContent = LX("savep");
     var tabs = document.getElementById("clTabs");
     tabs.querySelector('[data-tab="Msg"]').textContent = LX("tMsg");
@@ -5683,6 +5697,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     tabs.querySelector('[data-tab="Meet"]').textContent = LX("tMeet");
     tabs.querySelector('[data-tab="Stats"]').textContent = LX("tStats");
     document.getElementById("clOrdTitle").placeholder = clIsAdm ? LX("ordPhA") : LX("ordPhC");
+    document.getElementById("clOrdTitle").setAttribute("aria-label", clIsAdm ? LX("ordPhA") : LX("ordPhC"));
     document.getElementById("clOrdPrice").placeholder = LX("pricePh");
     document.getElementById("clOrdAdd").textContent = clIsAdm ? LX("ordBtnA") : LX("ordBtnC");
     document.getElementById("clMeetTopic").placeholder = LX("meetTopicPh");
@@ -5763,7 +5778,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         loadOrders();
         if (!clIsAdm) portalPing("[" + LX("tOrd") + "] " + t);
       } else if (clStatus2) {
-        clStatus2.textContent = LX("err") + r.error.message;
+        clStatus2.textContent = LX("err") + clErrMsg(r.error.message);
         setTimeout(function () { clStatus2.textContent = ""; }, 4000);
       }
     });
@@ -5808,12 +5823,12 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var topic = document.getElementById("clMeetTopic").value.trim();
     var st3 = document.getElementById("clStatus3");
     var mparts = dv.split("/");
-    if (mparts.length !== 3) { st3.textContent = LX("need"); return; }
+    if (mparts.length !== 3) { st3.textContent = LX("needDate"); return; }
     var at = new Date(parseInt(mparts[2], 10), parseInt(mparts[1], 10) - 1, parseInt(mparts[0], 10), parseInt(tv.slice(0, 2), 10), parseInt(tv.slice(3), 10));
     var row = { client: clIsAdm ? clActive : clMe.id, at: at.toISOString(), topic: topic };
     if (clIsAdm) row.status = "confirmada";
     sb.from("meetings").insert(row).then(function (r) {
-      if (r.error) { st3.textContent = LX("err") + r.error.message; return; }
+      if (r.error) { st3.textContent = LX("err") + clErrMsg(r.error.message); return; }
       st3.textContent = "";
       document.getElementById("clMeetTopic").value = "";
       loadMeetings();
@@ -5951,7 +5966,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     loadSB(function (c) {
       if (!c) { adminBusy = false; showToast("Sem ligação ao servidor — tenta mais tarde."); return; }
       c.auth.signInWithPassword({ email: em, password: pw }).then(function (r) {
-        if (r.error) { adminBusy = false; adminPass.value = ""; showToast(LX("err") + r.error.message); return; }
+        if (r.error) { adminBusy = false; adminPass.value = ""; showToast(LX("err") + clErrMsg(r.error.message)); return; }
         var user = r.data && r.data.user;
         c.from("profiles").select("is_admin").eq("id", user.id).single().then(function (p) {
           adminBusy = false;
@@ -6015,7 +6030,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     bpReset(); bpLoad(); tpLoad();
     adminGrid.innerHTML = '<span class="admin-note-hint">A carregar…</span>';
     sb.from("admin_links").select("label,url,note").order("sort_order", { ascending: true }).then(function (r) {
-      if (r.error) { adminGrid.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + r.error.message) + "</span>"; return; }
+      if (r.error) { adminGrid.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + clErrMsg(r.error.message)) + "</span>"; return; }
       var rows = r.data || [];
       if (!rows.length) { adminGrid.innerHTML = '<span class="admin-note-hint">Sem atalhos configurados (tabela admin_links no Supabase).</span>'; return; }
       adminGrid.innerHTML = rows.map(function (l, i) {
@@ -6030,7 +6045,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     adminNotes.disabled = true;
     adminSaveState.textContent = "";
     sb.from("admin_notes").select("content").eq("id", ADMIN_NOTES_ID).maybeSingle().then(function (r) {
-      if (r.error) { adminSaveState.textContent = LX("err") + r.error.message; return; }
+      if (r.error) { adminSaveState.textContent = LX("err") + clErrMsg(r.error.message); return; }
       var content = r.data ? r.data.content || "" : "";
       if (!r.data) {
         /* migração única: notas antigas deste browser sobem para a conta */
@@ -6071,7 +6086,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     bpEl.bpList.innerHTML = '<span class="admin-note-hint">A carregar artigos…</span>';
     sb.from("posts").select("id,slug,lang,title,description,body_html,status,publish_at,published_at,updated_at")
       .order("updated_at", { ascending: false }).limit(60).then(function (r) {
-      if (r.error) { bpEl.bpList.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + r.error.message) + "</span>"; return; }
+      if (r.error) { bpEl.bpList.innerHTML = '<span class="admin-note-hint">' + escH(LX("err") + clErrMsg(r.error.message)) + "</span>"; return; }
       var rows = r.data || [];
       bpEl.bpList._rows = rows;
       if (!rows.length) { bpEl.bpList.innerHTML = '<span class="admin-note-hint">Ainda sem artigos. Escreve o primeiro acima.</span>'; return; }
@@ -6098,7 +6113,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     if (b.getAttribute("data-act") === "del") {
       if (!confirm('Apagar "' + p.title + '" (' + p.lang.toUpperCase() + ")? Se estava publicado, o site atualiza sozinho.")) return;
       sb.from("posts").delete().eq("id", id).then(function (r) {
-        bpEl.bpState.textContent = r.error ? LX("err") + r.error.message : "Apagado ✓";
+        bpEl.bpState.textContent = r.error ? LX("err") + clErrMsg(r.error.message) : "Apagado ✓";
         if (bpEditId === id) bpReset();
         bpLoad();
       });
@@ -6142,7 +6157,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     q.then(function (r) {
       bpEl.bpSave.disabled = false;
       if (r.error) {
-        bpEl.bpState.textContent = /duplicate|unique/i.test(r.error.message) ? "Já existe um artigo com esse endereço nesse idioma. Muda o endereço." : LX("err") + r.error.message;
+        bpEl.bpState.textContent = /duplicate|unique/i.test(r.error.message) ? "Já existe um artigo com esse endereço nesse idioma. Muda o endereço." : LX("err") + clErrMsg(r.error.message);
         return;
       }
       bpEl.bpState.textContent = status === "published" ? "Guardado ✓ — o site atualiza sozinho em 1 a 2 minutos."
@@ -6156,7 +6171,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   var TP_ST = { pending: "na fila", writing: "a escrever…", done: "escrito ✓", error: "erro" };
   function tpLoad() {
     sb.from("post_topics").select("id,topic,status,error,slug,created_at").order("created_at", { ascending: false }).limit(30).then(function (r) {
-      if (r.error) { tpEl.tpList.innerHTML = '<span class="admin-note-hint">' + escH(/relation|does not exist/i.test(r.error.message) ? "Corre supabase/003_topics.sql no Supabase para ativar a fila." : LX("err") + r.error.message) + "</span>"; return; }
+      if (r.error) { tpEl.tpList.innerHTML = '<span class="admin-note-hint">' + escH(/relation|does not exist/i.test(r.error.message) ? "Corre supabase/003_topics.sql no Supabase para ativar a fila." : LX("err") + clErrMsg(r.error.message)) + "</span>"; return; }
       var rows = r.data || [];
       if (!rows.length) { tpEl.tpList.innerHTML = '<span class="admin-note-hint">Fila vazia.</span>'; return; }
       tpEl.tpList.innerHTML = rows.map(function (t) {
@@ -6172,7 +6187,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     tpEl.tpAdd.disabled = true;
     sb.from("post_topics").insert({ topic: topic, brief: tpEl.tpBrief.value.trim() || null }).then(function (r) {
       tpEl.tpAdd.disabled = false;
-      if (r.error) { tpEl.tpState.textContent = LX("err") + r.error.message; return; }
+      if (r.error) { tpEl.tpState.textContent = LX("err") + clErrMsg(r.error.message); return; }
       tpEl.tpTopic.value = ""; tpEl.tpBrief.value = "";
       tpEl.tpState.textContent = "Na fila ✓ — sai na próxima segunda-feira como rascunho.";
       tpLoad();
@@ -6184,11 +6199,11 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var q = b.getAttribute("data-act") === "retry"
       ? sb.from("post_topics").update({ status: "pending", error: null }).eq("id", id)
       : sb.from("post_topics").delete().eq("id", id);
-    q.then(function (r) { tpEl.tpState.textContent = r.error ? LX("err") + r.error.message : ""; tpLoad(); });
+    q.then(function (r) { tpEl.tpState.textContent = r.error ? LX("err") + clErrMsg(r.error.message) : ""; tpLoad(); });
   });
   function saveAdminNotes() {
     sb.from("admin_notes").upsert({ id: ADMIN_NOTES_ID, content: adminNotes.value, updated_at: new Date().toISOString() }).then(function (r) {
-      if (r.error) { adminSaveState.textContent = LX("err") + r.error.message; return; }
+      if (r.error) { adminSaveState.textContent = LX("err") + clErrMsg(r.error.message); return; }
       adminSaveState.textContent = "Guardado ✓ " + fmtT(new Date().toISOString());
       try { localStorage.removeItem("pr-admin-notes"); } catch (e) {}
     });
