@@ -1001,6 +1001,22 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 .sticky-cta a { white-space: normal; line-height: 1.15; }
 .zona { border: 1px solid var(--line-2); background: var(--card); border-radius: var(--r); padding: 28px 32px; }
 @media (max-width: 700px) { .zona { padding: 22px 18px; } }
+
+/* ---- v4: camada de vendas — hierarquia, faixas de CTA, formulário curto ---- */
+h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; line-height: 1.05; }
+.section-sub { font-size: 1.08rem; line-height: 1.55; max-width: 60ch; }
+.section-head { margin-bottom: 44px; }
+.cta-band { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin: -28px auto 0; padding: 34px 40px; border: 1px solid var(--line-2); border-radius: var(--r); background: linear-gradient(135deg, rgba(46,107,255,0.14), rgba(10,17,32,0.9) 55%), var(--card); box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.cta-band h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(1.25rem, 2.4vw, 1.7rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin: 0; }
+.cta-band p { color: var(--ink-2); margin: 8px 0 0; font-size: 0.98rem; }
+.cta-band .btn { flex-shrink: 0; }
+@media (max-width: 760px) { .cta-band { flex-direction: column; align-items: stretch; text-align: center; padding: 28px 22px; margin-top: -12px; } .cta-band .btn { width: 100%; } }
+.hero-ctas .btn-ghost { background: transparent; border-color: transparent; text-decoration: underline; text-underline-offset: 6px; }
+.hero-trust li { border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; background: rgba(10,17,32,0.55); }
+.plan.hot { box-shadow: 0 24px 70px rgba(46,107,255,0.22); }
+.contact-grid .field label { font-size: 0.86rem; }
+.form-done { border: 1px solid var(--line-2); border-radius: var(--r); padding: 28px; background: var(--card); }
+@media (max-width: 480px) { .hero-chips { display: none; } .hero-trust { gap: 8px; } .hero-trust li { font-size: 0.76rem; padding: 6px 10px; } .hero-ctas { margin-top: 24px; } }
 </style>
 </head>
 <body>
@@ -1100,32 +1116,123 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       <div class="hero-chips" aria-hidden="true">
         <span>Websites</span><span>Marketing</span><span>Social Media</span>
       </div>
-      <p class="hero-pitch"><span data-i18n="hero.pitch">Crio o teu site, trago-te clientes com anúncios e SEO, e cuido das tuas redes sociais — com </span><span class="serif" data-i18n="hero.acc1">precisão suíça</span><span data-i18n="hero.join"> e </span><span class="serif" data-i18n="hero.acc2">alma portuguesa</span><span>.</span></p>
+      <p class="hero-pitch"><span data-i18n="hero.pitch">Crio-te um site que vende, trago clientes com anúncios e SEO, e cuido das tuas redes sociais — com </span><span class="serif" data-i18n="hero.acc1">precisão suíça</span><span data-i18n="hero.join"> e </span><span class="serif" data-i18n="hero.acc2">alma portuguesa</span><span>.</span></p>
       <div class="hero-ctas">
-        <a class="btn btn-red magnetic" href="https://wa.me/41798257078?text=Ol%C3%A1%20Pedro!" target="_blank" rel="noopener" data-i18n="hero.cta1">Pedir orçamento grátis no WhatsApp</a>
+        <a class="btn btn-red magnetic" href="https://wa.me/41798257078?text=Ol%C3%A1%20Pedro!" target="_blank" rel="noopener" data-i18n="hero.cta1">Pedir avaliação grátis no WhatsApp</a>
         <a class="btn btn-ghost" href="#servicos" data-i18n="hero.cta2">Ver serviços</a>
       </div>
       <ul class="hero-trust" data-i18n-aria="a11y.why" aria-label="Porque trabalhar comigo">
         <li data-i18n="hero.tr1">✓ Resposta em menos de 24 h</li>
         <li data-i18n="hero.tr2">✓ Falas diretamente comigo, sem agência</li>
-        <li data-i18n="hero.tr3">✓ Multilingue — PT · DE · EN</li>
+        <li data-i18n="hero.tr3">✓ Preço fixo, sem surpresas</li>
       </ul>
     </div>
   </section>
 
-  <!-- ================= SERVIÇOS (bento) ================= -->
+  <!-- ================= TRABALHO RECENTE ================= -->
+  <section id="trabalho">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="tw.eyebrow">Trabalho recente</span>
+        <h2 class="display" data-i18n="tw.title">O que já fiz por negócios daqui</h2>
+        <p class="section-sub" data-i18n="tw.sub">Seis publicações de Instagram para dois negócios do Alto Valais: um restaurante de montanha acima de Zermatt e uma pizzaria familiar em Brig. </p>
+      </div>
+
+      <div class="tw-proj reveal">
+        <div class="tw-proj-h">
+          <b data-i18n="tw.proj1">Bergrestaurant Fluhalp · Zermatt</b>
+          <span class="tw-badge" data-i18n="tw.badge">Publicação Instagram</span>
+        </div>
+        <div class="tw-grid">
+          <figure class="tw-item">
+            <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
+            <div class="tw-post tw-f1" role="img" data-i18n-aria="tw.a1" aria-label="Publicação: Fluhalp, Bergrestaurant a 2606 metros sobre o Stellisee, Zermatt">
+              <div class="hd">Zermatt · Wallis</div>
+              <div>
+                <div class="alt"><span class="num">2606</span><span class="unit">M.Ü.M.</span></div>
+                <div class="horizon"></div>
+                <div class="name">Fluhalp</div>
+                <div class="sub">Bergrestaurant · über dem Stellisee</div>
+              </div>
+            </div>
+          </figure>
+          <figure class="tw-item">
+            <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
+            <div class="tw-post tw-f2" role="img" data-i18n-aria="tw.a2" aria-label="Modelo reutilizável: espaço para a fotografia com barra fixa Fluhalp 2606 m">
+              <div class="stage">
+                <div class="plus" aria-hidden="true">+</div>
+                <div class="hint">Hier Ihr Foto —<br>Terrasse, Teller, Schnee, Gäste</div>
+              </div>
+              <div class="bar"><span class="l">Fluhalp</span><span class="r">2606 m</span></div>
+            </div>
+          </figure>
+          <figure class="tw-item">
+            <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
+            <div class="tw-post tw-f3" role="img" data-i18n-aria="tw.a3" aria-label="Publicação: o melhor lugar do vale não está no vale">
+              <div class="tag">Sonnenterrasse</div>
+              <div class="claim">Der Tisch mit der <b>besten Aussicht</b> im Tal steht nicht im Tal.</div>
+              <div class="foot"><span>Fluhalp</span><span>Zermatt</span></div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="tw-proj reveal">
+        <div class="tw-proj-h">
+          <b data-i18n="tw.proj2">Pizzeria Channa · Brig</b>
+          <span class="tw-badge" data-i18n="tw.badge">Publicação Instagram</span>
+        </div>
+        <div class="tw-grid">
+          <figure class="tw-item">
+            <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
+            <div class="tw-post tw-c1" role="img" data-i18n-aria="tw.a4" aria-label="Publicação: Channa, pizzaria na Furkastrasse 5, Brig">
+              <div class="top">Brig · Wallis</div>
+              <div class="name">Channa</div>
+              <div class="band"><i aria-hidden="true"></i><span>Pizzeria</span><i aria-hidden="true"></i></div>
+              <div class="addr">Furkastrasse 5 · 3900 Brig</div>
+            </div>
+          </figure>
+          <figure class="tw-item">
+            <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
+            <div class="tw-post tw-c2" role="img" data-i18n-aria="tw.a5" aria-label="Modelo reutilizável: espaço para a fotografia com assinatura Channa">
+              <div class="frame">
+                <div class="icon" aria-hidden="true">+</div>
+                <div class="hint">Hier Ihr Foto —<br>Pizza, Teller, Gasse, Team</div>
+              </div>
+              <div class="foot">
+                <span class="h">Heute<br>bei uns</span>
+                <span class="m">Furkastrasse 5<br>Brig</span>
+              </div>
+            </div>
+          </figure>
+          <figure class="tw-item">
+            <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
+            <div class="tw-post tw-c3" role="img" data-i18n-aria="tw.a6" aria-label="Publicação: um negócio de família no centro de Brig">
+              <div class="mark" aria-hidden="true">&ldquo;</div>
+              <div class="claim">Ein Familien&shy;betrieb mitten in Brig.</div>
+              <div class="sign">Channa · Pizzeria</div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <p class="tw-note" data-i18n="tw.note">Os dois negócios são reais e o desenho é meu.</p>
+    </div>
+  </section>
+
+<!-- ================= SERVIÇOS (bento) ================= -->
   <section id="servicos">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow" data-i18n="sv.eyebrow">O que faço</span>
         <h2 class="display" data-i18n="sv.title">Três serviços, um parceiro</h2>
-        <p class="section-sub" data-i18n="sv.sub">Contrata um serviço ou os três. Uma só pessoa responsável pelo site, pelos anúncios e pelas redes — em vez de três fornecedores a passar a bola.</p>
+        <p class="section-sub" data-i18n="sv.sub">Contrata um serviço ou os três. Um só responsável pelo site, pelos anúncios e pelas redes — sem três fornecedores a apontar um para o outro.</p>
       </div>
       <div class="pillars">
         <article class="pillar card reveal">
           <span class="pillar-idx">01</span>
           <h3>Websites</h3>
-          <p data-i18n="sv1.p">Sites rápidos, feitos à medida e prontos para o Google — da landing page à loja online. Os ficheiros ficam teus.</p>
+          <p data-i18n="sv1.p">Sites rápidos e prontos para o Google, feitos para converter visitas em clientes — da landing page à loja online. Os ficheiros ficam teus.</p>
           <ul>
             <li data-i18n="sv1.l1">Landing pages para campanhas</li>
             <li data-i18n="sv1.l2">Sites institucionais até 5 páginas</li>
@@ -1141,7 +1248,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <article class="pillar card reveal">
           <span class="pillar-idx">02</span>
           <h3 data-i18n="sv2.name">Marketing Digital</h3>
-          <p data-i18n="sv2.p">Google Ads, Meta Ads, SEO local e ficha Google Business — para apareceres quando alguém no Valais procura o que fazes.</p>
+          <p data-i18n="sv2.p">Google Ads, Meta Ads, SEO local e ficha Google Business, para teres mais clientes a encontrar-te no Valais.</p>
           <ul>
             <li data-i18n="sv2.l1">Google Ads &amp; Meta Ads</li>
             <li data-i18n="sv2.l2">SEO local (Valais e arredores)</li>
@@ -1158,7 +1265,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         <article class="pillar card reveal">
           <span class="pillar-idx">03</span>
           <h3>Social Media</h3>
-          <p data-i18n="sv3.p">Conteúdo, publicações e respostas tratadas por mim, com relatório mensal — a tua marca ativa sem te roubar tempo.</p>
+          <p data-i18n="sv3.p">Conteúdo, publicações e respostas tratados por mim, com relatório mensal — presença ativa nas redes, sem te roubar tempo.</p>
           <ul>
             <li data-i18n="sv3.l1">Estratégia e calendário de conteúdo</li>
             <li data-i18n="sv3.l2">Posts, reels e stories</li>
@@ -1190,39 +1297,47 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       </div>
     </div>
   </section>
+  <!-- faixa de CTA -->
+  <div class="wrap"><aside class="cta-band reveal" aria-labelledby="cb1-t">
+    <div><h2 id="cb1-t" data-i18n="cb1.t">Diz-me o que fazes e eu digo-te o que faria no teu site.</h2>
+    <p data-i18n="cb1.s">Avaliação gratuita em 48 horas. Sem compromisso, sem jargão.</p></div>
+    <a class="btn btn-red magnetic" href="#contacto" data-i18n="cb1.b">Pedir avaliação gratuita</a>
+  </aside></div>
 
-  <!-- ================= PROCESSO ================= -->
+
+<!-- ================= PROCESSO ================= -->
   <section id="processo">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow" data-i18n="pr.eyebrow">Como funciona</span>
-        <h2 class="display" data-i18n="pr.title">Simples e sem surpresas</h2>
+        <h2 class="display" data-i18n="pr.title">Sem surpresas, do início ao fim</h2>
       </div>
       <div class="steps">
         <div class="step card reveal">
           <span class="step-n">1</span>
           <h3 data-i18n="pr1.t">Conversa</h3>
-          <p data-i18n="pr1.p">30 minutos gratuitos, por WhatsApp ou ao café. Objetivos, prazo e orçamento — na tua língua.</p>
+          <p data-i18n="pr1.p">30 minutos gratuitos, sem compromisso, por WhatsApp ou ao café. Objetivos, prazo e orçamento — na tua língua.</p>
         </div>
         <div class="step card reveal">
           <span class="step-n">2</span>
           <h3 data-i18n="pr2.t">Proposta</h3>
-          <p data-i18n="pr2.p">Proposta com preço fixo e prazo. Sabes o que pagas e o que recebes antes de dizer sim.</p>
+          <p data-i18n="pr2.p">Proposta com preço fixo e prazo certo. Sabes o que pagas e o que recebes antes de decidires.</p>
         </div>
         <div class="step card reveal">
           <span class="step-n">3</span>
           <h3 data-i18n="pr3.t">Execução</h3>
-          <p data-i18n="pr3.p">Design, código e conteúdo, com acesso ao progresso desde o primeiro dia. Feedback direto, sem intermediários.</p>
+          <p data-i18n="pr3.p">Design, código e conteúdo, com acesso ao progresso desde o primeiro dia. Falas comigo diretamente, sem intermediários.</p>
         </div>
         <div class="step card reveal">
           <span class="step-n">4</span>
           <h3 data-i18n="pr4.t">Crescimento</h3>
-          <p data-i18n="pr4.p">Lançamento, manutenção e relatórios mensais. Quando o site está no ar, começa o trabalho de trazer clientes.</p>
+          <p data-i18n="pr4.p">Lançamento, manutenção e relatórios mensais. O site no ar é o início: depois começa o trabalho de trazer clientes.</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- ================= PORTFÓLIO ================= -->
+
+<!-- ================= PORTFÓLIO ================= -->
   <section id="portfolio">
     <div class="wrap">
       <div class="section-head reveal">
@@ -1344,105 +1459,14 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     </div>
   </section>
 
-  <!-- ================= TRABALHO RECENTE ================= -->
-  <section id="trabalho">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-i18n="tw.eyebrow">Trabalho recente</span>
-        <h2 class="display" data-i18n="tw.title">Peças que desenhei</h2>
-        <p class="section-sub" data-i18n="tw.sub">Seis publicações de Instagram para dois negócios do Alto Valais: um restaurante de montanha acima de Zermatt e uma pizzaria familiar em Brig. </p>
-      </div>
-
-      <div class="tw-proj reveal">
-        <div class="tw-proj-h">
-          <b data-i18n="tw.proj1">Bergrestaurant Fluhalp · Zermatt</b>
-          <span class="tw-badge" data-i18n="tw.badge">Publicação Instagram</span>
-        </div>
-        <div class="tw-grid">
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
-            <div class="tw-post tw-f1" role="img" data-i18n-aria="tw.a1" aria-label="Publicação: Fluhalp, Bergrestaurant a 2606 metros sobre o Stellisee, Zermatt">
-              <div class="hd">Zermatt · Wallis</div>
-              <div>
-                <div class="alt"><span class="num">2606</span><span class="unit">M.Ü.M.</span></div>
-                <div class="horizon"></div>
-                <div class="name">Fluhalp</div>
-                <div class="sub">Bergrestaurant · über dem Stellisee</div>
-              </div>
-            </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
-            <div class="tw-post tw-f2" role="img" data-i18n-aria="tw.a2" aria-label="Modelo reutilizável: espaço para a fotografia com barra fixa Fluhalp 2606 m">
-              <div class="stage">
-                <div class="plus" aria-hidden="true">+</div>
-                <div class="hint">Hier Ihr Foto —<br>Terrasse, Teller, Schnee, Gäste</div>
-              </div>
-              <div class="bar"><span class="l">Fluhalp</span><span class="r">2606 m</span></div>
-            </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
-            <div class="tw-post tw-f3" role="img" data-i18n-aria="tw.a3" aria-label="Publicação: o melhor lugar do vale não está no vale">
-              <div class="tag">Sonnenterrasse</div>
-              <div class="claim">Der Tisch mit der <b>besten Aussicht</b> im Tal steht nicht im Tal.</div>
-              <div class="foot"><span>Fluhalp</span><span>Zermatt</span></div>
-            </div>
-          </figure>
-        </div>
-      </div>
-
-      <div class="tw-proj reveal">
-        <div class="tw-proj-h">
-          <b data-i18n="tw.proj2">Pizzeria Channa · Brig</b>
-          <span class="tw-badge" data-i18n="tw.badge">Publicação Instagram</span>
-        </div>
-        <div class="tw-grid">
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
-            <div class="tw-post tw-c1" role="img" data-i18n-aria="tw.a4" aria-label="Publicação: Channa, pizzaria na Furkastrasse 5, Brig">
-              <div class="top">Brig · Wallis</div>
-              <div class="name">Channa</div>
-              <div class="band"><i aria-hidden="true"></i><span>Pizzeria</span><i aria-hidden="true"></i></div>
-              <div class="addr">Furkastrasse 5 · 3900 Brig</div>
-            </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
-            <div class="tw-post tw-c2" role="img" data-i18n-aria="tw.a5" aria-label="Modelo reutilizável: espaço para a fotografia com assinatura Channa">
-              <div class="frame">
-                <div class="icon" aria-hidden="true">+</div>
-                <div class="hint">Hier Ihr Foto —<br>Pizza, Teller, Gasse, Team</div>
-              </div>
-              <div class="foot">
-                <span class="h">Heute<br>bei uns</span>
-                <span class="m">Furkastrasse 5<br>Brig</span>
-              </div>
-            </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
-            <div class="tw-post tw-c3" role="img" data-i18n-aria="tw.a6" aria-label="Publicação: um negócio de família no centro de Brig">
-              <div class="mark" aria-hidden="true">&ldquo;</div>
-              <div class="claim">Ein Familien&shy;betrieb mitten in Brig.</div>
-              <div class="sign">Channa · Pizzeria</div>
-            </div>
-          </figure>
-        </div>
-      </div>
-
-      <p class="tw-note" data-i18n="tw.note">Os dois negócios são reais e o desenho é meu.</p>
-    </div>
-  </section>
-
-  <!-- ================= PREÇOS ================= -->
+<!-- ================= PREÇOS ================= -->
   <section id="precos">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow" data-i18n="pc.eyebrow">Preços</span>
         <h2 class="display" data-i18n="pc.title">Transparentes, em CHF</h2>
-        <p class="section-sub" data-i18n="pc.sub">Preço fixo acordado antes de começar. Sem taxas escondidas, sem fidelizações longas — os planos mensais cancelam-se com 30 dias de aviso (pacote com site incluído: mínimo de 6 meses).</p>
-        <p class="price-guide"><span data-i18n="pc.guide1">Não sabes qual escolher? Se tens um negócio local com serviços fixos, o plano Profissional (CHF 4'900) cobre o essencial — </span><a href="#faq" data-i18n="pc.guide2">vê as perguntas frequentes</a><span data-i18n="pc.guide3"> ou fala comigo sem compromisso.</span></p>
+        <p class="section-sub" data-i18n="pc.sub">Preço fixo, acordado antes de começarmos. Sem letras pequenas nem fidelizações longas — os planos mensais cancelam-se com 30 dias de aviso (pacote com site incluído: mínimo de 6 meses).</p>
+        <p class="price-guide"><span data-i18n="pc.guide1">Não sabes qual escolher? Para um negócio local com serviços fixos, o plano Profissional (CHF 4'900) é o mais pedido e cobre o essencial — </span><a href="#faq" data-i18n="pc.guide2">vê as perguntas frequentes</a><span data-i18n="pc.guide3"> ou fala comigo sem compromisso.</span></p>
         <p class="price-guide"><a class="read-more" href="preco-site-suica.html" data-i18n="pc.art">Artigo: quanto custa um site profissional na Suíça? →</a></p>
       </div>
       <div class="tabs" role="tablist" data-i18n-aria="a11y.priceTabs" aria-label="Categorias de preços">
@@ -1456,39 +1480,39 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
           <article class="plan card reveal">
             <h3 data-i18n="pl.ess">Essencial</h3>
             <span class="plan-amount">CHF 2'400<small> · <span data-i18n="pc.once">projeto único</span></small></span>
-            <p class="blurb" data-i18n="pw1.p">Para lançar uma ideia, campanha ou serviço rapidamente.</p>
+            <p class="blurb" data-i18n="pw1.p">Para começares a vender uma ideia, campanha ou serviço em cerca de uma semana.</p>
             <ul>
               <li data-i18n="pw1.l1">Landing page de 1 página</li>
               <li data-i18n="pw1.l2">Design à medida, mobile-first</li>
               <li data-i18n="pw1.l3">Formulário de contacto / WhatsApp</li>
               <li data-i18n="pw1.l4">Entrega em 7 dias</li>
             </ul>
-            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta">Pedir proposta</a>
+            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta">Pedir avaliação grátis</a>
           </article>
           <article class="plan hot card reveal">
             <span class="plan-flag" data-i18n="pc.hot">Mais pedido</span>
             <h3 data-i18n="pl.pro">Profissional</h3>
             <span class="plan-amount">CHF 4'900<small> · <span data-i18n="pc.once2">projeto único</span></small></span>
-            <p class="blurb" data-i18n="pw2.p">Até 5 páginas com SEO base e ficha Google Business — para o teu negócio aparecer quando procuram por ti no Valais.</p>
+            <p class="blurb" data-i18n="pw2.p">Até 5 páginas com SEO base e ficha Google Business, para apareceres em primeiro quando procuram por ti no Valais.</p>
             <ul>
               <li data-i18n="pw2.l1">Até 5 páginas</li>
               <li data-i18n="pw2.l2">SEO base + ficha Google Business</li>
               <li data-i18n="pw2.l3">Multilingue (PT/DE/EN) opcional</li>
               <li data-i18n="pw2.l4">Entrega em 1 mês</li>
             </ul>
-            <a class="btn btn-red" href="#contacto" data-i18n="pc.cta">Pedir proposta</a>
+            <a class="btn btn-red" href="#contacto" data-i18n="pc.cta">Pedir avaliação grátis</a>
           </article>
           <article class="plan card reveal">
             <h3>Premium</h3>
             <span class="plan-amount">CHF 9'800<small> · <span data-i18n="pc.from">desde, projeto único</span></small></span>
-            <p class="blurb" data-i18n="pw3.p">Loja online ou aplicação web à tua medida.</p>
+            <p class="blurb" data-i18n="pw3.p">Loja online ou aplicação à tua medida, pronta para vender.</p>
             <ul>
               <li data-i18n="pw3.l1">E-commerce com pagamentos</li>
               <li data-i18n="pw3.l2">Áreas reservadas / dashboards</li>
               <li data-i18n="pw3.l3">Integrações (reservas, stock…)</li>
               <li data-i18n="pw3.l4">Entrega em 3 meses</li>
             </ul>
-            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta">Pedir proposta</a>
+            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta">Pedir avaliação grátis</a>
           </article>
         </div>
         <div class="care card reveal">
@@ -1514,7 +1538,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
               <li data-i18n="ps1.l3">Calendário editorial mensal</li>
               <li data-i18n="ps1.l4">Relatório simples de resultados</li>
             </ul>
-            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta2">Pedir proposta</a>
+            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta2">Pedir avaliação grátis</a>
           </article>
           <article class="plan hot card reveal">
             <span class="plan-flag" data-i18n="pc.hot2">Mais pedido</span>
@@ -1527,7 +1551,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
               <li data-i18n="ps2.l3">Stories semanais + comunidade</li>
               <li data-i18n="ps2.l4">Relatório detalhado mensal</li>
             </ul>
-            <a class="btn btn-red" href="#contacto" data-i18n="pc.cta2">Pedir proposta</a>
+            <a class="btn btn-red" href="#contacto" data-i18n="pc.cta2">Pedir avaliação grátis</a>
           </article>
           <article class="plan card reveal">
             <h3>Social Pro</h3>
@@ -1539,7 +1563,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
               <li data-i18n="ps3.l3">Sessão de estratégia mensal</li>
               <li data-i18n="ps3.l4">Resposta a mensagens e reviews</li>
             </ul>
-            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta2">Pedir proposta</a>
+            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta2">Pedir avaliação grátis</a>
           </article>
         </div>
       </div>
@@ -1556,7 +1580,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
               <li data-i18n="pm1.l3">Gestão de avaliações</li>
               <li data-i18n="pm1.l4">1 campanha Google Ads gerida</li>
             </ul>
-            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta2">Pedir proposta</a>
+            <a class="btn btn-ghost" href="#contacto" data-i18n="pc.cta2">Pedir avaliação grátis</a>
           </article>
           <article class="plan hot card reveal">
             <span class="plan-flag" data-i18n="pc.hot3">Mais pedido</span>
@@ -1569,7 +1593,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
               <li data-i18n="pm2.l3">Testes A/B e otimização contínua</li>
               <li data-i18n="pm2.l4">Relatório quinzenal</li>
             </ul>
-            <a class="btn btn-red" href="#contacto" data-i18n="pc.cta2">Pedir proposta</a>
+            <a class="btn btn-red" href="#contacto" data-i18n="pc.cta2">Pedir avaliação grátis</a>
           </article>
           <article class="plan card reveal">
             <h3 data-i18n="pm3.t">À medida</h3>
@@ -1586,11 +1610,65 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         </div>
         <p class="price-note" data-i18n="pc.note">Nota: o investimento em anúncios pagas-o tu diretamente ao Google/Meta — o plano cobre a estratégia, criação e gestão. Preços sem IVA.</p>
       </div>
-      <p class="price-guarantee"><b data-i18n="pc.guar.b">Sem risco:</b> <span data-i18n="pc.guar.t">se a primeira proposta de design não te convencer, não pagas nada — e ficas com os ficheiros. Nos planos mensais, cancelas com 30 dias de aviso, sem multas.</span></p>
+      <p class="price-guarantee"><b data-i18n="pc.guar.b">Sem risco:</b> <span data-i18n="pc.guar.t">se a primeira proposta de design não te convencer, não pagas nada — e os ficheiros ficam teus. Nos planos mensais, cancelas com 30 dias de aviso, sem multas.</span></p>
     </div>
   </section>
 
-  <!-- ================= SOBRE ================= -->
+<section id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="display" data-i18n="fq.title">Perguntas frequentes</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a1"><div><p data-i18n="fq1.a">Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo fica fechado por escrito na proposta, antes de começarmos.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a2"><div><p data-i18n="fq2.a">Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a3"><div><p data-i18n="fq3.a">Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o investimento em anúncios?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a4"><div><p data-i18n="fq4.a">Pagas o investimento em anúncios diretamente ao Google ou à Meta, com o teu cartão — eu não fico com uma parte disso. O plano cobre a estratégia, a criação dos anúncios e a otimização contínua.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a5"><div><p data-i18n="fq5.a">Ja, gerne. Atendo em alemão, português e inglês, e crio sites e conteúdos multilingues — no Valais, os teus clientes falam várias línguas.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a6"><div><p data-i18n="fq6.a">Claro. Os três serviços funcionam em separado. Começo com uma avaliação gratuita em 48 h do que já tens, e digo-te com franqueza onde vale a pena investir.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7"><span data-i18n="fq7.q">Fazes sites para hotéis, restaurantes e turismo no Valais?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a7"><div><p data-i18n="fq7.a">Sim. Restaurantes, alojamento, bem-estar e serviços locais são os setores com que mais trabalho no Alto Valais. Um site para turismo precisa de reservas fáceis, várias línguas e fotografias que vendam — é isso que construo, com preço fixo acordado antes.</p><p><a class="read-more" href="site-restaurante-valais.html" data-i18n="fq7.l">Ler o guia: site para restaurante no Valais →</a></p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a8"><span data-i18n="fq8.q">E depois de o site estar online, quem trata dele?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a8"><div><p data-i18n="fq8.a">Eu — não precisas de perceber de tecnologia. O plano de manutenção (CHF 95–290/mês) trata do alojamento, SSL, cópias de segurança e pequenas alterações. Sem plano, entrego-te o site pronto a usar, com os ficheiros teus.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a9"><span data-i18n="fq9.q">Também tratas da ficha Google Business?</span><i>+</i></button>
+          <div class="faq-a" id="faq-a9"><div><p data-i18n="fq9.a">Sim. Faz parte do marketing local e do site institucional: categoria certa, fotos, horários, serviços e resposta às avaliações — e ligo a ficha ao site para o Google confiar nos dois.</p><p><a class="read-more" href="google-business-valais.html" data-i18n="fq9.l">Ler o guia: ficha Google Business no Valais →</a></p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- faixa de CTA -->
+  <div class="wrap"><aside class="cta-band reveal" aria-labelledby="cb2-t">
+    <div><h2 id="cb2-t" data-i18n="cb2.t">Diz-me o que fazes e eu digo-te o que faria no teu site.</h2>
+    <p data-i18n="cb2.s">Avaliação gratuita em 48 horas. Sem compromisso, sem jargão.</p></div>
+    <a class="btn btn-red magnetic" href="#contacto" data-i18n="cb2.b">Pedir avaliação gratuita</a>
+  </aside></div>
+
+
+<!-- ================= SOBRE ================= -->
   <section id="sobre">
     <div class="wrap">
       <div class="section-head reveal">
@@ -1604,7 +1682,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
         </div>
         <div class="about-copy reveal">
           <p data-i18n="ab.p1">Sou português, vivo em Stalden e trabalho com negócios de todo o Valais. Formei-me em Gestão e Programação de Sistemas Informáticos e construo com as ferramentas mais atuais — React, TypeScript, Tailwind.</p>
-          <p data-i18n="ab.p2">No dia a dia giro o marketing e as redes sociais de um centro médico no Valais — por isso sei, na prática, o que funciona para atrair clientes locais na Suíça.</p>
+          <p data-i18n="ab.p2">No dia a dia, giro o marketing e as redes sociais de um centro médico no Valais — por isso sei, na prática, o que atrai clientes locais na Suíça, não só em teoria.</p>
           <p data-i18n="ab.p3">Quando trabalhas comigo, falas diretamente comigo: sem agência no meio, sem intermediários, sem custos inflacionados. Precisão suíça na entrega, alma portuguesa no atendimento.</p>
           <div class="about-facts">
             <div><span class="k" data-i18n="ab.k1">Base</span><span class="v">Stalden, Valais (CH)</span></div>
@@ -1617,7 +1695,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     </div>
   </section>
 
-  <!-- ================= ONDE TRABALHO ================= -->
+<!-- ================= ONDE TRABALHO ================= -->
   <section id="zona">
     <div class="wrap">
       <div class="zona reveal">
@@ -1628,7 +1706,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     </div>
   </section>
 
-  <!-- ================= FAQ ================= -->
+<!-- ================= FAQ ================= -->
   <section id="blog-teaser">
     <div class="wrap">
       <div class="section-head reveal">
@@ -1640,60 +1718,14 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       <p class="blog-teaser-all reveal"><a class="read-more" href="blog.html" data-i18n="bl.all">Ver todos os artigos →</a></p>
     </div>
   </section>
-  <section id="faq">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">FAQ</span>
-        <h2 class="display" data-i18n="fq.title">Perguntas frequentes</h2>
-      </div>
-      <div class="faq-list reveal">
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a1"><div><p data-i18n="fq1.a">Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo exato fica fechado na proposta, antes de começarmos.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a2"><div><p data-i18n="fq2.a">Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a3"><div><p data-i18n="fq3.a">Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o investimento em anúncios?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a4"><div><p data-i18n="fq4.a">Pagas o investimento em anúncios diretamente ao Google ou à Meta, com o teu cartão. O plano cobre a estratégia, a criação dos anúncios e a otimização contínua.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a5"><div><p data-i18n="fq5.a">Ja, gerne! Atendo em alemão, português e inglês e crio sites e conteúdo multilingues — no Valais, os teus clientes falam várias línguas.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a6"><div><p data-i18n="fq6.a">Claro. Os três serviços funcionam em separado. Faço primeiro uma avaliação gratuita do que já tens e digo-te, com franqueza, onde vale a pena investir.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7"><span data-i18n="fq7.q">Fazes sites para hotéis, restaurantes e turismo no Valais?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a7"><div><p data-i18n="fq7.a">Sim. Restaurantes, alojamento, bem-estar e serviços locais são os setores com que mais trabalho no Alto Valais. Um site para turismo precisa de reservas fáceis, várias línguas e fotografias que vendam — é isso que construo, com preço fixo acordado antes.</p><p><a class="read-more" href="site-restaurante-valais.html" data-i18n="fq7.l">Ler o guia: site para restaurante no Valais →</a></p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a8"><span data-i18n="fq8.q">E depois de o site estar online, quem trata dele?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a8"><div><p data-i18n="fq8.a">Eu, se quiseres. O plano de manutenção (CHF 95–290/mês) inclui alojamento, SSL, backups, atualizações e pequenas alterações de conteúdo. Sem plano, entrego-te o site pronto a gerir — e ficas com os ficheiros.</p></div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a9"><span data-i18n="fq9.q">Também tratas da ficha Google Business?</span><i>+</i></button>
-          <div class="faq-a" id="faq-a9"><div><p data-i18n="fq9.a">Sim. Faz parte do marketing local e do site institucional: categoria certa, fotos, horários, serviços e resposta às avaliações — e ligo a ficha ao site para o Google confiar nos dois.</p><p><a class="read-more" href="google-business-valais.html" data-i18n="fq9.l">Ler o guia: ficha Google Business no Valais →</a></p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================= CONTACTO ================= -->
+<!-- ================= CONTACTO ================= -->
   <section class="contact" id="contacto">
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow" data-i18n="ct.eyebrow">Contacto</span>
-        <h2 class="display" data-i18n="ct.title">Vamos falar do teu projeto</h2>
-        <p class="section-sub" data-i18n="ct.sub">Primeira conversa gratuita e sem compromisso. Respondo em menos de 24 h.</p>
+        <h2 class="display" data-i18n="ct.title">Pede a tua avaliação gratuita</h2>
+        <p class="section-sub" data-i18n="ct.sub">Avaliação gratuita em 48 h, sem compromisso. Respondo em menos de 24 h.</p>
       </div>
       <div class="contact-grid">
         <div class="contact-ways card reveal">
@@ -1728,26 +1760,12 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
             <input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="+41 79 …">
           </div>
           <div class="field">
-            <label for="f-company" data-i18n="ct.f6">Empresa (opcional)</label>
-            <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="80">
-          </div>
-          <div class="field">
-            <label for="f-serv" data-i18n="ct.f2">Serviço que te interessa</label>
-            <select id="f-serv" name="service">
-              <option value="website" data-i18n="ct.o1">Website novo</option>
-              <option value="social-media" data-i18n="ct.o2">Gestão de redes sociais</option>
-              <option value="marketing" data-i18n="ct.o3">Marketing / anúncios</option>
-              <option value="tudo-em-um" data-i18n="ct.o4">Pacote Tudo-em-Um</option>
-              <option value="outro" data-i18n="ct.o5">Outro / não sei ainda</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-msg" data-i18n="ct.f3">Conta-me em duas linhas do que precisas</label>
+            <label for="f-msg" data-i18n="ct.f3">Em duas linhas, conta-me o que precisas</label>
             <textarea id="f-msg" name="message" required maxlength="2000" aria-describedby="f-msg-err"></textarea>
             <small class="field-err" id="f-msg-err" hidden></small>
           </div>
-          <button class="btn btn-red magnetic" type="submit" data-i18n="ct.send">Enviar mensagem</button>
-          <p class="form-note" data-i18n="ct.note">Respondo em menos de 24 h — para o teu email ou telefone.</p>
+          <button class="btn btn-red magnetic" type="submit" data-i18n="ct.send">Pedir avaliação grátis</button>
+          <p class="form-note" data-i18n="ct.note">Sem compromisso. Respondo em menos de 24 h, por email ou telefone.</p>
         </form>
       </div>
     </div>
@@ -1759,7 +1777,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     <div class="foot2">
       <div>
         <span class="logo">PR<span class="dot">.</span></span>
-        <p class="foot-tag" data-i18n="ft.tag">Websites, marketing e redes sociais para negócios do Valais — um só parceiro, três línguas.</p>
+        <p class="foot-tag" data-i18n="ft.tag">Websites, marketing e redes sociais para negócios do Valais — falas comigo, sem agência pelo meio.</p>
         <p class="foot-langs">PT · DE · EN — STALDEN, VALAIS</p>
       </div>
       <div class="foot-col">
@@ -1973,7 +1991,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 
 <div id="stickyCta" class="sticky-cta">
   <a class="btn btn-ghost" href="https://wa.me/41798257078?text=Ol%C3%A1%20Pedro!" target="_blank" rel="noopener">WhatsApp</a>
-  <a class="btn btn-red" href="#contacto" data-i18n="pc.cta">Pedir proposta</a>
+  <a class="btn btn-red" href="#contacto" data-i18n="pc.cta">Pedir avaliação grátis</a>
 </div>
 
 <div id="cookieBanner" role="dialog" aria-label="Cookies" aria-describedby="cookieMsg" hidden>
@@ -2805,7 +2823,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 
   /* ---------- i18n ---------- */
   var I18N = {
-    de: {
+    de: { "cb1.t": "Sagen Sie mir, was Sie tun — ich sage Ihnen, was ich auf Ihrer Website ändern würde.", "cb1.s": "Kostenlose Einschätzung innert 48 Stunden. Unverbindlich, ohne Fachjargon.", "cb1.b": "Kostenlose Einschätzung anfragen", "cb2.t": "Sagen Sie mir, was Sie tun — ich sage Ihnen, was ich auf Ihrer Website ändern würde.", "cb2.s": "Kostenlose Einschätzung innert 48 Stunden. Unverbindlich, ohne Fachjargon.", "cb2.b": "Kostenlose Einschätzung anfragen",
       "tpl.prev": "Zurück", "tpl.next": "Weiter",
       "ct.f6": "Firma (optional)",
       "fq9.q": "Kümmern Sie sich auch um das Google-Business-Profil?", "fq9.a": "Ja. Es gehört zum lokalen Marketing und zur Firmenwebsite: richtige Kategorie, Fotos, Öffnungszeiten, Leistungen und Antworten auf Bewertungen — und ich verknüpfe Profil und Website, damit Google beiden vertraut.", "fq9.l": "Leitfaden lesen: Google-Business-Profil im Wallis →", "fq7.l": "Leitfaden lesen: Restaurant-Website im Wallis →", "fq7.q": "Erstellen Sie Websites für Hotels, Restaurants und Tourismus im Wallis?", "fq7.a": "Ja. Restaurants, Unterkünfte, Wellness und lokale Dienstleistungen sind die Branchen, mit denen ich im Oberwallis am meisten arbeite. Eine Tourismus-Website braucht einfache Reservationen, mehrere Sprachen und Fotos, die verkaufen — genau das baue ich, zum vorher vereinbarten Fixpreis.", "fq8.q": "Und wer kümmert sich um die Website, wenn sie online ist?", "fq8.a": "Ich, wenn Sie möchten. Das Wartungsabo (CHF 95–290/Mt.) umfasst Hosting, SSL, Backups, Updates und kleine Inhaltsänderungen. Ohne Abo übergebe ich Ihnen die Website bereit zur Selbstverwaltung — die Dateien gehören Ihnen.",
@@ -2843,7 +2861,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Restaurant", "fo1.s": "Menü + Reservationen", "fo2.b": "Fitnessstudio", "fo2.s": "Abos + Anmeldung", "fo3.b": "Barbershop", "fo3.s": "Online-Termine",
       "fo4.b": "Praxis", "fo4.s": "Termine + Team", "fo5.b": "Fotografie", "fo5.s": "Galerie + Booking", "fo6.b": "Immobilien", "fo6.s": "Inserate + Besichtigungen",
       "fo.note": "* Demo-Vorlagen mit fiktiven Betrieben — tippen Sie auf eine Karte, um die vollständige Vorlage zu öffnen.",
-      "fo.ctaTxt": "Gefällt Ihnen, was Sie sehen? Das sind Vorlagen — Ihre Website wird von Grund auf für Ihr Geschäft entworfen. Sagen Sie mir Ihre Branche, und ich zeige Ihnen innert 24 Stunden, wie sie aussehen könnte.", "fo.ctaBtn": "So eine Website für mein Geschäft anfragen", "tw.eyebrow": "Aktuelle Arbeiten", "tw.title": "Was ich gestaltet habe", "tw.sub": "Sechs Instagram-Beiträge für zwei Betriebe im Oberwallis: ein Bergrestaurant über Zermatt und eine Familien-Pizzeria in Brig.", "tw.badge": "Instagram-Beitrag", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · Das Aushängeschild", "tw.n2": "02 · Die Vorlage für Fotos", "tw.n3": "03 · Der Satz, der bleibt", "zn.h": "Ich arbeite im ganzen Wallis", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Siders und Sitten. Persönliches Treffen im Oberwallis, Videocall im restlichen Kanton — die Offerte kommt immer in Ihrer Sprache.", "tw.a1": "Beitrag: Fluhalp, Bergrestaurant auf 2606 Metern über dem Stellisee, Zermatt", "tw.a2": "Wiederverwendbare Vorlage: Platz für das Foto mit fester Leiste Fluhalp 2606 m", "tw.a3": "Beitrag: der Tisch mit der besten Aussicht im Tal steht nicht im Tal", "tw.a4": "Beitrag: Channa, Pizzeria an der Furkastrasse 5, Brig", "tw.a5": "Wiederverwendbare Vorlage: Platz für das Foto mit Channa-Signatur", "tw.a6": "Beitrag: ein Familienbetrieb mitten in Brig", "tw.note": "Beide Betriebe sind echt, die Gestaltung ist meine.",
+      "fo.ctaTxt": "Gefällt Ihnen, was Sie sehen? Das sind Vorlagen — Ihre Website wird von Grund auf für Ihr Geschäft entworfen. Sagen Sie mir Ihre Branche, und ich zeige Ihnen innert 24 Stunden, wie sie aussehen könnte.", "fo.ctaBtn": "So eine Website für mein Geschäft anfragen", "tw.eyebrow": "Aktuelle Arbeiten", "tw.title": "Was ich schon für Betriebe von hier gemacht habe", "tw.sub": "Sechs Instagram-Beiträge für zwei Betriebe im Oberwallis: ein Bergrestaurant über Zermatt und eine Familien-Pizzeria in Brig.", "tw.badge": "Instagram-Beitrag", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · Das Aushängeschild", "tw.n2": "02 · Die Vorlage für Fotos", "tw.n3": "03 · Der Satz, der bleibt", "zn.h": "Ich arbeite im ganzen Wallis", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Siders und Sitten. Persönliches Treffen im Oberwallis, Videocall im restlichen Kanton — die Offerte kommt immer in Ihrer Sprache.", "tw.a1": "Beitrag: Fluhalp, Bergrestaurant auf 2606 Metern über dem Stellisee, Zermatt", "tw.a2": "Wiederverwendbare Vorlage: Platz für das Foto mit fester Leiste Fluhalp 2606 m", "tw.a3": "Beitrag: der Tisch mit der besten Aussicht im Tal steht nicht im Tal", "tw.a4": "Beitrag: Channa, Pizzeria an der Furkastrasse 5, Brig", "tw.a5": "Wiederverwendbare Vorlage: Platz für das Foto mit Channa-Signatur", "tw.a6": "Beitrag: ein Familienbetrieb mitten in Brig", "tw.note": "Beide Betriebe sind echt, die Gestaltung ist meine.",
       "fo.view": "Demo ansehen", "fo.fAll": "Alle", "fo.fServ": "Dienstleistungen & Gastro", "fo.fShop": "E-Commerce & Buchungen", "fo.fLand": "Landing Pages",
       "fo1.c": "Digitales Menü · Reservationen · Lokales SEO", "fo2.c": "Abos · Online-Anmeldung · Kurse", "fo3.c": "Online-Termine · Google Maps",
       "fo4.c": "Mehrsprachig · Termine · Team", "fo5.c": "Galerie · Booking · Hi-Res", "fo6.c": "Inserate · Filter · Bewertung",
@@ -2904,7 +2922,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "cookie.msg": "Nur das technisch Nötige. Statistik und Marketing (Google Analytics / Meta) nur mit Ihrer Zustimmung. ", "cookie.link": "Datenschutzerklärung", "cookie.deny": "Nur das Nötigste", "cookie.accept": "Alles akzeptieren",
       "ft.resp": "Antwort innert 24 Stunden"
     },
-    en: {
+    en: { "cb1.t": "Tell me what you do and I’ll tell you what I’d change on your website.", "cb1.s": "Free assessment within 48 hours. No commitment, no jargon.", "cb1.b": "Request a free assessment", "cb2.t": "Tell me what you do and I’ll tell you what I’d change on your website.", "cb2.s": "Free assessment within 48 hours. No commitment, no jargon.", "cb2.b": "Request a free assessment",
       "tpl.prev": "Previous", "tpl.next": "Next",
       "ct.f6": "Company (optional)",
       "fq9.q": "Do you also look after the Google Business Profile?", "fq9.a": "Yes. It’s part of local marketing and of your business website: the right category, photos, opening hours, services and replies to reviews — and I link the profile to the website so Google trusts both.", "fq9.l": "Read the guide: Google Business Profile in Valais →", "fq7.l": "Read the guide: a restaurant website in Valais →", "fq7.q": "Do you build websites for hotels, restaurants and tourism in Valais?", "fq7.a": "Yes. Restaurants, accommodation, wellness and local services are the sectors I work with most in Upper Valais. A tourism website needs easy bookings, several languages and photos that sell — that is what I build, at a fixed price agreed upfront.", "fq8.q": "And once the site is live, who looks after it?", "fq8.a": "I do, if you want. The maintenance plan (CHF 95–290/month) covers hosting, SSL, backups, updates and small content changes. Without a plan, I hand over the site ready for you to manage — and the files are yours.",
@@ -2942,7 +2960,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Restaurant", "fo1.s": "menu + reservations", "fo2.b": "Gym", "fo2.s": "plans + sign-up", "fo3.b": "Barbershop", "fo3.s": "online booking",
       "fo4.b": "Clinic", "fo4.s": "appointments + team", "fo5.b": "Photography", "fo5.s": "gallery + booking", "fo6.b": "Real estate", "fo6.s": "listings + viewings",
       "fo.note": "* Demo templates with fictional businesses — tap a card to open the full template.",
-      "fo.ctaTxt": "Like what you see? These are templates — yours is designed from scratch for your business. Tell me your industry and I'll show you within 24 hours how it could look.", "fo.ctaBtn": "I want one of these for my business", "tw.eyebrow": "Recent work", "tw.title": "Pieces I designed", "tw.sub": "Six Instagram posts for two Upper Valais businesses: a mountain restaurant above Zermatt and a family pizzeria in Brig.", "tw.badge": "Instagram post", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · The signboard", "tw.n2": "02 · The frame for photos", "tw.n3": "03 · The line that sticks", "zn.h": "I work across the whole of Valais", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre and Sion. In person in Upper Valais, video call elsewhere in the canton — and the quote always arrives in your language.", "tw.a1": "Post: Fluhalp, mountain restaurant at 2606 metres above the Stellisee, Zermatt", "tw.a2": "Reusable template: space for the photo with a fixed Fluhalp 2606 m bar", "tw.a3": "Post: the best spot in the valley is not in the valley", "tw.a4": "Post: Channa, pizzeria at Furkastrasse 5, Brig", "tw.a5": "Reusable template: space for the photo with the Channa signature", "tw.a6": "Post: a family business in the heart of Brig", "tw.note": "Both businesses are real and the design is mine.",
+      "fo.ctaTxt": "Like what you see? These are templates — yours is designed from scratch for your business. Tell me your industry and I'll show you within 24 hours how it could look.", "fo.ctaBtn": "I want one of these for my business", "tw.eyebrow": "Recent work", "tw.title": "What I have already done for local businesses", "tw.sub": "Six Instagram posts for two Upper Valais businesses: a mountain restaurant above Zermatt and a family pizzeria in Brig.", "tw.badge": "Instagram post", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · The signboard", "tw.n2": "02 · The frame for photos", "tw.n3": "03 · The line that sticks", "zn.h": "I work across the whole of Valais", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre and Sion. In person in Upper Valais, video call elsewhere in the canton — and the quote always arrives in your language.", "tw.a1": "Post: Fluhalp, mountain restaurant at 2606 metres above the Stellisee, Zermatt", "tw.a2": "Reusable template: space for the photo with a fixed Fluhalp 2606 m bar", "tw.a3": "Post: the best spot in the valley is not in the valley", "tw.a4": "Post: Channa, pizzeria at Furkastrasse 5, Brig", "tw.a5": "Reusable template: space for the photo with the Channa signature", "tw.a6": "Post: a family business in the heart of Brig", "tw.note": "Both businesses are real and the design is mine.",
       "fo.view": "View demo", "fo.fAll": "All", "fo.fServ": "Services & Dining", "fo.fShop": "E-commerce & Bookings", "fo.fLand": "Landing pages",
       "fo1.c": "Digital menu · Reservations · Local SEO", "fo2.c": "Plans · Online sign-up · Classes", "fo3.c": "Online booking · Google Maps",
       "fo4.c": "Multilingual · Appointments · Team", "fo5.c": "Gallery · Booking · Hi-res", "fo6.c": "Listings · Filters · Valuation",
@@ -3003,7 +3021,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "cookie.msg": "Only what the site needs to work. Statistics and marketing (Google Analytics / Meta) only with your consent. ", "cookie.link": "Privacy Policy", "cookie.deny": "Essential only", "cookie.accept": "Accept all",
       "ft.resp": "Reply within 24 hours"
     },
-    fr: {
+    fr: { "cb1.t": "Dites-moi ce que vous faites, je vous dis ce que je changerais sur votre site.", "cb1.s": "Évaluation gratuite en 48 heures. Sans engagement, sans jargon.", "cb1.b": "Demander une évaluation gratuite", "cb2.t": "Dites-moi ce que vous faites, je vous dis ce que je changerais sur votre site.", "cb2.s": "Évaluation gratuite en 48 heures. Sans engagement, sans jargon.", "cb2.b": "Demander une évaluation gratuite",
       "tpl.prev": "Précédent", "tpl.next": "Suivant",
       "ct.f6": "Entreprise (facultatif)",
       "fq9.q": "Vous occupez-vous aussi de la fiche Google Business ?", "fq9.a": "Oui. Elle fait partie du marketing local et du site institutionnel : bonne catégorie, photos, horaires, services et réponses aux avis — et je relie la fiche au site pour que Google fasse confiance aux deux.", "fq9.l": "Lire le guide : fiche Google Business en Valais →", "fq7.l": "Lire le guide : site de restaurant en Valais →", "fq7.q": "Créez-vous des sites pour les hôtels, restaurants et le tourisme en Valais ?", "fq7.a": "Oui. Restaurants, hébergement, bien-être et services locaux sont les secteurs avec lesquels je travaille le plus dans le Haut-Valais. Un site touristique a besoin de réservations simples, de plusieurs langues et de photos qui vendent — c’est ce que je construis, à prix fixe convenu à l’avance.", "fq8.q": "Et une fois le site en ligne, qui s’en occupe ?", "fq8.a": "Moi, si vous le souhaitez. Le forfait de maintenance (CHF 95–290/mois) comprend l’hébergement, le SSL, les sauvegardes, les mises à jour et les petites modifications de contenu. Sans forfait, je vous livre le site prêt à gérer — et les fichiers vous appartiennent.",
@@ -3041,7 +3059,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Restaurant", "fo1.s": "menu + réservations", "fo2.b": "Fitness", "fo2.s": "abonnements + inscription", "fo3.b": "Barbier", "fo3.s": "réservation en ligne",
       "fo4.b": "Cabinet médical", "fo4.s": "rendez-vous + équipe", "fo5.b": "Photographie", "fo5.s": "galerie + réservation", "fo6.b": "Immobilier", "fo6.s": "annonces + visites",
       "fo.note": "* Modèles de démonstration avec des entreprises fictives — touchez une carte pour ouvrir le modèle complet.",
-      "fo.ctaTxt": "Vous aimez ce que vous voyez ? Ce sont des modèles — le vôtre est conçu sur mesure pour votre entreprise. Dites-moi votre secteur et je vous montre sous 24 h à quoi ça pourrait ressembler.", "fo.ctaBtn": "J’en veux un pour mon entreprise", "tw.eyebrow": "Travaux récents", "tw.title": "Ce que j’ai conçu", "tw.sub": "Six publications Instagram pour deux entreprises du Haut-Valais : un restaurant d’altitude au-dessus de Zermatt et une pizzeria familiale à Brigue.", "tw.badge": "Publication Instagram", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brigue", "tw.n1": "01 · L’enseigne", "tw.n2": "02 · Le cadre pour les photos", "tw.n3": "03 · La phrase qui reste", "zn.h": "Je travaille dans tout le Valais", "zn.t": "Stalden, Viège, Brigue-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre et Sion. Rencontre sur place dans le Haut-Valais, visioconférence dans le reste du canton — et le devis arrive toujours dans votre langue.", "tw.a1": "Publication : Fluhalp, restaurant d’altitude à 2606 mètres au-dessus du Stellisee, Zermatt", "tw.a2": "Modèle réutilisable : espace pour la photo avec bandeau fixe Fluhalp 2606 m", "tw.a3": "Publication : la table avec la plus belle vue de la vallée n’est pas dans la vallée", "tw.a4": "Publication : Channa, pizzeria à la Furkastrasse 5, Brigue", "tw.a5": "Modèle réutilisable : espace pour la photo avec la signature Channa", "tw.a6": "Publication : une entreprise familiale au cœur de Brigue", "tw.note": "Les deux entreprises sont réelles et le design est le mien.",
+      "fo.ctaTxt": "Vous aimez ce que vous voyez ? Ce sont des modèles — le vôtre est conçu sur mesure pour votre entreprise. Dites-moi votre secteur et je vous montre sous 24 h à quoi ça pourrait ressembler.", "fo.ctaBtn": "J’en veux un pour mon entreprise", "tw.eyebrow": "Travaux récents", "tw.title": "Ce que j’ai déjà fait pour des entreprises d’ici", "tw.sub": "Six publications Instagram pour deux entreprises du Haut-Valais : un restaurant d’altitude au-dessus de Zermatt et une pizzeria familiale à Brigue.", "tw.badge": "Publication Instagram", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brigue", "tw.n1": "01 · L’enseigne", "tw.n2": "02 · Le cadre pour les photos", "tw.n3": "03 · La phrase qui reste", "zn.h": "Je travaille dans tout le Valais", "zn.t": "Stalden, Viège, Brigue-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre et Sion. Rencontre sur place dans le Haut-Valais, visioconférence dans le reste du canton — et le devis arrive toujours dans votre langue.", "tw.a1": "Publication : Fluhalp, restaurant d’altitude à 2606 mètres au-dessus du Stellisee, Zermatt", "tw.a2": "Modèle réutilisable : espace pour la photo avec bandeau fixe Fluhalp 2606 m", "tw.a3": "Publication : la table avec la plus belle vue de la vallée n’est pas dans la vallée", "tw.a4": "Publication : Channa, pizzeria à la Furkastrasse 5, Brigue", "tw.a5": "Modèle réutilisable : espace pour la photo avec la signature Channa", "tw.a6": "Publication : une entreprise familiale au cœur de Brigue", "tw.note": "Les deux entreprises sont réelles et le design est le mien.",
       "fo.view": "Voir la démo", "fo.fAll": "Tous", "fo.fServ": "Services & Restauration", "fo.fShop": "E-commerce & Réservations", "fo.fLand": "Landing pages",
       "fo1.c": "Menu digital · Réservations · SEO local", "fo2.c": "Abonnements · Inscription en ligne · Cours", "fo3.c": "Réservation en ligne · Google Maps",
       "fo4.c": "Multilingue · Rendez-vous · Équipe", "fo5.c": "Galerie · Réservation · Haute résolution", "fo6.c": "Annonces · Filtres · Estimation",
@@ -3102,7 +3120,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "cookie.msg": "Seulement le strict nécessaire au fonctionnement du site. Statistiques et marketing (Google Analytics / Meta) uniquement avec votre accord. ", "cookie.link": "Politique de confidentialité", "cookie.deny": "Seulement l’essentiel", "cookie.accept": "Tout accepter",
       "ft.resp": "Réponse en moins de 24 h"
     },
-    it: {
+    it: { "cb1.t": "Dimmi cosa fai e ti dico cosa cambierei nel tuo sito.", "cb1.s": "Valutazione gratuita entro 48 ore. Senza impegno, senza gergo tecnico.", "cb1.b": "Richiedi una valutazione gratuita", "cb2.t": "Dimmi cosa fai e ti dico cosa cambierei nel tuo sito.", "cb2.s": "Valutazione gratuita entro 48 ore. Senza impegno, senza gergo tecnico.", "cb2.b": "Richiedi una valutazione gratuita",
       "tpl.prev": "Precedente", "tpl.next": "Successivo",
       "ct.f6": "Azienda (facoltativo)",
       "fq9.q": "Ti occupi anche del Profilo Google Business?", "fq9.a": "Sì. Fa parte del marketing locale e del sito istituzionale: categoria giusta, foto, orari, servizi e risposte alle recensioni — e collego il profilo al sito perché Google si fidi di entrambi.", "fq9.l": "Leggi la guida: Profilo Google Business in Vallese →", "fq7.l": "Leggi la guida: sito per ristorante in Vallese →", "fq7.q": "Realizzi siti per hotel, ristoranti e turismo in Vallese?", "fq7.a": "Sì. Ristoranti, alloggi, benessere e servizi locali sono i settori con cui lavoro di più nell’Alto Vallese. Un sito per il turismo ha bisogno di prenotazioni facili, più lingue e foto che vendono — è quello che costruisco, a prezzo fisso concordato prima.", "fq8.q": "E dopo che il sito è online, chi se ne occupa?", "fq8.a": "Io, se vuoi. Il piano di manutenzione (CHF 95–290/mese) include hosting, SSL, backup, aggiornamenti e piccole modifiche ai contenuti. Senza piano ti consegno il sito pronto da gestire — e i file restano tuoi.",
@@ -3140,7 +3158,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fo1.b": "Ristorante", "fo1.s": "menù + prenotazioni", "fo2.b": "Palestra", "fo2.s": "abbonamenti + iscrizione", "fo3.b": "Barbiere", "fo3.s": "prenotazione online",
       "fo4.b": "Studio medico", "fo4.s": "appuntamenti + team", "fo5.b": "Fotografia", "fo5.s": "galleria + prenotazione", "fo6.b": "Immobiliare", "fo6.s": "annunci + visite",
       "fo.note": "* Template dimostrativi con attività fittizie — tocca una card per aprire il template completo.",
-      "fo.ctaTxt": "Ti piace quello che vedi? Questi sono modelli — il tuo è disegnato da zero per la tua attività. Dimmi il tuo settore e in 24 ore ti mostro come potrebbe essere.", "fo.ctaBtn": "Ne voglio uno per la mia attività", "tw.eyebrow": "Lavori recenti", "tw.title": "Quello che ho disegnato", "tw.sub": "Sei post Instagram per due attività dell’Alto Vallese: un ristorante di montagna sopra Zermatt e una pizzeria familiare a Briga.", "tw.badge": "Post Instagram", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Briga", "tw.n1": "01 · L’insegna", "tw.n2": "02 · La cornice per le foto", "tw.n3": "03 · La frase che resta", "zn.h": "Lavoro in tutto il Vallese", "zn.t": "Stalden, Visp, Briga-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Incontro di persona nell’Alto Vallese, videochiamata nel resto del cantone — e il preventivo arriva sempre nella tua lingua.", "tw.a1": "Post: Fluhalp, ristorante di montagna a 2606 metri sopra lo Stellisee, Zermatt", "tw.a2": "Modello riutilizzabile: spazio per la foto con barra fissa Fluhalp 2606 m", "tw.a3": "Post: il posto migliore della valle non è nella valle", "tw.a4": "Post: Channa, pizzeria in Furkastrasse 5, Briga", "tw.a5": "Modello riutilizzabile: spazio per la foto con la firma Channa", "tw.a6": "Post: un’attività di famiglia nel cuore di Briga", "tw.note": "Entrambe le attività sono reali e il design è mio.",
+      "fo.ctaTxt": "Ti piace quello che vedi? Questi sono modelli — il tuo è disegnato da zero per la tua attività. Dimmi il tuo settore e in 24 ore ti mostro come potrebbe essere.", "fo.ctaBtn": "Ne voglio uno per la mia attività", "tw.eyebrow": "Lavori recenti", "tw.title": "Cosa ho già fatto per attività di qui", "tw.sub": "Sei post Instagram per due attività dell’Alto Vallese: un ristorante di montagna sopra Zermatt e una pizzeria familiare a Briga.", "tw.badge": "Post Instagram", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Briga", "tw.n1": "01 · L’insegna", "tw.n2": "02 · La cornice per le foto", "tw.n3": "03 · La frase che resta", "zn.h": "Lavoro in tutto il Vallese", "zn.t": "Stalden, Visp, Briga-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Incontro di persona nell’Alto Vallese, videochiamata nel resto del cantone — e il preventivo arriva sempre nella tua lingua.", "tw.a1": "Post: Fluhalp, ristorante di montagna a 2606 metri sopra lo Stellisee, Zermatt", "tw.a2": "Modello riutilizzabile: spazio per la foto con barra fissa Fluhalp 2606 m", "tw.a3": "Post: il posto migliore della valle non è nella valle", "tw.a4": "Post: Channa, pizzeria in Furkastrasse 5, Briga", "tw.a5": "Modello riutilizzabile: spazio per la foto con la firma Channa", "tw.a6": "Post: un’attività di famiglia nel cuore di Briga", "tw.note": "Entrambe le attività sono reali e il design è mio.",
       "fo.view": "Vedi la demo", "fo.fAll": "Tutti", "fo.fServ": "Servizi & Ristorazione", "fo.fShop": "E-commerce & Prenotazioni", "fo.fLand": "Landing page",
       "fo1.c": "Menù digitale · Prenotazioni · SEO locale", "fo2.c": "Abbonamenti · Iscrizione online · Corsi", "fo3.c": "Prenotazione online · Google Maps",
       "fo4.c": "Multilingue · Appuntamenti · Team", "fo5.c": "Galleria · Prenotazione · Alta risoluzione", "fo6.c": "Annunci · Filtri · Valutazione",
@@ -4941,8 +4959,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var name = document.getElementById("f-name").value.trim();
     var mail = document.getElementById("f-mail").value.trim();
     var phone = document.getElementById("f-phone").value.trim();
-    var company = document.getElementById("f-company").value.trim();
-    var serv = document.getElementById("f-serv").value;
+    var company = "", serv = "";
     var msg = document.getElementById("f-msg").value.trim();
     function mailFallback() {
       window.location.href = "mailto:pedrooribeiro7555@icloud.com?subject=" +
