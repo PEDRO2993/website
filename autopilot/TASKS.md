@@ -13,6 +13,7 @@ Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLO
 - [ ] DEMOS: 2 demos personalizadas/semana para quem responder
 - [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
 - [x] DEPLOY: PR #2 integrado em produção (run #17 verde); hotel-direkt.html + 3 demos online; autopilot/ e store/ excluídos do artefacto público
+- [x] IMPROVE-7: Hotel Direkt no menu+footer, sitemap.xml, robots (PR #3, aguarda DEPLOY) · IMPROVE-8: link da calculadora nos templates e no painel · IMPROVE-9: 14 rascunhos Gmail atualizados · IMPROVE-10: follow-up gerado no painel + estado follow-up
 - [ ] FIX SITE: telefone real em vez de +41 27 000 00 00 (precisa do número do utilizador)
 
 ## v2 · CAIXA LATERAL · recondicionado AirPods Pro 2 (capital ≤ CHF 210)
