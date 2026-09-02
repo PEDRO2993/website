@@ -245,3 +245,4 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - Tipografia FR: espaço insecável real (U+00A0) antes de `: ; ? !` e dentro de `« »` — nunca `&nbsp;` (entra no JSON-LD).
 - `<body>`: o skip-link é o primeiro elemento; a dica de idioma corre num script inline logo a seguir (antes do header) para não causar CLS.
 - CSS dos artigos/blog/posts da BD: bloco "v3" no fim de cada `<style>` e da `CSS` em posts.js — manter os 5 sincronizados.
+- Imagens OG dos artigos: `cd tests && node og_gen.js` (gera `img/og/<página>-<lang>.jpg`; o build usa-as no og:image e no JSON-LD).
