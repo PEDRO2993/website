@@ -63,6 +63,10 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 .lg-mono { font-family:"Spline Sans Mono",monospace; font-size:0.76rem; color:var(--ink-3); }
 .i18n-doc { display:none; }
 @media (max-width:480px) { .langs button, .langs a { min-width:44px; min-height:44px; padding:10px 12px; box-sizing:border-box; } }
+
+/* v3.1 — sombras de scroll nas tabelas largas; títulos equilibrados */
+.lg-tbl-wrap{background:linear-gradient(to right,var(--bg) 30%,rgba(4,6,11,0)) 0/20px 100% no-repeat local,linear-gradient(to left,var(--bg) 30%,rgba(4,6,11,0)) 100% 0/20px 100% no-repeat local,linear-gradient(to right,rgba(160,190,255,.35),rgba(160,190,255,0)) 0/10px 100% no-repeat scroll,linear-gradient(to left,rgba(160,190,255,.35),rgba(160,190,255,0)) 100% 0/10px 100% no-repeat scroll}
+main h1,.cta h2,.blog-card h2{text-wrap:balance}
 </style>
 </head>
 <body>
