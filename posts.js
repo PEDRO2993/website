@@ -99,7 +99,7 @@ ${alts.join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(ui.feed)}" href="${PREFIX[p.lang]}feed.xml">
 <meta property="og:type" content="article"><meta property="og:title" content="${esc(p.title)}">
 <meta property="og:description" content="${esc(p.description)}"><meta property="og:url" content="${self}">
-<meta property="og:image" content="${ORIGIN}/img/og/blog-${p.lang}.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image" content="${ORIGIN}/img/og/blog-${p.lang}.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(p.title)}">
 <meta property="article:published_time" content="${esc(p.published_at)}"><meta property="article:modified_time" content="${esc(p.updated_at)}">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>
