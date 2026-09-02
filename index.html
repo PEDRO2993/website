@@ -1957,6 +1957,10 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
             <input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="+41 79 …">
           </div>
           <div class="field">
+            <label for="f-company" data-i18n="ct.f6">Empresa (opcional)</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="80">
+          </div>
+          <div class="field">
             <label for="f-serv" data-i18n="ct.f2">Serviço que te interessa</label>
             <select id="f-serv" name="service">
               <option value="website" data-i18n="ct.o1">Website novo</option>
@@ -3028,6 +3032,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---------- i18n ---------- */
   var I18N = {
     de: {
+      "ct.f6": "Firma (optional)",
       "fq7.q": "Erstellen Sie Websites für Hotels, Restaurants und Tourismus im Wallis?", "fq7.a": "Ja. Restaurants, Unterkünfte, Wellness und lokale Dienstleister sind die Branchen, mit denen ich im Oberwallis am meisten arbeite. Eine Tourismus-Website braucht einfache Reservationen, mehrere Sprachen und Fotos, die verkaufen — genau das baue ich, zum vorher vereinbarten Fixpreis.", "fq8.q": "Und wer kümmert sich um die Website, wenn sie online ist?", "fq8.a": "Ich, wenn Sie möchten. Das Wartungsabo (CHF 95–290/Monat) umfasst Hosting, SSL, Backups, Updates und kleine Inhaltsänderungen. Ohne Abo übergebe ich Ihnen die Website bereit zur Selbstverwaltung — die Dateien gehören Ihnen.",
       "a11y.skip": "Zum Inhalt springen",
       "pl.ess": "Essenziell", "pl.pro": "Professionell", "sv2.name": "Digitales Marketing",
@@ -3125,6 +3130,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Antwort innert 24 Stunden"
     },
     en: {
+      "ct.f6": "Company (optional)",
       "fq7.q": "Do you build websites for hotels, restaurants and tourism in Valais?", "fq7.a": "Yes. Restaurants, accommodation, wellness and local services are the sectors I work with most in Upper Valais. A tourism website needs easy bookings, several languages and photos that sell — that is what I build, at a fixed price agreed upfront.", "fq8.q": "And once the site is live, who looks after it?", "fq8.a": "I do, if you want. The maintenance plan (CHF 95–290/month) covers hosting, SSL, backups, updates and small content changes. Without a plan, I hand over the site ready for you to manage — and the files are yours.",
       "a11y.skip": "Skip to content",
       "pl.ess": "Essential", "pl.pro": "Professional", "sv2.name": "Digital Marketing",
@@ -3222,6 +3228,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Reply within 24 hours"
     },
     fr: {
+      "ct.f6": "Entreprise (facultatif)",
       "fq7.q": "Créez-vous des sites pour les hôtels, restaurants et le tourisme en Valais ?", "fq7.a": "Oui. Restaurants, hébergement, bien-être et services locaux sont les secteurs avec lesquels je travaille le plus dans le Haut-Valais. Un site touristique a besoin de réservations simples, de plusieurs langues et de photos qui vendent — c’est ce que je construis, à prix fixe convenu à l’avance.", "fq8.q": "Et une fois le site en ligne, qui s’en occupe ?", "fq8.a": "Moi, si vous le souhaitez. Le forfait de maintenance (CHF 95–290/mois) comprend l’hébergement, le SSL, les sauvegardes, les mises à jour et les petites modifications de contenu. Sans forfait, je vous livre le site prêt à gérer — et les fichiers vous appartiennent.",
       "a11y.skip": "Aller au contenu",
       "pl.ess": "Essentiel", "pl.pro": "Professionnel", "sv2.name": "Marketing digital",
@@ -3319,6 +3326,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Réponse en moins de 24 h"
     },
     it: {
+      "ct.f6": "Azienda (facoltativo)",
       "fq7.q": "Realizzi siti per hotel, ristoranti e turismo in Vallese?", "fq7.a": "Sì. Ristoranti, alloggi, benessere e servizi locali sono i settori con cui lavoro di più nell’Alto Vallese. Un sito per il turismo ha bisogno di prenotazioni facili, più lingue e foto che vendono — è quello che costruisco, a prezzo fisso concordato prima.", "fq8.q": "E dopo che il sito è online, chi se ne occupa?", "fq8.a": "Io, se vuoi. L’abbonamento di manutenzione (CHF 95–290/mese) include hosting, SSL, backup, aggiornamenti e piccole modifiche ai contenuti. Senza abbonamento ti consegno il sito pronto da gestire — e i file restano tuoi.",
       "a11y.skip": "Vai al contenuto",
       "pl.ess": "Essenziale", "pl.pro": "Professionale", "sv2.name": "Marketing digitale",
@@ -5170,12 +5178,13 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var name = document.getElementById("f-name").value.trim();
     var mail = document.getElementById("f-mail").value.trim();
     var phone = document.getElementById("f-phone").value.trim();
+    var company = document.getElementById("f-company").value.trim();
     var serv = document.getElementById("f-serv").value;
     var msg = document.getElementById("f-msg").value.trim();
     function mailFallback() {
       window.location.href = "mailto:pedrooribeiro7555@icloud.com?subject=" +
         encodeURIComponent(MAIL[currentLang].s + serv) + "&body=" +
-        encodeURIComponent(MAIL[currentLang].g + "\n\n" + msg + "\n\n" + name + "\n" + mail + (phone ? "\n" + phone : ""));
+        encodeURIComponent(MAIL[currentLang].g + "\n\n" + msg + "\n\n" + name + (company ? " · " + company : "") + "\n" + mail + (phone ? "\n" + phone : ""));
       showToast(TOASTS[currentLang]);
     }
     if (location.protocol !== "https:" && location.protocol !== "http:") { mailFallback(); return; }
