@@ -1317,6 +1317,17 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 }
 @media (max-width: 420px) { .pillar-price { flex-direction: column; align-items: flex-start; gap: 8px; } }
 
+
+/* ---------- blog teaser (cartões injetados no build a partir dos artigos) ---------- */
+.blog-teaser { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+.blog-teaser .card { display: flex; flex-direction: column; gap: 10px; padding: 24px 26px; text-decoration: none; color: inherit; }
+.blog-teaser .lg-meta { font-family: "Spline Sans Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.blog-teaser h3 { font-size: 1.15rem; line-height: 1.25; margin: 0; color: var(--ink); letter-spacing: -0.01em; }
+.blog-teaser p { color: var(--ink-2); font-size: 0.95rem; margin: 0; line-height: 1.55; }
+.blog-teaser .card:hover h3 { color: var(--red-ink); }
+.blog-teaser-all { margin-top: 22px; }
+@media (max-width: 900px) { .blog-teaser { grid-template-columns: 1fr; gap: 12px; } }
+
 </style>
 </head>
 <body>
@@ -1944,6 +1955,17 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   </section>
 
   <!-- ================= FAQ ================= -->
+  <section id="blog-teaser">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Blog</span>
+        <h2 class="display" data-i18n="bl.title">Guias práticos para negócios do Valais<span class="dot">.</span></h2>
+        <p class="section-sub" data-i18n="bl.sub">Artigos curtos sobre sites, preços e presença local — sem jargão.</p>
+      </div>
+      <div class="blog-teaser" id="blogTeaser"></div>
+      <p class="blog-teaser-all reveal"><a class="read-more" href="blog.html" data-i18n="bl.all">Ver todos os artigos →</a></p>
+    </div>
+  </section>
   <section id="faq">
     <div class="wrap">
       <div class="section-head reveal">
@@ -3112,7 +3134,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fq9.q": "Kümmern Sie sich auch um das Google-Business-Profil?", "fq9.a": "Ja. Es gehört zum lokalen Marketing und zur Firmenwebsite: richtige Kategorie, Fotos, Öffnungszeiten, Leistungen und Antworten auf Bewertungen — und ich verknüpfe Profil und Website, damit Google beiden vertraut.", "fq9.l": "Leitfaden lesen: Google-Business-Profil im Wallis →", "fq7.q": "Erstellen Sie Websites für Hotels, Restaurants und Tourismus im Wallis?", "fq7.a": "Ja. Restaurants, Unterkünfte, Wellness und lokale Dienstleistungen sind die Branchen, mit denen ich im Oberwallis am meisten arbeite. Eine Tourismus-Website braucht einfache Reservationen, mehrere Sprachen und Fotos, die verkaufen — genau das baue ich, zum vorher vereinbarten Fixpreis.", "fq8.q": "Und wer kümmert sich um die Website, wenn sie online ist?", "fq8.a": "Ich, wenn Sie möchten. Das Wartungsabo (CHF 95–290/Mt.) umfasst Hosting, SSL, Backups, Updates und kleine Inhaltsänderungen. Ohne Abo übergebe ich Ihnen die Website bereit zur Selbstverwaltung — die Dateien gehören Ihnen.",
       "a11y.skip": "Zum Inhalt springen",
       "pl.ess": "Essenziell", "pl.pro": "Professionell", "sv2.name": "Digitales Marketing",
-      "sv2.art": "Artikel: Google-Business-Profil im Wallis, der Leitfaden →", "ct.hp": "Nicht ausfüllen:", "pc.art": "Artikel: Was kostet eine Website in der Schweiz? →", "zn.art": "Warum Ihr Unternehmen im Wallis eine mehrsprachige Website braucht →",
+      "sv2.art": "Artikel: Google-Business-Profil im Wallis, der Leitfaden →", "ct.hp": "Nicht ausfüllen:", "bl.title": "Praktische Leitfäden für Betriebe im Wallis", "bl.sub": "Kurze Artikel über Websites, Preise und lokale Sichtbarkeit — ohne Fachchinesisch.", "bl.all": "Alle Artikel ansehen →", "pc.art": "Artikel: Was kostet eine Website in der Schweiz? →", "zn.art": "Warum Ihr Unternehmen im Wallis eine mehrsprachige Website braucht →",
       "tpl.close": "✕ Schliessen", "a11y.nav": "Menü", "a11y.lang": "Sprache", "a11y.menuOpen": "Menü öffnen", "a11y.why": "Warum mit mir arbeiten", "a11y.filter": "Portfolio filtern", "a11y.priceTabs": "Preiskategorien",
       "nav.services": "Leistungen", "nav.folio": "Beispiele", "nav.process": "Ablauf", "nav.pricing": "Preise", "nav.contact": "Kontakt",
       "hero.eyebrow": "Stalden · Wallis · Schweiz",
@@ -3211,7 +3233,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fq9.q": "Do you also look after the Google Business Profile?", "fq9.a": "Yes. It’s part of local marketing and of your business website: the right category, photos, opening hours, services and replies to reviews — and I link the profile to the website so Google trusts both.", "fq9.l": "Read the guide: Google Business Profile in Valais →", "fq7.q": "Do you build websites for hotels, restaurants and tourism in Valais?", "fq7.a": "Yes. Restaurants, accommodation, wellness and local services are the sectors I work with most in Upper Valais. A tourism website needs easy bookings, several languages and photos that sell — that is what I build, at a fixed price agreed upfront.", "fq8.q": "And once the site is live, who looks after it?", "fq8.a": "I do, if you want. The maintenance plan (CHF 95–290/month) covers hosting, SSL, backups, updates and small content changes. Without a plan, I hand over the site ready for you to manage — and the files are yours.",
       "a11y.skip": "Skip to content",
       "pl.ess": "Essential", "pl.pro": "Professional", "sv2.name": "Digital Marketing",
-      "sv2.art": "Article: Google Business Profile in Valais, the guide →", "ct.hp": "Do not fill in:", "pc.art": "Article: how much does a website cost in Switzerland? →", "zn.art": "Why your Valais business needs a multilingual website →",
+      "sv2.art": "Article: Google Business Profile in Valais, the guide →", "ct.hp": "Do not fill in:", "bl.title": "Practical guides for Valais businesses", "bl.sub": "Short articles about websites, pricing and local visibility — no jargon.", "bl.all": "See all articles →", "pc.art": "Article: how much does a website cost in Switzerland? →", "zn.art": "Why your Valais business needs a multilingual website →",
       "tpl.close": "✕ Close", "a11y.nav": "Menu", "a11y.lang": "Language", "a11y.menuOpen": "Open menu", "a11y.why": "Why work with me", "a11y.filter": "Filter portfolio", "a11y.priceTabs": "Pricing categories",
       "nav.services": "Services", "nav.folio": "Examples", "nav.process": "Process", "nav.pricing": "Pricing", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Switzerland",
@@ -3310,7 +3332,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fq9.q": "Vous occupez-vous aussi de la fiche Google Business ?", "fq9.a": "Oui. Elle fait partie du marketing local et du site institutionnel : bonne catégorie, photos, horaires, services et réponses aux avis — et je relie la fiche au site pour que Google fasse confiance aux deux.", "fq9.l": "Lire le guide : fiche Google Business en Valais →", "fq7.q": "Créez-vous des sites pour les hôtels, restaurants et le tourisme en Valais ?", "fq7.a": "Oui. Restaurants, hébergement, bien-être et services locaux sont les secteurs avec lesquels je travaille le plus dans le Haut-Valais. Un site touristique a besoin de réservations simples, de plusieurs langues et de photos qui vendent — c’est ce que je construis, à prix fixe convenu à l’avance.", "fq8.q": "Et une fois le site en ligne, qui s’en occupe ?", "fq8.a": "Moi, si vous le souhaitez. Le forfait de maintenance (CHF 95–290/mois) comprend l’hébergement, le SSL, les sauvegardes, les mises à jour et les petites modifications de contenu. Sans forfait, je vous livre le site prêt à gérer — et les fichiers vous appartiennent.",
       "a11y.skip": "Aller au contenu",
       "pl.ess": "Essentiel", "pl.pro": "Professionnel", "sv2.name": "Marketing digital",
-      "sv2.art": "Article : fiche Google Business en Valais, le guide →", "ct.hp": "Ne pas remplir :", "pc.art": "Article : combien coûte un site web en Suisse ? →", "zn.art": "Pourquoi votre entreprise en Valais a besoin d’un site multilingue →",
+      "sv2.art": "Article : fiche Google Business en Valais, le guide →", "ct.hp": "Ne pas remplir :", "bl.title": "Guides pratiques pour les entreprises du Valais", "bl.sub": "Des articles courts sur les sites web, les prix et la visibilité locale — sans jargon.", "bl.all": "Voir tous les articles →", "pc.art": "Article : combien coûte un site web en Suisse ? →", "zn.art": "Pourquoi votre entreprise en Valais a besoin d’un site multilingue →",
       "tpl.close": "✕ Fermer", "a11y.nav": "Menu", "a11y.lang": "Langue", "a11y.menuOpen": "Ouvrir le menu", "a11y.why": "Pourquoi travailler avec moi", "a11y.filter": "Filtrer le portfolio", "a11y.priceTabs": "Catégories de prix",
       "nav.services": "Services", "nav.folio": "Exemples", "nav.process": "Processus", "nav.pricing": "Tarifs", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Suisse",
@@ -3409,7 +3431,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "fq9.q": "Ti occupi anche del Profilo Google Business?", "fq9.a": "Sì. Fa parte del marketing locale e del sito istituzionale: categoria giusta, foto, orari, servizi e risposte alle recensioni — e collego il profilo al sito perché Google si fidi di entrambi.", "fq9.l": "Leggi la guida: Profilo Google Business in Vallese →", "fq7.q": "Realizzi siti per hotel, ristoranti e turismo in Vallese?", "fq7.a": "Sì. Ristoranti, alloggi, benessere e servizi locali sono i settori con cui lavoro di più nell’Alto Vallese. Un sito per il turismo ha bisogno di prenotazioni facili, più lingue e foto che vendono — è quello che costruisco, a prezzo fisso concordato prima.", "fq8.q": "E dopo che il sito è online, chi se ne occupa?", "fq8.a": "Io, se vuoi. Il piano di manutenzione (CHF 95–290/mese) include hosting, SSL, backup, aggiornamenti e piccole modifiche ai contenuti. Senza piano ti consegno il sito pronto da gestire — e i file restano tuoi.",
       "a11y.skip": "Vai al contenuto",
       "pl.ess": "Essenziale", "pl.pro": "Professionale", "sv2.name": "Marketing digitale",
-      "sv2.art": "Articolo: Profilo Google Business in Vallese, la guida →", "ct.hp": "Non compilare:", "pc.art": "Articolo: quanto costa un sito web in Svizzera? →", "zn.art": "Perché la tua azienda in Vallese ha bisogno di un sito multilingue →",
+      "sv2.art": "Articolo: Profilo Google Business in Vallese, la guida →", "ct.hp": "Non compilare:", "bl.title": "Guide pratiche per le aziende del Vallese", "bl.sub": "Articoli brevi su siti web, prezzi e visibilità locale — senza gergo.", "bl.all": "Vedi tutti gli articoli →", "pc.art": "Articolo: quanto costa un sito web in Svizzera? →", "zn.art": "Perché la tua azienda in Vallese ha bisogno di un sito multilingue →",
       "tpl.close": "✕ Chiudi", "a11y.nav": "Menu", "a11y.lang": "Lingua", "a11y.menuOpen": "Apri il menu", "a11y.why": "Perché lavorare con me", "a11y.filter": "Filtra il portfolio", "a11y.priceTabs": "Categorie di prezzi",
       "nav.services": "Servizi", "nav.folio": "Esempi", "nav.process": "Processo", "nav.pricing": "Prezzi", "nav.contact": "Contatto",
       "hero.eyebrow": "Stalden · Vallese · Svizzera",

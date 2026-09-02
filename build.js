@@ -263,6 +263,10 @@ function buildHome() {
 
     html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"'); // RSS do idioma (homepage)
     if (fs.existsSync(path.join(ROOT, 'img/og/home-' + lang + '.jpg'))) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/home-' + lang + '.jpg');
+    /* teaser do blog: os 3 artigos mais recentes do idioma */
+    const teaser = STATIC_FEED[lang].slice().sort((x, y) => String(y.published_at).localeCompare(String(x.published_at))).slice(0, 3)
+      .map((e) => '<a class="card reveal" href="' + e.href + '"><span class="lg-meta">' + posts.fmtDate(e.published_at, lang) + ' · ' + e.mins + ' min</span><h3>' + e.title.replace(/&/g, '&amp;') + '</h3><p>' + e.description.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</p></a>').join('');
+    if (teaser) html = html.replace('<div class="blog-teaser" id="blogTeaser"></div>', () => '<div class="blog-teaser" id="blogTeaser">' + teaser + '</div>');
     html = rewriteHead(html, lang, pathFor, TITLES[lang].t, TITLES[lang].d);
     html = injectLangGlobals(html, lang);
     if (lang !== 'pt') html = absolutize(html, lang);
