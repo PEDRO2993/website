@@ -7,7 +7,7 @@
     {
       "key": "autopilot/phase",
       "namespace": "ecommerce",
-      "value": "v2 stage 1 live: refurbished AirPods Pro 2. Market 2026-09-02: new sealed from CHF149 (Toppreise), used Ricardo 53-90. Buy max 75 (target 70), sell 115 Sofort-Kaufen 30d warranty, floor 105, margin ~32/unit, 3 units = CHF210. Shortlist in autopilot/sell/shortlist-2026-09-02.md. Physical buy/ship = user only. Daily routine hunts new listings.",
+      "value": "v3 MAIN (capital 0): PR Studio 'Hotel Direkt' — multilingual hotel/restaurant sites with direct booking, Valais. Packages CHF 2400/4900/9800, 50% upfront, free 48h personalized demo (demo-personalizar.sh). Kit in autopilot/business/. Next: PROSPEÇÃO (swarm agents hunting 60 targets) -> ENVIO 20 emails/week. v2 side cash: AirPods Pro 2 flip (buy<=75, sell 99). v1 Valmag parked until capital >= 3000. Site phone is placeholder.",
       "tags": [
         "autopilot",
         "phase"
