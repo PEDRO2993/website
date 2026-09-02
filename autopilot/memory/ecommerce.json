@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 7,
+  "count": 8,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -67,6 +67,16 @@
         "autopilot",
         "v3",
         "painel"
+      ]
+    },
+    {
+      "key": "autopilot/v3/improve",
+      "namespace": "ecommerce",
+      "value": "2026-09-02 improvements: hotel-direkt.html (5 langs, OTA commission calculator, packages, WhatsApp +41 79 825 70 78 real), demos/les-berges|mayen2003|portjengrat, investor report autopilot/investor/2026-09-02-relatorio-1.md, ruflo IMPROVE-1..6 backlog, routine trig_01ALgiHwT6gJfNDG5Uj4H4x6 weekdays 06:30 UTC (follow-ups, drafts for approved, 5 new targets). Old AirPods routine deleted. Pending: deploy (branch not production), user sends 14 drafts.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "improve"
       ]
     }
   ]

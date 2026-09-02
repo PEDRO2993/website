@@ -31,7 +31,7 @@ const OG_LOCALE = { pt: 'pt_PT', de: 'de_CH', fr: 'fr_CH', it: 'it_CH', en: 'en_
 const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 
 /* páginas com o sistema .i18n-doc (um bloco por idioma no mesmo ficheiro) */
-const DOC_PAGES = ['blog.html', 'preco-site-suica.html', 'multilingue-valais.html'];
+const DOC_PAGES = ['blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'hotel-direkt.html'];
 /* ficheiros copiados tal e qual para a raiz de dist/ */
 const COPY_FILES = [
   'privacidade.html', 'termos.html', 'informacao-legal.html',
