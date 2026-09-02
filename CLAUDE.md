@@ -247,3 +247,4 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - CSS dos artigos/blog/posts da BD: bloco "v3" no fim de cada `<style>` e da `CSS` em posts.js — manter os 5 sincronizados.
 - Imagens OG dos artigos: `cd tests && node og_gen.js` (gera `img/og/<página>-<lang>.jpg`; o build usa-as no og:image e no JSON-LD).
 - Homepage, secção "Blog": os 3 cartões são injetados no build (STATIC_FEED em build.js) — não editar à mão em index.html.
+- Autopilot de conteúdo: `autopilot-writer.mjs` (agendado) só chama `autopilot-writer-background.mjs` (fundo, token HMAC da chave de serviço). Fila vazia → tema automático; ≥ AUTOPILOT_MAX_DRAFTS rascunhos por rever → não escreve; cada idioma passa por um editor; aviso no bloco de notas do admin. Teste offline: `node tests/t_autopilot.js`.

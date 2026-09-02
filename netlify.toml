@@ -11,6 +11,7 @@
 [functions."publish-scheduled"]
   schedule = "@hourly"
 
-# escritor automático: 1 tema da fila por dia (06:00 UTC); fila vazia = não faz nada. Precisa de ANTHROPIC_API_KEY.
+# escritor automático: 1 artigo por dia (06:00 UTC) em 5 idiomas — tema da fila ou tema automático.
+# O gatilho chama autopilot-writer-background (função de fundo, até 15 min). Precisa de ANTHROPIC_API_KEY.
 [functions."autopilot-writer"]
   schedule = "0 6 * * *"
