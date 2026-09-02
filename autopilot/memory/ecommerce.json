@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 10,
+  "count": 11,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -97,6 +97,16 @@
         "autopilot",
         "v3",
         "improve"
+      ]
+    },
+    {
+      "key": "autopilot/v3/deploy-2",
+      "namespace": "ecommerce",
+      "value": "2026-09-02 20:35 UTC: PR #3 merged, Pages run #18 success. Live: nav+footer link to hotel-direkt, sitemap.xml, robots.txt (demos disallowed). Panel v2 (follow-up generator) confirmed live at artifact 02e267a8. Swarm running: emails for prospects, DE/FR email review + Swiss UWG legal check, site audit, competitor research.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "deploy"
       ]
     }
   ]
