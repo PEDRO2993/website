@@ -9,15 +9,19 @@ process.env.SUPABASE_SERVICE_ROLE_KEY = 'service-key-de-teste';
 process.env.ANTHROPIC_API_KEY = 'ak-teste';
 process.env.AUTOPILOT_STATUS = 'draft';
 process.env.AUTOPILOT_MAX_DRAFTS = '3';
+process.env.AUTOPILOT_RETRY_MS = '10,10,10';
 
-const state = { topics: [], posts: [], notes: '', calls: [], drafts: 0, patches: [] };
+const state = { topics: [], posts: [], notes: '', calls: [], drafts: 0, patches: [], anthFail: 0, editorBad: false, alwaysFail: false };
 const json = (b, status = 200) => new Response(JSON.stringify(b), { status, headers: { 'content-type': 'application/json' } });
 const article = (lang, title) => ({ title, description: 'Descrição de teste com comprimento suficiente para o Google e para o cartão do blog, ok.', body_html: '<p>' + ('palavra ' + lang + ' ').repeat(340) + '</p>' });
 
 global.fetch = async (url, opt = {}) => {
   const u = String(url); const m = opt.method || 'GET'; state.calls.push(m + ' ' + u.replace('https://sb.test/rest/v1/', ''));
   if (u.startsWith('https://api.anthropic.com')) {
+    if (state.alwaysFail) return new Response('{"error":"down"}', { status: 500 });
+    if (state.anthFail > 0) { state.anthFail--; return new Response('overloaded', { status: 529 }); }
     const body = JSON.parse(opt.body); const sys = body.system;
+    if (state.editorBad && /És o editor/.test(sys)) return json({ content: [{ type: 'text', text: JSON.stringify({ title: 'só título' }) }] });
     let out;
     if (/Planeias o blog/.test(sys)) out = { topic: 'Site para salão de cabeleireiro em Visp: marcações online', brief: 'Ângulo: marcações e horários.' };
     else if (/És o editor/.test(sys)) { const d = JSON.parse(body.messages[0].content); out = { ...d, description: d.description.replace('ok.', 'revisto.') }; }
@@ -72,6 +76,21 @@ global.fetch = async (url, opt = {}) => {
   const r3 = await handler(new Request('https://x/', { method: 'POST', headers: { 'x-autopilot-token': token } }));
   ok('com 3 rascunhos por rever não escreve', /rascunhos por rever/.test(await r3.text()));
 
+  // 5) API sobrecarregada duas vezes → retry e sucesso; editor inválido → mantém o rascunho
+  state.drafts = 0; state.anthFail = 2; state.editorBad = true; state.calls.length = 0;
+  state.topics.push({ id: 't20', topic: 'Tema com retry', brief: '', langs: ['pt'], status: 'pending' });
+  const r5 = await handler(new Request('https://x/', { method: 'POST', headers: { 'x-autopilot-token': token } }));
+  const t5 = await r5.text();
+  ok('529 duas vezes → retry e artigo escrito', r5.status === 200 && /escrito:/.test(t5), t5);
+  ok('editor inválido → description original mantida e "editor corrigiu 0/1"', /editor corrigiu 0\/1/.test(t5) && /ok\.$/.test(state.posts.slice(-1)[0].description), t5);
+  // 6) API sempre em baixo → tema marcado como error, resposta 502, nada inserido
+  state.alwaysFail = true; state.editorBad = false; const nPosts = state.posts.length;
+  state.topics.push({ id: 't30', topic: 'Tema que falha', brief: '', langs: ['pt'], status: 'pending' });
+  const r6 = await handler(new Request('https://x/', { method: 'POST', headers: { 'x-autopilot-token': token } }));
+  const t30 = state.topics.find((x) => x.id === 't30');
+  ok('API em baixo → 502 e tema em error com mensagem', r6.status === 502 && t30.status === 'error' && /anthropic 500/.test(t30.error || ''), JSON.stringify(t30));
+  ok('API em baixo → nenhum post inserido', state.posts.length === nPosts);
+  state.alwaysFail = false;
   console.log('\nResultado: ' + pass + ' passaram, ' + fail + ' falharam');
   process.exit(fail ? 1 : 0);
 })().catch((e) => { console.error(e); process.exit(1); });

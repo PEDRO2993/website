@@ -15,6 +15,7 @@ const MODEL = env('AUTOPILOT_MODEL', 'claude-sonnet-5');
 const STATUS = env('AUTOPILOT_STATUS') === 'published' ? 'published' : 'draft';
 const AUTOTOPIC = env('AUTOPILOT_AUTOTOPIC', '1') !== '0';
 const MAX_DRAFTS = Math.max(1, parseInt(env('AUTOPILOT_MAX_DRAFTS', '3'), 10) || 3);
+const BACKOFF = String(env('AUTOPILOT_RETRY_MS', '2000,6000,15000')).split(',').map((n) => Math.max(0, parseInt(n, 10) || 0));
 const ADMIN_NOTES_ID = '00000000-0000-4000-8000-000000000001';
 
 export const token = () => createHmac('sha256', String(KEY || '')).update('prstudio-autopilot').digest('hex');
@@ -56,7 +57,7 @@ async function askClaude(system, user, { maxTokens = 4500, tries = 3 } = {}) {
         headers: { 'x-api-key': AK, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
         body: JSON.stringify({ model: MODEL, max_tokens: maxTokens, system, messages: [{ role: 'user', content: user }] }),
       });
-      if (r.status === 429 || r.status === 529 || r.status >= 500) { last = new Error(`anthropic ${r.status}`); await sleep([2000, 6000, 15000][i] || 15000); continue; }
+      if (r.status === 429 || r.status === 529 || r.status >= 500) { last = new Error(`anthropic ${r.status}`); await sleep(BACKOFF[i] === undefined ? BACKOFF[BACKOFF.length - 1] : BACKOFF[i]); continue; }
       if (!r.ok) throw new Error(`anthropic ${r.status}: ${(await r.text()).slice(0, 300)}`);
       const j = await r.json();
       const txt = (j.content || []).filter((c) => c.type === 'text').map((c) => c.text).join('');
@@ -66,7 +67,7 @@ async function askClaude(system, user, { maxTokens = 4500, tries = 3 } = {}) {
     } catch (e) {
       last = e;
       if (i === tries - 1) break;
-      await sleep([2000, 6000, 15000][i] || 15000);
+      await sleep(BACKOFF[i] === undefined ? BACKOFF[BACKOFF.length - 1] : BACKOFF[i]);
     }
   }
   throw last || new Error('anthropic: sem resposta');
