@@ -26,8 +26,9 @@ for (const l of LANGS) {
 for (const l of LANGS) {
   const lg = l ? l.slice(0, 2) : 'pt';
   ok(l + 'index.html: og:image do idioma', read(l + 'index.html').includes('og:image" content="https://prstudio.ch/img/og/home-' + lg + '.jpg"'));
+  ok(l + 'blog.html: ItemList + BreadcrumbList', /"@type":"ItemList"/.test(read(l + 'blog.html')) && /"@type":"BreadcrumbList"/.test(read(l + 'blog.html')));
   ok(l + 'blog.html: og:image do idioma', read(l + 'blog.html').includes('/img/og/blog-' + lg + '.jpg"'));
-  for (const a of ['preco-site-suica', 'multilingue-valais', 'google-business-valais', 'site-restaurante-valais', 'manutencao-site', 'fotografia-site-negocio']) {
+  for (const a of ['preco-site-suica', 'multilingue-valais', 'google-business-valais', 'site-restaurante-valais', 'manutencao-site', 'fotografia-site-negocio', 'site-hotel-valais']) {
     const h = read(l + a + '.html');
     ok(l + a + ': og:image + alt do idioma', h.includes('/img/og/' + a + '-' + lg + '.jpg"') && /og:image:alt" content="[^"]{10,}"/.test(h));
     ok(l + a + ': imagem OG existe em dist', fs.existsSync(path.join(DIST, 'img/og', a + '-' + lg + '.jpg')));

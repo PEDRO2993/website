@@ -33,7 +33,7 @@ const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 
 /* páginas com o sistema .i18n-doc (um bloco por idioma no mesmo ficheiro) */
 const DOC_PAGES = [
-  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html', 'fotografia-site-negocio.html',
+  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html', 'fotografia-site-negocio.html', 'site-hotel-valais.html', 'fotografia-site-negocio.html',
   'privacidade.html', 'termos.html', 'informacao-legal.html',
 ];
 /* as páginas legais não precisam de posição no Google, mas precisam de
@@ -426,6 +426,19 @@ function buildDocPage(file) {
       /* imagem OG por artigo e idioma (img/og/<página>-<lang>.jpg, gerada offline) */
       if (ogRel) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/' + ogRel);
       if (ogRel && h1 && !/og:image:alt/.test(html)) html = html.replace(/(<meta property="og:image:height"[^>]*>)/, (m) => m + '\n<meta property="og:image:alt" content="' + h1.replace(/&/g, '&amp;').replace(/"/g, '&quot;') + '">');
+    }
+    /* blog.html: BreadcrumbList (início → blog) + ItemList dos artigos do idioma */
+    if (file === 'blog.html') {
+      const items = DB_POSTS.filter((p) => p.lang === lang).map((p) => ({ title: p.title, url: ORIGIN + posts.pathFor(PREFIX, lang, p.slug), published_at: p.published_at }))
+        .concat(STATIC_FEED[lang]).sort((x, y) => String(y.published_at).localeCompare(String(x.published_at)));
+      const ld = [
+        { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[lang] },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: ORIGIN + PREFIX[lang] + 'blog.html' } ] },
+        { '@context': 'https://schema.org', '@type': 'ItemList', itemListOrder: 'https://schema.org/ItemListOrderDescending', numberOfItems: items.length,
+          itemListElement: items.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: e.title, url: e.url })) },
+      ];
+      html = html.replace('</head>', ld.map((o) => '<script type="application/ld+json">' + JSON.stringify(o).replace(/</g, '\\u003c') + '</script>').join('\n') + '\n</head>');
     }
     if (file === 'blog.html' && fs.existsSync(path.join(ROOT, 'img/og/blog-' + lang + '.jpg'))) {
       html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/blog-' + lang + '.jpg');
