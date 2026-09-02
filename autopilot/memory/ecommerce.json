@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 11,
+  "count": 12,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -107,6 +107,17 @@
         "autopilot",
         "v3",
         "deploy"
+      ]
+    },
+    {
+      "key": "autopilot/v3/revisao",
+      "namespace": "ecommerce",
+      "value": "2026-09-02: email review found 6 blockers (PT text in 12 DE/FR emails, demo link 404 because hotel-alpina missing from build COPY_DIRS + build crashed, manual Re:, no opt-out anywhere, false 'built for Grächen' claim, github.io links). All fixed: build.js repaired, 3 email files rewritten, panel generator rewritten (Grüezi mitenand, single ask, full sender block + opt-out), 14 Gmail drafts updated. Swiss UWG: 'mass' = automation not volume, so manual one-by-one sending is outside art.3(1)(o) — NEVER switch to bulk tools. Still needed from user: real postal address + phone, verify demo URL live, DE/FR privacy policy, prstudio.ch mailbox.",
+      "tags": [
+        "autopilot",
+        "v3",
+        "revisao",
+        "legal"
       ]
     }
   ]

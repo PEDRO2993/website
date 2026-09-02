@@ -1,83 +1,175 @@
-# Envio · semana 1 · 10 emails prontos (substituir {{tel}} pelo teu número; demo = https://prstudio.ch/hotel-alpina/)
-Enviar terça a quinta, 08:30–10:00, 3–4 por dia. Registar data em pipeline.csv. Follow-up +4 dias.
+# Envio · semana 1 · hotéis · versão 2 (revista 2026-09-02)
+
+Antes de enviar cada um: **abrir o site deles nesse mesmo dia** e confirmar que o problema descrito ainda existe. Se entretanto mudaram, o email cai por terra.
+Assinatura completa (morada + frase de saída) em `emails.md` — colar em todos, sem exceção.
+Um link por email. Um pedido só: a prévia. Terça a quinta, 08:30–10:00, três a quatro por dia.
 
 ---
-## 1 · Hôtel Garni Les Berges · Chippis (FR) · tel. +41 27 452 21 00 (pedir email por telefone se não houver)
-**Objet :** Les Berges – réservations directes au lieu de la commission Booking
-Bonjour,
-J'ai cherché l'Hôtel Garni Les Berges en ligne : on ne vous trouve que sur Booking.com et les comparateurs, sans site à vous. Chaque nuit réservée par ces canaux vous coûte 15 à 18 % de commission.
-Je suis Pedro Ribeiro, studio web en Valais. Voici un exemple d'hôtel en 4 langues avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Je vous prépare gratuitement, en 48 h, un aperçu avec le nom et les photos des Berges, sans engagement. Auriez-vous 15 minutes cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
-## 2 · Mayen2003 · Ayent/Anzère (FR)
-**Objet :** Mayen2003 – 253 avis à 9.3, mais pas de site à vous
-Bonjour,
-253 avis et une note de 9.3 sur Booking.com : peu d'hôtes en Valais ont cette réputation. Pourtant, quand on cherche « Mayen2003 », on ne trouve que Booking, Airbnb et des sites d'agrégateurs qui prennent leur commission.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple de site d'hôtel avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Je vous propose un aperçu gratuit en 48 h avec vos photos et vos 9 chambres, sans engagement. 15 minutes au téléphone cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
+## 1 · Hôtel Garni Les Berges · Chippis · lesberges@netplus.ch
 
-## 3 · Hotel Portjengrat · Saas-Almagell (DE)
+**Objet :** Les Berges – réservations directes plutôt que commission
+
+Bonjour,
+
+en cherchant l'Hôtel Garni Les Berges en ligne, on vous trouve sur Booking.com et sur les comparateurs, mais pas sur un site à votre nom. Chaque nuit réservée par ces canaux vous coûte 15 à 18 pour cent de commission, et le client qui revient chez vous passe encore par eux.
+
+Voici un site d'hôtel que j'ai construit comme modèle – quatre langues, réservation directe, rapide sur mobile :
+https://prstudio.ch/hotel-alpina/
+
+Si vous le souhaitez, j'en tire en 48 heures un aperçu gratuit aux couleurs des Berges. Un simple « oui » suffit, il me faut trois photos – sans engagement.
+
+[assinatura FR]
+
+---
+
+## 2 · Mayen2003 · Ayent/Anzère · sem email — ligar ou Instagram
+
+**Objet :** Mayen2003 – vos 253 avis, et aucun site à votre nom
+
+Bonjour,
+
+253 avis et une note de 9,3 sur Booking.com : peu d'établissements en Valais ont cette réputation. Mais quand on cherche « Mayen2003 », on ne trouve que Booking, Airbnb et des sites d'agrégateurs — chacun avec sa commission sur vos neuf chambres.
+
+Voici un site d'hébergement que j'ai construit comme modèle – quatre langues, réservation directe :
+https://prstudio.ch/hotel-alpina/
+
+Si vous le souhaitez, j'en tire en 48 heures un aperçu gratuit à votre nom, avec vos photos. Un simple « oui » suffit – sans engagement.
+
+[assinatura FR]
+
+---
+
+## 3 · Hotel Portjengrat · Saas-Almagell · info@portjengrat.ch
+
 **Betreff:** Portjengrat – Direktbuchungen vor der Wintersaison
-Grüezi
-Ich habe das Hotel Portjengrat online gesucht: Man findet Sie nur auf Booking.com, Tripadvisor und Kopier-Seiten wie «swissalpshotels», aber keine eigene Website. Für ein renoviertes 3-Sterne-Familienhotel ist das jeden Winter ein fünfstelliger Kommissionsbetrag.
-Ich bin Pedro Ribeiro, Webstudio aus dem Wallis. Beispiel einer Hotelseite mit Direktbuchung in 4 Sprachen: https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Ich baue Ihnen in 48 Stunden kostenlos eine Vorschau mit Ihrem Namen und Ihren Zimmern, unverbindlich. Hätten Sie diese Woche 15 Minuten?
-Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
-## 4 · Hôtel des Masques · Anzère (FR) · tel. +41 27 398 21 95
-**Objet :** Hôtel des Masques – 40 chambres, aucun site à vous
+Grüezi mitenand,
+
+wer das Hotel Portjengrat sucht, findet Booking.com, Tripadvisor und einige Kopier-Seiten, aber keine eigene Website. Für ein renoviertes Dreisterne-Familienhaus heisst das: bei jeder Buchung gehen 15 bis 18 Prozent an die Plattform, über eine ganze Wintersaison kommt da ein Betrag zusammen, der bei Ihnen bleiben könnte.
+
+So sieht eine Hotelseite aus, die ich als Muster gebaut habe – vier Sprachen, Direktbuchung, schnell auf dem Handy:
+https://prstudio.ch/hotel-alpina/
+
+Wenn Sie mögen, baue ich Ihnen daraus in 48 Stunden kostenlos eine Vorschau mit Ihren Zimmern und Bildern. Ein «Ja» reicht, ich brauche nur drei Fotos – unverbindlich.
+
+[assinatura DE]
+
+---
+
+## 4 · Hôtel des Masques · Anzère · sem email — +41 27 398 21 95
+
+**Objet :** Hôtel des Masques – 40 chambres, réservables en direct
+
 Bonjour,
-40 chambres au centre d'Anzère, et en ligne on ne trouve l'Hôtel des Masques que sur MySwitzerland, Booking et Expedia. Vos clients fidèles n'ont aucun moyen de réserver directement chez vous.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple : https://prstudio.ch/hotel-alpina/ (4 langues, réservation directe, rapide sur mobile).
-Aperçu gratuit en 48 h avec vos photos, sans engagement. 15 minutes cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
-## 5 · Pension Taverne · Grächen (DE)
+40 chambres au centre d'Anzère, et en ligne on ne trouve l'Hôtel des Masques que sur MySwitzerland, Booking et Expedia. Vos clients fidèles n'ont aucun moyen de réserver directement chez vous, même quand ils le voudraient.
+
+Voici un site d'hôtel que j'ai construit comme modèle – quatre langues, réservation directe, rapide sur mobile :
+https://prstudio.ch/hotel-alpina/
+
+Si vous le souhaitez, j'en tire en 48 heures un aperçu gratuit à votre nom, avec vos photos. Un simple « oui » suffit – sans engagement.
+
+[assinatura FR]
+
+---
+
+## 5 · Pension Taverne · Grächen · sem email — +41 27 956 15 40
+
 **Betreff:** Pension Taverne – Familienzimmer direkt buchbar
-Grüezi
-Ihre Familienzimmer mit Kitchenette sind genau das, was Familien aus der Deutschschweiz und Holland suchen, aber sie können Sie nur über Booking.com und Holidaycheck buchen. Eine eigene Seite fehlt.
-Ich bin Pedro Ribeiro, Webstudio aus dem Wallis, und habe für Grächen bereits eine Hotelseite als Beispiel gebaut: https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Kostenlose Vorschau mit Ihrem Namen in 48 Stunden, unverbindlich. Darf ich Sie diese Woche kurz anrufen?
-Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
-## 6 · Hotel Les Touristes · Verbier (FR)
-**Objet :** Les Touristes – le plus ancien hôtel de Verbier mérite son propre site
+Grüezi mitenand,
+
+Ihre Familienzimmer mit Kitchenette sind genau das, was Familien aus der Deutschschweiz und den Niederlanden suchen. Buchen können sie aber nur über Booking.com und Holidaycheck – eine eigene Seite, auf der jemand direkt bei Ihnen anfragt, gibt es nicht.
+
+So sieht eine Hotelseite aus, die ich als Muster gebaut habe – vier Sprachen, Direktbuchung, schnell auf dem Handy:
+https://prstudio.ch/hotel-alpina/
+
+Wenn Sie mögen, baue ich Ihnen daraus in 48 Stunden kostenlos eine Vorschau mit Ihrem Namen und Ihren Bildern. Ein «Ja» reicht, ich brauche nur drei Fotos – unverbindlich.
+
+[assinatura DE]
+
+---
+
+## 6 · Hotel Les Touristes · Verbier · hoteltouristes@verbier.ch
+
+**Objet :** Les Touristes – vos 24 chambres réservables en direct
+
 Bonjour,
-L'hôtel Les Touristes existe depuis les années 1930, mais en ligne il ne vit que sur Booking.com et des pages copiées. Votre histoire, vos 24 chambres et vos tarifs directs n'apparaissent nulle part.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple d'hôtel de montagne avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Aperçu gratuit en 48 h, sans engagement. 15 minutes au téléphone cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
-## 7 · Hotel Sonne · Grächen (DE)
-**Betreff:** Hotel Sonne – nur auf graechen.ch und Facebook zu finden
-Grüezi Herr Anthamatten
-Das Hotel Sonne findet man online nur über graechen.ch, Facebook und Trivago. Wer «Hotel Grächen» googelt, landet bei den Nachbarn.
-Ich bin Pedro Ribeiro, Webstudio aus dem Wallis. Für Grächen habe ich diese Beispielseite gebaut: https://prstudio.ch/hotel-alpina/ (4 Sprachen, Direktbuchung, Restaurant-Seite).
-Kostenlose Vorschau mit «Sonne» in 48 Stunden, unverbindlich. Passt Ihnen ein kurzes Telefonat diese Woche?
-Freundliche Grüsse, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
+l'hôtel Les Touristes existe depuis les années 1930, mais en ligne il vit sur Booking.com et sur des pages copiées. Votre histoire, vos 24 chambres et vos tarifs directs n'apparaissent nulle part à votre nom.
 
-## 8 · Ancienne Poste B&B · Vissoie (FR) · annemarie@netplus.ch · 027 456 19 60
-**Objet :** Ancienne Poste – votre site de 2008 fait fuir les clients mobiles
+Voici un site d'hôtel de montagne que j'ai construit comme modèle – quatre langues, réservation directe :
+https://prstudio.ch/hotel-alpina/
+
+Si vous le souhaitez, j'en tire en 48 heures un aperçu gratuit à votre nom, avec vos photos. Un simple « oui » suffit – sans engagement.
+
+[assinatura FR]
+
+---
+
+## 7 · Hotel Sonne · Grächen · hotel.sonne7@bluewin.ch · Bruno Anthamatten
+
+**Betreff:** Hotel Sonne – Gäste finden Sie nur über Umwege
+
+Grüezi Herr Anthamatten,
+
+das Hotel Sonne findet man online über graechen.ch, Facebook und Trivago – aber nicht unter einer eigenen Adresse. Wer «Hotel Grächen» googelt, landet bei den Nachbarn, und im autofreien Dorf ist genau das der Moment, in dem ein Gast entscheidet.
+
+So sieht eine Hotelseite aus, die ich als Muster gebaut habe – vier Sprachen, Direktbuchung, Restaurantseite, schnell auf dem Handy:
+https://prstudio.ch/hotel-alpina/
+
+Wenn Sie mögen, baue ich Ihnen daraus in 48 Stunden kostenlos eine Vorschau mit dem Namen «Sonne» und Ihren Bildern. Ein «Ja» reicht, ich brauche nur drei Fotos – unverbindlich.
+
+[assinatura DE]
+
+---
+
+## 8 · Ancienne Poste B&B · Vissoie · annemarie@netplus.ch
+
+**Objet :** Ancienne Poste – votre site et la réservation sur mobile
+
 Bonjour Madame,
-Votre site ancienneposte.ch date de 2008, n'est pas sécurisé (pas de https) et s'affiche mal sur téléphone, alors que 7 clients sur 10 réservent depuis leur mobile. Dommage pour une chambre aussi bien rénovée.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple de ce que je fais : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Un site B&B moderne en FR/DE/EN avec calendrier de réservation coûte CHF 2'400, prêt en 15 jours. Je vous montre gratuitement un aperçu avec vos photos avant toute décision. 15 minutes cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
 
-## 9 · Hôtel Le Trift · Zinal (FR)
-**Objet :** Le Trift – réouverture en novembre sans site, on corrige ça ?
-Bonjour,
-J'ai lu que Le Trift rouvre en novembre 2026. Aujourd'hui, l'hôtel n'a pas de site à lui : une réouverture qui dépend à 100 % de Booking.com démarre avec 15 % de marge en moins.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple d'hôtel avec réservation directe : https://prstudio.ch/hotel-alpina/ · Calculadora de comissão: https://pedro2993.github.io/website/hotel-direkt.html
-Je peux livrer un site FR/DE/EN avec réservation avant l'ouverture. Aperçu gratuit en 48 h, sans engagement. 15 minutes cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
+j'ai regardé ancienneposte.ch : le site fait honnêtement son travail, mais il est encore en http – les navigateurs affichent désormais « non sécurisé » devant l'adresse – et la mise en page se lit mal sur un téléphone, d'où viennent aujourd'hui la plupart des demandes. Votre chambre rénovée mérite un meilleur premier contact.
 
-## 10 · B&B Chalet Rey-Bellet · Les Crosets (FR)
-**Objet :** Chalet Rey-Bellet – ski-in/ski-out, mais réservable uniquement via Booking
+Voici un site que j'ai construit comme modèle – trois langues, calendrier de réservation, rapide sur mobile :
+https://prstudio.ch/hotel-alpina/
+
+Un site de chambres d'hôtes de ce type coûte CHF 2'400 une seule fois, en ligne en 15 jours ouvrables. Avant toute décision, je vous montre gratuitement un aperçu avec vos photos. Un simple « oui » suffit.
+
+[assinatura FR]
+
+---
+
+## 9 · Hôtel Le Trift · Zinal · zinaltrift@bluewin.ch
+
+**Objet :** Le Trift – un site prêt pour la réouverture
+
 Bonjour,
-Un chalet ski-in/ski-out de 10 chambres aux Portes du Soleil attire des clients de France, de Belgique et du Royaume-Uni. Aujourd'hui ils ne peuvent vous réserver que via Booking.com.
-Je suis Pedro Ribeiro, studio web en Valais. Exemple : https://prstudio.ch/hotel-alpina/ (4 langues, calendrier, réservation directe).
-Aperçu gratuit en 48 h avec vos photos, sans engagement. 15 minutes cette semaine ?
-Cordialement, Pedro Ribeiro · PR Studio · prstudio.ch · {{tel}}
+
+j'ai vu sur les pages de la région que Le Trift rouvre en novembre. Aujourd'hui l'hôtel n'a pas de site à son nom : une réouverture qui passe uniquement par Booking.com laisse 15 à 18 pour cent du chiffre d'affaires de chaque nuitée à la plateforme, dès le premier jour.
+
+Voici un site d'hôtel de montagne que j'ai construit comme modèle – quatre langues, réservation directe :
+https://prstudio.ch/hotel-alpina/
+
+Je peux livrer un site avec réservation avant l'ouverture. Avant toute décision, je vous montre gratuitement en 48 heures un aperçu à votre nom. Un simple « oui » suffit.
+
+[assinatura FR]
+
+---
+
+## 10 · B&B Chalet Rey-Bellet · Les Crosets · sem email — 079 672 15 67 (Jean-Marc Esborrat)
+
+**Objet :** Chalet Rey-Bellet – réservation directe avant l'hiver
+
+Bonjour Monsieur Esborrat,
+
+un chalet ski-in/ski-out de dix chambres aux Portes du Soleil attire des clients de France, de Belgique et du Royaume-Uni. Aujourd'hui, ils ne peuvent vous réserver que via Booking.com, et chaque nuit passe par la commission.
+
+Voici un site d'hébergement de montagne que j'ai construit comme modèle – quatre langues, calendrier, réservation directe :
+https://prstudio.ch/hotel-alpina/
+
+Si vous le souhaitez, j'en tire en 48 heures un aperçu gratuit à votre nom, avec vos photos. Un simple « oui » suffit – sans engagement.
+
+[assinatura FR]

@@ -38,7 +38,7 @@ const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
   'site.webmanifest', '_headers',
 ];
-const COPY_DIRS = ['img', 'store'];
+const COPY_DIRS = ['img', 'store', 'hotel-alpina', 'demos'];
 
 /* ------------------------------------------------------------------ */
 /* utilitários                                                         */
@@ -253,7 +253,9 @@ function firstParagraph(block) {
 }
 
 function buildDocPage(file) {
-  const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  const abs = path.join(ROOT, file);
+  if (!fs.existsSync(abs)) { console.log('  aviso: ' + file + ' não existe — ignorado'); return; }
+  const src = fs.readFileSync(abs, 'utf8');
   const TITLES = evalObject(src, 'var TITLES =');
   const pathFor = (l) => PREFIX[l] + file;
 

@@ -10,7 +10,9 @@ Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLO
 - [x] IMPROVE-1: hotel-direkt.html (5 línguas, calculadora Booking, CTA WhatsApp) · IMPROVE-2: 3 demos em demos/ · IMPROVE-3: relatório investidor #1
 - [x] BOT + PAINEL: prospector.js (Places + audit), painel de alvos com estado/notas/email gerado (65 alvos carregados)
 - [x] IMPROVE-13: 35 emails encontrados (49/65 alvos com email); pipeline e painel atualizados
-- [ ] ENVIO: 14 rascunhos criados no Gmail (02/09) → utilizador revê e envia; 52 restantes precisam de email (search.ch)
+- [x] IMPROVE-14: revisão nativa DE/FR + lei UWG — 6 bloqueadores corrigidos, emails reescritos, 14 rascunhos atualizados
+- [x] IMPROVE-15a: build.js corrigido (não rebenta; publica hotel-alpina e demos)
+- [ ] ENVIO: 14 rascunhos prontos, faltam morada e telefone reais para poder enviar
 - [ ] DEMOS: 2 demos personalizadas/semana para quem responder
 - [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
 - [x] DEPLOY: PR #2 integrado em produção (run #17 verde); hotel-direkt.html + 3 demos online; autopilot/ e store/ excluídos do artefacto público
