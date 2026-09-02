@@ -2,6 +2,9 @@
 
 Ordem = prioridade. Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLOY ➔ MONITOR ➔ OPTIMIZE
 
+## Regra permanente · deploy automático
+Alterações ao site vão para produção sem pedir confirmação: pull request para o branch de produção, merge, e o workflow verifica antes de publicar. Se o build falhar, se faltar uma das páginas que os emails referem, se o sitemap apontar para uma página removida, ou se algum ficheiro interno sobrar, o deploy falha e o site fica como está. Continua a pedir-se confirmação para o que é irreversível ou muda o âmbito: enviar emails, gastar dinheiro, apagar coisas.
+
 ## v3 · NEGÓCIO PRINCIPAL · PR Studio "Hotel Direkt" (capital 0)
 - [x] OFERTA: pacotes, condições 50/50, meta do mês (autopilot/business/oferta.md)
 - [x] EMAILS: DE/FR 1.º contacto, restaurante, follow-ups (autopilot/business/emails.md)

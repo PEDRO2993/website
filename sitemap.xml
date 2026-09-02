@@ -5,4 +5,7 @@
   <url><loc>https://prstudio.ch/preco-site-suica.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://prstudio.ch/multilingue-valais.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://prstudio.ch/hotel-alpina/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://prstudio.ch/privacidade.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://prstudio.ch/termos.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://prstudio.ch/informacao-legal.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
