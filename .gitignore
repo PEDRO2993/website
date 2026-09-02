@@ -22,3 +22,5 @@ ruvector.db*
 .hive-mind/
 .claude-flow/daemon.pid
 .claude-flow/metrics/
+ruvector.db
+*.db

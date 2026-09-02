@@ -1,0 +1,141 @@
+{
+  "timestamp": "2026-09-02T02:19:11.283Z",
+  "target": ".",
+  "depth": "standard",
+  "type": "all",
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 21,
+    "low": 0,
+    "total": 21
+  },
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/i18n.js:317",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:278",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:376",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:379",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:382",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:385",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:426",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:585",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:598",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:620",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:740",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:764",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:824",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:943",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:1065",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "innerHTML",
+      "location": "js/main.js:1178",
+      "description": "XSS risk with innerHTML"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "Eval Usage",
+      "location": "tests/t_i18n_build.js:143",
+      "description": "eval() can execute arbitrary code"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "Eval Usage",
+      "location": "tests/t_new_sections.js:39",
+      "description": "eval() can execute arbitrary code"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "Eval Usage",
+      "location": "tests/t_new_sections.js:40",
+      "description": "eval() can execute arbitrary code"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "Eval Usage",
+      "location": "tests/t_trabalho.js:61",
+      "description": "eval() can execute arbitrary code"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "Eval Usage",
+      "location": "tests/t_trabalho.js:76",
+      "description": "eval() can execute arbitrary code"
+    }
+  ]
+}
