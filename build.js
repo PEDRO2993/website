@@ -361,7 +361,13 @@ function buildDocPage(file) {
       html = html.replace(/(<div class="i18n-doc" data-lang="[a-z]{2}">)([\s\S]*?)(?=<div class="i18n-doc"|<\/main>)/g, (m, open, body) => {
         const words = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').length;
         const mins = Math.max(1, Math.round(words / 200));
-        return open + body.replace(/(<p class="lg-updated">)([^<]*)(<\/p>)/, (mm, o, t, c) => o + t + ' · ' + mins + ' min' + c);
+        const bl = (open.match(/data-lang="([a-z]{2})"/) || [])[1];
+        const ui = posts.UI[bl];
+        const h1 = ((body.match(/<h1[^>]*>([^<]*)/) || [, ''])[1]).replace(/&amp;/g, '&');
+        const cta = ui ? '<aside class="cta"><h2>' + ui.cta + '</h2><p>' + ui.ctaSub + '</p><div class="btns"><a class="btn btn-red" href="' + posts.WA + '?text=' + encodeURIComponent(ui.wa.replace('%s', h1)) + '" target="_blank" rel="noopener">' + ui.ctaBtn + '</a><a class="btn btn-ghost" href="' + PREFIX[bl] + '#precos">' + ui.prices + '</a></div></aside>' : '';
+        body = body.replace(/(<p class="lg-updated">)([^<]*)(<\/p>)/, (mm, o, t, c) => o + t + ' · ' + mins + ' min' + c);
+        if (cta) body = body.replace(/<\/div>(\s*)$/, cta + '</div>$1');
+        return open + body;
       });
     }
     /* BreadcrumbList: início → blog → artigo (só páginas com Article) */

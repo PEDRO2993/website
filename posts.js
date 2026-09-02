@@ -163,4 +163,4 @@ ${items}
 `;
 }
 
-module.exports = { fetchPosts, renderPost, renderCard, renderFeed, pathFor, LANGS };
+module.exports = { fetchPosts, renderPost, renderCard, renderFeed, pathFor, LANGS, UI, WA };
