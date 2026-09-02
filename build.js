@@ -494,13 +494,6 @@ function buildRedirects() {
 const STATIC_FEED = { pt: [], de: [], fr: [], it: [], en: [] };
 async function buildPosts() {
   DB_POSTS = await posts.fetchPosts();
-  const bySlug = {};
-  DB_POSTS.forEach((p) => (bySlug[p.slug] = bySlug[p.slug] || []).push(p));
-  DB_POSTS.forEach((p) => {
-    const rel = (p.lang === 'pt' ? '' : p.lang + '/') + 'blog/' + p.slug + '.html';
-    const related = DB_POSTS.filter((x) => x.lang === p.lang && x.slug !== p.slug).slice(0, 3);
-    writeFile(rel, posts.renderPost(p, bySlug[p.slug].map((x) => x.lang), { ORIGIN, PREFIX }, related));
-  });
   // artigos fixos (páginas .i18n-doc com Article) entram no feed com os posts da BD
   DOC_PAGES.forEach((file) => {
     const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
@@ -510,8 +503,15 @@ async function buildPosts() {
       const block = (src.match(new RegExp('<div class="i18n-doc" data-lang="' + lang + '">([\\s\\S]*?)</div>')) || [, ''])[1];
       const title = ((block.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]).replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
       if (!title) return;
-      STATIC_FEED[lang].push({ lang, title, description: firstParagraph(block), published_at: date, url: ORIGIN + PREFIX[lang] + file });
+      STATIC_FEED[lang].push({ lang, title, description: firstParagraph(block), published_at: date, href: PREFIX[lang] + file, url: ORIGIN + PREFIX[lang] + file });
     });
+  });
+  const bySlug = {};
+  DB_POSTS.forEach((p) => (bySlug[p.slug] = bySlug[p.slug] || []).push(p));
+  DB_POSTS.forEach((p) => {
+    const rel = (p.lang === 'pt' ? '' : p.lang + '/') + 'blog/' + p.slug + '.html';
+    const related = DB_POSTS.filter((x) => x.lang === p.lang && x.slug !== p.slug).concat(STATIC_FEED[p.lang]).slice(0, 3);
+    writeFile(rel, posts.renderPost(p, bySlug[p.slug].map((x) => x.lang), { ORIGIN, PREFIX }, related));
   });
   // feed RSS por idioma (posts da BD + artigos fixos, mais recentes primeiro)
   posts.LANGS.forEach((lang) => {

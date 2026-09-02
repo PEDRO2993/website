@@ -25,5 +25,11 @@ for (const l of LANGS) {
 ok('preco-site-suica: tabela dentro de .lg-tbl-wrap', /<div class="lg-tbl-wrap"><table class="lg-tbl">/.test(read('de/preco-site-suica.html')));
 const HP = { 'de/': 'Nicht ausfüllen:', 'fr/': 'Ne pas remplir', 'it/': 'Non compilare:', 'en/': 'Do not fill in:' };
 for (const [l, t] of Object.entries(HP)) ok(l + 'index.html: honeypot traduzido', read(l + 'index.html').includes(t));
+for (const l of LANGS) {
+  const h = read(l + "index.html");
+  const faq = JSON.parse((h.match(/<script type="application\/ld\+json">\s*(\{"@context":"https:\/\/schema\.org","@type":"FAQPage"[\s\S]*?\})\s*<\/script>/) || [])[1] || "{}");
+  ok(l + "index.html: FAQPage com 9 perguntas", faq.mainEntity && faq.mainEntity.length === 9);
+  ok(l + "index.html: dica de idioma antes do header", h.indexOf("LANG_HINT") > 0 && h.indexOf("LANG_HINT") < h.indexOf("<header"));
+}
 console.log('\nResultado: ' + pass + ' passaram, ' + fail + ' falharam');
 process.exit(fail ? 1 : 0);

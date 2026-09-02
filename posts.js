@@ -140,7 +140,7 @@ ${alts.join('\n')}
 
 // cartão para a listagem blog.html (e "mais artigos")
 function renderCard(p, { PREFIX }, tag = 'h2') {
-  return `<a class="blog-card" href="${pathFor(PREFIX, p.lang, p.slug)}"><${tag}>${esc(p.title)}</${tag}><p>${esc(p.description)}</p><span>${UI[p.lang].read}</span></a>`;
+  return `<a class="blog-card" href="${p.href || pathFor(PREFIX, p.lang, p.slug)}"><${tag}>${esc(p.title)}</${tag}><p>${esc(p.description)}</p><span>${UI[p.lang].read}</span></a>`;
 }
 
 // feed RSS por idioma

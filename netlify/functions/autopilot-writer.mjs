@@ -23,7 +23,7 @@ const LANG_NAME = {
 const FACTS = `Autor: Pedro Ribeiro, PR Studio, estúdio de uma pessoa em Stalden (Valais/Wallis, Suíça). Faz websites, marketing digital e social media para negócios locais do Alto Valais (Brig, Visp, Zermatt, Saas-Fee, Leukerbad, Sion) e trabalha em PT/DE/FR/IT/EN.
 Preços fixos reais: landing page CHF 2'400 (~7 dias); site institucional até 5 páginas CHF 4'900 (~1 mês); loja online / aplicação à medida desde CHF 9'800 (até 3 meses); manutenção e alojamento CHF 95–290/mês; avaliação gratuita em 48 h; se a primeira proposta de design não convencer, o cliente não paga.`;
 
-const RULES = `Regras: 650–900 palavras. Só HTML de corpo: <p>, <h2>, <h3>, <ul>/<li>, <strong>, <table class="lg-tbl"> se fizer sentido. Sem <h1>, sem <html>/<body>, sem imagens, sem links externos. Concreto e útil para donos de pequenos negócios no Valais; exemplos locais plausíveis mas SEM inventar clientes, testemunhos, estatísticas com fonte, ou preços fora da lista. Não termines com apelo à ação (a página já tem). Sem introduções tipo "neste artigo".`;
+const RULES = `Regras: 650–900 palavras. Só HTML de corpo: <p>, <h2>, <h3>, <ul>/<li>, <strong>, <table class="lg-tbl"> se fizer sentido. Sem <h1>, sem <html>/<body>, sem imagens, sem links externos. Concreto e útil para donos de pequenos negócios no Valais; exemplos locais plausíveis mas SEM inventar clientes, testemunhos, estatísticas com fonte, ou preços fora da lista. Não termines com apelo à ação (a página já tem). Sem introduções tipo "neste artigo". Nunca afirmes ordens de importância, percentagens ou "estudos" que não possas citar. Em francês, usa espaço insecável antes de : ; ? ! e dentro de « ». Podes incluir no máximo 2 links internos, só quando forem mesmo úteis, com estes URLs exatos (com o prefixo do idioma indicado): {PREFIX}preco-site-suica.html (quanto custa um site na Suíça), {PREFIX}multilingue-valais.html (site multilingue no Valais), {PREFIX}google-business-valais.html (ficha Google Business no Valais).`;
 
 async function askClaude(system, user) {
   const r = await fetch('https://api.anthropic.com/v1/messages', {
@@ -61,7 +61,7 @@ export default async () => {
     const rows = [];
 
     for (const lang of order) {
-      const system = `És o Pedro Ribeiro a escrever no blog do PR Studio. Escreves em ${LANG_NAME[lang]}. ${FACTS}\n${RULES}\nResponde APENAS com JSON: {"title": "...", "description": "... (120–155 caracteres, para o Google)", "body_html": "..."}.`;
+      const system = `És o Pedro Ribeiro a escrever no blog do PR Studio. Escreves em ${LANG_NAME[lang]}. ${FACTS}\n${RULES.replace(/\{PREFIX\}/g, lang === 'pt' ? '/' : '/' + lang + '/')}\nResponde APENAS com JSON: {"title": "...", "description": "... (120–155 caracteres, para o Google)", "body_html": "..."}.`;
       const user = baseBody
         ? `Adapta (não traduzas à letra) este artigo para ${LANG_NAME[lang]}, mantendo estrutura e factos:\nTÍTULO: ${baseTitle}\n${baseBody}`
         : `Tema: ${topic.topic}${topic.brief ? `\nNotas: ${topic.brief}` : ''}`;
