@@ -993,6 +993,14 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 @media (max-width: 900px) { .blog-teaser { grid-template-columns: 1fr; gap: 12px; } }
 
 .care-cta + .pillar-art { display: block; margin: 8px 0 0; }
+
+/* ---- revisão visual (swarm design): cabeçalho largo, selo do plano, barra fixa FR, zona em painel ---- */
+@media (min-width: 1201px) { #siteHeader .wrap { max-width: 1320px; } }
+@media (max-width: 1360px) { .btn-nav { display: none; } }
+@media (max-width: 600px) { .plan-flag { position: static; display: inline-block; margin-bottom: 10px; } }
+.sticky-cta a { white-space: normal; line-height: 1.15; }
+.zona { border: 1px solid var(--line-2); background: var(--card); border-radius: var(--r); padding: 28px 32px; }
+@media (max-width: 700px) { .zona { padding: 22px 18px; } }
 </style>
 </head>
 <body>
@@ -1625,7 +1633,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Blog</span>
-        <h2 class="display"><span data-i18n="bl.title">Guias práticos para negócios do Valais</span><span class="dot">.</span></h2>
+        <h2 class="display"><span data-i18n="bl.title">Guias práticos para negócios do Valais</span></h2>
         <p class="section-sub" data-i18n="bl.sub">Artigos curtos sobre sites, preços e presença local — sem jargão.</p>
       </div>
       <div class="blog-teaser" id="blogTeaser"></div>
