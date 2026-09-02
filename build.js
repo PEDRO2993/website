@@ -603,8 +603,48 @@ async function main() {
   }
   COPY_DIRS.forEach(copyInto);
   console.log('  estáticos             ' + (COPY_FILES.length + COPY_DIRS.length) + ' itens copiados');
+  await minifyDist();
 
   console.log('\nPronto. Publicar a pasta dist/.');
+}
+
+/* Minificação de CSS/JS inline em dist/ (terser + csso são opcionais: sem node_modules, as páginas ficam como estão).
+   Só espaços e comentários — sem renomear identificadores — para os testes e o /*__ARTS__* / continuarem legíveis. */
+function walkHtml(dir) {
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) => {
+    const p = path.join(dir, d.name);
+    return d.isDirectory() ? walkHtml(p) : (d.name.endsWith('.html') ? [p] : []);
+  });
+}
+async function minifyDist() {
+  let terser, csso;
+  try { terser = require('terser'); csso = require('csso'); } catch (e) { console.log('  minificação           saltada (npm install para ativar)'); return; }
+  const files = walkHtml(DIST);
+  let saved = 0;
+  for (const f of files) {
+    const html = fs.readFileSync(f, 'utf8');
+    let out = html.replace(/(<style[^>]*>)([\s\S]*?)(<\/style>)/g, (m, o, css, c) => {
+      try { return o + csso.minify(css).css + c; } catch (e) { return m; }
+    });
+    const re = /(<script(?:\s[^>]*)?>)([\s\S]*?)(<\/script>)/g;
+    let res = '', last = 0, mm;
+    while ((mm = re.exec(out))) {
+      const [all, o, js, c] = mm;
+      const type = (o.match(/type="([^"]*)"/) || [])[1];
+      res += out.slice(last, mm.index); last = mm.index + all.length;
+      if (!js.trim() || (type && type !== 'text/javascript' && type !== 'module')) { res += all; continue; }
+      let min = js;
+      try {
+        const r = await terser.minify(js, { compress: false, mangle: false, module: type === 'module', format: { comments: false } });
+        if (r.code) min = r.code;
+      } catch (e) { console.log('  aviso: ' + path.relative(DIST, f) + ' — script não minificado: ' + String(e.message).slice(0, 90)); }
+      res += o + min + c;
+    }
+    res += out.slice(last);
+    saved += html.length - res.length;
+    fs.writeFileSync(f, res);
+  }
+  console.log('  minificação           ' + files.length + ' páginas, −' + Math.round(saved / 1024) + ' KiB');
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
