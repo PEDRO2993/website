@@ -351,8 +351,9 @@ body.loaded .reveal-hero.d3 { animation-delay: .54s; }
 .bb-field select {
   border: 0; background: transparent; font-family: var(--font-body);
   font-size: 15px; font-weight: 400; color: var(--snow); outline: none; width: 100%;
-  color-scheme: dark; height: 26px; cursor: pointer;
+  color-scheme: dark; height: 26px; cursor: pointer; border-radius: 4px;
 }
+.bb-field select:focus { box-shadow: 0 0 0 2px rgba(197, 160, 89, .6); }
 .bb-sep { width: 1px; align-self: stretch; background: var(--line); margin: 8px 0; }
 .bb-btn { align-self: center; flex-shrink: 0; }
 
