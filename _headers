@@ -31,9 +31,15 @@
   Cache-Control: public, max-age=0, must-revalidate
 /multilingue-valais.html
   Cache-Control: public, max-age=0, must-revalidate
+/google-business-valais.html
+  Cache-Control: public, max-age=0, must-revalidate
+/blog/*
+  Cache-Control: public, max-age=0, must-revalidate
 /robots.txt
   Cache-Control: public, max-age=3600
 /sitemap.xml
+  Cache-Control: public, max-age=3600
+/feed.xml
   Cache-Control: public, max-age=3600
 /site.webmanifest
   Cache-Control: public, max-age=3600
