@@ -24,3 +24,4 @@ ruvector.db*
 .claude-flow/metrics/
 ruvector.db
 *.db
+.claude/security-scans/
