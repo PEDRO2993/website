@@ -240,3 +240,8 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - Testes: `cd tests && npm i && npm test` (build + Playwright, locale pt-PT). Chromium do sistema em /opt/pw-browsers ou `npx playwright install chromium`.
 
 - Secção "Trabalho recente" (Fluhalp/Channa): só factos neutros. Nunca afirmar se foi encomendado, oferecido ou pago — o Pedro corrigiu isto a 2026-09-02.
+
+- Artigo novo (estático): clonar a estrutura de `google-business-valais.html` (5 blocos `.i18n-doc`, `TITLES`, JSON-LD Article), adicionar a `DOC_PAGES` em build.js, cartão por idioma em `blog.html` e o bloco `.lg-more` nos outros artigos. O build gera breadcrumb, CTA, tempo de leitura, feed e sitemap.
+- Tipografia FR: espaço insecável real (U+00A0) antes de `: ; ? !` e dentro de `« »` — nunca `&nbsp;` (entra no JSON-LD).
+- `<body>`: o skip-link é o primeiro elemento; a dica de idioma corre num script inline logo a seguir (antes do header) para não causar CLS.
+- CSS dos artigos/blog/posts da BD: bloco "v3" no fim de cada `<style>` e da `CSS` em posts.js — manter os 5 sincronizados.
