@@ -1305,7 +1305,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 @media (max-width: 700px) {
   .foot2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .foot-col a.wa2 { overflow-wrap: anywhere; }
-  .has-sticky .wa-fab { opacity: 0; pointer-events: none; transform: translateY(20px); }
+  .has-sticky .wa-fab, .in-footer .wa-fab { opacity: 0; pointer-events: none; transform: translateY(20px); }
   .wa-fab { transition: opacity 0.2s ease, transform 0.2s ease; }
   footer .foot { padding-bottom: 96px; }
   .foot-col:has(a.wa2) { grid-column: 1 / -1; }
@@ -3763,7 +3763,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var footerEl = document.querySelector("footer");
     if (!bar || !heroEl || !("IntersectionObserver" in window)) return;
     var pastHero = false, inContact = false, inFooter = false;
-    function sync() { var show = pastHero && !inContact && !inFooter; bar.classList.toggle("show", show); document.body.classList.toggle("has-sticky", show); }
+    function sync() { var show = pastHero && !inContact && !inFooter; bar.classList.toggle("show", show); document.body.classList.toggle("has-sticky", show); document.body.classList.toggle("in-footer", inFooter); }
     new IntersectionObserver(function (entries) { pastHero = entries[0].boundingClientRect.top < 0; sync(); }, { threshold: 0 }).observe(heroEl);
     if (contactEl) new IntersectionObserver(function (entries) { inContact = entries[0].isIntersecting; sync(); }, { rootMargin: "-10% 0px -70% 0px" }).observe(contactEl);
     if (footerEl) new IntersectionObserver(function (entries) { inFooter = entries[0].isIntersecting; sync(); }, { rootMargin: "0px" }).observe(footerEl);
