@@ -1283,6 +1283,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 @media (max-width: 360px) { .nav { gap: 8px; } .langs button { min-width: 36px; padding: 10px 4px; } .stats { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .stat-k { overflow-wrap: anywhere; }
+@media (max-width: 480px) { #prLoader .sub { letter-spacing: 0.14em; font-size: 0.6rem; padding: 0 16px; text-align: center; } }
 @media (max-width: 700px) { .stat { padding: 20px 16px 16px; } .stat-v { font-size: 1.7rem; } }
 @media (max-width: 700px) { .hero-ctas .btn { width: 100%; letter-spacing: 0.08em; padding: 15px 16px; } }
 @media (max-width: 640px) { section { padding: 64px 0; } .hero { padding: 56px 0 64px; } }
@@ -1295,7 +1296,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 <div id="prLoader" aria-hidden="true">
   <div class="in2">
     <div class="lg">PR<i>.</i></div>
-    <div class="sub">PR Studio — Websites · Marketing · Social Media</div>
+    <div class="sub">Websites · Marketing · Social Media</div>
     <div class="pct">INITIALIZING — <span id="prPct">00%</span></div>
   </div>
   <span class="sweep"></span>
