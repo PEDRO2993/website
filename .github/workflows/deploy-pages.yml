@@ -22,11 +22,45 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # O deploy é automático, por isso a verificação corre antes de publicar:
+      # se algo aqui falhar, o site fica como está em vez de ir abaixo.
+      - name: Check the build and the pages it produces
+        run: |
+          set -e
+          node build.js
+          for f in dist/index.html dist/de/index.html dist/fr/index.html \
+                   dist/hotel-direkt.html dist/de/hotel-direkt.html \
+                   dist/hotel-alpina/index.html dist/sitemap.xml; do
+            test -s "$f" || { echo "FALHOU: $f não foi gerado"; exit 1; }
+          done
+          if grep -q 'blog\.html' dist/sitemap.xml; then
+            echo "FALHOU: o sitemap aponta para blog.html, que não existe"; exit 1
+          fi
+          rm -rf dist
+
       - name: Remove private working folders from the public site
         run: |
           rm -rf autopilot store .github
           find . -name 'GET-READY.md' -delete
           find . -name 'build-demo.sh' -delete
+
+      # Rede de segurança: nada interno pode chegar ao site, mesmo que a limpeza mude.
+      - name: Refuse to publish internal files
+        run: |
+          set -e
+          for p in autopilot store; do
+            test ! -e "$p" || { echo "FALHOU: $p ainda está na árvore a publicar"; exit 1; }
+          done
+          if find . -name 'GET-READY.md' -o -name 'build-demo.sh' | grep -q .; then
+            echo "FALHOU: manual de vendas interno ainda presente"; exit 1
+          fi
+          test -s index.html || { echo "FALHOU: index.html desapareceu"; exit 1; }
+
       - uses: actions/configure-pages@v5
         with:
           enablement: true
