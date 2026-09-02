@@ -392,6 +392,8 @@ function buildDocPage(file) {
     }
     /* Article JSON-LD: headline/description/inLanguage/mainEntityOfPage por idioma */
     if (/"@type":\s*"Article"/.test(html)) {
+      const ogCand = 'img/og/' + file.replace(/\.html$/, '') + '-' + lang + '.jpg';
+      const ogRel = fs.existsSync(path.join(ROOT, ogCand)) ? ogCand : null;
       const h1 = (block.match(/<h1>([\s\S]*?)<\/h1>/) || [, ''])[1].replace(/<[^>]+>/g, '').trim();
       html = html.replace(/(<script type="application\/ld\+json">\s*)(\{[^\n]*"@type":\s*"Article"[^\n]*\})(\s*<\/script>)/,
         (m, open, body, close) => {
@@ -400,8 +402,11 @@ function buildDocPage(file) {
           if (desc) o.description = desc;
           o.inLanguage = HTML_LANG[lang];
           o.mainEntityOfPage = ORIGIN + pathFor(lang);
+          if (ogRel) o.image = ORIGIN + '/' + ogRel;
           return open + JSON.stringify(o) + close;
         });
+      /* imagem OG por artigo e idioma (img/og/<página>-<lang>.jpg, gerada offline) */
+      if (ogRel) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/' + ogRel);
     }
     html = rewriteHead(html, lang, pathFor, TITLES[lang], desc);
     html = injectLangGlobals(html, lang);
