@@ -200,6 +200,7 @@ function buildHome() {
   const I18N = evalObject(src, 'var I18N =');
   const LG_I18N = evalObject(src, 'var LG_I18N =');
   const TITLES = evalObject(src, 'var TITLES =');
+  const WA_TEXT = evalObject(src, 'var WA_TEXT =');
   // o site funde LG_I18N em I18N em runtime; aqui fazemos o mesmo
   Object.keys(LG_I18N).forEach((l) => {
     if (I18N[l]) Object.assign(I18N[l], LG_I18N[l]);
@@ -241,6 +242,8 @@ function buildHome() {
     if (lang !== 'pt') {
       const dict = I18N[lang];
       /* aria-labels marcados com data-i18n-aria="chave" */
+      // links WhatsApp já no idioma certo (sem esperar pelo JS)
+      if (WA_TEXT[lang]) html = html.split('wa.me/41798257078?text=Ol%C3%A1%20Pedro!').join('wa.me/41798257078?text=' + encodeURIComponent(WA_TEXT[lang]));
       html = html.replace(/data-i18n-aria="([^"]+)"(\s+)aria-label="[^"]*"/g,
         (m, key, ws) => dict[key] != null
           ? 'data-i18n-aria="' + key + '"' + ws + 'aria-label="' + escAttr(dict[key]) + '"'
