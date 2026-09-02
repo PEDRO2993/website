@@ -391,6 +391,13 @@ function buildDocPage(file) {
         return open + body;
       });
     }
+    /* BreadcrumbList do blog: início → blog */
+    if (file === 'blog.html' && !/BreadcrumbList/.test(html)) {
+      const bcb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[lang] },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: ORIGIN + PREFIX[lang] + 'blog.html' } ] };
+      html = html.replace('</head>', '<script type="application/ld+json">' + JSON.stringify(bcb) + '</script>\n</head>');
+    }
     /* BreadcrumbList: início → blog → artigo (só páginas com Article) */
     if (/"@type":\s*"Article"/.test(html) && !/BreadcrumbList/.test(html)) {
       const BLOG = { pt: 'Blog', de: 'Blog', fr: 'Blog', it: 'Blog', en: 'Blog' };
