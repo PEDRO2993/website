@@ -102,8 +102,8 @@ ${alts.join('\n')}
 <meta property="og:image" content="${ORIGIN}/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta property="article:published_time" content="${esc(p.published_at)}"><meta property="article:modified_time" content="${esc(p.updated_at)}">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
-<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[p.lang] }, { '@type': 'ListItem', position: 2, name: ui.blog, item: ORIGIN + PREFIX[p.lang] + 'blog.html' }, { '@type': 'ListItem', position: 3, name: p.title, item: self } ] })}</script>
+<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[p.lang] }, { '@type': 'ListItem', position: 2, name: ui.blog, item: ORIGIN + PREFIX[p.lang] + 'blog.html' }, { '@type': 'ListItem', position: 3, name: p.title, item: self } ] }).replace(/</g, '\\u003c')}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="${FONTS}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="${FONTS}"></noscript>

@@ -293,6 +293,15 @@ function firstParagraph(block) {
   return txt;
 }
 
+/* bloco .i18n-doc de um idioma, com aninhamento de <div> (ex.: .lg-tbl-wrap) */
+function extractBlock(src, lang) {
+  const open = new RegExp('<div class="i18n-doc" data-lang="' + lang + '">');
+  const m = src.match(open); if (!m) return '';
+  const tag = /<div[\s>]|<\/div\s*>/g; let depth = 1, t;
+  tag.lastIndex = m.index + m[0].length;
+  while ((t = tag.exec(src))) { depth += t[0][1] === '/' ? -1 : 1; if (depth === 0) return src.slice(m.index + m[0].length, t.index); }
+  return '';
+}
 /* remove os blocos .i18n-doc dos outros idiomas.
    <span> não tem aninhamento; <div> pode conter outros <div> (ex.: .blog-list),
    por isso procura-se o </div> correspondente contando a profundidade. */
@@ -354,9 +363,7 @@ function buildDocPage(file) {
       if (cards) html = html.replace(/<div class="blog-list">/, () => '<div class="blog-list">' + cards);
     }
 
-    const block = (src.match(
-      new RegExp('<div class="i18n-doc" data-lang="' + lang + '">([\\s\\S]*?)</div>')
-    ) || [, ''])[1];
+    const block = extractBlock(src, lang);
 
     const desc = firstParagraph(block);
     /* tempo de leitura por bloco de idioma (só artigos) */
@@ -500,7 +507,7 @@ async function buildPosts() {
     if (!/"@type":\s*"Article"/.test(src)) return;
     const date = (src.match(/"datePublished":\s*"([^"]+)"/) || [, new Date().toISOString().slice(0, 10)])[1];
     posts.LANGS.forEach((lang) => {
-      const block = (src.match(new RegExp('<div class="i18n-doc" data-lang="' + lang + '">([\\s\\S]*?)</div>')) || [, ''])[1];
+      const block = extractBlock(src, lang);
       const title = ((block.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]).replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
       if (!title) return;
       STATIC_FEED[lang].push({ lang, title, description: firstParagraph(block), published_at: date, href: PREFIX[lang] + file, url: ORIGIN + PREFIX[lang] + file });
