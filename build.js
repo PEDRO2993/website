@@ -45,7 +45,7 @@ const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
   'site.webmanifest', '_headers', '404.html',
 ];
-const COPY_DIRS = ['img', 'css'];
+const COPY_DIRS = ['img', 'css', 'fonts'];
 
 /* preenchido por buildPosts(); consumido por buildSitemap() e buildDocPage(blog.html) */
 let DB_POSTS = [];
@@ -94,8 +94,15 @@ function evalObject(src, declaration) {
   return new Function('return (' + extractObject(src, declaration) + ');')();
 }
 
+/* Google Fonts → fontes locais (posts.FONT_HEAD): remove preconnect/preload/stylesheet externos */
+function selfHostFonts(html) {
+  html = html.replace(/<noscript><link[^>]*fonts\.googleapis[^>]*><\/noscript>\s*/g, '');
+  let done = false;
+  return html.replace(/[ \t]*<link[^>]*fonts\.g(?:oogleapis|static)[^>]*>\s*/g, () => (done ? '' : (done = true, posts.FONT_HEAD + '\n')));
+}
 function writeFile(rel, content) {
   const full = path.join(DIST, rel);
+  if (rel.endsWith('.html')) content = selfHostFonts(content);
   fs.mkdirSync(path.dirname(full), { recursive: true });
   fs.writeFileSync(full, content);
 }
