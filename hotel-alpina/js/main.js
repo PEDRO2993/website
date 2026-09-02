@@ -370,11 +370,14 @@
     var pics = GALLERIES[key];
     if (!pics || pics.length < 2) return;
     var tag = media.querySelector(".room-tag");
-    var alt = (media.querySelector("img") || {}).alt || "";
+    var srcImg = media.querySelector("img");
+    var alt = srcImg ? srcImg.alt : "";
+    var altKey = srcImg ? srcImg.getAttribute("data-i18n-alt") : null;
+    var altAttr = altKey ? ' data-i18n-alt="' + altKey + '"' : "";
     var track = document.createElement("div");
     track.className = "rm-track";
     track.innerHTML = pics.map(function (p, i) {
-      return '<img src="' + IMG_BASE + p + '" alt="' + alt + '"' + (i ? ' loading="lazy"' : "") + ">";
+      return '<img src="' + IMG_BASE + p + '" alt="' + alt + '"' + altAttr + (i ? ' loading="lazy"' : "") + ">";
     }).join("");
     media.innerHTML = "";
     media.appendChild(track);
