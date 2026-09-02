@@ -238,3 +238,5 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - `SUPABASE_SERVICE_ROLE_KEY` só em `netlify/functions/`. Build hook só no Vault/env.
 - Antes de tocar em traduções: manter registo (DE Sie, FR vous, IT tu, PT tu).
 - Testes: `node build.js` e os testes Playwright em `tests/` (locale pt-PT).
+
+- Secção "Trabalho recente" (Fluhalp/Channa): só factos neutros. Nunca afirmar se foi encomendado, oferecido ou pago — o Pedro corrigiu isto a 2026-09-02.
