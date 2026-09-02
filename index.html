@@ -111,6 +111,9 @@ body::before {
 ::selection { background: var(--red); color: var(--on-red); }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+.skip-link { position: absolute; left: 16px; top: -60px; z-index: 200; padding: 10px 14px; background: var(--red); color: #fff; border-radius: 6px; font-weight: 600; text-decoration: none; transition: top 0.15s ease; }
+.skip-link:focus { top: 12px; }
+#top:focus { outline: none; }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; position: relative; }
 section { padding: 96px 0; position: relative; }
@@ -1295,6 +1298,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   </div>
   <span class="sweep"></span>
 </div>
+<a class="skip-link" href="#top" data-i18n="a11y.skip">Saltar para o conteúdo</a>
 <header id="siteHeader">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Pedro Ribeiro Digital">PR<span class="dot">.</span></a>
@@ -1321,7 +1325,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
   <!-- ================= HERO ================= -->
   <section class="hero">
@@ -3014,6 +3018,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---------- i18n ---------- */
   var I18N = {
     de: {
+      "a11y.skip": "Zum Inhalt springen",
       "pl.ess": "Essenziell", "pl.pro": "Professionell", "sv2.name": "Digitales Marketing",
       "pc.art": "Artikel: Was kostet eine Website in der Schweiz? →", "zn.art": "Warum Ihr Unternehmen im Wallis eine mehrsprachige Website braucht →",
       "tpl.close": "✕ Schliessen", "a11y.nav": "Menü", "a11y.lang": "Sprache", "a11y.menuOpen": "Menü öffnen", "a11y.why": "Warum mit mir arbeiten", "a11y.filter": "Portfolio filtern", "a11y.priceTabs": "Preiskategorien",
@@ -3109,6 +3114,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Antwort innert 24 Stunden"
     },
     en: {
+      "a11y.skip": "Skip to content",
       "pl.ess": "Essential", "pl.pro": "Professional", "sv2.name": "Digital Marketing",
       "pc.art": "Article: how much does a website cost in Switzerland? →", "zn.art": "Why your Valais business needs a multilingual website →",
       "tpl.close": "✕ Close", "a11y.nav": "Menu", "a11y.lang": "Language", "a11y.menuOpen": "Open menu", "a11y.why": "Why work with me", "a11y.filter": "Filter portfolio", "a11y.priceTabs": "Pricing categories",
@@ -3204,6 +3210,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Reply within 24 hours"
     },
     fr: {
+      "a11y.skip": "Aller au contenu",
       "pl.ess": "Essentiel", "pl.pro": "Professionnel", "sv2.name": "Marketing digital",
       "pc.art": "Article : combien coûte un site web en Suisse ? →", "zn.art": "Pourquoi votre entreprise en Valais a besoin d’un site multilingue →",
       "tpl.close": "✕ Fermer", "a11y.nav": "Menu", "a11y.lang": "Langue", "a11y.menuOpen": "Ouvrir le menu", "a11y.why": "Pourquoi travailler avec moi", "a11y.filter": "Filtrer le portfolio", "a11y.priceTabs": "Catégories de prix",
@@ -3299,6 +3306,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Réponse en moins de 24 h"
     },
     it: {
+      "a11y.skip": "Vai al contenuto",
       "pl.ess": "Essenziale", "pl.pro": "Professionale", "sv2.name": "Marketing digitale",
       "pc.art": "Articolo: quanto costa un sito web in Svizzera? →", "zn.art": "Perché la tua azienda in Vallese ha bisogno di un sito multilingue →",
       "tpl.close": "✕ Chiudi", "a11y.nav": "Menu", "a11y.lang": "Lingua", "a11y.menuOpen": "Apri il menu", "a11y.why": "Perché lavorare con me", "a11y.filter": "Filtra il portfolio", "a11y.priceTabs": "Categorie di prezzi",
@@ -3595,10 +3603,18 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("menuToggle");
   var links = document.getElementById("navLinks");
+  function closeMenu(refocus) {
+    if (!links.classList.contains("open")) return;
+    links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false");
+    if (refocus) toggle.focus();
+  }
   toggle.addEventListener("click", function () {
     var open = links.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) { var first = links.querySelector("a"); if (first) first.focus(); } /* teclado: entra no menu */
   });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(true); });
+  document.addEventListener("click", function (e) { if (links.classList.contains("open") && !links.contains(e.target) && e.target !== toggle) closeMenu(false); });
   links.addEventListener("click", function (e) {
     if (e.target.tagName === "A") { links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
   });
