@@ -35,6 +35,8 @@
   Cache-Control: public, max-age=0, must-revalidate
 /site-restaurante-valais.html
   Cache-Control: public, max-age=0, must-revalidate
+/manutencao-site.html
+  Cache-Control: public, max-age=0, must-revalidate
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
 /robots.txt
