@@ -16,7 +16,9 @@ export default async () => {
   }).catch((e) => ({ ok: false, status: 0, text: async () => String(e.message) }));
   const body = await r.text().catch(() => '');
   console.log('[autopilot] gatilho →', r.status, body.slice(0, 200));
-  return new Response(`gatilho: ${r.status} ${body.slice(0, 200)}`, { status: r.ok || r.status === 202 ? 200 : 502 });
+  if (r.ok || r.status === 202) return new Response(`gatilho: ${r.status} ${body.slice(0, 200)}`);
+  // função de fundo indisponível (plano/rota): corre em linha como último recurso
+  try { return new Response('em linha: ' + (await run())); } catch (e) { return new Response(`erro: ${e.message}`, { status: 502 }); }
 };
 
 export { bg as background };
