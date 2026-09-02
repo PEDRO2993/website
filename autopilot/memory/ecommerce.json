@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 13,
+  "count": 14,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -128,6 +128,16 @@
         "autopilot",
         "v3",
         "auditoria"
+      ]
+    },
+    {
+      "key": "autopilot/deploy-policy",
+      "namespace": "ecommerce",
+      "value": "2026-09-02: user asked for auto deploy. Site changes now go to production without asking (PR to claude/forms-bugs-improvement-2578kq + merge). Workflow guards it: node build.js must pass, 7 required pages must exist in dist/, sitemap must not reference blog.html, and autopilot/ store/ GET-READY.md build-demo.sh must be absent after cleanup — any failure leaves the live site untouched. Run #20 green with the guard. Still ask before: sending emails, spending money, deleting things.",
+      "tags": [
+        "autopilot",
+        "deploy",
+        "policy"
       ]
     }
   ]
