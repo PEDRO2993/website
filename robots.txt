@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://prstudio.ch/sitemap.xml
+Disallow: /demos.html
+Disallow: /*/demos.html

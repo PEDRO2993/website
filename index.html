@@ -2773,9 +2773,11 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
     var k = a.getAttribute("data-tpl");
     var meta = SHOT_META[k];
     var tpl = document.getElementById("tpl-" + k);
-    if (!meta || !tpl || !tpl.content) return;
+    if (!meta) return;
     a.setAttribute("data-cat", meta.cat);
-    var cover = tpl.content.querySelector(".t-cover svg");
+    /* capa: no site publicado vem de #tplThumbs (as demos completas estão em demos.html) */
+    var thumbBox = document.querySelector('#tplThumbs [data-tpl="' + k + '"]');
+    var cover = (thumbBox && thumbBox.querySelector("svg")) || (tpl && tpl.content && tpl.content.querySelector(".t-cover svg"));
     var holder = a.querySelector(".shot-body");
     if (cover && holder) {
       holder.className = "shot-thumb";
@@ -4425,20 +4427,33 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
   }
   var tplUntrap = null, tplReturnFocus = null;
   /* CSS das demos fora da página principal: pré-carrega em idle, aplica ao abrir */
-  var demoCssLink = null, demoCssReady = false;
+  var demoCssLink = null, demoCssReady = false, demoHtmlReady = false;
   function ensureDemoCss(done) {
-    if (demoCssReady) return done();
-    var fired = false, go = function () { if (fired) return; fired = true; demoCssReady = true; done(); };
-    if (!demoCssLink) { demoCssLink = document.createElement("link"); demoCssLink.rel = "stylesheet"; demoCssLink.href = "/css/demos.css"; document.head.appendChild(demoCssLink); }
-    demoCssLink.addEventListener("load", go); demoCssLink.addEventListener("error", go); setTimeout(go, 2500);
+    var left = 2, go = function () { if (--left === 0) { demoCssReady = demoHtmlReady = true; done(); } };
+    if (demoCssReady && demoHtmlReady) return done();
+    if (demoCssReady) left--; else {
+      var fired = false, once = function () { if (fired) return; fired = true; demoCssReady = true; go(); };
+      if (!demoCssLink) { demoCssLink = document.createElement("link"); demoCssLink.rel = "stylesheet"; demoCssLink.href = "/css/demos.css"; document.head.appendChild(demoCssLink); }
+      demoCssLink.addEventListener("load", once); demoCssLink.addEventListener("error", once); setTimeout(once, 2500);
+    }
+    if (demoHtmlReady) left--; else {
+      /* markup das demos: só entra no DOM quando alguém abre uma demo */
+      fetch("demos.html").then(function (r) { return r.ok ? r.text() : ""; }).catch(function () { return ""; })
+        .then(function (t) {
+          if (t && !document.getElementById("tpl-rest")) { var box = document.createElement("div"); box.hidden = true; box.innerHTML = t; document.body.appendChild(box); }
+          demoHtmlReady = true; go();
+        });
+    }
+    if (left === 0) done();
   }
   (window.requestIdleCallback || function (f) { setTimeout(f, 2500); })(function () {
     var p = document.createElement("link"); p.rel = "preload"; p.as = "style"; p.href = "/css/demos.css"; document.head.appendChild(p);
+    var p2 = document.createElement("link"); p2.rel = "prefetch"; p2.href = "demos.html"; document.head.appendChild(p2);
   });
   function openTpl(key) {
+    if (!demoCssReady || !demoHtmlReady) return ensureDemoCss(function () { openTpl(key); });
     var tpl = document.getElementById("tpl-" + key);
     if (!tpl) return;
-    if (!demoCssReady) return ensureDemoCss(function () { openTpl(key); });
     if (tplOverlay.hidden) tplReturnFocus = document.activeElement;
     cartItems = [];
     currentTpl = key;
@@ -4967,7 +4982,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(new FormData(form)).toString()
     }).then(function (r) {
-      if (r.ok) { ctDone(); showToast(TOASTS_SENT[currentLang]); fireLead(); }
+      if (r.ok) { ctDone(); showToast(TOASTS_SENT[currentLang]); fireLead("formulario", "contacto"); }
       else { ctRestore(); mailFallback(); }
     }).catch(function () { ctRestore(); mailFallback(); });
   });
@@ -6154,12 +6169,30 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
     window.fbq("init", META_PIXEL_ID);
     window.fbq("track", "PageView");
   }
-  function fireLead() {
-    try { if (window.gtag) gtag("event", "generate_lead"); } catch (e) {}
-    try { if (window.fbq) fbq("track", "Lead"); } catch (e) {}
+  /* Origem do lead: secção da página onde o visitante carregou (para saber o que vende) */
+  function leadSource(el) {
+    var sec = el && el.closest("#stickyCta, .cta-band, #contactForm, section, footer");
+    if (!sec) return "pagina";
+    return sec.id || (sec.className || "").split(" ")[0] || sec.tagName.toLowerCase();
+  }
+  function fireLead(method, source) {
+    var d = { method: method || "formulario", source: source || "pagina", lang: currentLang };
+    (window.__leads = window.__leads || []).push(d);
+    try { if (window.gtag) gtag("event", "generate_lead", d); } catch (e) {}
+    try { if (window.fbq) fbq("track", "Lead", { content_name: d.method + " · " + d.source }); } catch (e) {}
+  }
+  function fireCta(source) {
+    (window.__ctas = window.__ctas || []).push(source);
+    try { if (window.gtag) gtag("event", "cta_click", { source: source, lang: currentLang }); } catch (e) {}
   }
   document.addEventListener("click", function (e) {
-    if (e.target.closest('a[href^="https://wa.me"]')) fireLead();
+    var a = e.target.closest('a[href^="https://wa.me"], a[href^="tel:"], a[href^="mailto:"], a[href="#contacto"]');
+    if (!a) return;
+    var h = a.getAttribute("href") || "";
+    if (h.indexOf("https://wa.me") === 0) fireLead("whatsapp", leadSource(a));
+    else if (h.indexOf("tel:") === 0) fireLead("telefone", leadSource(a));
+    else if (h.indexOf("mailto:") === 0) fireLead("email", leadSource(a));
+    else fireCta(leadSource(a));
   });
 
   /* ---------- consentimento (RGPD/LPD) ---------- */

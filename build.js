@@ -278,6 +278,21 @@ function buildHome() {
     html = injectLangGlobals(html, lang);
     if (lang !== 'pt') html = absolutize(html, lang);
 
+    /* demos dos 6 setores: markup fora da página (carregado ao abrir uma demo) */
+    {
+      const tpls = html.match(/<template[\s\S]*?<\/template>/g) || [];
+      if (tpls.length) {
+        /* fica na página só a capa de cada demo (miniaturas do portfólio, ~11 KiB) */
+        const thumbs = tpls.map((t) => {
+          const key = (t.match(/id="tpl-([a-z]+)"/) || [])[1];
+          const svg = (t.match(/<svg[\s\S]*?<\/svg>/) || [])[0];
+          return key && svg ? '<span data-tpl="' + key + '">' + svg + '</span>' : '';
+        }).join('');
+        html = html.replace(/[ \t]*<template[\s\S]*?<\/template>\n?/g, "");
+        html = html.replace('</main>', '</main>\n<div id="tplThumbs" hidden>' + thumbs + '</div>');
+        writeFile((lang === "pt" ? "" : lang + "/") + "demos.html", tpls.join("\n"));
+      }
+    }
     writeFile(lang === 'pt' ? 'index.html' : lang + '/index.html', html);
 
     if (lang === 'pt') {
