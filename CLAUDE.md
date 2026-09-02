@@ -249,3 +249,6 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - Homepage, secção "Blog": os 3 cartões são injetados no build (STATIC_FEED em build.js) — não editar à mão em index.html.
 - Autopilot de conteúdo: `autopilot-writer.mjs` (agendado) só chama `autopilot-writer-background.mjs` (fundo, token HMAC da chave de serviço). Fila vazia → tema automático; ≥ AUTOPILOT_MAX_DRAFTS rascunhos por rever → não escreve; cada idioma passa por um editor; aviso no bloco de notas do admin. Teste offline: `node tests/t_autopilot.js`.
 - Build minifica CSS/JS inline em dist/ com terser + csso (package.json na raiz; Netlify faz npm install). Só espaços/comentários, sem renomear. Sem node_modules o build salta a minificação. Lighthouse local: home mobile 83, blog 100.
+- Demos dos 6 setores: o markup sai da página no build para `demos.html` (por idioma) e é carregado ao abrir uma demo; só as capas SVG ficam em `#tplThumbs` (miniaturas do portfólio). Não editar `demos.html` — é gerado.
+- Leads: `fireLead(método, origem)` e `fireCta(origem)` registam WhatsApp/telefone/email/formulário e CTAs com a secção de origem e o idioma (GA4 `generate_lead`/`cta_click`, Meta `Lead`). GA_ID e META_PIXEL_ID continuam por preencher no index.html.
+- Caso de cliente: `caso-hotel-alpina.html` (5 idiomas) segue a receita dos artigos e está ligado a partir de "Trabalho recente".
