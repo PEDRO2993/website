@@ -22,6 +22,16 @@ for (const l of LANGS) {
     ok(l + p + ': og:url do idioma', read(l + p).includes('property="og:url" content="https://prstudio.ch/' + l + p + '"'));
   }
 }
+for (const l of LANGS) {
+  const lg = l ? l.slice(0, 2) : 'pt';
+  ok(l + 'index.html: og:image do idioma', read(l + 'index.html').includes('og:image" content="https://prstudio.ch/img/og/home-' + lg + '.jpg"'));
+  ok(l + 'blog.html: og:image do idioma', read(l + 'blog.html').includes('/img/og/blog-' + lg + '.jpg"'));
+  for (const a of ['preco-site-suica', 'multilingue-valais', 'google-business-valais']) {
+    const h = read(l + a + '.html');
+    ok(l + a + ': og:image + alt do idioma', h.includes('/img/og/' + a + '-' + lg + '.jpg"') && /og:image:alt" content="[^"]{10,}"/.test(h));
+    ok(l + a + ': imagem OG existe em dist', fs.existsSync(path.join(DIST, 'img/og', a + '-' + lg + '.jpg')));
+  }
+}
 ok('preco-site-suica: tabela dentro de .lg-tbl-wrap', /<div class="lg-tbl-wrap"><table class="lg-tbl">/.test(read('de/preco-site-suica.html')));
 const HP = { 'de/': 'Nicht ausfüllen:', 'fr/': 'Ne pas remplir', 'it/': 'Non compilare:', 'en/': 'Do not fill in:' };
 for (const [l, t] of Object.entries(HP)) ok(l + 'index.html: honeypot traduzido', read(l + 'index.html').includes(t));

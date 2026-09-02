@@ -408,6 +408,7 @@ function buildDocPage(file) {
         });
       /* imagem OG por artigo e idioma (img/og/<página>-<lang>.jpg, gerada offline) */
       if (ogRel) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/' + ogRel);
+      if (ogRel && h1 && !/og:image:alt/.test(html)) html = html.replace(/(<meta property="og:image:height"[^>]*>)/, (m) => m + '\n<meta property="og:image:alt" content="' + h1.replace(/&/g, '&amp;').replace(/"/g, '&quot;') + '">');
     }
     if (file === 'blog.html' && fs.existsSync(path.join(ROOT, 'img/og/blog-' + lang + '.jpg'))) {
       html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/blog-' + lang + '.jpg');
