@@ -262,6 +262,7 @@ function buildHome() {
     }
 
     html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"'); // RSS do idioma (homepage)
+    if (fs.existsSync(path.join(ROOT, 'img/og/home-' + lang + '.jpg'))) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/home-' + lang + '.jpg');
     html = rewriteHead(html, lang, pathFor, TITLES[lang].t, TITLES[lang].d);
     html = injectLangGlobals(html, lang);
     if (lang !== 'pt') html = absolutize(html, lang);

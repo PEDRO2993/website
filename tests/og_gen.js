@@ -16,7 +16,7 @@ const FOOT = { pt: 'prstudio.ch — Stalden · Valais · Suíça', de: 'prstudio
       await render(lang, title, path.join(ROOT, 'img/og', f + '-' + lang + '.jpg'));
     }
   }
-  async function render(lang, title, out) {
+  async function render(lang, title, out, eyebrow) {
     {
       const size = title.length > 70 ? 54 : title.length > 55 ? 60 : 66;
       const html = `<!doctype html><html><head><meta charset="utf-8"><style>
@@ -36,7 +36,7 @@ body{width:1200px;height:630px;background:#04060B;color:#F2F6FE;font-family:I,sa
 h1{font-family:B;font-weight:700;font-size:${size}px;line-height:1.08;letter-spacing:-.02em;max-width:980px;text-wrap:balance;margin-top:22px}
 .bar{width:220px;height:4px;background:linear-gradient(90deg,#2257E8,#4D8DFF);border-radius:2px;margin:26px 0 0}
 .foot{font-size:24px;color:#8A97AF;font-weight:500}
-</style></head><body><div class="grid"></div><div class="glow2"></div><div class="glow"></div><div class="in"><div><div class="logo">PR<i>.</i></div><div class="eye">${EYE[lang]}</div><h1>${title.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</h1><div class="bar"></div></div><div class="foot">${FOOT[lang]}</div></div></body></html>`;
+</style></head><body><div class="grid"></div><div class="glow2"></div><div class="glow"></div><div class="in"><div><div class="logo">PR<i>.</i></div><div class="eye">${eyebrow || EYE[lang]}</div><h1>${title.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</h1><div class="bar"></div></div><div class="foot">${FOOT[lang]}</div></div></body></html>`;
       await p.setContent(html, { waitUntil: 'load' }); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(80);
       await p.screenshot({ path: out, type: 'jpeg', quality: 84 });
       console.log(path.basename(out), fs.statSync(out).size, 'B', 'fonts=' + await p.evaluate(() => document.fonts.check('700 20px B') && document.fonts.check('500 20px I')));
@@ -47,6 +47,15 @@ h1{font-family:B;font-weight:700;font-size:${size}px;line-height:1.08;letter-spa
   for (const lang of ["pt", "de", "fr", "it", "en"]) {
     const t = ((blogSrc.match(new RegExp('<div class="i18n-doc" data-lang="' + lang + '">[\\s\\S]*?<p class="lg-sub">([^<]*)')) || [])[1] || "Blog").replace(/\.$/, "");
     await render(lang, t, path.join(ROOT, "img/og", "blog-" + lang + ".jpg"));
+  }
+  /* homepage: tagline do rodapé (ft.tag) por idioma — "frase — eyebrow" */
+  const idx = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const tags = { pt: (idx.match(/data-i18n="ft\.tag">([^<]*)/) || [])[1] };
+  const dictOrder = ["de", "en", "fr", "it"]; let di = 0;
+  for (const m of idx.matchAll(/"ft\.tag": "([^"]*)"/g)) tags[dictOrder[di++]] = m[1];
+  for (const lang of ["pt", "de", "fr", "it", "en"]) {
+    const [t, e] = String(tags[lang] || "").split(" — ");
+    await render(lang, t || "PR Studio", path.join(ROOT, "img/og", "home-" + lang + ".jpg"), (e || "").replace(/\.$/, "").toUpperCase());
   }
   await b.close();
 })();
