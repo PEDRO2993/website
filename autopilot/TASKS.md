@@ -14,7 +14,7 @@ Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLOY ➔ MONITOR ➔ OP
 
 ## Loop v2 · capital mínimo (plan-v2)
 - [x] PLAN v2: etapa 1 = recondicionado AirPods Pro 2, capital ≤ CHF 270, procedimento de compra/teste/venda
-- [ ] BUY: 3× AirPods Pro 2 ≤ CHF 95 cada, checklist de 4 pontos verificada
+- [ ] BUY: 3× AirPods Pro 2 ≤ CHF 75 cada, checklist de 4 pontos verificada
 - [ ] REFURB: limpeza, pontas novas, reset, fotos
-- [ ] SELL: 3 anúncios Ricardo Sofort-Kaufen CHF 139, 30 dias garantia
+- [ ] SELL: 3 anúncios Ricardo Sofort-Kaufen CHF 115, 30 dias garantia
 - [ ] GATE 1: 3 vendas ≤ 21 dias, 0 devoluções → recompra 5–6 unidades

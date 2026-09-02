@@ -11,9 +11,9 @@ Bonjour, l'annonce est-elle toujours d'actualité ? Je prends les AirPods Pro 2 
 2. checkcoverage.apple.com → modelo "AirPods Pro (2nd generation)", sem "Ersatzgerät"/estado estranho.
 3. ANC liga e desliga (apertar a haste); ambos os lados tocam.
 4. Bateria dos auscultadores ≥ 85 % após 10 min a carregar. Caixa fecha com íman firme.
-Falha 1 ponto = não compras. Preço acima de CHF 95 = não compras.
+Falha 1 ponto = não compras. Preço acima de CHF 75 = não compras.
 
-## C · Anúncio Ricardo (Sofort-Kaufen CHF 139) · DE
+## C · Anúncio Ricardo (Sofort-Kaufen CHF 115) · DE
 **Titel:** Apple AirPods Pro 2 (USB-C/Lightning) · getestet · gereinigt · 30 Tage Garantie · Versand 24h
 **Text:**
 Original Apple AirPods Pro 2. Von mir persönlich geprüft: Seriennummer verifiziert (Apple Coverage-Check), beide Hörer + ANC + Transparenzmodus getestet, Akku der Hörer ≥ 85 %. Professionell gereinigt, neue Silikon-Tips (S/M/L) dabei.
@@ -37,6 +37,6 @@ Questions ? Je réponds en moins d'une heure.
 1 caixa fechada frente · 2 caixa aberta com auscultadores · 3 costas da caixa com número de série legível · 4 cada auscultador de perto (malha limpa) · 5 ecrã do iPhone com bateria dos 3 · 6 pontas novas embaladas.
 
 ## E · Regras de preço
-- Sofort-Kaufen CHF 139. Sem leilão (leilão atrai preço de 90).
-- Sem venda em 7 dias → CHF 129. Sem venda em 14 dias → CHF 119, nunca abaixo (margem mínima CHF 14).
+- Sofort-Kaufen CHF 115. Sem leilão (leilão atrai preço de 90).
+- Sem venda em 7 dias → CHF 109. Sem venda em 14 dias → CHF 105, nunca abaixo (margem mínima CHF 20).
 - Nunca aceitar "envio para o estrangeiro" nem pagamento fora do Ricardo.
