@@ -43,7 +43,7 @@ header.lg-head{display:flex;align-items:center;justify-content:space-between;gap
 .logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.1rem;text-decoration:none;color:var(--ink)}.logo .dot{color:var(--red)}
 .langs{display:flex;gap:6px}.langs a{font-family:"Spline Sans Mono",monospace;font-size:0.72rem;letter-spacing:0.04em;background:transparent;border:1px solid var(--line-2);color:var(--ink-2);border-radius:6px;padding:6px 11px;text-decoration:none}
 .langs a[aria-current="page"]{background:var(--red);border-color:var(--red);color:#fff}
-main{padding:40px 0 40px}main h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:2rem;margin:0 0 6px;line-height:1.15}
+main{padding:40px 0 40px}main h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:2rem;margin:0 0 6px;line-height:1.15;overflow-wrap:anywhere;hyphens:auto}
 main h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.2rem;margin:34px 0 10px}main h3{font-size:1.02rem;margin:26px 0 8px}
 main p{color:var(--ink-2);margin:0 0 14px}main ul,main ol{color:var(--ink-2);padding-left:1.2em}main li{margin-bottom:8px}
 main img{max-width:100%;height:auto;border-radius:12px}main blockquote{margin:18px 0;padding:10px 18px;border-left:3px solid var(--red);color:var(--ink-2)}

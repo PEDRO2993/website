@@ -43,13 +43,13 @@ p { color:var(--ink-2); margin:0 0 26px; }
 /* adapta o texto ao idioma do URL pedido (/de/…, /fr/…) */
 (function () {
   var T = {
-    de: ["Diese Seite gibt es nicht", "Die Adresse hat sich geändert oder enthält einen Fehler. Die Website ist weiterhin da — und ich auch.", "Zur Startseite", "Kontakt aufnehmen", "de-CH"],
-    fr: ["Cette page n’existe pas", "L’adresse a changé ou contient une erreur. Le site est toujours là — et moi aussi.", "Retour à l’accueil", "Me contacter", "fr-CH"],
-    it: ["Questa pagina non esiste", "L’indirizzo è cambiato o contiene un errore. Il sito è ancora qui — e anch’io.", "Vai alla home", "Contattami", "it-CH"],
-    en: ["This page doesn’t exist", "The address may have changed or has a typo. The site is still here — and so am I.", "Go to the homepage", "Get in touch", "en"]
+    de: ["Diese Seite gibt es nicht", "Die Adresse hat sich geändert oder enthält einen Fehler. Die Website ist weiterhin da — und ich auch.", "Zur Startseite", "Kontakt aufnehmen", "de-CH", "Seite nicht gefunden — PR Studio"],
+    fr: ["Cette page n’existe pas", "L’adresse a changé ou contient une erreur. Le site est toujours là — et moi aussi.", "Retour à l’accueil", "Me contacter", "fr-CH", "Page introuvable — PR Studio"],
+    it: ["Questa pagina non esiste", "L’indirizzo è cambiato o contiene un errore. Il sito è ancora qui — e anch’io.", "Vai alla home", "Contattami", "it-CH", "Pagina non trovata — PR Studio"],
+    en: ["This page doesn’t exist", "The address may have changed or has a typo. The site is still here — and so am I.", "Go to the homepage", "Get in touch", "en", "Page not found — PR Studio"]
   };
   var m = location.pathname.match(/^\/(de|fr|it|en)(\/|$)/); if (!m) return;
-  var t = T[m[1]]; document.documentElement.lang = t[4];
+  var t = T[m[1]]; document.documentElement.lang = t[4]; document.title = t[5];
   document.getElementById("h").innerHTML = t[0] + "<span>.</span>";
   document.getElementById("p").textContent = t[1];
   var h = document.getElementById("home"), c = document.getElementById("contact");

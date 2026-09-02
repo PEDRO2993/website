@@ -344,7 +344,10 @@ function buildDocPage(file) {
       '[l] + location.pathname.split("/").pop(); return; } setLang(l); });');
 
     // blog.html: feed RSS do idioma
-    if (file === 'blog.html') html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"');
+    if (file === 'blog.html') {
+      const hasFeed = DB_POSTS.some((p) => p.lang === lang);
+      html = hasFeed ? html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"') : html.replace(/<link rel="alternate" type="application\/rss\+xml"[^>]*>\n?/, '');
+    }
     // blog.html: cartões dos posts da BD, antes dos cartões fixos
     if (file === 'blog.html') {
       const cards = DB_POSTS.filter((p) => p.lang === lang).map((p) => posts.renderCard(p, { PREFIX })).join('');

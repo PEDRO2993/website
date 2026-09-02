@@ -680,7 +680,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   display: grid; place-items: center; text-align: center;
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-#prLoader.done { opacity: 0; visibility: hidden; }
+#prLoader.done { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.3s ease, visibility 0s linear 0.3s; }
 #prLoader .lg { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: clamp(2.2rem, 7vw, 3.6rem); letter-spacing: 0.28em; text-indent: 0.28em; }
 #prLoader .lg i { font-style: normal; color: var(--red); }
 #prLoader .sub { font-family: "Spline Sans Mono", monospace; font-size: 0.64rem; letter-spacing: 0.26em; color: var(--ink-3); text-transform: uppercase; margin-top: 8px; }
@@ -1085,6 +1085,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
 .dm-lbar { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; }
 .dm-lbtn { all: unset; cursor: pointer; font-family: "Spline Sans Mono", monospace; font-size: 0.85rem; color: #fff; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px; padding: 9px 18px; }
 .dm-lbtn:hover { background: rgba(255, 255, 255, 0.15); }
+.dm-lbtn { min-width: 44px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; }
 .dm-lcount { font-family: "Spline Sans Mono", monospace; font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); }
 
 .tpl-go-band { text-align: center; padding: 46px 22px; background: #0B0E1A; color: #EEF1FA; }
@@ -2203,7 +2204,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   <a class="btn btn-red" href="#contacto" data-i18n="pc.cta">Pedir orçamento</a>
 </div>
 
-<div id="cookieBanner" role="dialog" aria-modal="true" aria-label="Cookies" aria-describedby="cookieMsg" hidden>
+<div id="cookieBanner" role="dialog" aria-label="Cookies" aria-describedby="cookieMsg" hidden>
   <p id="cookieMsg"><span data-i18n="cookie.msg">Só o essencial para o site funcionar. Estatísticas e marketing (Google Analytics / Meta) apenas com a tua autorização. </span><a href="privacidade.html" data-i18n="cookie.link">Política de Privacidade</a>.</p>
   <div class="cookie-row">
     <button class="btn btn-ghost" id="cookieDeny" type="button" data-i18n="cookie.deny">Só o essencial</button>
@@ -2229,9 +2230,9 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   <div id="dmLight" hidden>
     <div class="dm-lframe" id="dmLframe"></div>
     <div class="dm-lbar">
-      <button class="dm-lbtn" id="dmPrev" type="button">←</button>
+      <button class="dm-lbtn" id="dmPrev" type="button" data-i18n-aria="tpl.prev" aria-label="Anterior">←</button>
       <span class="dm-lcount" id="dmCount"></span>
-      <button class="dm-lbtn" id="dmNext" type="button">→</button>
+      <button class="dm-lbtn" id="dmNext" type="button" data-i18n-aria="tpl.next" aria-label="Seguinte">→</button>
       <button class="dm-lbtn" id="dmClose" type="button" data-i18n="tpl.close">✕ Fechar</button>
     </div>
   </div>
@@ -3033,6 +3034,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   /* ---------- i18n ---------- */
   var I18N = {
     de: {
+      "tpl.prev": "Zurück", "tpl.next": "Weiter",
       "ct.f6": "Firma (optional)",
       "fq7.q": "Erstellen Sie Websites für Hotels, Restaurants und Tourismus im Wallis?", "fq7.a": "Ja. Restaurants, Unterkünfte, Wellness und lokale Dienstleister sind die Branchen, mit denen ich im Oberwallis am meisten arbeite. Eine Tourismus-Website braucht einfache Reservationen, mehrere Sprachen und Fotos, die verkaufen — genau das baue ich, zum vorher vereinbarten Fixpreis.", "fq8.q": "Und wer kümmert sich um die Website, wenn sie online ist?", "fq8.a": "Ich, wenn Sie möchten. Das Wartungsabo (CHF 95–290/Monat) umfasst Hosting, SSL, Backups, Updates und kleine Inhaltsänderungen. Ohne Abo übergebe ich Ihnen die Website bereit zur Selbstverwaltung — die Dateien gehören Ihnen.",
       "a11y.skip": "Zum Inhalt springen",
@@ -3131,6 +3133,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Antwort innert 24 Stunden"
     },
     en: {
+      "tpl.prev": "Previous", "tpl.next": "Next",
       "ct.f6": "Company (optional)",
       "fq7.q": "Do you build websites for hotels, restaurants and tourism in Valais?", "fq7.a": "Yes. Restaurants, accommodation, wellness and local services are the sectors I work with most in Upper Valais. A tourism website needs easy bookings, several languages and photos that sell — that is what I build, at a fixed price agreed upfront.", "fq8.q": "And once the site is live, who looks after it?", "fq8.a": "I do, if you want. The maintenance plan (CHF 95–290/month) covers hosting, SSL, backups, updates and small content changes. Without a plan, I hand over the site ready for you to manage — and the files are yours.",
       "a11y.skip": "Skip to content",
@@ -3229,6 +3232,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Reply within 24 hours"
     },
     fr: {
+      "tpl.prev": "Précédent", "tpl.next": "Suivant",
       "ct.f6": "Entreprise (facultatif)",
       "fq7.q": "Créez-vous des sites pour les hôtels, restaurants et le tourisme en Valais ?", "fq7.a": "Oui. Restaurants, hébergement, bien-être et services locaux sont les secteurs avec lesquels je travaille le plus dans le Haut-Valais. Un site touristique a besoin de réservations simples, de plusieurs langues et de photos qui vendent — c’est ce que je construis, à prix fixe convenu à l’avance.", "fq8.q": "Et une fois le site en ligne, qui s’en occupe ?", "fq8.a": "Moi, si vous le souhaitez. Le forfait de maintenance (CHF 95–290/mois) comprend l’hébergement, le SSL, les sauvegardes, les mises à jour et les petites modifications de contenu. Sans forfait, je vous livre le site prêt à gérer — et les fichiers vous appartiennent.",
       "a11y.skip": "Aller au contenu",
@@ -3327,6 +3331,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       "ft.resp": "Réponse en moins de 24 h"
     },
     it: {
+      "tpl.prev": "Precedente", "tpl.next": "Successivo",
       "ct.f6": "Azienda (facoltativo)",
       "fq7.q": "Realizzi siti per hotel, ristoranti e turismo in Vallese?", "fq7.a": "Sì. Ristoranti, alloggi, benessere e servizi locali sono i settori con cui lavoro di più nell’Alto Vallese. Un sito per il turismo ha bisogno di prenotazioni facili, più lingue e foto che vendono — è quello che costruisco, a prezzo fisso concordato prima.", "fq8.q": "E dopo che il sito è online, chi se ne occupa?", "fq8.a": "Io, se vuoi. L’abbonamento di manutenzione (CHF 95–290/mese) include hosting, SSL, backup, aggiornamenti e piccole modifiche ai contenuti. Senza abbonamento ti consegno il sito pronto da gestire — e i file restano tuoi.",
       "a11y.skip": "Vai al contenuto",
@@ -6234,7 +6239,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
     var pv = 0, pt0 = performance.now();
     (function ptick(now) {
       var target = Math.min(100, ((now - pt0) / 160) * 100); /* arranque curto: ~0.25 s no total */
-      pv += (target - pv) * 0.35;
+      pv = target; /* sem easing: o arranque não pode custar mais de ~0,3 s */
       var sh = Math.min(100, Math.round(pv));
       prPct.textContent = (sh < 10 ? "0" : "") + sh + "%";
       if (sh < 100 || document.readyState === "loading") { requestAnimationFrame(ptick); return; }
@@ -6372,7 +6377,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
   function readConsent() { try { return localStorage.getItem("pr-consent"); } catch (e) { return null; } }
   var consent = readConsent();
   if (consent === "granted") applyConsent(true);
-  else if (consent !== "denied") cookieBanner.hidden = false;
+  else if (consent !== "denied") { cookieBanner.hidden = false; var cdn = document.getElementById("cookieDeny"); if (cdn) cdn.focus(); }
   document.getElementById("cookieAccept").addEventListener("click", function () {
     try { localStorage.setItem("pr-consent", "granted"); } catch (e) {}
     cookieBanner.hidden = true;
