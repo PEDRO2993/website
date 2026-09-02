@@ -18,3 +18,12 @@ Loop: RESEARCH ➔ PLAN ➔ BUILD ➔ TEST ➔ FIX ➔ DEPLOY ➔ MONITOR ➔ OP
 - [ ] REFURB: limpeza, pontas novas, reset, fotos
 - [ ] SELL: 3 anúncios Ricardo Sofort-Kaufen CHF 115, 30 dias garantia
 - [ ] GATE 1: 3 vendas ≤ 21 dias, 0 devoluções → recompra 5–6 unidades
+
+## Loop v3 · negócio principal: PR Studio "Hotel Direkt" (capital 0)
+- [x] OFERTA: pacotes, condições 50/50, meta do mês (autopilot/business/oferta.md)
+- [x] EMAILS: DE/FR 1.º contacto, restaurante, follow-ups (autopilot/business/emails.md)
+- [x] DEMO: script de personalização em 1 comando (demo-personalizar.sh)
+- [ ] PROSPEÇÃO: 60 alvos Valais (hotéis + restaurantes) com evidência de fraqueza → pipeline.csv
+- [ ] ENVIO: 20 emails/semana (utilizador envia; eu personalizo)
+- [ ] DEMOS: 2 demos personalizadas por semana para quem responder
+- [ ] CONTRATO: 1 contrato/mês, 50 % à assinatura
