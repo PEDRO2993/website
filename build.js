@@ -33,7 +33,7 @@ const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 
 /* páginas com o sistema .i18n-doc (um bloco por idioma no mesmo ficheiro) */
 const DOC_PAGES = [
-  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html',
+  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html',
   'privacidade.html', 'termos.html', 'informacao-legal.html',
 ];
 /* as páginas legais não precisam de posição no Google, mas precisam de
@@ -360,7 +360,7 @@ function buildDocPage(file) {
 
     const desc = firstParagraph(block);
     /* tempo de leitura por bloco de idioma (só artigos) */
-    if (/"@type": "Article"/.test(html)) {
+    if (/"@type":\s*"Article"/.test(html)) {
       html = html.replace(/(<div class="i18n-doc" data-lang="[a-z]{2}">)([\s\S]*?)(?=<div class="i18n-doc"|<\/main>)/g, (m, open, body) => {
         const words = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').length;
         const mins = Math.max(1, Math.round(words / 200));
@@ -374,7 +374,7 @@ function buildDocPage(file) {
       });
     }
     /* BreadcrumbList: início → blog → artigo (só páginas com Article) */
-    if (/"@type": "Article"/.test(html) && !/BreadcrumbList/.test(html)) {
+    if (/"@type":\s*"Article"/.test(html) && !/BreadcrumbList/.test(html)) {
       const BLOG = { pt: 'Blog', de: 'Blog', fr: 'Blog', it: 'Blog', en: 'Blog' };
       const bc = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[lang] },
@@ -383,9 +383,9 @@ function buildDocPage(file) {
       html = html.replace('</head>', '<script type="application/ld+json">' + JSON.stringify(bc) + '</script>\n</head>');
     }
     /* Article JSON-LD: headline/description/inLanguage/mainEntityOfPage por idioma */
-    if (/"@type": "Article"/.test(html)) {
+    if (/"@type":\s*"Article"/.test(html)) {
       const h1 = (block.match(/<h1>([\s\S]*?)<\/h1>/) || [, ''])[1].replace(/<[^>]+>/g, '').trim();
-      html = html.replace(/(<script type="application\/ld\+json">\s*)(\{[^\n]*"@type": "Article"[^\n]*\})(\s*<\/script>)/,
+      html = html.replace(/(<script type="application\/ld\+json">\s*)(\{[^\n]*"@type":\s*"Article"[^\n]*\})(\s*<\/script>)/,
         (m, open, body, close) => {
           let o; try { o = JSON.parse(body); } catch (e) { return m; }
           if (h1) o.headline = h1;
