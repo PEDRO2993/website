@@ -5,3 +5,6 @@
 .mcp.json
 .swarm/
 CLAUDE.md
+
+# saída do build (gerada por `node build.js`; a Netlify gera a sua)
+dist/
