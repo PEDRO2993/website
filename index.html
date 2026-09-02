@@ -4533,7 +4533,7 @@ footer::before { content: ""; position: absolute; inset: 55% -20% -50% -20%; bac
       var r = map[el.getAttribute("placeholder")];
       if (r) el.setAttribute("placeholder", r);
     });
-    ["data-msg", "data-pack", "data-prop", "data-plan", "data-cap", "aria-label"].forEach(function (a) {
+    ["data-msg", "data-pack", "data-prop", "data-plan", "data-cap", "aria-label", "alt"].forEach(function (a) {
       root.querySelectorAll("[" + a + "]").forEach(function (el) {
         var r = map[el.getAttribute(a)];
         if (r) el.setAttribute(a, r);
