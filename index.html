@@ -1018,6 +1018,33 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
 .form-done { border: 1px solid var(--line-2); border-radius: var(--r); padding: 28px; background: var(--card); }
 @media (max-width: 480px) { .hero-chips { display: none; } .hero-trust { gap: 8px; } .hero-trust li { font-size: 0.76rem; padding: 6px 10px; } .hero-ctas { margin-top: 24px; } }
 @media (min-width: 1361px) { .nav-links a#loginNav { display: none; } } /* botão Login visível: sem link duplicado no menu */
+
+/* ---- trabalho recente v2: cartões de projeto com maquetas ---- */
+.tw-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; margin-top: 8px; }
+@media (max-width: 820px) { .tw-cards { grid-template-columns: 1fr; } }
+.tw-card { border: 1px solid var(--line-2); border-radius: var(--r); background: var(--card); overflow: hidden; display: flex; flex-direction: column; }
+.tw-card-b { padding: 22px 24px 26px; display: grid; gap: 10px; justify-items: start; }
+.tw-card-b h3 { font-size: 1.15rem; font-weight: 600; margin: 4px 0 0; }
+.tw-card-b p { color: var(--ink-2); font-size: 0.95rem; line-height: 1.55; margin: 0; }
+.tw-mock { aspect-ratio: 16 / 10; background: radial-gradient(120% 90% at 50% 110%, rgba(46,107,255,0.22), transparent 60%), #0B1322; border-bottom: 1px solid var(--line); padding: 26px; display: flex; align-items: center; justify-content: center; }
+.mb { width: 100%; max-width: 400px; border-radius: 8px; overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,0.5); background: #F5F1EA; color: #1D2B33; }
+.mb-bar { display: flex; gap: 6px; align-items: center; background: #E8E1D6; padding: 8px 10px; font: 600 10px/1 "Spline Sans Mono", monospace; color: #6B6259; }
+.mb-bar i { width: 8px; height: 8px; border-radius: 50%; background: #C9BFB0; }
+.mb-bar span { margin-left: 6px; }
+.mb-body { padding: 14px 16px 18px; display: grid; gap: 9px; justify-items: start; }
+.mb-nav { display: flex; justify-content: space-between; width: 100%; font-size: 10px; color: #4A5560; }
+.mb-nav b { color: #1D2B33; letter-spacing: 0.04em; }
+.mb-pill { font: 500 9px/1 "Spline Sans Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; color: #8A6A3A; }
+.mb-h1 { font: 600 clamp(15px, 2vw, 20px)/1.15 "Bricolage Grotesque", sans-serif; letter-spacing: -0.01em; max-width: 22ch; }
+.mb-cta { background: #1D2B33; color: #F5F1EA; font: 600 9px/1 "Spline Sans Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; padding: 9px 12px; border-radius: 3px; }
+.mp { width: 210px; border-radius: 18px; background: #fff; color: #111; overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,0.5); font-size: 10px; }
+.mp-top { display: flex; justify-content: space-between; align-items: center; padding: 9px 11px; }
+.mp-top span { color: #666; font-size: 9px; }
+.mp-img { aspect-ratio: 1 / 1; background: linear-gradient(135deg, #2E6BFF, #0E2A6B); display: flex; align-items: center; justify-content: center; color: #fff; font: 700 24px/1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; }
+.mp-row { display: flex; gap: 9px; padding: 9px 11px 4px; }
+.mp-row i { width: 12px; height: 12px; border: 1.5px solid #222; border-radius: 50%; }
+.mp-cap { padding: 2px 11px 11px; color: #333; }
+@media (max-width: 480px) { .tw-mock { padding: 18px; } .mp { width: 180px; } }
 </style>
 </head>
 <body>
@@ -1136,88 +1163,44 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       <div class="section-head reveal">
         <span class="eyebrow" data-i18n="tw.eyebrow">Trabalho recente</span>
         <h2 class="display" data-i18n="tw.title">O que já fiz por negócios daqui</h2>
-        <p class="section-sub" data-i18n="tw.sub">Seis publicações de Instagram para dois negócios do Alto Valais: um restaurante de montanha acima de Zermatt e uma pizzaria familiar em Brig. </p>
+        <p class="section-sub" data-i18n="tw.sub">Projetos reais no Alto Valais: um site de hotel com reservas diretas e a comunicação de um centro médico.</p>
       </div>
-
-      <div class="tw-proj reveal">
-        <div class="tw-proj-h">
-          <b data-i18n="tw.proj1">Bergrestaurant Fluhalp · Zermatt</b>
-          <span class="tw-badge" data-i18n="tw.badge">Publicação Instagram</span>
-        </div>
-        <div class="tw-grid">
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
-            <div class="tw-post tw-f1" role="img" data-i18n-aria="tw.a1" aria-label="Publicação: Fluhalp, Bergrestaurant a 2606 metros sobre o Stellisee, Zermatt">
-              <div class="hd">Zermatt · Wallis</div>
-              <div>
-                <div class="alt"><span class="num">2606</span><span class="unit">M.Ü.M.</span></div>
-                <div class="horizon"></div>
-                <div class="name">Fluhalp</div>
-                <div class="sub">Bergrestaurant · über dem Stellisee</div>
+      <div class="tw-cards">
+        <article class="tw-card reveal">
+          <div class="tw-mock" role="img" data-i18n-aria="tw.a1" aria-label="Maqueta do site do Hotel Alpina Grächen: cabeçalho, título e botão de reserva">
+            <div class="mb">
+              <div class="mb-bar"><i></i><i></i><i></i><span>Hotel Alpina Grächen</span></div>
+              <div class="mb-body">
+                <div class="mb-nav"><b>Hotel Alpina</b><span>Zimmer · Spa · Küche · DE FR IT EN</span></div>
+                <div class="mb-pill">Matterhorn Valley · Wallis</div>
+                <div class="mb-h1">Boutique-Berghotel im Sonnendorf Grächen</div>
+                <div class="mb-cta">Verfügbarkeit prüfen</div>
               </div>
             </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
-            <div class="tw-post tw-f2" role="img" data-i18n-aria="tw.a2" aria-label="Modelo reutilizável: espaço para a fotografia com barra fixa Fluhalp 2606 m">
-              <div class="stage">
-                <div class="plus" aria-hidden="true">+</div>
-                <div class="hint">Hier Ihr Foto —<br>Terrasse, Teller, Schnee, Gäste</div>
-              </div>
-              <div class="bar"><span class="l">Fluhalp</span><span class="r">2606 m</span></div>
+          </div>
+          <div class="tw-card-b">
+            <span class="tw-badge" data-i18n="tw.b1">Website</span>
+            <h3 data-i18n="tw.p1n">Hotel Alpina · Grächen</h3>
+            <p data-i18n="tw.p1d">Site em 4 línguas com reservas diretas: quartos e datas em 3 passos, motor de reservas integrado, SEO e dados estruturados.</p>
+          </div>
+        </article>
+        <article class="tw-card reveal">
+          <div class="tw-mock" role="img" data-i18n-aria="tw.a2" aria-label="Maqueta de uma publicação do MedVisp nas redes sociais">
+            <div class="mp">
+              <div class="mp-top"><b>medvisp</b><span>Visp · Wallis</span></div>
+              <div class="mp-img"><span>MedVisp</span></div>
+              <div class="mp-row"><i></i><i></i><i></i></div>
+              <div class="mp-cap"><b>medvisp</b> · Marketing &amp; Social Media</div>
             </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
-            <div class="tw-post tw-f3" role="img" data-i18n-aria="tw.a3" aria-label="Publicação: o melhor lugar do vale não está no vale">
-              <div class="tag">Sonnenterrasse</div>
-              <div class="claim">Der Tisch mit der <b>besten Aussicht</b> im Tal steht nicht im Tal.</div>
-              <div class="foot"><span>Fluhalp</span><span>Zermatt</span></div>
-            </div>
-          </figure>
-        </div>
+          </div>
+          <div class="tw-card-b">
+            <span class="tw-badge" data-i18n="tw.b2">Marketing · Redes sociais</span>
+            <h3 data-i18n="tw.p2n">MedVisp · Visp</h3>
+            <p data-i18n="tw.p2d">Gestão contínua do marketing e das redes sociais de um centro médico: conteúdo, publicações e campanhas locais.</p>
+          </div>
+        </article>
       </div>
-
-      <div class="tw-proj reveal">
-        <div class="tw-proj-h">
-          <b data-i18n="tw.proj2">Pizzeria Channa · Brig</b>
-          <span class="tw-badge" data-i18n="tw.badge">Publicação Instagram</span>
-        </div>
-        <div class="tw-grid">
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n1">01 · O letreiro</figcaption>
-            <div class="tw-post tw-c1" role="img" data-i18n-aria="tw.a4" aria-label="Publicação: Channa, pizzaria na Furkastrasse 5, Brig">
-              <div class="top">Brig · Wallis</div>
-              <div class="name">Channa</div>
-              <div class="band"><i aria-hidden="true"></i><span>Pizzeria</span><i aria-hidden="true"></i></div>
-              <div class="addr">Furkastrasse 5 · 3900 Brig</div>
-            </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n2">02 · A moldura para as fotos</figcaption>
-            <div class="tw-post tw-c2" role="img" data-i18n-aria="tw.a5" aria-label="Modelo reutilizável: espaço para a fotografia com assinatura Channa">
-              <div class="frame">
-                <div class="icon" aria-hidden="true">+</div>
-                <div class="hint">Hier Ihr Foto —<br>Pizza, Teller, Gasse, Team</div>
-              </div>
-              <div class="foot">
-                <span class="h">Heute<br>bei uns</span>
-                <span class="m">Furkastrasse 5<br>Brig</span>
-              </div>
-            </div>
-          </figure>
-          <figure class="tw-item">
-            <figcaption class="tw-cap" data-i18n="tw.n3">03 · A frase que fica</figcaption>
-            <div class="tw-post tw-c3" role="img" data-i18n-aria="tw.a6" aria-label="Publicação: um negócio de família no centro de Brig">
-              <div class="mark" aria-hidden="true">&ldquo;</div>
-              <div class="claim">Ein Familien&shy;betrieb mitten in Brig.</div>
-              <div class="sign">Channa · Pizzeria</div>
-            </div>
-          </figure>
-        </div>
-      </div>
-
-      <p class="tw-note" data-i18n="tw.note">Os dois negócios são reais e o desenho é meu.</p>
+      <p class="tw-note" data-i18n="tw.note">Negócios reais do Alto Valais; o trabalho é meu.</p>
     </div>
   </section>
 
@@ -2862,8 +2845,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "fo1.b": "Restaurant", "fo1.s": "Menü + Reservationen", "fo2.b": "Fitnessstudio", "fo2.s": "Abos + Anmeldung", "fo3.b": "Barbershop", "fo3.s": "Online-Termine",
       "fo4.b": "Praxis", "fo4.s": "Termine + Team", "fo5.b": "Fotografie", "fo5.s": "Galerie + Booking", "fo6.b": "Immobilien", "fo6.s": "Inserate + Besichtigungen",
       "fo.note": "* Demo-Vorlagen mit fiktiven Betrieben — tippen Sie auf eine Karte, um die vollständige Vorlage zu öffnen.",
-      "fo.ctaTxt": "Gefällt Ihnen, was Sie sehen? Das sind Vorlagen — Ihre Website wird von Grund auf für Ihr Geschäft entworfen. Sagen Sie mir Ihre Branche, und ich zeige Ihnen innert 24 Stunden, wie sie aussehen könnte.", "fo.ctaBtn": "So eine Website für mein Geschäft anfragen", "tw.eyebrow": "Aktuelle Arbeiten", "tw.title": "Was ich schon für Betriebe von hier gemacht habe", "tw.sub": "Sechs Instagram-Beiträge für zwei Betriebe im Oberwallis: ein Bergrestaurant über Zermatt und eine Familien-Pizzeria in Brig.", "tw.badge": "Instagram-Beitrag", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · Das Aushängeschild", "tw.n2": "02 · Die Vorlage für Fotos", "tw.n3": "03 · Der Satz, der bleibt", "zn.h": "Ich arbeite im ganzen Wallis", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Siders und Sitten. Persönliches Treffen im Oberwallis, Videocall im restlichen Kanton — die Offerte kommt immer in Ihrer Sprache.", "tw.a1": "Beitrag: Fluhalp, Bergrestaurant auf 2606 Metern über dem Stellisee, Zermatt", "tw.a2": "Wiederverwendbare Vorlage: Platz für das Foto mit fester Leiste Fluhalp 2606 m", "tw.a3": "Beitrag: der Tisch mit der besten Aussicht im Tal steht nicht im Tal", "tw.a4": "Beitrag: Channa, Pizzeria an der Furkastrasse 5, Brig", "tw.a5": "Wiederverwendbare Vorlage: Platz für das Foto mit Channa-Signatur", "tw.a6": "Beitrag: ein Familienbetrieb mitten in Brig", "tw.note": "Beide Betriebe sind echt, die Gestaltung ist meine.",
-      "fo.view": "Demo ansehen", "fo.fAll": "Alle", "fo.fServ": "Dienstleistungen & Gastro", "fo.fShop": "E-Commerce & Buchungen", "fo.fLand": "Landing Pages",
+      "fo.ctaTxt": "Gefällt Ihnen, was Sie sehen? Das sind Vorlagen — Ihre Website wird von Grund auf für Ihr Geschäft entworfen. Sagen Sie mir Ihre Branche, und ich zeige Ihnen innert 24 Stunden, wie sie aussehen könnte.", "fo.ctaBtn": "So eine Website für mein Geschäft anfragen", "tw.eyebrow": "Aktuelle Arbeiten", "tw.title": "Was ich schon für Betriebe von hier gemacht habe", "tw.sub": "Echte Projekte im Oberwallis: eine Hotel-Website mit Direktbuchung und die Kommunikation eines medizinischen Zentrums.", "tw.b1": "Website", "tw.b2": "Marketing · Social Media", "tw.p1n": "Hotel Alpina · Grächen", "tw.p1d": "Website in 4 Sprachen mit Direktbuchung: Zimmer und Daten in 3 Schritten, integrierte Buchungsmaschine, SEO und strukturierte Daten.", "tw.p2n": "MedVisp · Visp", "tw.p2d": "Laufende Betreuung von Marketing und Social Media eines medizinischen Zentrums: Inhalte, Beiträge und lokale Kampagnen.", "tw.note": "Echte Betriebe im Oberwallis; die Arbeit ist von mir.", "tw.a1": "Mockup der Website des Hotel Alpina Grächen: Kopfzeile, Titel und Buchungsbutton", "tw.a2": "Mockup eines Social-Media-Beitrags von MedVisp", "zn.h": "Ich arbeite im ganzen Wallis", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Siders und Sitten. Persönliches Treffen im Oberwallis, Videocall im restlichen Kanton — die Offerte kommt immer in Ihrer Sprache.", "fo.view": "Demo ansehen", "fo.fAll": "Alle", "fo.fServ": "Dienstleistungen & Gastro", "fo.fShop": "E-Commerce & Buchungen", "fo.fLand": "Landing Pages",
       "fo1.c": "Digitales Menü · Reservationen · Lokales SEO", "fo2.c": "Abos · Online-Anmeldung · Kurse", "fo3.c": "Online-Termine · Google Maps",
       "fo4.c": "Mehrsprachig · Termine · Team", "fo5.c": "Galerie · Booking · Hi-Res", "fo6.c": "Inserate · Filter · Bewertung",
       "fo7.b": "Mode", "fo7.s": "Shop + Kollektionen", "fo7.c": "Onlineshop · Warenkorb · Filter",
@@ -2961,8 +2943,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "fo1.b": "Restaurant", "fo1.s": "menu + reservations", "fo2.b": "Gym", "fo2.s": "plans + sign-up", "fo3.b": "Barbershop", "fo3.s": "online booking",
       "fo4.b": "Clinic", "fo4.s": "appointments + team", "fo5.b": "Photography", "fo5.s": "gallery + booking", "fo6.b": "Real estate", "fo6.s": "listings + viewings",
       "fo.note": "* Demo templates with fictional businesses — tap a card to open the full template.",
-      "fo.ctaTxt": "Like what you see? These are templates — yours is designed from scratch for your business. Tell me your industry and I'll show you within 24 hours how it could look.", "fo.ctaBtn": "I want one of these for my business", "tw.eyebrow": "Recent work", "tw.title": "What I have already done for local businesses", "tw.sub": "Six Instagram posts for two Upper Valais businesses: a mountain restaurant above Zermatt and a family pizzeria in Brig.", "tw.badge": "Instagram post", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brig", "tw.n1": "01 · The signboard", "tw.n2": "02 · The frame for photos", "tw.n3": "03 · The line that sticks", "zn.h": "I work across the whole of Valais", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre and Sion. In person in Upper Valais, video call elsewhere in the canton — and the quote always arrives in your language.", "tw.a1": "Post: Fluhalp, mountain restaurant at 2606 metres above the Stellisee, Zermatt", "tw.a2": "Reusable template: space for the photo with a fixed Fluhalp 2606 m bar", "tw.a3": "Post: the best spot in the valley is not in the valley", "tw.a4": "Post: Channa, pizzeria at Furkastrasse 5, Brig", "tw.a5": "Reusable template: space for the photo with the Channa signature", "tw.a6": "Post: a family business in the heart of Brig", "tw.note": "Both businesses are real and the design is mine.",
-      "fo.view": "View demo", "fo.fAll": "All", "fo.fServ": "Services & Dining", "fo.fShop": "E-commerce & Bookings", "fo.fLand": "Landing pages",
+      "fo.ctaTxt": "Like what you see? These are templates — yours is designed from scratch for your business. Tell me your industry and I'll show you within 24 hours how it could look.", "fo.ctaBtn": "I want one of these for my business", "tw.eyebrow": "Recent work", "tw.title": "What I have already done for local businesses", "tw.sub": "Real projects in Upper Valais: a hotel website with direct booking and the communication of a medical centre.", "tw.b1": "Website", "tw.b2": "Marketing · Social media", "tw.p1n": "Hotel Alpina · Grächen", "tw.p1d": "A 4-language website with direct booking: rooms and dates in 3 steps, integrated booking engine, SEO and structured data.", "tw.p2n": "MedVisp · Visp", "tw.p2d": "Ongoing marketing and social media for a medical centre: content, posts and local campaigns.", "tw.note": "Real Upper Valais businesses; the work is mine.", "tw.a1": "Mockup of the Hotel Alpina Grächen website: header, headline and booking button", "tw.a2": "Mockup of a MedVisp social media post", "zn.h": "I work across the whole of Valais", "zn.t": "Stalden, Visp, Brig-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre and Sion. In person in Upper Valais, video call elsewhere in the canton — and the quote always arrives in your language.", "fo.view": "View demo", "fo.fAll": "All", "fo.fServ": "Services & Dining", "fo.fShop": "E-commerce & Bookings", "fo.fLand": "Landing pages",
       "fo1.c": "Digital menu · Reservations · Local SEO", "fo2.c": "Plans · Online sign-up · Classes", "fo3.c": "Online booking · Google Maps",
       "fo4.c": "Multilingual · Appointments · Team", "fo5.c": "Gallery · Booking · Hi-res", "fo6.c": "Listings · Filters · Valuation",
       "fo7.b": "Fashion", "fo7.s": "shop + collections", "fo7.c": "Online shop · Cart · Filters",
@@ -3060,8 +3041,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "fo1.b": "Restaurant", "fo1.s": "menu + réservations", "fo2.b": "Fitness", "fo2.s": "abonnements + inscription", "fo3.b": "Barbier", "fo3.s": "réservation en ligne",
       "fo4.b": "Cabinet médical", "fo4.s": "rendez-vous + équipe", "fo5.b": "Photographie", "fo5.s": "galerie + réservation", "fo6.b": "Immobilier", "fo6.s": "annonces + visites",
       "fo.note": "* Modèles de démonstration avec des entreprises fictives — touchez une carte pour ouvrir le modèle complet.",
-      "fo.ctaTxt": "Vous aimez ce que vous voyez ? Ce sont des modèles — le vôtre est conçu sur mesure pour votre entreprise. Dites-moi votre secteur et je vous montre sous 24 h à quoi ça pourrait ressembler.", "fo.ctaBtn": "J’en veux un pour mon entreprise", "tw.eyebrow": "Travaux récents", "tw.title": "Ce que j’ai déjà fait pour des entreprises d’ici", "tw.sub": "Six publications Instagram pour deux entreprises du Haut-Valais : un restaurant d’altitude au-dessus de Zermatt et une pizzeria familiale à Brigue.", "tw.badge": "Publication Instagram", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Brigue", "tw.n1": "01 · L’enseigne", "tw.n2": "02 · Le cadre pour les photos", "tw.n3": "03 · La phrase qui reste", "zn.h": "Je travaille dans tout le Valais", "zn.t": "Stalden, Viège, Brigue-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre et Sion. Rencontre sur place dans le Haut-Valais, visioconférence dans le reste du canton — et le devis arrive toujours dans votre langue.", "tw.a1": "Publication : Fluhalp, restaurant d’altitude à 2606 mètres au-dessus du Stellisee, Zermatt", "tw.a2": "Modèle réutilisable : espace pour la photo avec bandeau fixe Fluhalp 2606 m", "tw.a3": "Publication : la table avec la plus belle vue de la vallée n’est pas dans la vallée", "tw.a4": "Publication : Channa, pizzeria à la Furkastrasse 5, Brigue", "tw.a5": "Modèle réutilisable : espace pour la photo avec la signature Channa", "tw.a6": "Publication : une entreprise familiale au cœur de Brigue", "tw.note": "Les deux entreprises sont réelles et le design est le mien.",
-      "fo.view": "Voir la démo", "fo.fAll": "Tous", "fo.fServ": "Services & Restauration", "fo.fShop": "E-commerce & Réservations", "fo.fLand": "Landing pages",
+      "fo.ctaTxt": "Vous aimez ce que vous voyez ? Ce sont des modèles — le vôtre est conçu sur mesure pour votre entreprise. Dites-moi votre secteur et je vous montre sous 24 h à quoi ça pourrait ressembler.", "fo.ctaBtn": "J’en veux un pour mon entreprise", "tw.eyebrow": "Travaux récents", "tw.title": "Ce que j’ai déjà fait pour des entreprises d’ici", "tw.sub": "Des projets réels dans le Haut-Valais : un site d’hôtel avec réservation directe et la communication d’un centre médical.", "tw.b1": "Site web", "tw.b2": "Marketing · Réseaux sociaux", "tw.p1n": "Hôtel Alpina · Grächen", "tw.p1d": "Site en 4 langues avec réservation directe : chambres et dates en 3 étapes, moteur de réservation intégré, SEO et données structurées.", "tw.p2n": "MedVisp · Viège", "tw.p2d": "Gestion continue du marketing et des réseaux sociaux d’un centre médical : contenus, publications et campagnes locales.", "tw.note": "Des entreprises réelles du Haut-Valais ; le travail est le mien.", "tw.a1": "Maquette du site de l’Hôtel Alpina Grächen : en-tête, titre et bouton de réservation", "tw.a2": "Maquette d’une publication MedVisp sur les réseaux sociaux", "zn.h": "Je travaille dans tout le Valais", "zn.t": "Stalden, Viège, Brigue-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre et Sion. Rencontre sur place dans le Haut-Valais, visioconférence dans le reste du canton — et le devis arrive toujours dans votre langue.", "fo.view": "Voir la démo", "fo.fAll": "Tous", "fo.fServ": "Services & Restauration", "fo.fShop": "E-commerce & Réservations", "fo.fLand": "Landing pages",
       "fo1.c": "Menu digital · Réservations · SEO local", "fo2.c": "Abonnements · Inscription en ligne · Cours", "fo3.c": "Réservation en ligne · Google Maps",
       "fo4.c": "Multilingue · Rendez-vous · Équipe", "fo5.c": "Galerie · Réservation · Haute résolution", "fo6.c": "Annonces · Filtres · Estimation",
       "fo7.b": "Mode", "fo7.s": "boutique + collections", "fo7.c": "Boutique en ligne · Panier · Filtres",
@@ -3159,8 +3139,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
       "fo1.b": "Ristorante", "fo1.s": "menù + prenotazioni", "fo2.b": "Palestra", "fo2.s": "abbonamenti + iscrizione", "fo3.b": "Barbiere", "fo3.s": "prenotazione online",
       "fo4.b": "Studio medico", "fo4.s": "appuntamenti + team", "fo5.b": "Fotografia", "fo5.s": "galleria + prenotazione", "fo6.b": "Immobiliare", "fo6.s": "annunci + visite",
       "fo.note": "* Template dimostrativi con attività fittizie — tocca una card per aprire il template completo.",
-      "fo.ctaTxt": "Ti piace quello che vedi? Questi sono modelli — il tuo è disegnato da zero per la tua attività. Dimmi il tuo settore e in 24 ore ti mostro come potrebbe essere.", "fo.ctaBtn": "Ne voglio uno per la mia attività", "tw.eyebrow": "Lavori recenti", "tw.title": "Cosa ho già fatto per attività di qui", "tw.sub": "Sei post Instagram per due attività dell’Alto Vallese: un ristorante di montagna sopra Zermatt e una pizzeria familiare a Briga.", "tw.badge": "Post Instagram", "tw.proj1": "Bergrestaurant Fluhalp · Zermatt", "tw.proj2": "Pizzeria Channa · Briga", "tw.n1": "01 · L’insegna", "tw.n2": "02 · La cornice per le foto", "tw.n3": "03 · La frase che resta", "zn.h": "Lavoro in tutto il Vallese", "zn.t": "Stalden, Visp, Briga-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Incontro di persona nell’Alto Vallese, videochiamata nel resto del cantone — e il preventivo arriva sempre nella tua lingua.", "tw.a1": "Post: Fluhalp, ristorante di montagna a 2606 metri sopra lo Stellisee, Zermatt", "tw.a2": "Modello riutilizzabile: spazio per la foto con barra fissa Fluhalp 2606 m", "tw.a3": "Post: il posto migliore della valle non è nella valle", "tw.a4": "Post: Channa, pizzeria in Furkastrasse 5, Briga", "tw.a5": "Modello riutilizzabile: spazio per la foto con la firma Channa", "tw.a6": "Post: un’attività di famiglia nel cuore di Briga", "tw.note": "Entrambe le attività sono reali e il design è mio.",
-      "fo.view": "Vedi la demo", "fo.fAll": "Tutti", "fo.fServ": "Servizi & Ristorazione", "fo.fShop": "E-commerce & Prenotazioni", "fo.fLand": "Landing page",
+      "fo.ctaTxt": "Ti piace quello che vedi? Questi sono modelli — il tuo è disegnato da zero per la tua attività. Dimmi il tuo settore e in 24 ore ti mostro come potrebbe essere.", "fo.ctaBtn": "Ne voglio uno per la mia attività", "tw.eyebrow": "Lavori recenti", "tw.title": "Cosa ho già fatto per attività di qui", "tw.sub": "Progetti reali nell’Alto Vallese: un sito di hotel con prenotazione diretta e la comunicazione di un centro medico.", "tw.b1": "Sito web", "tw.b2": "Marketing · Social media", "tw.p1n": "Hotel Alpina · Grächen", "tw.p1d": "Sito in 4 lingue con prenotazione diretta: camere e date in 3 passaggi, motore di prenotazione integrato, SEO e dati strutturati.", "tw.p2n": "MedVisp · Visp", "tw.p2d": "Gestione continua del marketing e dei social di un centro medico: contenuti, post e campagne locali.", "tw.note": "Attività reali dell’Alto Vallese; il lavoro è mio.", "tw.a1": "Mockup del sito dell’Hotel Alpina Grächen: intestazione, titolo e pulsante di prenotazione", "tw.a2": "Mockup di un post social di MedVisp", "zn.h": "Lavoro in tutto il Vallese", "zn.t": "Stalden, Visp, Briga-Glis, Naters, Zermatt, Saas-Fee, Grächen, Sierre e Sion. Incontro di persona nell’Alto Vallese, videochiamata nel resto del cantone — e il preventivo arriva sempre nella tua lingua.", "fo.view": "Vedi la demo", "fo.fAll": "Tutti", "fo.fServ": "Servizi & Ristorazione", "fo.fShop": "E-commerce & Prenotazioni", "fo.fLand": "Landing page",
       "fo1.c": "Menù digitale · Prenotazioni · SEO locale", "fo2.c": "Abbonamenti · Iscrizione online · Corsi", "fo3.c": "Prenotazione online · Google Maps",
       "fo4.c": "Multilingue · Appuntamenti · Team", "fo5.c": "Galleria · Prenotazione · Alta risoluzione", "fo6.c": "Annunci · Filtri · Valutazione",
       "fo7.b": "Moda", "fo7.s": "shop + collezioni", "fo7.c": "Negozio online · Carrello · Filtri",
