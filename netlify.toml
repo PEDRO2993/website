@@ -15,3 +15,7 @@
 # O gatilho chama autopilot-writer-background (função de fundo, até 15 min). Precisa de ANTHROPIC_API_KEY.
 [functions."autopilot-writer"]
   schedule = "0 6 * * *"
+
+# resumo semanal (visitas, rascunhos, fila, últimos artigos) nas notas do admin — segunda-feira 07:00 UTC
+[functions."weekly-digest"]
+  schedule = "0 7 * * 1"
