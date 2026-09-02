@@ -143,13 +143,13 @@ function renderCard(p, { PREFIX }, tag = 'h2') {
 
 // feed RSS por idioma
 function renderFeed(lang, posts, { ORIGIN, PREFIX }) {
-  const items = posts.map((p) => `  <item>
+  const items = posts.map((p) => { const url = p.url || ORIGIN + pathFor(PREFIX, lang, p.slug); return `  <item>
     <title>${esc(p.title)}</title>
-    <link>${ORIGIN}${pathFor(PREFIX, lang, p.slug)}</link>
-    <guid isPermaLink="true">${ORIGIN}${pathFor(PREFIX, lang, p.slug)}</guid>
+    <link>${url}</link>
+    <guid isPermaLink="true">${url}</guid>
     <pubDate>${new Date(p.published_at).toUTCString()}</pubDate>
     <description>${esc(p.description)}</description>
-  </item>`).join('\n');
+  </item>`; }).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>

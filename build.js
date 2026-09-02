@@ -345,7 +345,7 @@ function buildDocPage(file) {
 
     // blog.html: feed RSS do idioma
     if (file === 'blog.html') {
-      const hasFeed = DB_POSTS.some((p) => p.lang === lang);
+      const hasFeed = DB_POSTS.some((p) => p.lang === lang) || STATIC_FEED[lang].length > 0;
       html = hasFeed ? html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"') : html.replace(/<link rel="alternate" type="application\/rss\+xml"[^>]*>\n?/, '');
     }
     // blog.html: cartões dos posts da BD, antes dos cartões fixos
@@ -491,6 +491,7 @@ function buildRedirects() {
 
 /* ------------------------------------------------------------------ */
 
+const STATIC_FEED = { pt: [], de: [], fr: [], it: [], en: [] };
 async function buildPosts() {
   DB_POSTS = await posts.fetchPosts();
   const bySlug = {};
@@ -500,9 +501,21 @@ async function buildPosts() {
     const related = DB_POSTS.filter((x) => x.lang === p.lang && x.slug !== p.slug).slice(0, 3);
     writeFile(rel, posts.renderPost(p, bySlug[p.slug].map((x) => x.lang), { ORIGIN, PREFIX }, related));
   });
-  // feed RSS por idioma (só se houver artigos nesse idioma)
+  // artigos fixos (páginas .i18n-doc com Article) entram no feed com os posts da BD
+  DOC_PAGES.forEach((file) => {
+    const src = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    if (!/"@type":\s*"Article"/.test(src)) return;
+    const date = (src.match(/"datePublished":\s*"([^"]+)"/) || [, new Date().toISOString().slice(0, 10)])[1];
+    posts.LANGS.forEach((lang) => {
+      const block = (src.match(new RegExp('<div class="i18n-doc" data-lang="' + lang + '">([\\s\\S]*?)</div>')) || [, ''])[1];
+      const title = ((block.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ''])[1]).replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
+      if (!title) return;
+      STATIC_FEED[lang].push({ lang, title, description: firstParagraph(block), published_at: date, url: ORIGIN + PREFIX[lang] + file });
+    });
+  });
+  // feed RSS por idioma (posts da BD + artigos fixos, mais recentes primeiro)
   posts.LANGS.forEach((lang) => {
-    const list = DB_POSTS.filter((p) => p.lang === lang);
+    const list = DB_POSTS.filter((p) => p.lang === lang).concat(STATIC_FEED[lang]).sort((a, b) => String(b.published_at).localeCompare(String(a.published_at)));
     if (list.length) writeFile((lang === 'pt' ? '' : lang + '/') + 'feed.xml', posts.renderFeed(lang, list, { ORIGIN, PREFIX }));
   });
   console.log('  posts (BD)            ' + DB_POSTS.length + ' páginas');
