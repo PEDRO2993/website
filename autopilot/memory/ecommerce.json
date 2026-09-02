@@ -2,12 +2,12 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 4,
+  "count": 5,
   "entries": [
     {
       "key": "autopilot/phase",
       "namespace": "ecommerce",
-      "value": "RESEARCH=done; PLAN=done; BUILD=done; next=TEST. Store: store/ (DE/FR landing, plan toggle once CHF44 / sub CHF37.40, checkout permalink Shopify with placeholder IDs in store/js/store.js CONFIG), legal impressum/datenschutz/agb, emails autopilot/build/emails.md, setup autopilot/build/shopify-setup.md. Kill-switch ROAS<2.0 day5 -> skincare",
+      "value": "RESEARCH,PLAN,BUILD,TEST,FIX=done; next=DEPLOY (needs user: Shopify account, valmag.ch domain, CHF300 ads). E2E 40/40, Lighthouse 90/100/96/100. Campaign plan autopilot/deploy/campanha.md. Kill-switch ROAS<2.0 day5 -> skincare",
       "tags": [
         "autopilot",
         "phase"
@@ -38,6 +38,15 @@
       "tags": [
         "autopilot",
         "build"
+      ]
+    },
+    {
+      "key": "autopilot/test",
+      "namespace": "ecommerce",
+      "value": "Playwright 40/40 mobile+desktop; Lighthouse mobile perf90 a11y100 bp96 seo100; fixes: 24px tap targets, non-blocking Google Fonts. Pending real Shopify checkout (TWINT) once IDs exist.",
+      "tags": [
+        "autopilot",
+        "test"
       ]
     }
   ]
