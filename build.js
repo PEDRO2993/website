@@ -317,7 +317,10 @@ function buildHome() {
 function firstParagraph(block) {
   const m = block.match(/<p(?![^>]*class="lg-updated")[^>]*>([\s\S]*?)<\/p>/);
   if (!m) return '';
-  let txt = m[1].replace(/<[^>]+>/g, '')
+  /* Só o <br> vira espaço: "PR Studio<br>Stalden" dava "PR StudioStalden".
+     Pôr espaço em todas as etiquetas afastaria a vírgula em
+     "<strong>Pedro Ribeiro</strong>, atividade…". */
+  let txt = m[1].replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
     .replace(/\s+/g, ' ').trim();
