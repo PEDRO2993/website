@@ -36,7 +36,7 @@ const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 const ALPINA_URL = 'https://pedro2993.github.io/website/hotel-alpina/';
 
 const DOC_PAGES = [
-  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html', 'fotografia-site-negocio.html', 'site-hotel-valais.html', 'caso-hotel-alpina.html',
+  'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html', 'fotografia-site-negocio.html', 'site-hotel-valais.html', 'caso-hotel-alpina.html', 'auditoria-site-valais.html',
   'privacidade.html', 'termos.html', 'informacao-legal.html',
 ];
 /* as páginas legais não precisam de posição no Google, mas precisam de
@@ -327,7 +327,10 @@ function firstParagraph(block) {
   let txt = m[1].replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
-    .replace(/\s+/g, ' ').trim();
+    /* \s apanha o U+00A0, e a tipografia francesa precisa dele antes de : ; ? !
+       — colapsar espaços normais não pode comer o insecável, senão a description
+       e o JSON-LD saem com «discret : une» em espaço normal. */
+    .replace(/[^\S\u00A0]+/g, ' ').trim();
   if (txt.length > 158) txt = txt.slice(0, 155).replace(/[\s,;:]+\S*$/, '') + '…';
   return txt;
 }
