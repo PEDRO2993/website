@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 15,
+  "count": 16,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -148,6 +148,15 @@
         "autopilot",
         "v3",
         "publish"
+      ]
+    },
+    {
+      "key": "autopilot/routine/2026-09-03",
+      "namespace": "ecommerce",
+      "value": "Routine 06:35 UTC: 14 targets in 'rascunho', 0 in 'enviado' -> no follow-ups due, no approved targets to draft. Added 5 new targets (Goms/Loetschental/Val d'Herens, areas not yet covered): Berglodge Goms Muenster, Chambres d'hotes Les Ecureuils Arolla (mm.fauchere@bluewin.ch, +41 27 283 23 61), Hotel Blattnerhof Blatten b. Naters, Hotel Edelweiss Blatten Loetschental, Hotel Park Fiesch. All marked 'verificar ao vivo' — Facebook-only in search results is not proof of no site. Excluded Hotel Alpenblick Ernen (closed Dec 2025). Panel now 70 targets. Blocker unchanged: the 14 drafts still need Pedro's postal address and phone before any can be sent.",
+      "tags": [
+        "autopilot",
+        "routine"
       ]
     }
   ]
