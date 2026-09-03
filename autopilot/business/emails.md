@@ -18,8 +18,8 @@
 ```
 Freundliche Grüsse
 Pedro Ribeiro
-PR Studio · Webentwicklung · [Strasse Nr.], [PLZ] Stalden VS
-prstudio.ch · [pedro@prstudio.ch] · [Telefon]
+PR Studio · Webentwicklung · 3922 Stalden VS
+prstudio.ch · +41 79 825 70 78
 
 Sie erhalten diese Nachricht einmalig als Geschäftsanfrage. Wenn Sie keine weitere
 E-Mail von mir wünschen, antworten Sie einfach mit «Nein danke» – dann streiche ich
@@ -30,8 +30,8 @@ Sie sofort aus meiner Liste.
 ```
 Meilleures salutations
 Pedro Ribeiro
-PR Studio · développement web · [Rue N°], [NPA] Stalden VS
-prstudio.ch · [pedro@prstudio.ch] · [téléphone]
+PR Studio · développement web · 3922 Stalden VS
+prstudio.ch · +41 79 825 70 78
 
 Ce message vous est adressé une seule fois, à titre professionnel. Si vous ne
 souhaitez pas d'autre message de ma part, répondez simplement « non merci » :
@@ -156,12 +156,12 @@ Grüezi Herr {{Nachname}},
 
 Sie haben Wichtigeres zu tun – kein Problem, das ist meine letzte E-Mail zum Thema.
 
-Falls Direktbuchungen später einmal aktuell werden, finden Sie mich unter prstudio.ch oder [Telefon].
+Falls Direktbuchungen später einmal aktuell werden, finden Sie mich unter prstudio.ch oder +41 79 825 70 78.
 
 Freundliche Grüsse
 Pedro Ribeiro
-PR Studio · Webentwicklung · [Strasse Nr.], [PLZ] Stalden VS
-prstudio.ch · [pedro@prstudio.ch] · [Telefon]
+PR Studio · Webentwicklung · 3922 Stalden VS
+prstudio.ch · +41 79 825 70 78
 
 Sie hören nichts mehr von mir, ausser Sie melden sich.
 
@@ -172,11 +172,11 @@ Bonjour Madame, Monsieur,
 
 vous avez d'autres priorités, c'est bien normal : voici mon dernier message à ce sujet.
 
-Si les réservations directes redeviennent un thème, vous me trouvez sur prstudio.ch ou au [téléphone].
+Si les réservations directes redeviennent un thème, vous me trouvez sur prstudio.ch ou au +41 79 825 70 78.
 
 Meilleures salutations
 Pedro Ribeiro
-PR Studio · développement web · [Rue N°], [NPA] Stalden VS
-prstudio.ch · [pedro@prstudio.ch] · [téléphone]
+PR Studio · développement web · 3922 Stalden VS
+prstudio.ch · +41 79 825 70 78
 
 Vous n'aurez plus de message de ma part, sauf si vous me recontactez.

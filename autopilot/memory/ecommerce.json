@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 16,
+  "count": 17,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -157,6 +157,15 @@
       "tags": [
         "autopilot",
         "routine"
+      ]
+    },
+    {
+      "key": "autopilot/contacto",
+      "namespace": "ecommerce",
+      "value": "2026-09-03: user supplied postcode 3922 (Stalden VS) and phone 0798257078 = +41 79 825 70 78 (same as the site's WhatsApp). Filled into all 14 Gmail drafts, the 3 outreach template files, the 3 legal pages and the panel's email generator. Signature is now 'PR Studio · Webentwicklung · 3922 Stalden VS / prstudio.ch · +41 79 825 70 78'. Street name/number still not supplied — acceptable for a village but the street would be stronger for the UWG sender-identification requirement. Legal pages still need: legal form, CHE/UID, VAT status, hosting provider name.",
+      "tags": [
+        "autopilot",
+        "contacto"
       ]
     }
   ]
