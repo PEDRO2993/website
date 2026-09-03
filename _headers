@@ -41,7 +41,9 @@
   Cache-Control: public, max-age=0, must-revalidate
 /site-hotel-valais.html
   Cache-Control: public, max-age=0, must-revalidate
-/fotografia-site-negocio.html
+/caso-hotel-alpina.html
+  Cache-Control: public, max-age=0, must-revalidate
+/demos.html
   Cache-Control: public, max-age=0, must-revalidate
 /blog/*
   Cache-Control: public, max-age=0, must-revalidate
