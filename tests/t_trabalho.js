@@ -18,7 +18,7 @@ const EXP = {
 
 (async()=>{
  const srv=await serve(); const base='http://127.0.0.1:'+srv.address().port;
- const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
+ const b=await chromium.launch({executablePath:CHROME});
 
  console.log('1. Secção presente e traduzida em cada idioma');
  for (const [url,exp] of Object.entries(EXP)) {

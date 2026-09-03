@@ -1,5 +1,5 @@
 // Rastreio de leads: cliques em WhatsApp/telefone/email e CTAs registam origem, sem erros JS.
-const { DIST } = require('./_env');
+const { DIST, CHROME } = require('./_env');
 const { chromium } = require('playwright');
 const http = require('http'); const fs = require('fs'); const path = require('path');
 let pass = 0, fail = 0;
@@ -10,7 +10,7 @@ function serve() { return new Promise((r) => { const s = http.createServer((q, p
 
 (async () => {
   const srv = await serve(); const base = 'http://127.0.0.1:' + srv.address().port;
-  const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+  const b = await chromium.launch({ executablePath: CHROME });
   const ctx = await b.newContext({ locale: 'pt-PT' });
   await ctx.addInitScript(() => { localStorage.setItem('pr-consent', 'denied'); sessionStorage.setItem('pr-seen', '1'); });
   const pg = await ctx.newPage(); const errs = []; pg.on('pageerror', (e) => errs.push(String(e)));
