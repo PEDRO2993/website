@@ -49,6 +49,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const slugify = (t) => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
   .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 const words = (html) => String(html).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean).length;
+/* A Suíça não escreve ß. O modelo é instruído duas vezes (escritor e editor),
+   mas instrução não é garantia — e quem revê o rascunho lê português, por isso
+   um ß no meio do alemão passa despercebido até estar publicado. Determinístico. */
+const swissDe = (lang, s) => (lang === 'de' ? String(s).replace(/ß/g, 'ss') : String(s));
 
 async function askClaude(system, user, { maxTokens = 4500, tries = 3 } = {}) {
   let last;
@@ -162,7 +166,10 @@ export async function run() {
     const slug = await uniqueSlug(slugify(edited[first].title) || slugify(topic.topic));
     const now = new Date().toISOString();
     const rows = Object.entries(edited).map(([lang, d]) => ({
-      slug, lang, title: String(d.title).slice(0, 120), description: String(d.description).slice(0, 160), body_html: d.body_html,
+      slug, lang,
+      title: swissDe(lang, d.title).slice(0, 120),
+      description: swissDe(lang, d.description).slice(0, 160),
+      body_html: swissDe(lang, d.body_html),
       status: STATUS, published_at: STATUS === 'published' ? now : null,
     }));
     await sbWrite('POST', 'posts?on_conflict=slug,lang', rows, 'resolution=merge-duplicates,return=minimal');

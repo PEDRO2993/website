@@ -46,7 +46,7 @@ const NOINDEX_PAGES = ['privacidade.html', 'termos.html', 'informacao-legal.html
 /* ficheiros copiados tal e qual para a raiz de dist/ */
 const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
-  'site.webmanifest', '_headers', '404.html',
+  'site.webmanifest', '404.html', /* o _headers é gerado, ver buildHeaders() */
 ];
 const COPY_DIRS = ['img', 'css', 'fonts'];
 
@@ -111,9 +111,13 @@ function writeFile(rel, content) {
   fs.writeFileSync(full, content);
 }
 
+/* Tudo em COPY_FILES/COPY_DIRS faz falta ao site publicado: o _headers leva o
+   CSP, o supabase.min.js é a área de cliente, css/ e fonts/ são o desenho. Um
+   aviso na consola do Netlify não é lido por ninguém e o site ia para o ar
+   partido — já aconteceu. Falta um ficheiro, falha o build. */
 function copyInto(rel) {
   const from = path.join(ROOT, rel);
-  if (!fs.existsSync(from)) { console.warn('  (aviso) não existe, ignorado: ' + rel); return; }
+  if (!fs.existsSync(from)) throw new Error('ficheiro obrigatório em falta: ' + rel);
   fs.cpSync(from, path.join(DIST, rel), { recursive: true });
 }
 
@@ -564,6 +568,32 @@ function buildSitemap() {
   console.log('  sitemap.xml           ' + urls.length + ' URLs');
 }
 
+/* O _headers listava cada página à mão e ia-se desencontrando: a
+   caso-hotel-alpina.html entrou sem regra e ficou no cache da CDN enquanto
+   todas as outras revalidavam. A lista sai agora da DOC_PAGES — acrescentar
+   lá chega, e não há segunda lista para esquecer. */
+const REVALIDATE = '  Cache-Control: public, max-age=0, must-revalidate';
+
+function pageHeaderRules() {
+  const paths = ['/index.html', '/'];
+  DOC_PAGES.forEach((f) => paths.push('/' + f));
+  paths.push('/demos.html'); /* fragmento gerado, muda a cada deploy */
+  LANGS.filter((l) => l !== 'pt').forEach((l) => paths.push(PREFIX[l] + '*'));
+  paths.push('/blog/*'); /* artigos da base de dados */
+  return paths.map((p) => p + '\n' + REVALIDATE).join('\n');
+}
+
+function buildHeaders() {
+  const src = path.join(ROOT, '_headers');
+  if (!fs.existsSync(src)) throw new Error('ficheiro obrigatório em falta: _headers');
+  const raw = fs.readFileSync(src, 'utf8');
+  const start = '#gen:paginas:inicio', end = '#gen:paginas:fim';
+  const re = new RegExp(start + '[\\s\\S]*?' + end);
+  if (!re.test(raw)) throw new Error('_headers sem as marcas ' + start + '/' + end);
+  writeFile('_headers', raw.replace(re, () => start + '\n' + pageHeaderRules() + '\n' + end));
+  console.log('  _headers              ' + (DOC_PAGES.length + 4 + LANGS.length - 1) + ' regras de página');
+}
+
 function buildRedirects() {
   // os antigos ?lang=xx passam a apontar para o URL definitivo
   const lines = ['# gerado por build.js — não editar à mão', ''];
@@ -622,6 +652,7 @@ async function main() {
   DOC_PAGES.forEach(buildDocPage);
   buildSitemap();
   buildRedirects();
+  buildHeaders();
 
   COPY_FILES.forEach(copyInto);
   // 404: 3 artigos mais recentes por idioma (o JS da página escolhe pelo prefixo do URL)
