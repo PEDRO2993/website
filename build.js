@@ -32,6 +32,9 @@ const OG_LOCALE = { pt: 'pt_PT', de: 'de_CH', fr: 'fr_CH', it: 'it_CH', en: 'en_
 const PREFIX = { pt: '/', de: '/de/', fr: '/fr/', it: '/it/', en: '/en/' };
 
 /* páginas com o sistema .i18n-doc (um bloco por idioma no mesmo ficheiro) */
+/* Site do Hotel Alpina — trocar aqui quando passar para domínio próprio (Netlify, branch alpina) */
+const ALPINA_URL = 'https://pedro2993.github.io/website/hotel-alpina/';
+
 const DOC_PAGES = [
   'blog.html', 'preco-site-suica.html', 'multilingue-valais.html', 'google-business-valais.html', 'site-restaurante-valais.html', 'manutencao-site.html', 'fotografia-site-negocio.html', 'site-hotel-valais.html', 'caso-hotel-alpina.html',
   'privacidade.html', 'termos.html', 'informacao-legal.html',
@@ -101,6 +104,7 @@ function selfHostFonts(html) {
   return html.replace(/[ \t]*<link[^>]*fonts\.g(?:oogleapis|static)[^>]*>\s*/g, () => (done ? '' : (done = true, posts.FONT_HEAD + '\n')));
 }
 function writeFile(rel, content) {
+  if (typeof content === 'string') content = content.split('https://__alpina__/').join(ALPINA_URL);
   const full = path.join(DIST, rel);
   if (rel.endsWith('.html')) content = selfHostFonts(content);
   fs.mkdirSync(path.dirname(full), { recursive: true });

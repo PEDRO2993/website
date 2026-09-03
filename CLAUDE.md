@@ -252,3 +252,4 @@ A sessão principal coordena. Não faz pesquisa nem formatação ela própria.
 - Demos dos 6 setores: o markup sai da página no build para `demos.html` (por idioma) e é carregado ao abrir uma demo; só as capas SVG ficam em `#tplThumbs` (miniaturas do portfólio). Não editar `demos.html` — é gerado.
 - Leads: `fireLead(método, origem)` e `fireCta(origem)` registam WhatsApp/telefone/email/formulário e CTAs com a secção de origem e o idioma (GA4 `generate_lead`/`cta_click`, Meta `Lead`). GA_ID e META_PIXEL_ID continuam por preencher no index.html.
 - Caso de cliente: `caso-hotel-alpina.html` (5 idiomas) segue a receita dos artigos e está ligado a partir de "Trabalho recente".
+- URL do site do Hotel Alpina: marcador `https://__alpina__/` nas páginas, valor real em `ALPINA_URL` (build.js). Trocar aí quando passar para domínio próprio.
