@@ -2,7 +2,7 @@
   "schema": "ruflo-memory-export/v1",
   "exportedAt": "2026-09-02T14:45:00.000Z",
   "namespace": "ecommerce",
-  "count": 17,
+  "count": 18,
   "entries": [
     {
       "key": "autopilot/phase",
@@ -166,6 +166,16 @@
       "tags": [
         "autopilot",
         "contacto"
+      ]
+    },
+    {
+      "key": "autopilot/routine/2026-09-04",
+      "namespace": "ecommerce",
+      "value": "Routine 06:37 UTC: still 0 sent, so no follow-ups. Added 5 targets from areas not yet covered (Champex-Lac, Val Ferret, Val d'Anniviers): Hotel Mont Lac, Hotel Splendide, Au Club Alpin, Auberge des Glaciers La Fouly, Le Beausite Saint-Luc — all 'verificar ao vivo'. Excluded Hotel de Moiry Grimentz (already dropped: has a booking engine). Panel 75 targets. BLOCKER unchanged and unanswered since 03/09: cannot verify https://prstudio.ch/hotel-alpina/ from here (proxy blocks the domain); repo evidence says it is probably 404 (no CNAME so Pages serves at pedro2993.github.io/website/, Netlify publishes dist/, hotel-alpina only entered COPY_DIRS on 02/09, and the build was crashing before that). A web search for prstudio.ch returns nothing indexed. Sending 14 emails whose only proof is a dead link would be worse than not sending.",
+      "tags": [
+        "autopilot",
+        "routine",
+        "blocker"
       ]
     }
   ]
