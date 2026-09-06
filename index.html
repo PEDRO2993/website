@@ -1100,6 +1100,56 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
 }
 @media (hover: hover) { .card:hover::after { transform: translateX(0); } }
 .plan.hot::before { background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 10%), rgba(0, 224, 255, 0.10), transparent 62%); }
+
+/* ---------- ticker: faixa telemetria contínua, identidade única ---------- */
+.ticker { overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg-2); white-space: nowrap; }
+.ticker-track { display: inline-flex; gap: 26px; padding: 9px 0; width: max-content; animation: tickerScroll 30s linear infinite; }
+.ticker-track span { font-family: "Spline Sans Mono", monospace; font-size: 0.7rem; letter-spacing: 0.18em; color: var(--ink-3); }
+.ticker-track .tdot { color: var(--ember); }
+@keyframes tickerScroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+@media (max-width: 640px) { .ticker-track span { font-size: 0.64rem; } }
+
+/* ---------- grelha do hero: deslize contínuo, como um feed de dados ---------- */
+.grid-floor { background-size: 64px 64px, 100% 46px; animation: gridDrift 9s linear infinite; }
+@keyframes gridDrift { to { background-position: 64px 0, 0 46px; } }
+@media (prefers-reduced-motion: reduce) { .grid-floor { animation: none; } }
+
+/* ---------- ping de radar no selo do hero: assinatura visual única ---------- */
+.hero .eyebrow { position: relative; }
+.hero .eyebrow::after {
+  content: ""; position: absolute; left: 16px; top: 50%; width: 7px; height: 7px;
+  margin-top: -3.5px; border-radius: 50%; border: 1px solid var(--ember);
+  animation: radarPing 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) infinite; pointer-events: none;
+}
+@keyframes radarPing { 0% { transform: scale(1); opacity: 0.8; } 55% { opacity: 0.2; } 100% { transform: scale(2.1); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .hero .eyebrow::after { animation: none; display: none; } }
+
+/* ---------- boot-reveal: títulos "iniciam" da esquerda, eco do ecrã de arranque ---------- */
+.boot-reveal { clip-path: inset(0 100% 0 0); transition: clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1); }
+.boot-reveal.in { clip-path: inset(0 0 0 0); }
+@media (prefers-reduced-motion: reduce) { .boot-reveal { clip-path: none; } }
+
+/* ---------- cursor HUD: retículo que segue o rato (só com rato/trackpad fino) ---------- */
+#hudCursor {
+  position: fixed; top: 0; left: 0; width: 26px; height: 26px; margin: -13px 0 0 -13px;
+  border: 1px solid var(--red-ink); border-radius: 50%; pointer-events: none; z-index: 9999;
+  transition: width 0.25s ease, height 0.25s ease, margin 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  mix-blend-mode: difference;
+}
+#hudCursor::before {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 3px; height: 3px;
+  margin: -1.5px 0 0 -1.5px; border-radius: 50%; background: var(--ember);
+}
+#hudCursor.active { width: 46px; height: 46px; margin: -23px 0 0 -23px; border-color: var(--ember); background: rgba(0, 224, 255, 0.08); }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { #hudCursor { display: none; } }
+
+/* ---------- toques adicionais: chips do hero a "respirar", nav com sublinhado ---------- */
+.hero-chips span { animation: chipBob 5s ease-in-out infinite; }
+.hero-chips span:nth-child(2) { animation-delay: 0.35s; }
+.hero-chips span:nth-child(3) { animation-delay: 0.7s; }
+@keyframes chipBob { 50% { transform: translateY(-4px); } }
+@media (prefers-reduced-motion: reduce) { .hero-chips span { animation: none; } }
 </style>
 </head>
 <body>
@@ -1179,6 +1229,8 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" data-i18n-aria="a11y.menuOpen" aria-label="Abrir menu">☰</button>
   </div>
 </header>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>WEBSITES</span><span class="tdot">•</span><span>MARKETING</span><span class="tdot">•</span><span>SOCIAL MEDIA</span><span class="tdot">•</span><span>SEO</span><span class="tdot">•</span><span>GOOGLE ADS</span><span class="tdot">•</span><span>E-COMMERCE</span><span class="tdot">•</span><span>MULTILÍNGUE</span><span class="tdot">•</span><span>VALAIS · SUÍÇA</span><span class="tdot">•</span><span>WEBSITES</span><span class="tdot">•</span><span>MARKETING</span><span class="tdot">•</span><span>SOCIAL MEDIA</span><span class="tdot">•</span><span>SEO</span><span class="tdot">•</span><span>GOOGLE ADS</span><span class="tdot">•</span><span>E-COMMERCE</span><span class="tdot">•</span><span>MULTILÍNGUE</span><span class="tdot">•</span><span>VALAIS · SUÍÇA</span><span class="tdot">•</span></div></div>
 
 <main id="top" tabindex="-1">
 
@@ -4934,6 +4986,7 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
     }
     addTilt(".tilt", 7, 9);
     addTilt(".pillar, .stat, .step", 3, 4);
+    addTilt(".card", 2.5, 3);
     document.querySelectorAll(".card").forEach(function (card) {
       card.addEventListener("pointermove", function (e) {
         var r = card.getBoundingClientRect();
@@ -6259,6 +6312,39 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
     try { localStorage.setItem("pr-consent", "denied"); } catch (e) {}
     cookieBanner.hidden = true;
   });
+
+  /* ---------- boot-reveal: títulos de secção "iniciam" ao entrar no ecrã ---------- */
+  document.querySelectorAll("h2.display").forEach(function (h) { h.classList.add("boot-reveal"); });
+  if ("IntersectionObserver" in window && !REDUCED) {
+    var bio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); bio.unobserve(en.target); }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll(".boot-reveal").forEach(function (el) { bio.observe(el); });
+  } else {
+    document.querySelectorAll(".boot-reveal").forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---------- cursor HUD: retículo com atraso suave, só em rato/trackpad fino ---------- */
+  if (FINE && !REDUCED) {
+    var hudCursor = document.createElement("div");
+    hudCursor.id = "hudCursor";
+    hudCursor.setAttribute("aria-hidden", "true");
+    document.body.appendChild(hudCursor);
+    var hcTX = 0, hcTY = 0, hcX = -50, hcY = -50;
+    window.addEventListener("pointermove", function (e) { hcTX = e.clientX; hcTY = e.clientY; });
+    (function hudLoop() {
+      hcX += (hcTX - hcX) * 0.18;
+      hcY += (hcTY - hcY) * 0.18;
+      hudCursor.style.transform = "translate(" + hcX + "px," + hcY + "px)";
+      requestAnimationFrame(hudLoop);
+    })();
+    document.querySelectorAll("a, button, .card, input, select, textarea").forEach(function (el) {
+      el.addEventListener("pointerenter", function () { hudCursor.classList.add("active"); });
+      el.addEventListener("pointerleave", function () { hudCursor.classList.remove("active"); });
+    });
+  }
 
   /* ---------- relatório silencioso de erros (fiabilidade) ----------
      Se algo rebentar no browser de um visitante, chega-me um aviso (via
