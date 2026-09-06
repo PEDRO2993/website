@@ -1061,6 +1061,45 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
 .tw-handle { font-family: "Spline Sans Mono", monospace; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--ink-2); }
 
 .tw-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* ---------- sinal ao vivo: um único motivo de "pulso" no acento,
+   usado só nos pontos de marca (logótipo, selo do hero) e no CTA
+   recomendado — não em todos os pontos da página, para não ficar
+   agitado. Desligado com prefers-reduced-motion (já coberto acima). */
+@keyframes signalPulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 0 rgba(0, 224, 255, 0); }
+  50% { opacity: 0.55; text-shadow: 0 0 10px rgba(0, 224, 255, 0.9); }
+}
+@keyframes signalPulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0.55); }
+  50% { box-shadow: 0 0 0 4px rgba(0, 224, 255, 0); }
+}
+.logo .dot { display: inline-block; animation: signalPulse 3.2s ease-in-out infinite; }
+.eyebrow::before { animation: signalPulseDot 2.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .logo .dot, .eyebrow::before { animation: none; } }
+
+/* respiração suave só no CTA principal do hero e no plano recomendado —
+   os restantes botões ficam parados, para o olhar ir só a estes dois */
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 6px 18px rgba(29, 109, 255, 0.22); }
+  50% { box-shadow: 0 6px 26px rgba(29, 109, 255, 0.5), 0 0 30px rgba(0, 224, 255, 0.18); }
+}
+.hero-ctas .btn-red, .plan.hot .btn-red { animation: ctaGlow 3.6s ease-in-out infinite; }
+.hero-ctas .btn-red:hover, .plan.hot .btn-red:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .hero-ctas .btn-red, .plan.hot .btn-red { animation: none; } }
+
+/* cartões: linha de "ativação" no topo ao passar o rato, e o plano
+   recomendado ganha o brilho ciano em vez do azul geral — reforça
+   qual é a escolha sugerida sem precisar de mais texto */
+.card { position: relative; overflow: hidden; }
+.card::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ember), transparent);
+  transform: translateX(-100%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none; z-index: 1;
+}
+@media (hover: hover) { .card:hover::after { transform: translateX(0); } }
+.plan.hot::before { background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 10%), rgba(0, 224, 255, 0.10), transparent 62%); }
 </style>
 </head>
 <body>
