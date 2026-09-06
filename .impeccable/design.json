@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T00:00:00Z",
+  "title": "Design System: PR Studio",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#F6F5F1", "tonalRamp": ["#101010", "#2A2A28", "#45453F", "#5C5B55", "#8C8B84", "#B9B5AA", "#D9D6CE", "#F6F5F1"] },
+      "paper-2": { "role": "neutral", "displayName": "Paper Deep", "canonical": "#ECEAE3", "tonalRamp": ["#0E0E0D", "#282826", "#413F3A", "#575650", "#87847B", "#B4AFA2", "#D3CFC4", "#ECEAE3"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#101010", "tonalRamp": ["#000000", "#101010", "#2B2B2B", "#454545", "#666666", "#8C8C8C", "#C2C2C2", "#F6F5F1"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#45453F", "tonalRamp": ["#0A0A09", "#1F1F1B", "#333330", "#45453F", "#63625A", "#8E8C81", "#BFBCAF", "#F6F5F1"] },
+      "ink-3": { "role": "neutral", "displayName": "Ink Faint", "canonical": "#5C5B55", "tonalRamp": ["#0F0F0D", "#242422", "#3A3A36", "#5C5B55", "#797870", "#A3A199", "#C9C6BB", "#F6F5F1"] },
+      "rule": { "role": "neutral", "displayName": "Rule (grid hairline)", "canonical": "#D9D6CE", "tonalRamp": ["#171613", "#332F29", "#544E44", "#78715F", "#9C9482", "#BFB9A9", "#D9D6CE", "#F6F5F1"] },
+      "rule-2": { "role": "neutral", "displayName": "Rule Deep", "canonical": "#B9B5AA", "tonalRamp": ["#131210", "#2C2924", "#494339", "#665F51", "#867E6E", "#A69E8C", "#B9B5AA", "#F6F5F1"] },
+      "swiss-red": { "role": "primary", "displayName": "Swiss Red", "canonical": "#C8102E", "tonalRamp": ["#2A0308", "#4D060E", "#7A0A17", "#A50D1F", "#C8102E", "#DD4A5F", "#EE9CA8", "#FAE0E3"] },
+      "red-ink": { "role": "primary", "displayName": "Deep Route Red", "canonical": "#A50D25", "tonalRamp": ["#210207", "#3E050D", "#620816", "#830A1E", "#A50D25", "#C34456", "#E28E98", "#F6D2D7"] },
+      "slate": { "role": "tertiary", "displayName": "Screen-Frame Slate", "canonical": "#2B3A55", "tonalRamp": ["#080B10", "#141C29", "#202D42", "#2B3A55", "#455B82", "#6E85AC", "#A6B7D0", "#DDE3EC"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 and section H2 titles only; Archivo at wdth 112-118, weight 800." },
+      "body": { "displayName": "Body", "purpose": "Running copy, card text, form labels; Archivo at wdth 100, weight 400." },
+      "label": { "displayName": "Eyebrow / Label", "purpose": "Section eyebrows marked with a small red square, no uppercase transform." }
+    },
+    "shadows": [
+      { "name": "none", "value": "none", "purpose": "Every ateliê-layer surface (cards, buttons, bands, panels) is explicitly shadow-free; --sh-sm/--sh-lg are legacy aliases kept at 'none' for the pre-ateliê block." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The single easing curve (--ease) used for every transition and keyframe animation in the system." },
+      { "name": "startup-choreography", "value": "gridDraw 0.9s, riseIn 0.8-1s, titleIn 1.25s, pieceIn 1.1s, routeDraw 1.5s — sequenced 0.15s-1s after .hero-go is added to <html>", "purpose": "One-time hero entrance fired by the loader finishing: grid rules draw, red route line draws down from the logo, eyebrow/title/pitch/CTAs/trust list rise in sequence, the real work-piece slides in from the right." },
+      { "name": "word-reveal", "value": "wordIn 0.95s var(--ease), per-word delay = 0.28s + var(--i)*75ms (hero) or var(--i)*45ms (section heads)", "purpose": "Hero H1 and every section H2 are split into per-word <span> elements by JS and rise with a slight 4deg rotation, staggered word by word." },
+      { "name": "plate-wipe-reveal", "value": "clip-path inset() transition, 0.9-1.1s var(--ease)", "purpose": "Screenshot plates (.tw-mock, .shot-screen), CTA bands, and bundle panels reveal via a directional clip-path wipe on scroll intersection rather than an opacity fade." },
+      { "name": "button-ink-sweep", "value": "::before layer, transform: translateX(-101%) -> none, 0.45s var(--ease)", "purpose": "Button hover state: a solid color layer slides in from the left to swap the fill color, instead of a background-color transition." },
+      { "name": "marquee-scroll", "value": "marquee 32s linear infinite, translateX(-50%), pauses on hover", "purpose": "The full-bleed outlined-type service marquee band." },
+      { "name": "scroll-linked-zoom", "value": "animation-timeline: view(), animation-range: exit 0% exit 100%, scale to 1.28 translateY(-4%)", "purpose": "Progressive Enhancement: on browsers supporting scroll-driven animations, the hero screenshot frame zooms as it exits the viewport; falls back to static on unsupported browsers." },
+      { "name": "cursor-trail", "value": "requestAnimationFrame lerp, factor 0.22, plus CSS transition on size/opacity 0.2-0.3s", "purpose": "A small red dot (#cursorDot) trails the pointer with easing on fine-pointer devices, expanding over interactive elements (a, button, .shot, .tw-card, .faq-q, form fields)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "480px" },
+      { "name": "md", "value": "600px" },
+      { "name": "lg", "value": "760-820px" },
+      { "name": "xl", "value": "900-980px" },
+      { "name": "xxl", "value": "1000-1360px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (red)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA everywhere (WhatsApp/hero/CTA bands/form submit). Solid Swiss red, ink-colored wipe-in on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Pedir avaliação grátis</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 22px; border: 1px solid #C8102E; border-radius: 0; background: #C8102E; color: #fff; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color 0.25s ease, border-color 0.25s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary::before { content: ''; position: absolute; inset: 0; background: #101010; transform: translateX(-101%); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); z-index: -1; } .ds-btn-primary:hover::before { transform: none; } .ds-btn-primary:hover { border-color: #101010; color: #fff; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #C8102E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button (ink)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Default dark button (nav Login, some plan CTAs). Ink fill, red wipe-in on hover.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Ver serviços</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 22px; border: 1px solid #101010; border-radius: 0; background: #101010; color: #F6F5F1; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color 0.25s ease, border-color 0.25s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary::before { content: ''; position: absolute; inset: 0; background: #C8102E; transform: translateX(-101%); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); z-index: -1; } .ds-btn-secondary:hover::before { transform: none; } .ds-btn-secondary:hover { border-color: #C8102E; color: #fff; } .ds-btn-secondary:focus-visible { outline: 2px solid #C8102E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Transparent outline button used as the secondary action next to a primary red CTA.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Ver serviços</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 22px; border: 1px solid #101010; border-radius: 0; background: transparent; color: #101010; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 0.95rem; text-decoration: none; cursor: pointer; position: relative; overflow: hidden; isolation: isolate; transition: color 0.25s ease, border-color 0.25s ease; } .ds-btn-ghost::before { content: ''; position: absolute; inset: 0; background: #101010; transform: translateX(-101%); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); z-index: -1; } .ds-btn-ghost:hover::before { transform: none; } .ds-btn-ghost:hover { color: #F6F5F1; border-color: #101010; } .ds-btn-ghost:focus-visible { outline: 2px solid #C8102E; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field-input",
+      "description": "Bottom-border-only input used across the contact form. No box, no radius; red underline on focus.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-name\">O teu nome</label><input id=\"ds-name\" type=\"text\" placeholder=\"\"></div>",
+      "css": ".ds-field { display: grid; gap: 6px; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-field label { font-size: 0.9rem; font-weight: 600; color: #101010; } .ds-field input { width: 100%; border: 0; border-bottom: 1px solid #101010; border-radius: 0; background: transparent; padding: 12px 0; color: #101010; font: inherit; transition: border-color 0.2s ease, box-shadow 0.2s ease; } .ds-field input::placeholder { color: #5C5B55; } .ds-field input:focus { outline: none; border-bottom-color: #C8102E; box-shadow: 0 1px 0 #C8102E; } .ds-field input[aria-invalid='true'] { border-bottom-color: #C8102E; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "nav-header",
+      "description": "Sticky paper header with a 1px ink bottom border; links get a red underline that grows in from the left on hover/active.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-logo\" href=\"#\">PR<span class=\"ds-dot\">.</span></a><nav class=\"ds-nav-links\"><a href=\"#\" class=\"active\">Serviços</a><a href=\"#\">Exemplos</a><a href=\"#\">Preços</a></nav></header>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 20px; min-height: 68px; background: #F6F5F1; border-bottom: 1px solid #101010; padding: 0 24px; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-logo { font-weight: 800; font-size: 1.35rem; letter-spacing: -0.04em; text-decoration: none; color: #101010; } .ds-dot { color: #C8102E; } .ds-nav-links { display: flex; gap: 2px; margin-left: auto; } .ds-nav-links a { text-decoration: none; color: #45453F; font-weight: 500; font-size: 0.95rem; padding: 8px 10px; position: relative; transition: color 0.15s ease; } .ds-nav-links a::after { content: ''; position: absolute; left: 10px; right: 10px; bottom: 2px; height: 2px; background: #C8102E; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); } .ds-nav-links a:hover, .ds-nav-links a.active { color: #101010; } .ds-nav-links a:hover::after, .ds-nav-links a.active::after { transform: scaleX(1); }"
+    },
+    {
+      "name": "Ruled Block (pillar/step)",
+      "kind": "card",
+      "refersTo": "card-ruled-block",
+      "description": "The canonical 'card' of this system: no box, no shadow — a top rule, a large red index numeral, a title, copy, and a bulleted list with red dashes.",
+      "html": "<article class=\"ds-block\"><span class=\"ds-idx\">01</span><h3>Websites</h3><p>Sites rápidos e prontos para o Google.</p><ul><li>Landing pages</li><li>E-commerce</li></ul></article>",
+      "css": ".ds-block { display: flex; flex-direction: column; border-top: 1px solid #101010; padding: 22px 0 26px; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-idx { display: block; color: #C8102E; font-weight: 800; font-size: 2.4rem; line-height: 1; letter-spacing: -0.04em; } .ds-block h3 { font-weight: 700; letter-spacing: -0.02em; font-size: 1.55rem; margin: 16px 0 10px; color: #101010; } .ds-block p { color: #45453F; font-size: 0.98rem; margin: 0; } .ds-block ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 7px; } .ds-block li { display: flex; gap: 10px; align-items: baseline; color: #45453F; font-size: 0.95rem; } .ds-block li::before { content: '\\2014'; color: #C8102E; font-weight: 700; flex: none; }"
+    },
+    {
+      "name": "Screen Frame (signature)",
+      "kind": "custom",
+      "refersTo": "screen-frame",
+      "description": "The slate-blue mat that stages every piece of real or demo work (hero screenshot, trabalho-recente mockups, folio shots) — the one non-flat, non-ink/red surface in the system.",
+      "html": "<a class=\"ds-frame\" href=\"#\"><span class=\"ds-frame-img\"><img src=\"work.jpg\" alt=\"\"></span><span class=\"ds-frame-cap\"><b>Hotel Alpina · Grächen</b><span>Website</span></span></a>",
+      "css": ".ds-frame { display: block; text-decoration: none; color: #101010; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; } .ds-frame-img { display: block; background: #2B3A55; padding: 14px; overflow: hidden; } .ds-frame-img img { display: block; width: 100%; height: auto; transition: transform 0.5s ease; } .ds-frame:hover .ds-frame-img img { transform: scale(1.03); } .ds-frame-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; border-top: 1px solid #101010; margin-top: 12px; padding-top: 10px; font-size: 0.9rem; } .ds-frame-cap b { font-weight: 700; } .ds-frame-cap span { color: #5C5B55; } .ds-frame:hover .ds-frame-cap b { color: #C8102E; }"
+    },
+    {
+      "name": "Outlined Marquee (signature)",
+      "kind": "custom",
+      "refersTo": "marquee",
+      "description": "Full-bleed looping band of oversized outlined type naming the three services, the system's loudest single element.",
+      "html": "<div class=\"ds-marquee\"><div class=\"ds-marquee-track\"><span>Websites</span><span class=\"ds-mq-dot\">\\2022</span><span>Marketing</span><span class=\"ds-mq-dot\">\\2022</span><span class=\"ds-marquee-solid\">Social Media</span><span class=\"ds-mq-dot\">\\2022</span></div></div>",
+      "css": ".ds-marquee { overflow: hidden; border-top: 1px solid #101010; border-bottom: 1px solid #101010; padding: 14px 0; background: #F6F5F1; } .ds-marquee-track { display: flex; align-items: center; width: max-content; animation: ds-marquee 32s linear infinite; } .ds-marquee:hover .ds-marquee-track { animation-play-state: paused; } .ds-marquee span { font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: clamp(3rem, 9vw, 8.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; padding: 0 0.28em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px #101010; } .ds-marquee-solid { color: #101010 !important; -webkit-text-stroke: 0 !important; } .ds-mq-dot { color: #C8102E; -webkit-text-stroke: 0; font-size: clamp(1.4rem, 3.6vw, 3rem); padding: 0 0.1em; } @keyframes ds-marquee { to { transform: translateX(-50%); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Swiss Atelier (Ateliê suíço)",
+    "overview": "PR Studio's homepage sells Swiss precision by being Swiss precision: a sheet of paper (#F6F5F1) ruled into a strict typographic grid, two inks only — near-black and Swiss red — and one variable typeface (Archivo) stretched wide and heavy for display, set at normal width for reading. There are no cards with shadows anywhere in the built system; every block is a plane of paper separated by a 1px rule. The one deliberately \"unflat\" surface is the slate-blue frame (#2B3A55) that stages real screenshots (the Hotel Alpina site, sector-demo mockups) — it exists only to hold work, never as a decorative surface. This is a rejection of the previous system's dark hero with abstract decoration and a shelf of identical shadowed cards. The homepage is animation-forward by explicit request, but the motion is orchestrated and grid-bound rather than decorative: a single startup choreography plays once (grid rules draw, a red \"route\" line draws down from the logo, the headline rises word-by-word, the real work-piece slides in from the right), then scroll-triggered reveals take over — section titles split into words that rise into place, plates (mockups, screenshots) reveal via clip-path wipes instead of fades, numbers and indices count/jump into position, a giant outlined-type marquee repeats the three services, and a soft red cursor dot trails the pointer on fine-pointer devices. Everything routes through prefers-reduced-motion and (for the cursor) pointer: coarse, collapsing to a static, fully legible page.",
+    "keyCharacteristics": [
+      "Paper-and-ink, not screens-and-cards: two inks total (--ink, --red), one paper surface, zero shadows, zero border-radius.",
+      "A visible 12-column grid in the hero, drawn in on load as literal 1px rules — the grid is not a layout aid, it's the visual subject.",
+      "One typeface (Archivo variable) doing two jobs via variation axes: wdth 112-118 + weight 800 for display, wdth 100 + weight 400 for body.",
+      "Real client work (Hotel Alpina, MedVisp) is staged as \"the piece\" before any self-description; the About section is deliberately text-only (no portrait exists).",
+      "Motion is a single startup sequence plus scroll-linked reveals — never idle/looping decoration except the marquee band and the cursor dot."
+    ],
+    "rules": [
+      { "name": "The Two-Ink Rule", "body": "The entire marketing surface uses exactly two inks — near-black and Swiss red — plus paper and its rule-line neutrals. No third hue appears except the slate screen-frame, and slate is never used as an accent or interactive color.", "section": "colors" },
+      { "name": "The No-Shadow Rule", "body": "--sh-sm and --sh-lg are defined for legacy compatibility but the built system sets box-shadow: none on every card, button, band, and panel in the ateliê layer. Depth is never implied by shadow.", "section": "colors" },
+      { "name": "The Width-Is-Voice Rule", "body": "Emphasis is expressed by widening and weighting the same face (wdth + weight), never by swapping typefaces, italicizing, or adding a serif/script accent. The .serif utility class exists (legacy name) but resolves to plain red-colored text in the current world — it carries no serif font.", "section": "typography" },
+      { "name": "The Dot Rule", "body": "A red \".\" (.dot / h2.display::after) closes the brand mark and every major section headline, tying every H2 visually back to the \"PR.\" logotype.", "section": "typography" },
+      { "name": "The Ruled-Block Rule", "body": "Every grouped unit (pillar, step, stat, plan, shot, FAQ item) opens with a top rule instead of a boxed shadow container. Hover states darken the rule to --ink or tint the label red; they never add elevation.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the palette to exactly two inks (ink, Swiss red) on paper; reserve slate strictly for the frame behind real screenshots.",
+      "Do express emphasis via the Archivo variable axes (width + weight), never by introducing a second typeface or an italic/serif treatment.",
+      "Do close major headings and the wordmark with a red \".\" (.dot / h2.display::after).",
+      "Do build every grouped block from a 1px top rule, never a shadowed box.",
+      "Do use wipe/clip-path transitions (buttons, reveals, plates) instead of opacity-only fades — motion should read as something being drawn or uncovered, not faded in.",
+      "Do gate every animation behind prefers-reduced-motion: reduce (and the cursor dot additionally behind pointer: coarse), collapsing straight to the final, fully legible state.",
+      "Do treat real client work (Hotel Alpina, MedVisp) as the thing shown first, staged inside the slate frame; synthetic sector demos use the same frame pattern but are visually distinguishable as mockups (chrome dots, placeholder bars) rather than real screenshots."
+    ],
+    "donts": [
+      "Don't add box-shadow or border-radius to any new marketing component — both are zeroed system-wide by design, with the sole radius exception being the circular MedVisp avatar mask and the round progress/cursor dots.",
+      "Don't introduce a third accent hue. If something needs a non-red, non-ink treatment, it almost certainly belongs in the slate screen-frame role, not as a new UI color.",
+      "Don't reference the legacy --bg/--card/--dark/--line/--ember/--grad variable names in new work — they're compatibility aliases for the pre-ateliê \"kept\" block (loader chrome, admin overlay, client area, template viewer), not the current token source of truth.",
+      "Don't fabricate a portrait, landscape photography, or testimonials on this homepage — PRODUCT.md confirms none exist and none should be invented; the About section is deliberately typographic instead of photographic.",
+      "Don't treat this system as covering the whole site yet: blog.html, preco-site-suica.html, caso-hotel-alpina.html, and the other legal/article pages (13 pages total) still carry the previous dark design and have not been migrated to the ateliê suíço world."
+    ]
+  }
+}
