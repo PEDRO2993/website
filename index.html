@@ -14,8 +14,6 @@
 <link rel="alternate" hreflang="it" href="https://prstudio.ch/?lang=it">
 <link rel="alternate" hreflang="en" href="https://prstudio.ch/?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://prstudio.ch/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta property="og:title" content="PR Studio — Websites, Marketing & Social Media no Valais">
 <meta property="og:description" content="Um só parceiro para toda a tua presença digital. Valais, Suíça · PT/DE/FR/IT/EN.">
 <meta property="og:type" content="website">
@@ -45,8 +43,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto tempo demora até o meu site estar online?","acceptedAnswer":{"@type":"Answer","text":"Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo exato fica fechado na proposta, antes de começarmos."}},{"@type":"Question","name":"O site fica mesmo meu?","acceptedAnswer":{"@type":"Answer","text":"Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas."}},{"@type":"Question","name":"Posso cancelar a gestão mensal de redes sociais ou marketing?","acceptedAnswer":{"@type":"Answer","text":"Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga."}},{"@type":"Question","name":"Como funciona o investimento em anúncios?","acceptedAnswer":{"@type":"Answer","text":"Pagas o investimento em anúncios diretamente ao Google ou à Meta, com o teu cartão. O plano cobre a estratégia, a criação dos anúncios e a otimização contínua."}},{"@type":"Question","name":"Trabalhas com empresas de língua alemã?","acceptedAnswer":{"@type":"Answer","text":"Ja, gerne! Atendo em alemão, português e inglês e crio sites e conteúdo multilingues — no Valais, os teus clientes falam várias línguas."}},{"@type":"Question","name":"Já tenho site — podes tratar só das redes sociais ou dos anúncios?","acceptedAnswer":{"@type":"Answer","text":"Claro. Os três serviços funcionam em separado. Faço primeiro uma avaliação gratuita do que já tens e digo-te, com franqueza, onde vale a pena investir."}},{"@type":"Question","name":"Fazes sites para hotéis, restaurantes e turismo no Valais?","acceptedAnswer":{"@type":"Answer","text":"Sim. Restaurantes, alojamento, bem-estar e serviços locais são os setores com que mais trabalho no Alto Valais. Um site para turismo precisa de reservas fáceis, várias línguas e fotografias que vendam — é isso que construo, com preço fixo acordado antes."}},{"@type":"Question","name":"E depois de o site estar online, quem trata dele?","acceptedAnswer":{"@type":"Answer","text":"Eu, se quiseres. O plano de manutenção (CHF 95–290/mês) inclui alojamento, SSL, backups, atualizações e pequenas alterações de conteúdo. Sem plano, entrego-te o site pronto a gerir — e ficas com os ficheiros."}},{"@type":"Question","name":"Também tratas da ficha Google Business?","acceptedAnswer":{"@type":"Answer","text":"Sim. Faz parte do marketing local e do site institucional: categoria certa, fotos, horários, serviços e resposta às avaliações — e ligo a ficha ao site para o Google confiar nos dois."}}]}
 </script>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap"></noscript>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin-wdth-wght-normal.woff2" crossorigin>
 <style>
 /* blocos mantidos do sistema anterior (loader, montra, admin, área de cliente, cartões); o mundo visual está no fim deste <style> */
 /* loader */
@@ -442,6 +439,10 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
    largura, peça a entrar), cabeças de secção a revelar por varrimento,
    placas com paralaxe ligada ao scroll, botões com varrimento de tinta.
    ================================================================== */
+/* Archivo alojada no próprio site (variável: largura 62–125, peso 100–900, subconjunto latin) — sem pedidos a fonts.googleapis.com */
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%; font-display: swap;
+  src: url(/fonts/archivo-latin-wdth-wght-normal.woff2) format("woff2-variations"), url(/fonts/archivo-latin-wdth-wght-normal.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 :root {
   /* paleta "Graphite Control Room": grafite azulado, tinta clara, um só acento azul-gelo.
      Auditado: tinta 14.8:1 · ink-2 8.3:1 · ink-3 4.9:1 · acento como texto 7.2:1 · texto sobre acento 7.2:1 */

@@ -39,7 +39,7 @@ const SHARE_JS = "<script>\n/* partilha: URLs construídos no browser (título +
 const pathFor = (PREFIX, lang, slug) => `${PREFIX[lang]}blog/${slug}.html`;
 
 // CSS partilhado com os artigos fixos (preco-site-suica.html)
-const CSS = `:root{--bg:#04060B;--card:#0A1120;--ink:#F2F6FE;--ink-2:#8A97AF;--ink-3:#75829D;--line:rgba(160,190,255,0.14);--line-2:rgba(160,190,255,0.26);--red:#2E6BFF;--red-ink:#6FA0FF}
+const CSS = `:root{--bg:#151B23;--card:#1B222B;--ink:#E9EEF3;--ink-2:#AAB5C1;--ink-3:#7E8A97;--line:#243240;--line-2:#364656;--red:#3FAEFF;--red-ink:#3FAEFF;--on-red:#151B23;--band:#294263;--on-band:#F2F5FA;--on-band-2:#AAB5C1}
 *{box-sizing:border-box}html,body{margin:0;padding:0}
 body{background:var(--bg);color:var(--ink);font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;font-size:1rem}
 a{color:var(--red-ink)}.wrap{max-width:760px;margin:0 auto;padding:0 20px}
@@ -70,13 +70,48 @@ body{font-size:1.0625rem;line-height:1.7;}.wrap{max-width:700px;padding:0 24px;}
 /* v3.1 — sombras de scroll nas tabelas largas; títulos equilibrados */
 .lg-tbl-wrap{background:linear-gradient(to right,var(--bg) 30%,rgba(4,6,11,0)) 0/20px 100% no-repeat local,linear-gradient(to left,var(--bg) 30%,rgba(4,6,11,0)) 100% 0/20px 100% no-repeat local,linear-gradient(to right,rgba(160,190,255,.35),rgba(160,190,255,0)) 0/10px 100% no-repeat scroll,linear-gradient(to left,rgba(160,190,255,.35),rgba(160,190,255,0)) 100% 0/10px 100% no-repeat scroll}
 main h1,.cta h2,.blog-card h2{text-wrap:balance}
+/* v4 — mundo da homepage (Graphite Control Room): Archivo, cantos retos, réguas em vez de sombras, faixas */
+body { font-family:"Archivo","Helvetica Neue",Arial,sans-serif; color-scheme:dark; }
+.logo, main h1, main h2, main h3, .cta h2, .blog-card h2, .blog-card h3 { font-family:inherit; font-weight:800; letter-spacing:-0.03em; font-variation-settings:"wdth" 112; }
+.logo { font-size:1.35rem; letter-spacing:-0.04em; font-variation-settings:"wdth" 118; }
+main h1 { font-weight:800; line-height:1; letter-spacing:-0.035em; }
+main h2 { font-size:1.5rem; letter-spacing:-0.025em; line-height:1.1; font-variation-settings:"wdth" 108; }
+main h3 { font-weight:700; letter-spacing:-0.02em; font-variation-settings:"wdth" 105; }
+main code { border-radius:0; background:var(--card); font-family:ui-monospace,Consolas,monospace; }
+main img { border-radius:0; }
+main blockquote { border-left:1px solid var(--ink); padding-left:18px; }
+.langs, .langs button, .langs a, .btn, .cta, .blog-card, .lg-share a, .lg-share button { border-radius:0; }
+.langs { border:0; padding:0; background:none; gap:0; }
+.langs button, .langs a { font-family:inherit; font-weight:600; font-size:0.78rem; letter-spacing:0; padding:8px 9px; color:var(--ink-3); border:0; border-bottom:2px solid transparent; background:none; }
+.langs button[aria-pressed="true"], .langs a[aria-current="page"] { background:none; color:var(--ink); border-bottom-color:var(--red); }
+.lg-updated, .lg-more, .lg-mono, .lg-share, .blog-card span, .blog-card .lg-meta, .lg-tbl th { font-family:inherit; text-transform:none; letter-spacing:0; }
+.lg-updated, .blog-card .lg-meta { font-size:0.82rem; color:var(--ink-3); }
+.lg-tbl th { font-size:0.82rem; font-weight:700; color:var(--ink); border-bottom:1px solid var(--ink); }
+.lg-tbl-wrap { background:linear-gradient(to right,var(--bg) 30%,rgba(21,27,35,0)) 0/20px 100% no-repeat local,linear-gradient(to left,var(--bg) 30%,rgba(21,27,35,0)) 100% 0/20px 100% no-repeat local,linear-gradient(to right,rgba(233,238,243,.25),rgba(233,238,243,0)) 0/10px 100% no-repeat scroll,linear-gradient(to left,rgba(233,238,243,.25),rgba(233,238,243,0)) 100% 0/10px 100% no-repeat scroll; }
+.btn { font-family:inherit; font-size:0.95rem; font-weight:600; letter-spacing:0; text-transform:none; padding:15px 22px; border:1px solid var(--ink); }
+.btn-red { background:var(--red); border-color:var(--red); color:var(--on-red); box-shadow:none; }
+.btn-ghost { background:transparent; border-color:var(--ink); color:var(--ink); }
+.cta { background:var(--band); color:var(--on-band); border:0; padding:30px 34px; }
+.cta h2 { color:var(--on-band); } .cta p { color:var(--on-band-2); }
+.cta .btn-ghost { border-color:var(--on-band); color:var(--on-band); }
+.blog-card { background:transparent; border:0; border-top:1px solid var(--ink); box-shadow:none; padding:20px 0 24px; transition:none; }
+.blog-card:hover { transform:none; border-color:var(--red); }
+.blog-card span { font-weight:600; color:var(--red-ink); }
+.lg-more { font-size:0.82rem; }
+.lg-more a { font-family:inherit; }
+.lg-share a, .lg-share button { background:transparent; border:1px solid var(--ink); color:var(--ink); }
+.lg-share a:hover, .lg-share button:hover { border-color:var(--red); color:var(--red-ink); }
+header.lg-head { border-bottom:1px solid var(--ink); }
+footer.lg-foot { border-top:1px solid var(--ink); }
+::selection { background:var(--red); color:var(--on-red); }
+:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
 `;
 
 /* Fontes alojadas no próprio site (fonts/*.woff2 variáveis, subconjunto latin, display swap) — sem pedidos a fonts.googleapis.com */
 const FONT_UR = "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD";
-const FONT_FACES = [["Bricolage Grotesque","bricolage-grotesque","200 800",false],["Instrument Sans","instrument-sans","400 700",true],["Spline Sans Mono","spline-sans-mono","300 700",false]];
-const fontFace = (fam, file, range, st) => '@font-face{font-family:"' + fam + '";font-style:' + st + ';font-weight:' + range + ';font-display:swap;src:url(/fonts/' + file + '-latin-wght-' + st + '.woff2) format("woff2-variations"),url(/fonts/' + file + '-latin-wght-' + st + '.woff2) format("woff2");unicode-range:' + FONT_UR + '}';
-const FONT_HEAD = '<link rel="preload" as="font" type="font/woff2" href="/fonts/bricolage-grotesque-latin-wght-normal.woff2" crossorigin><link rel="preload" as="font" type="font/woff2" href="/fonts/instrument-sans-latin-wght-normal.woff2" crossorigin>'
+const FONT_FACES = [["Archivo","archivo","100 900",false]];
+const fontFace = (fam, file, range, st) => '@font-face{font-family:"' + fam + '";font-style:' + st + ';font-weight:' + range + ';font-stretch:62% 125%;font-display:swap;src:url(/fonts/' + file + '-latin-wdth-wght-' + st + '.woff2) format("woff2-variations"),url(/fonts/' + file + '-latin-wdth-wght-' + st + '.woff2) format("woff2");unicode-range:' + FONT_UR + '}';
+const FONT_HEAD = '<link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin-wdth-wght-normal.woff2" crossorigin>'
   + '<style>' + FONT_FACES.map(([fam, file, range, ital]) => fontFace(fam, file, range, "normal") + (ital ? fontFace(fam, file, range, "italic") : "")).join("") + '</style>';
 const FONTS = 'https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Bricolage+Grotesque:wght@200..800&family=Spline+Sans+Mono:wght@300..700&display=swap';
 
