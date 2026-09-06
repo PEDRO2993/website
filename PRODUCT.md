@@ -29,7 +29,7 @@ Site estático gerado por `build.js` para `dist/` (uma pasta por idioma; PT na r
 - Cartões do blog na homepage são injetados no build (não editar à mão).
 - Leads rastreados por `fireLead`/`fireCta` com secção de origem e idioma.
 - Sem framework; CSS/JS inline em `index.html`, minificados no build.
-- Rebranding visual em curso (2026-09-06): mundo escolhido pelo dono, "Ateliê suíço" — claro, grelha tipográfica suíça, vermelho suíço como único acento, trabalho real em destaque; pedido explícito de muita animação, moderna e orquestrada.
+- Rebranding visual (2026-09-06): mundo escolhido pelo dono, "Ateliê suíço" — grelha tipográfica suíça, uma família (Archivo), blocos por réguas, trabalho real em destaque; pedido explícito de muita animação, moderna e orquestrada. Paleta escolhida pelo dono no mesmo dia, entre três auditadas: "Graphite Control Room" — grafite azulado escuro, tinta clara, azul-gelo #3FAEFF como único acento ("cores tech").
 
 ## Brand Commitments
 
