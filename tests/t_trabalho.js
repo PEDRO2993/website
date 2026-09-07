@@ -69,6 +69,11 @@ const EXP = {
    const ctx=await b.newContext({viewport:{width:375,height:800},locale:'pt-PT'});
    await ctx.addInitScript(()=>{localStorage.setItem('pr-consent','denied');sessionStorage.setItem('pr-seen','1');});
    const pg=await ctx.newPage(); await pg.goto(base+'/'); await pg.waitForTimeout(400);
+   /* mesma razão que em overflow.js: o content-visibility da home traz
+      contain:paint, que corta o que transborda e o tira do scrollWidth. Sem
+      desligar a contenção, estas duas medidas nunca mais viam avaria nenhuma. */
+   await pg.addStyleTag({content:'*{content-visibility:visible!important}'});
+   await pg.waitForTimeout(250);
    const over=await pg.evaluate(()=>{const s=document.getElementById('trabalho');
      return {doc:document.documentElement.scrollWidth, win:window.innerWidth, sec:s.scrollWidth};});
    ok('sem scroll horizontal na página', over.doc<=over.win+1, JSON.stringify(over));
