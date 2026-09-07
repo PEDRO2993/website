@@ -1906,7 +1906,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
         <path d="M585 262 q8 -18 0 -34 q-8 -14 0 -30" stroke="#C9B8A4" stroke-width="4" fill="none" opacity="0.35" stroke-linecap="round"/>
         <path d="M615 262 q-8 -18 0 -34 q8 -14 0 -30" stroke="#C9B8A4" stroke-width="4" fill="none" opacity="0.25" stroke-linecap="round"/>
       </svg>
-      <img class="t-r-hero-img" src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Sala do Alpenrose: mesa posta em madeira maciça, velas acesas e lareira ao fundo">
+      <img class="t-r-hero-img" src="img/rest.webp" srcset="img/rest-480.webp 480w, img/rest.webp 960w" sizes="100vw" width="960" height="541" fetchpriority="high" decoding="async" alt="Sala do Alpenrose: mesa posta em madeira maciça, velas acesas e lareira ao fundo">
       <span class="t-r-scrim" aria-hidden="true"></span>
       <div class="tw t-r-hero">
         <h2>Cozinha alpina,<br><em>à luz da lareira</em></h2>
@@ -1935,14 +1935,17 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
         <button class="dm-f" type="button" data-f="sob">Sobremesas</button>
       </div>
       <div class="t-r-grid" data-fscope="menu">
+        <h3 class="t-r-course" data-cat="ent">Entradas</h3>
         <div class="t-r-dish" data-cat="ent"><span class="t-r-drow"><b>Sopa de castanha</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 14</span></span><small>Creme de castanha do vale, óleo de avelã, cebolinho.</small></div>
         <div class="t-r-dish" data-cat="ent"><span class="t-r-drow"><b>Carne seca do Valais</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 19</span></span><small>Tábua com queijo de alpe, pickles e pão de centeio.</small></div>
         <div class="t-r-dish" data-cat="ent"><span class="t-r-drow"><b>Tarte fina de cebola</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 16</span></span><small>Cebola confitada, toucinho fumado, tomilho da encosta.</small></div>
+        <h3 class="t-r-course" data-cat="pri">Principais</h3>
         <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Raclette tradicional<em class="t-r-tag">Clássico da casa</em></b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 28</span></span><small>Queijo do vale raspado à mesa, batata nova e pickles da casa.</small></div>
         <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Fondue moitié-moitié</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 26</span></span><small>Mistura da casa com kirsch, pão rústico do nosso forno.</small></div>
         <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Rösti da casa<em class="t-r-tag">Vegetariano</em></b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 24</span></span><small>Cogumelos selvagens, ovo do campo, manteiga de ervas.</small></div>
         <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Truta do rio</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 34</span></span><small>Grelhada com amêndoa torrada, limão e legumes da época.</small></div>
         <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Entrecôte de vitela</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 42</span></span><small>Vitela do Oberwallis, manteiga de ervas, gratin de batata.</small></div>
+        <h3 class="t-r-course" data-cat="sob">Sobremesas</h3>
         <div class="t-r-dish" data-cat="sob"><span class="t-r-drow"><b>Tarte de alperce</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 12</span></span><small>Alperce do Valais, gelado de nata, caramelo salgado.</small></div>
         <div class="t-r-dish" data-cat="sob"><span class="t-r-drow"><b>Mousse de chocolate negro</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 11</span></span><small>Flor de sal, azeite, tuile de avelã.</small></div>
       </div>
@@ -1960,19 +1963,19 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
           <p class="t-r-sign">Família Zurbriggen</p>
         </div>
         <div class="tp-tiles t-r-plates">
-          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a lareira" data-cap="A lareira, acesa de novembro a abril" style="background:url('img/rest.webp') 88% 44%/cover no-repeat #241A10;">
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a lareira" data-cap="A lareira, acesa de novembro a abril" style="background:url('img/rest.webp') 100% 42%/300% no-repeat #241A10;">
             <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Lareira de pedra acesa na sala do restaurante" style="object-position:88% 44%;">
             <span class="t-r-pcap">A lareira</span>
           </div>
-          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a garrafeira" data-cap="A garrafeira — 80 vinhos do Valais" style="background:url('img/rest.webp') 68% 26%/cover no-repeat #241A10;">
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a garrafeira" data-cap="A garrafeira — 80 vinhos do Valais" style="background:url('img/rest.webp') 77% 22%/300% no-repeat #241A10;">
             <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Prateleira com garrafas de vinho junto à parede de pedra" style="object-position:68% 26%;">
             <span class="t-r-pcap">A garrafeira</span>
           </div>
-          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a sala de cima" data-cap="A sala de cima, com vista para o vale" style="background:url('img/rest.webp') 6% 30%/cover no-repeat #241A10;">
-            <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Janela e candeeiro antigo na sala de cima" style="object-position:6% 30%;">
-            <span class="t-r-pcap">A sala de cima</span>
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a sala das janelas" data-cap="A sala das janelas, mesas de dois à luz da manhã" style="background:url('img/rest.webp') 0% 7%/300% no-repeat #241A10;">
+            <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Candeeiro de ferro e janelas de madeira na sala pequena" style="object-position:6% 30%;">
+            <span class="t-r-pcap">A sala das janelas</span>
           </div>
-          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a mesa posta" data-cap="A mesa posta, antes do serviço da noite" style="background:url('img/rest.webp') 46% 96%/cover no-repeat #241A10;">
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a mesa posta" data-cap="A mesa posta, antes do serviço da noite" style="background:url('img/rest.webp') 58% 100%/300% no-repeat #241A10;">
             <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Louça e talheres dispostos numa mesa de madeira" style="object-position:46% 96%;">
             <span class="t-r-pcap">A mesa posta</span>
           </div>
@@ -1998,7 +2001,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       <div class="tp-card t-r-book">
         <div class="tp-form">
           <label>Data<input type="date" data-k="data"></label>
-          <label>Pessoas<select data-k="pessoas"><option>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>6 ou mais</option></select></label>
+          <label>Pessoas<select data-k="pessoas"><option>2</option><option>3</option><option>4</option><option>6 ou mais</option></select></label>
           <label class="t-r-fw">Contacto (telemóvel ou email)<input type="text" data-k="contacto" placeholder="+41 79 … ou email"></label>
         </div>
         <div class="t-r-hours">
@@ -2022,7 +2025,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
     <section class="tw tp-sec t-r-cont" id="r-cont">
       <div class="t-r-shead">
         <h2 class="tp-h2">Vem visitar-nos</h2>
-        <span class="tp-kicker">Contacto</span>
+        <span class="tp-kicker">12 min da saída de Visp · estacionamento na praça</span>
       </div>
       <div class="tp-grid-2">
         <div class="tp-card t-r-contact-info">

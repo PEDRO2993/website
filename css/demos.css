@@ -181,7 +181,7 @@
   position: sticky; top: 0; z-index: 30;
   max-width: none; margin: 0;
   display: flex; align-items: center; gap: 16px 26px;
-  padding: 14px max(22px, calc((100% - 1020px) / 2));
+  padding: 14px max(22px, calc((100% - 1020px) / 2 + 22px));
   background: rgba(20, 14, 10, 0.86);
   -webkit-backdrop-filter: blur(16px) saturate(1.15);
   backdrop-filter: blur(16px) saturate(1.15);
@@ -292,6 +292,14 @@
 .t-r .dm-f:hover { color: var(--tp-ink); border-color: var(--tp-accent); }
 .t-r .dm-f.on { background: var(--tp-accent); border-color: var(--tp-accent); color: #1A120C; }
 .t-r .t-r-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 44px; }
+/* cabeçalho de serviço: separa entradas/principais/sobremesas numa carta corrida */
+.t-r .t-r-course {
+  grid-column: 1 / -1; margin: 34px 0 8px; padding-bottom: 10px;
+  border-bottom: 1px solid rgba(228, 177, 90, 0.22);
+  font-family: "Instrument Sans", sans-serif; font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--tp-accent);
+}
+.t-r .t-r-course:first-child { margin-top: 0; }
 .t-r .t-r-dish {
   display: block; margin: 0 -14px; padding: 17px 14px 19px; border-radius: 0;
   border-bottom: 1px solid rgba(228, 177, 90, 0.13);
@@ -425,7 +433,7 @@
   .t-r .t-r-info > div { animation: rRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: 0.5s; }
   .t-r .t-r-info > div:nth-child(2) { animation-delay: 0.58s; }
   .t-r .t-r-info > div:nth-child(3) { animation-delay: 0.66s; }
-  .t-r .t-r-dish { animation: rRise 0.5s ease both; }
+  .t-r .t-r-dish, .t-r .t-r-course { animation: rRise 0.5s ease both; }
   .t-r .t-r-dish:nth-child(n+3) { animation-delay: 0.06s; }
   .t-r .t-r-dish:nth-child(n+5) { animation-delay: 0.12s; }
   .t-r .t-r-dish:nth-child(n+7) { animation-delay: 0.18s; }
