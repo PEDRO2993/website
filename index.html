@@ -2029,7 +2029,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       </svg>
     </div>
     <section class="t-g-hero">
-      <img class="t-g-hero-img" src="img/gym.jpg" srcset="img/gym-480.webp 480w, img/gym.webp 960w" sizes="100vw" width="960" height="532" alt="Sala de treino da Momentum com bancos, halteres e janelas altas" loading="lazy" decoding="async">
+      <img class="t-g-hero-img" src="img/gym.jpg" srcset="img/gym-480.webp 480w, img/gym.webp 960w" sizes="100vw" width="960" height="532" alt="Sala de treino da Momentum com bancos, halteres e janelas altas" loading="eager" fetchpriority="high" decoding="async">
       <div class="tw t-g-hero-in">
         <h2>Mais <em>forte</em><br>todas as semanas</h2>
         <p>Ginásio e estúdio de aulas em Visp. Treinadores certificados, plano feito à tua medida e portas abertas das 6h às 23h — todos os dias do ano.</p>
@@ -2054,13 +2054,10 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       <h2 class="tp-h2">Três formas de treinar aqui</h2>
       <p class="t-g-lead">Escolhes uma ou usas as três. O acesso é o mesmo e o plano acompanha-te em qualquer delas.</p>
       <div class="t-g-split">
-        <figure class="t-g-shot">
-          <img src="img/gym.jpg" srcset="img/gym-480.webp 480w, img/gym.webp 960w" sizes="(max-width: 860px) 100vw, 400px" width="960" height="532" alt="Zona de halteres e bancos reguláveis da Momentum" loading="lazy" decoding="async">
-        </figure>
         <div class="t-g-ways">
-          <article class="t-g-way"><h3>Sala de força</h3><p>Seis racks, barras olímpicas e halteres até 50 kg. Há espaço para treinar às 7h sem esperar pela máquina.</p></article>
-          <article class="t-g-way"><h3>Aulas em grupo</h3><p>Mais de 40 por semana, das 6h30 às 21h. Marcas o lugar no site e entras — sem custo extra no plano Full.</p></article>
-          <article class="t-g-way"><h3>Treino individual</h3><p>Uma hora só para ti: avaliação, plano escrito e revisão a cada seis semanas com o mesmo treinador.</p></article>
+          <article class="t-g-way"><span class="t-g-num" aria-hidden="true">01</span><h3>Sala de força</h3><p>Seis racks, barras olímpicas e halteres até 50 kg. Há espaço para treinar às 7h sem esperar pela máquina.</p></article>
+          <article class="t-g-way"><span class="t-g-num" aria-hidden="true">02</span><h3>Aulas em grupo</h3><p>Mais de 40 por semana, das 6h30 às 21h. Marcas o lugar no site e entras — sem custo extra no plano Full.</p></article>
+          <article class="t-g-way"><span class="t-g-num" aria-hidden="true">03</span><h3>Treino individual</h3><p>Uma hora só para ti: avaliação, plano escrito e revisão a cada seis semanas com o mesmo treinador.</p></article>
         </div>
       </div>
     </section>

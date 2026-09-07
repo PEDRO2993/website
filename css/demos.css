@@ -235,7 +235,7 @@
    usa a fotografia do setor em alta, por isso .t-cover é ocultada aqui. */
 .t-g {
   --tg-ground: #0A0D10; --tg-panel: #14181D; --tg-panel-2: #1A1F25;
-  --tg-line: #262C33; --tg-line-2: #39424B; --tg-onphoto: #C9D2D9;
+  --tg-line: #262C33; --tg-line-2: #39424B; --tg-track: #5B6672; --tg-onphoto: #C9D2D9;
   --tg-sec: clamp(52px, 6.6vw, 80px);
   background: var(--tg-ground); color: var(--tp-ink);
   font-family: Archivo, "Helvetica Neue", Arial, sans-serif;
@@ -280,7 +280,7 @@
 .t-g-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(97deg, rgba(10, 13, 16, 0.94) 0%, rgba(10, 13, 16, 0.85) 34%, rgba(10, 13, 16, 0.44) 64%, rgba(10, 13, 16, 0.08) 100%),
+    linear-gradient(97deg, rgba(10, 13, 16, 0.94) 0%, rgba(10, 13, 16, 0.85) 34%, rgba(10, 13, 16, 0.52) 64%, rgba(10, 13, 16, 0.34) 100%),
     linear-gradient(0deg, var(--tg-ground) 2%, rgba(10, 13, 16, 0.06) 42%);
 }
 .t-g-hero-in { position: relative; width: 100%; }
@@ -305,16 +305,16 @@
 @keyframes tgPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.78); } }
 
 /* três formas de treinar */
-.t-g-split { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: clamp(24px, 4vw, 54px); align-items: stretch; }
-.t-g-shot { margin: 0; overflow: hidden; min-height: 320px; background: var(--tg-panel); }
-.t-g-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 7% 62%; display: block; filter: grayscale(1) contrast(1.14); transition: transform 0.7s cubic-bezier(0.16, 0.84, 0.24, 1), filter 0.7s ease; }
-@media (hover: hover) { .t-g-shot:hover img { transform: scale(1.04); filter: grayscale(0) contrast(1.04); } }
-.t-g-way { position: relative; border-top: 1px solid var(--tg-line); padding: 24px 0 26px; }
-.t-g-way:last-child { border-bottom: 1px solid var(--tg-line); }
+/* só existe uma fotografia deste setor e ela já sustenta o herói; repeti-la aqui lia-se
+   como stock. A secção passa a ser tipográfica: três colunas numeradas sob réguas de 1px. */
+.t-g-split { display: block; }
+.t-g-ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 3.4vw, 44px); }
+.t-g-way { position: relative; border-top: 1px solid var(--tg-line); padding: 22px 0 4px; }
 .t-g-way::after { content: ""; position: absolute; top: -1px; left: 0; width: 0; height: 1px; background: var(--tp-accent); transition: width 0.5s cubic-bezier(0.16, 0.84, 0.24, 1); }
 @media (hover: hover) { .t-g-way:hover::after { width: 100%; } }
+.t-g-num { display: block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; color: var(--tp-accent); margin-bottom: 14px; font-variant-numeric: tabular-nums; }
 .t-g-way h3 { font-size: 1.12rem; font-weight: 800; font-stretch: 88%; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 6px; }
-.t-g-way p { color: var(--tp-muted); max-width: 54ch; }
+.t-g-way p { color: var(--tp-muted); max-width: 40ch; }
 
 /* horário */
 .t-g .dm-fs { display: inline-flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--tg-line); margin-bottom: 26px; }
@@ -336,7 +336,7 @@
 .t-g .t-g-row b { font-size: 1.05rem; font-weight: 800; font-stretch: 88%; text-transform: uppercase; letter-spacing: 0.01em; margin-bottom: 2px; }
 .t-g .t-g-sub { display: block; color: var(--tp-muted); font-size: 0.95rem; }
 .t-g-int { display: inline-flex; align-items: flex-end; gap: 3px; height: 16px; }
-.t-g-int i { width: 4px; background: var(--tg-line-2); }
+.t-g-int i { width: 4px; background: var(--tg-track); }
 .t-g-int i:nth-child(1) { height: 7px; }
 .t-g-int i:nth-child(2) { height: 11px; }
 .t-g-int i:nth-child(3) { height: 16px; }
@@ -409,9 +409,11 @@
 .t-g-hero-in > .t-g-meta { animation-delay: 0.56s; }
 
 @media (max-width: 880px) {
-  .t-g-split { grid-template-columns: 1fr; }
-  .t-g-shot { aspect-ratio: 4 / 3; min-height: 0; }
-  .t-g-shot img { object-position: 10% 60%; }
+  .t-g-ways { grid-template-columns: 1fr; gap: 0; }
+  .t-g-way { padding: 22px 0 26px; }
+  .t-g-way:last-child { border-bottom: 1px solid var(--tg-line); }
+  .t-g-way p { max-width: 54ch; }
+  .t-g-num { margin-bottom: 10px; }
   .t-g-now, .t-g-plans, .t-g-team { grid-template-columns: 1fr; }
   .t-g-now > div + div, .t-g-plan + .t-g-plan, .t-g .t-g-coach + .t-g-coach { border-left: 0; border-top: 1px solid var(--tg-line); padding-left: 0; }
   .t-g-now > div + div { padding-top: 18px; }
@@ -420,10 +422,14 @@
   .t-g .t-g-signup .dm-mini { margin-bottom: 0; }
 }
 @media (max-width: 700px) {
-  /* barra fixa compacta: uma só linha, sem o CTA (o herói repete-o logo abaixo) */
-  .t-g .t-g-head { gap: 14px; padding-top: 10px; padding-bottom: 10px; }
+  /* barra fixa em duas linhas, sem o CTA (o herói repete-o logo abaixo): o menu ocupa
+     a segunda linha inteira para caberem as cinco secções sem scroll lateral */
+  .t-g .t-g-head { flex-wrap: wrap; gap: 0 14px; padding-top: 10px; padding-bottom: 4px; }
   .t-g .t-g-navcta { display: none; }
-  .t-g .tpl-nav2 { flex: 1 1 auto; order: 0; margin-left: auto; padding-top: 0; font-size: 0.71rem; letter-spacing: 0.1em; }
+  /* as cinco secções cabem na linha: sem scroll lateral, o esbatimento da máscara sai */
+  .t-g .tpl-nav2 { gap: 11px; padding-top: 2px; padding-right: 10px; font-size: 0.71rem; letter-spacing: 0.08em; -webkit-mask-image: linear-gradient(90deg, #000 96%, transparent); mask-image: linear-gradient(90deg, #000 96%, transparent); }
+  .t-g .tpl-nav2 a { min-height: 38px; }
+  .t-g .tpl-nav2 a::after { bottom: 8px; }
   .t-g-actions { flex-direction: column; align-items: stretch; }
   .t-g-actions .tpl-cta, .t-g-actions .t-g-ghost { width: 100%; }
   /* a coluna é estreita de mais para um véu lateral: a fotografia passa a faixa de 300px
@@ -442,7 +448,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .t-g-hero-img, .t-g-hero-in > *, .t-g-live::before { animation: none; }
-  .t-g .t-g-row, .t-g-way::after, .t-g-shot img, .t-g .tpl-cta, .t-g .tpl-nav2 a::after { transition: none; }
+  .t-g .t-g-row, .t-g-way::after, .t-g .tpl-cta, .t-g .tpl-nav2 a::after { transition: none; }
 }
 
 /* — Barbearia — */
