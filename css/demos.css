@@ -44,7 +44,8 @@
   font-weight: 500; font-size: 1.24rem; letter-spacing: 0.44em; text-indent: 0.44em; }
 .t-m-logo small { font-size: 0.66rem; letter-spacing: 0.24em; text-indent: 0.24em; text-transform: uppercase; color: var(--tm-mut); }
 .t-m .tpl-nav2 { gap: 28px; font-size: 0.76rem; font-weight: 500; }
-.t-m .tpl-nav2 a { color: var(--tm-ink); padding: 10px 0; border-bottom: 1px solid transparent; transition: border-color 0.2s ease, color 0.2s ease; }
+.t-m .tpl-nav2 a { color: var(--tm-ink); display: inline-flex; align-items: center; min-height: 44px; padding: 10px 0;
+  border-bottom: 1px solid transparent; transition: border-color 0.2s ease, color 0.2s ease; }
 .t-m .tpl-nav2 a:hover { color: var(--tm-ink); border-bottom-color: var(--tm-bronze); }
 .t-m-cart { all: unset; cursor: pointer; box-sizing: border-box; margin-left: auto; display: inline-flex;
   align-items: center; gap: 10px; min-height: 44px; font-size: 0.76rem; font-weight: 500; color: var(--tm-ink); }
@@ -55,8 +56,9 @@
 .tm-stage { position: relative; display: grid; isolation: isolate; }
 .tm-stage > * { grid-area: 1 / 1; }
 .t-m .t-cover { height: 100%; min-height: min(74vh, 600px); z-index: 0; }
+/* o véu tem de aguentar o texto sobre a parede clara do fundo, não só sobre as peças escuras */
 .tm-veil { z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgba(14, 11, 8, 0.44) 0%, rgba(14, 11, 8, 0.16) 28%, rgba(14, 11, 8, 0.52) 60%, rgba(14, 11, 8, 0.9) 100%); }
+  background: linear-gradient(180deg, rgba(14, 11, 8, 0.46) 0%, rgba(14, 11, 8, 0.24) 26%, rgba(14, 11, 8, 0.66) 58%, rgba(14, 11, 8, 0.93) 100%); }
 .t-m-hero { z-index: 2; align-self: end; text-align: left; color: #FBF7F1; }
 .t-m .t-m-hero { padding-top: 60px; padding-bottom: 48px; }
 .t-m-hero h2 { font-size: clamp(2.25rem, 5.4vw, 4.1rem); font-weight: 300; line-height: 1.04;
@@ -97,8 +99,9 @@
   border-bottom: 1px solid transparent; transition: color 0.18s ease, border-color 0.18s ease; }
 .tm-f:hover { color: var(--tm-ink); }
 .tm-f.on { color: var(--tm-ink); border-bottom-color: var(--tm-ink); }
-/* grelha de produto: sem caixa — imagem, nome, preço, régua */
-.t-m-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 46px 24px; padding-bottom: 8px; }
+/* grelha de produto: sem caixa — imagem, nome, preço, régua.
+   Quatro colunas: a série curta cabe numa linha e nenhuma foto é ampliada além do que o ficheiro aguenta. */
+.t-m-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 44px 22px; padding-bottom: 8px; }
 .tm-p { display: flex; flex-direction: column; background: transparent; border-radius: 0;
   overflow: visible; box-shadow: none; animation: tmRise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .tm-p:nth-child(2) { animation-delay: 0.05s; }
@@ -107,7 +110,7 @@
 .tm-p:nth-child(5) { animation-delay: 0.2s; }
 .tm-p:nth-child(6) { animation-delay: 0.25s; }
 .tm-p.hide { display: none; }
-.tm-p .ph { position: relative; flex: none; overflow: hidden; aspect-ratio: 4 / 5; background: #E4DACD; }
+.tm-p .ph { position: relative; flex: none; overflow: hidden; aspect-ratio: 3 / 4; background: #E4DACD; }
 /* --tm-z / --tm-ox / --tm-oy: aproximação à peça (as fotos do mesmo ensaio precisam de cortes diferentes) */
 .tm-p .ph img { width: 100%; height: 100%; object-fit: cover;
   transform: scale(var(--tm-z, 1)); transform-origin: var(--tm-ox, 50%) var(--tm-oy, 50%);
@@ -135,9 +138,13 @@
 .t-m .tm-band { background: var(--tm-ink); color: var(--tm-onink); margin-top: 84px; padding: 0; }
 .tm-band-in { max-width: 1020px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
 .tm-band-media { position: relative; overflow: hidden; min-height: 440px; }
-.tm-band-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* --tm-bz / --tm-box / --tm-boy: aproximação ao detalhe (mão, botões) sem pedir ao ficheiro mais do que ele tem */
+.tm-band-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transform: scale(var(--tm-bz, 1)); transform-origin: var(--tm-box, 50%) var(--tm-boy, 50%); }
 .tm-band-text { padding: 60px 22px 62px 46px; align-self: center; }
-.t-m .tm-band .tp-kicker { color: var(--tm-bronze-2); margin-bottom: 14px; }
+/* mesmo cabeçalho das outras secções: metadados ao lado do título, na mesma linha de base */
+.t-m .tm-band .tm-head { border-top-color: rgba(239, 230, 217, 0.3); margin-bottom: 0; }
+.t-m .tm-band .tm-meta { color: var(--tm-bronze-2); }
 .t-m .tm-band h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); }
 .tm-band-text p { color: var(--tm-onink-2); max-width: 46ch; margin: 16px 0 0; font-size: 1rem; }
 .tm-facts { margin: 28px 0 0; }
@@ -146,12 +153,6 @@
 .tm-facts dt { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--tm-bronze-2);
   font-weight: 600; padding-top: 2px; }
 .tm-facts dd { margin: 0; font-size: 0.95rem; color: var(--tm-onink); }
-/* lookbook */
-.t-m .tp-tiles { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.t-m .tp-tile { position: relative; overflow: hidden; border-radius: 0; aspect-ratio: 4 / 5; background: #E4DACD; }
-.t-m .tp-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-@media (hover: hover) { .t-m .tp-tile:hover { transform: none; } .t-m .tp-tile:hover img { transform: scale(1.04); } }
 /* blocos comuns, redesenhados para este mundo: régua em cima, nada de caixa */
 .t-m .tp-sec { padding-top: 90px; }
 .t-m .tp-h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin-bottom: 0; }
@@ -219,11 +220,14 @@
   .tm-band-media { min-height: 0; aspect-ratio: 16 / 10; }
   .tm-band-text { padding: 42px 22px 48px; }
 }
+@media (max-width: 1000px) {
+  .t-m-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
+}
 @media (max-width: 760px) {
   .t-m-grid { grid-template-columns: 1fr 1fr; gap: 34px 14px; }
-  .t-m .tp-tiles { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .t-m .tp-tile { aspect-ratio: 3 / 4; }
-  .t-m .tp-tile:last-child { grid-column: span 2; aspect-ratio: 16 / 10; }
+  /* sobre a parede clara do fundo o texto do palco precisa de mais véu do que no desktop */
+  .tm-veil { background: linear-gradient(180deg, rgba(14, 11, 8, 0.54) 0%, rgba(14, 11, 8, 0.42) 20%,
+    rgba(14, 11, 8, 0.78) 52%, rgba(14, 11, 8, 0.95) 100%); }
   .tm-promises { grid-template-columns: 1fr; }
   .tm-promises li { border-top: 1px solid var(--tm-line); padding: 14px 0; text-align: left; }
   .tm-promises li:first-child { border-top: 0; }
