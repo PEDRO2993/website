@@ -1874,11 +1874,16 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 <template id="tpl-rest">
   <div class="t-r">
     <header class="tw t-r-head tp-sticky">
-      <span class="t-r-logo">ALPENROSE</span>
-      <nav class="t-r-nav"><a href="#r-menu" data-goto="#r-menu" style="cursor:pointer;">Menu</a><a href="#r-hist" data-goto="#r-hist" style="cursor:pointer;">História</a><a href="#r-cont" data-goto="#r-cont" style="cursor:pointer;">Contacto</a><a class="tpl-cta" href="#r-res" data-goto="#r-res" style="cursor:pointer;">Reservas</a></nav>
+      <span class="t-r-logo"><span class="t-r-mark">Alpenrose</span><span class="t-r-sub">Stalden · Valais</span></span>
+      <nav class="t-r-nav">
+        <a href="#r-menu" data-goto="#r-menu">Carta</a>
+        <a href="#r-hist" data-goto="#r-hist">A casa</a>
+        <a href="#r-cont" data-goto="#r-cont">Contacto</a>
+      </nav>
+      <a class="tpl-cta t-r-headcta" href="#r-res" data-goto="#r-res">Reservar mesa</a>
     </header>
-    <div class="t-cover" aria-hidden="true">
-      <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img">
+    <div class="t-cover t-r-stage">
+      <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="rSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1D12"/><stop offset="1" stop-color="#17100A"/></linearGradient>
           <radialGradient id="rGlow" cx="0.5" cy="0.45" r="0.55"><stop offset="0" stop-color="#E8B04B" stop-opacity="0.55"/><stop offset="1" stop-color="#E8B04B" stop-opacity="0"/></radialGradient>
@@ -1901,95 +1906,139 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
         <path d="M585 262 q8 -18 0 -34 q-8 -14 0 -30" stroke="#C9B8A4" stroke-width="4" fill="none" opacity="0.35" stroke-linecap="round"/>
         <path d="M615 262 q-8 -18 0 -34 q8 -14 0 -30" stroke="#C9B8A4" stroke-width="4" fill="none" opacity="0.25" stroke-linecap="round"/>
       </svg>
+      <img class="t-r-hero-img" src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Sala do Alpenrose: mesa posta em madeira maciça, velas acesas e lareira ao fundo">
+      <span class="t-r-scrim" aria-hidden="true"></span>
+      <div class="tw t-r-hero">
+        <h2>Cozinha alpina,<br><em>à luz da lareira</em></h2>
+        <p class="t-r-lede">Queijo dos alpes acima da vila, truta do rio e mais de 80 vinhos do Valais. Uma casa de família em Stalden, desde 1974.</p>
+        <div class="t-r-actions">
+          <a class="tpl-cta" href="#r-res" data-goto="#r-res">Reservar mesa</a>
+          <a class="t-r-ghost" href="#r-menu" data-goto="#r-menu">Ver a carta</a>
+        </div>
+        <p class="t-r-meta"><span>Terça a domingo · 11h30–22h</span><span>Dorfstrasse 12, Stalden</span><span>+41 27 000 00 00</span></p>
+      </div>
     </div>
-    <section class="tw t-r-hero">
-      <span class="kicker">Restaurante · Cozinha alpina</span>
-      <h2>Sabores da montanha,<br>servidos com alma</h2>
-      <p>Produtos locais do Valais, receitas de família e uma garrafeira escolhida a dedo — no coração da vila.</p>
-      <a class="tpl-cta" href="#">Reservar mesa</a>
+    <section class="tw t-r-info">
+      <div><b>Horário</b><span>Ter–Dom · 11h30–22h<br>cozinha até às 21h30</span></div>
+      <div><b>Morada</b><span>Dorfstrasse 12<br>3922 Stalden, Valais</span></div>
+      <div><b>Reservas</b><span><a href="tel:+41270000000">+41 27 000 00 00</a><br>ou pelo formulário</span></div>
     </section>
     <section class="tw t-r-menu" id="r-menu">
-      <h2>Do nosso menu</h2>
-      <div class="dm-fs" style="justify-content:center;" data-scope="menu">
+      <div class="t-r-shead">
+        <h2 class="tp-h2">À la carte</h2>
+        <span class="tp-kicker">Carta de inverno · até 15 de março</span>
+      </div>
+      <div class="dm-fs" data-scope="menu">
         <button class="dm-f on" type="button" data-f="all">Tudo</button>
         <button class="dm-f" type="button" data-f="ent">Entradas</button>
         <button class="dm-f" type="button" data-f="pri">Principais</button>
         <button class="dm-f" type="button" data-f="sob">Sobremesas</button>
       </div>
       <div class="t-r-grid" data-fscope="menu">
-        <div class="t-r-dish" data-cat="ent"><span><b>Sopa de castanha</b><small>creme, óleo de avelã</small></span><span class="p">CHF 14</span></div>
-        <div class="t-r-dish" data-cat="ent"><span><b>Carne seca do Valais</b><small>tábua com queijo e pão de centeio</small></span><span class="p">CHF 19</span></div>
-        <div class="t-r-dish" data-cat="pri"><span><b>Raclette tradicional</b><small>queijo do vale, batata nova, pickles</small></span><span class="p">CHF 28</span></div>
-        <div class="t-r-dish" data-cat="pri"><span><b>Rösti da casa</b><small>com cogumelos selvagens e ovo</small></span><span class="p">CHF 24</span></div>
-        <div class="t-r-dish" data-cat="pri"><span><b>Entrecôte de vitela</b><small>manteiga de ervas, legumes da época</small></span><span class="p">CHF 42</span></div>
-        <div class="t-r-dish" data-cat="pri"><span><b>Fondue de queijo</b><small>mistura da casa, pão rústico</small></span><span class="p">CHF 26</span></div>
-        <div class="t-r-dish" data-cat="pri"><span><b>Truta do rio</b><small>amêndoa torrada, limão</small></span><span class="p">CHF 34</span></div>
-        <div class="t-r-dish" data-cat="sob"><span><b>Tarte de alperce</b><small>gelado de nata, caramelo</small></span><span class="p">CHF 12</span></div>
-        <div class="t-r-dish" data-cat="sob"><span><b>Mousse de chocolate negro</b><small>flor de sal, azeite</small></span><span class="p">CHF 11</span></div>
+        <div class="t-r-dish" data-cat="ent"><span class="t-r-drow"><b>Sopa de castanha</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 14</span></span><small>Creme de castanha do vale, óleo de avelã, cebolinho.</small></div>
+        <div class="t-r-dish" data-cat="ent"><span class="t-r-drow"><b>Carne seca do Valais</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 19</span></span><small>Tábua com queijo de alpe, pickles e pão de centeio.</small></div>
+        <div class="t-r-dish" data-cat="ent"><span class="t-r-drow"><b>Tarte fina de cebola</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 16</span></span><small>Cebola confitada, toucinho fumado, tomilho da encosta.</small></div>
+        <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Raclette tradicional<em class="t-r-tag">Clássico da casa</em></b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 28</span></span><small>Queijo do vale raspado à mesa, batata nova e pickles da casa.</small></div>
+        <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Fondue moitié-moitié</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 26</span></span><small>Mistura da casa com kirsch, pão rústico do nosso forno.</small></div>
+        <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Rösti da casa<em class="t-r-tag">Vegetariano</em></b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 24</span></span><small>Cogumelos selvagens, ovo do campo, manteiga de ervas.</small></div>
+        <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Truta do rio</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 34</span></span><small>Grelhada com amêndoa torrada, limão e legumes da época.</small></div>
+        <div class="t-r-dish" data-cat="pri"><span class="t-r-drow"><b>Entrecôte de vitela</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 42</span></span><small>Vitela do Oberwallis, manteiga de ervas, gratin de batata.</small></div>
+        <div class="t-r-dish" data-cat="sob"><span class="t-r-drow"><b>Tarte de alperce</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 12</span></span><small>Alperce do Valais, gelado de nata, caramelo salgado.</small></div>
+        <div class="t-r-dish" data-cat="sob"><span class="t-r-drow"><b>Mousse de chocolate negro</b><i class="t-r-lead" aria-hidden="true"></i><span class="p">CHF 11</span></span><small>Flor de sal, azeite, tuile de avelã.</small></div>
+      </div>
+      <p class="t-r-note">Cozinha aberta até às 21h30 · versão vegetariana de qualquer prato a pedido · alergénios indicados na carta.</p>
+    </section>
+    <section class="tw tp-sec t-r-story" id="r-hist">
+      <div class="t-r-story-grid">
+        <div class="t-r-story-txt">
+          <div class="t-r-shead">
+            <h2 class="tp-h2">Três gerações<br>à mesa</h2>
+            <span class="tp-kicker">A casa · desde 1974</span>
+          </div>
+          <p>A família Zurbriggen recebe quem sobe o vale há mais de cinquenta anos. Os legumes vêm das hortas de Stalden, o queijo dos alpes acima da vila e o pão sai do nosso forno todas as manhãs.</p>
+          <p>No inverno a lareira fica acesa até fecharmos. No verão servimos no terraço, sobre o rio, até o sol descer atrás do Bietschhorn.</p>
+          <p class="t-r-sign">Família Zurbriggen</p>
+        </div>
+        <div class="tp-tiles t-r-plates">
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a lareira" data-cap="A lareira, acesa de novembro a abril" style="background:url('img/rest.webp') 88% 44%/cover no-repeat #241A10;">
+            <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Lareira de pedra acesa na sala do restaurante" style="object-position:88% 44%;">
+            <span class="t-r-pcap">A lareira</span>
+          </div>
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a garrafeira" data-cap="A garrafeira — 80 vinhos do Valais" style="background:url('img/rest.webp') 68% 26%/cover no-repeat #241A10;">
+            <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Prateleira com garrafas de vinho junto à parede de pedra" style="object-position:68% 26%;">
+            <span class="t-r-pcap">A garrafeira</span>
+          </div>
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a sala de cima" data-cap="A sala de cima, com vista para o vale" style="background:url('img/rest.webp') 6% 30%/cover no-repeat #241A10;">
+            <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Janela e candeeiro antigo na sala de cima" style="object-position:6% 30%;">
+            <span class="t-r-pcap">A sala de cima</span>
+          </div>
+          <div class="t-r-plate dm-zoom" role="button" tabindex="0" aria-label="Ampliar fotografia: a mesa posta" data-cap="A mesa posta, antes do serviço da noite" style="background:url('img/rest.webp') 46% 96%/cover no-repeat #241A10;">
+            <img src="img/rest.webp" width="960" height="541" loading="lazy" decoding="async" alt="Louça e talheres dispostos numa mesa de madeira" style="object-position:46% 96%;">
+            <span class="t-r-pcap">A mesa posta</span>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="tw t-r-info">
-      <div><b>Horário</b><span>Ter–Dom · 11h30–22h</span></div>
-      <div><b>Morada</b><span>Dorfstrasse 12, Stalden</span></div>
-      <div><b>Reservas</b><span>+41 27 000 00 00</span></div>
-    </section>
-    <section class="tw tp-sec" id="r-hist">
-      <div class="tp-grid-2">
-        <div>
-          <span class="tp-kicker">A nossa história</span>
-          <h2 class="tp-h2">Três gerações à mesa</h2>
-          <p style="color:var(--tp-muted);font-family:'Instrument Sans',sans-serif;">Desde 1974 que a família Zurbriggen recebe quem sobe o vale. Os produtos vêm dos pastos e hortas da região, o pão sai do nosso forno todas as manhãs e a garrafeira guarda mais de 80 vinhos do Valais.</p>
-          <p style="color:var(--tp-muted);font-family:'Instrument Sans',sans-serif;margin-top:12px;">No inverno, a lareira está sempre acesa. No verão, o terraço tem vista para o rio.</p>
-        </div>
-        <div class="tp-tiles">
-          <div class="tp-tile" style="background:linear-gradient(135deg,#3A2C1D,#6B4F2E);"></div>
-          <div class="tp-tile" style="background:linear-gradient(135deg,#4A3220,#8A5A2E);"></div>
-          <div class="tp-tile" style="background:linear-gradient(135deg,#2E2118,#5C4630);"></div>
-          <div class="tp-tile" style="background:linear-gradient(135deg,#57381E,#9C6A35);"></div>
-          <div class="tp-tile" style="background:linear-gradient(135deg,#33261A,#75522F);"></div>
-          <div class="tp-tile" style="background:linear-gradient(135deg,#453222,#E8B04B);"></div>
-        </div>
+    <section class="tw tp-sec t-r-says">
+      <div class="t-r-shead">
+        <h2 class="tp-h2">Quem cá volta</h2>
+        <span class="tp-kicker">4,8 em 127 avaliações</span>
       </div>
-    </section>
-    <section class="tw tp-sec">
-      <span class="tp-kicker">Testemunhos</span>
-      <h2 class="tp-h2">Quem cá volta</h2>
       <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>A melhor raclette que já comi no vale. Reservámos pelo site em 30 segundos.<footer><span class="tp-ava">MF</span>M. Fournier · Visp</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Jantar de aniversário perfeito — atenção ao detalhe do início ao fim.<footer><span class="tp-ava">CS</span>C. Schmid · Brig</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>O terraço no verão é imbatível. Voltamos sempre que visitamos Stalden.<footer><span class="tp-ava">JP</span>J. Pereira · Sion</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true">★★★★★</span>A melhor raclette que já comi no vale. Reservámos pelo site em trinta segundos.<footer><span class="tp-ava">MF</span>M. Fournier · Visp</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true">★★★★★</span>Jantar de aniversário perfeito. Trouxeram a sobremesa com uma vela sem eu ter pedido.<footer><span class="tp-ava">CS</span>C. Schmid · Brig</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true">★★★★★</span>O terraço no verão é imbatível. Voltamos sempre que subimos a Stalden.<footer><span class="tp-ava">JP</span>J. Pereira · Sion</footer></blockquote>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="r-res">
-      <span class="tp-kicker">Reservas</span>
-      <h2 class="tp-h2">Garante a tua mesa</h2>
-      <div class="tp-card">
+    <section class="tw tp-sec t-r-resv" id="r-res">
+      <div class="t-r-shead">
+        <h2 class="tp-h2">Garante a tua mesa</h2>
+        <span class="tp-kicker">Reservas · confirmação imediata</span>
+      </div>
+      <div class="tp-card t-r-book">
         <div class="tp-form">
           <label>Data<input type="date" data-k="data"></label>
-          <label>Pessoas<select data-k="pessoas"><option>2</option><option>4</option><option>6+</option></select></label>
-          <label style="grid-column:1/-1;">Contacto (telemóvel ou email)<input type="text" data-k="contacto" placeholder="+41 79 … ou email"></label>
-          <button class="tpl-cta dm-book" type="button" data-ref="AR" data-msg="Mesa reservada">Reservar</button>
+          <label>Pessoas<select data-k="pessoas"><option>2 pessoas</option><option>3 pessoas</option><option>4 pessoas</option><option>6 ou mais</option></select></label>
+          <label class="t-r-fw">Contacto (telemóvel ou email)<input type="text" data-k="contacto" placeholder="+41 79 … ou email"></label>
         </div>
+        <div class="t-r-hours">
+          <span class="t-r-flabel">Hora</span>
+          <div class="dm-slots">
+            <button class="dm-slot" type="button">11:45</button>
+            <button class="dm-slot" type="button">12:15</button>
+            <button class="dm-slot busy" type="button" aria-disabled="true">12:45</button>
+            <button class="dm-slot" type="button">18:45</button>
+            <button class="dm-slot" type="button">19:15</button>
+            <button class="dm-slot busy" type="button" aria-disabled="true">19:45</button>
+            <button class="dm-slot" type="button">20:15</button>
+            <button class="dm-slot" type="button">20:45</button>
+          </div>
+        </div>
+        <button class="tpl-cta dm-book" type="button" data-ref="AR" data-msg="Mesa reservada">Reservar mesa</button>
         <div class="dm-note" data-note><b>✓ Mesa reservada!</b> <span data-note-txt></span></div>
-        <p class="dm-mini">Confirmação imediata · cancela até 2h antes por telefone</p>
+        <p class="dm-mini">Confirmação imediata · cancelamento sem custo até 2 horas antes · grupos de 8+ por telefone.</p>
       </div>
     </section>
-    <section class="tw tp-sec" id="r-cont">
-      <span class="tp-kicker">Contacto</span>
-      <h2 class="tp-h2">Vem visitar-nos</h2>
+    <section class="tw tp-sec t-r-cont" id="r-cont">
+      <div class="t-r-shead">
+        <h2 class="tp-h2">Vem visitar-nos</h2>
+        <span class="tp-kicker">Contacto</span>
+      </div>
       <div class="tp-grid-2">
         <div class="tp-card t-r-contact-info">
-          <div class="t-r-cline"><b>Morada</b><span>Dorfstrasse 12, Stalden</span></div>
-          <div class="t-r-cline"><b>Horário</b><span>Ter–Dom · 11h30–22h</span></div>
+          <div class="t-r-cline"><b>Morada</b><span>Dorfstrasse 12<br>3922 Stalden, Valais</span></div>
+          <div class="t-r-cline"><b>Horário</b><span>Terça a domingo · 11h30–22h<br>Segunda encerrado</span></div>
           <div class="t-r-cline"><b>Telefone</b><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div>
+          <div class="t-r-cline"><b>Como chegar</b><span>12 minutos da saída de Visp · estacionamento na praça da igreja</span></div>
         </div>
         <a class="t-r-map" href="https://www.google.com/maps/search/?api=1&query=Dorfstrasse+12+Stalden" target="_blank" rel="noopener">
-          <span class="t-r-map-pin" aria-hidden="true">📍</span>
+          <svg class="t-r-map-pin" viewBox="0 0 24 30" width="26" height="33" aria-hidden="true" focusable="false"><path d="M12 1.5c-5.2 0-9.4 4.1-9.4 9.2 0 6.6 8.2 16.5 8.6 16.9a1 1 0 0 0 1.6 0c.4-.4 8.6-10.3 8.6-16.9 0-5.1-4.2-9.2-9.4-9.2Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10.6" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
           <span class="t-r-map-label">Ver no Google Maps</span>
+          <span class="t-r-map-sub">Dorfstrasse 12 · 3922 Stalden</span>
         </a>
       </div>
     </section>
-    <div class="tp-foot"><span>ALPENROSE · Dorfstrasse 12, Stalden</span><span>Ter–Dom 11h30–22h · +41 27 000 00 00</span></div>
+    <div class="tp-foot"><span>Alpenrose · Dorfstrasse 12, 3922 Stalden</span><span>Ter–Dom 11h30–22h · +41 27 000 00 00</span></div>
     <div class="tpl-go-band">
       <p>Gostas deste estilo? Faço um assim para o teu restaurante.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
