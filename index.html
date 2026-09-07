@@ -2088,52 +2088,72 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 
 <template id="tpl-gym">
   <div class="t-g">
-    <header class="tw t-g-head tp-sticky"><span class="t-g-logo">MOMENTUM</span>
-      <nav class="tpl-nav2"><a href="#g-aulas" data-goto="#g-aulas">Aulas</a><a href="#g-planos" data-goto="#g-planos">Planos</a><a href="#g-equipa" data-goto="#g-equipa">Equipa</a><a href="#g-cont" data-goto="#g-cont">Contacto</a></nav>
+    <header class="tw t-g-head tp-sticky"><span class="t-g-logo">Momentum</span>
+      <nav class="tpl-nav2"><a href="#g-treino" data-goto="#g-treino">Treino</a><a href="#g-aulas" data-goto="#g-aulas">Aulas</a><a href="#g-planos" data-goto="#g-planos">Planos</a><a href="#g-equipa" data-goto="#g-equipa">Equipa</a><a href="#g-cont" data-goto="#g-cont">Contacto</a></nav>
+      <a class="tpl-cta t-g-navcta" href="#g-planos" data-goto="#g-planos">Aula grátis</a>
     </header>
     <div class="t-cover" aria-hidden="true">
       <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img">
         <defs>
-          <linearGradient id="gBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A1522"/><stop offset="1" stop-color="#12233A"/></linearGradient>
-          <radialGradient id="gGlow" cx="0.5" cy="0.6" r="0.6"><stop offset="0" stop-color="#3FD08A" stop-opacity="0.4"/><stop offset="1" stop-color="#3FD08A" stop-opacity="0"/></radialGradient>
+          <linearGradient id="gBg" x1="0.1" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#171D24"/><stop offset="1" stop-color="#080B0E"/></linearGradient>
         </defs>
         <rect width="1200" height="400" fill="url(#gBg)"/>
-        <rect x="-100" y="70" width="700" height="26" rx="13" fill="#16283E" transform="rotate(-12 250 83)"/>
-        <rect x="620" y="300" width="700" height="26" rx="13" fill="#16283E" transform="rotate(-12 970 313)"/>
-        <ellipse cx="600" cy="240" rx="380" ry="180" fill="url(#gGlow)"/>
-        <rect x="330" y="212" width="540" height="16" rx="8" fill="#22364F"/>
-        <rect x="360" y="160" width="46" height="120" rx="10" fill="#1B2C42" stroke="#3FD08A" stroke-width="3"/>
-        <rect x="416" y="178" width="34" height="84" rx="8" fill="#1B2C42" stroke="#3FD08A" stroke-width="3"/>
-        <rect x="794" y="160" width="46" height="120" rx="10" fill="#1B2C42" stroke="#3FD08A" stroke-width="3"/>
-        <rect x="750" y="178" width="34" height="84" rx="8" fill="#1B2C42" stroke="#3FD08A" stroke-width="3"/>
-        <circle cx="600" cy="220" r="6" fill="#3FD08A"/>
-        <polyline points="180,340 320,340 360,300 420,360 470,320 1020,320" stroke="#3FD08A" stroke-width="3" fill="none" opacity="0.5"/>
+        <rect x="0" y="0" width="1200" height="6" fill="#C8FA4B"/>
+        <rect x="60" y="330" width="1080" height="2" fill="#1D242C"/>
+        <g fill="#2A333C">
+          <rect x="60" y="312" width="2" height="18"/><rect x="204" y="320" width="2" height="10"/>
+          <rect x="348" y="312" width="2" height="18"/><rect x="492" y="320" width="2" height="10"/>
+          <rect x="636" y="312" width="2" height="18"/><rect x="780" y="320" width="2" height="10"/>
+          <rect x="924" y="312" width="2" height="18"/><rect x="1068" y="320" width="2" height="10"/>
+        </g>
+        <g>
+          <rect x="300" y="190" width="600" height="18" rx="3" fill="#39424C"/>
+          <rect x="286" y="174" width="14" height="50" rx="3" fill="#39424C"/>
+          <rect x="900" y="174" width="14" height="50" rx="3" fill="#39424C"/>
+          <rect x="330" y="144" width="36" height="110" rx="4" fill="#C8FA4B"/>
+          <rect x="374" y="163" width="24" height="72" rx="3" fill="#6E8F2C"/>
+          <rect x="834" y="144" width="36" height="110" rx="4" fill="#C8FA4B"/>
+          <rect x="802" y="163" width="24" height="72" rx="3" fill="#6E8F2C"/>
+        </g>
       </svg>
     </div>
-    <section class="tw t-g-hero">
-      <h2>Treina <em>mais forte</em>.<br>Vive melhor.</h2>
-      <p>Ginásio aberto todos os dias, treinadores certificados e planos sem complicações. A primeira sessão é por nossa conta.</p>
-      <a class="tpl-cta" href="#">Sessão experimental grátis</a>
-    </section>
-    <section class="tw t-g-stats">
-      <div><b>650 m²</b><span>de área de treino</span></div>
-      <div><b>06–23h</b><span>todos os dias</span></div>
-      <div><b>+40</b><span>aulas por semana</span></div>
-    </section>
-    <section class="tw t-g-plans" id="g-planos">
-      <div class="t-g-plan"><h3>Flex</h3><span class="p">CHF 59/mês</span><ul><li>✓ Acesso livre ao ginásio</li><li>✓ Sem fidelização</li></ul><button class="tpl-cta dm-pick" type="button" data-plan="Flex" style="margin-top:14px;font-size:0.88rem;padding:10px 20px;">Escolher</button></div>
-      <div class="t-g-plan hot"><h3>Full</h3><span class="p">CHF 79/mês</span><ul><li>✓ Ginásio + todas as aulas</li><li>✓ Plano de treino incluído</li></ul><button class="tpl-cta dm-pick" type="button" data-plan="Full" style="margin-top:14px;font-size:0.88rem;padding:10px 20px;">Escolher</button></div>
-      <div class="t-g-plan"><h3>Duo</h3><span class="p">CHF 139/mês</span><ul><li>✓ Para dois</li><li>✓ Tudo do plano Full</li></ul><button class="tpl-cta dm-pick" type="button" data-plan="Duo" style="margin-top:14px;font-size:0.88rem;padding:10px 20px;">Escolher</button></div>
-    </section>
-    <section class="tw" style="padding-bottom:56px;">
-      <div class="dm-form" style="grid-template-columns:1fr;max-width:420px;margin:0 auto 12px;">
-        <label>Contacto (telemóvel ou email)<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou email"></label>
+    <section class="t-g-hero">
+      <img class="t-g-hero-img" src="img/gym.jpg" srcset="img/gym-480.webp 480w, img/gym.webp 960w" sizes="100vw" width="960" height="532" alt="Sala de treino da Momentum com bancos, halteres e janelas altas" loading="eager" fetchpriority="high" decoding="async">
+      <div class="tw t-g-hero-in">
+        <h2>Mais <em>forte</em><br>todas as semanas</h2>
+        <p>Ginásio e estúdio de aulas em Visp. Treinadores certificados, plano feito à tua medida e portas abertas das 6h às 23h — todos os dias do ano.</p>
+        <div class="t-g-actions">
+          <a class="tpl-cta" href="#g-planos" data-goto="#g-planos">Sessão experimental grátis</a>
+          <a class="t-g-ghost" href="#g-aulas" data-goto="#g-aulas">Ver o horário</a>
+        </div>
+        <ul class="t-g-meta">
+          <li>650 m² de área de treino</li>
+          <li>+40 aulas por semana</li>
+          <li>Kantonsstrasse 8, Visp</li>
+        </ul>
       </div>
-      <div class="dm-note" data-note style="--tp-accent:#3FD08A;--tp-line:#23364E;color:#EAF2FA;"><b>✓ Plano selecionado!</b> <span data-note-txt></span></div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="g-aulas">
+    <section class="tw t-g-now" aria-label="Estado do clube agora">
+      <div><b class="t-g-live">Aberto agora</b><span>Fecha às 23h00</span></div>
+      <div><b>Próxima aula · 18h00</b><span>HIIT 45 com a Sara · 6 lugares livres</span></div>
+      <div><b>Sala de força</b><span>14 de 40 lugares ocupados</span></div>
+    </section>
+    <section class="tw tp-sec" id="g-treino">
+      <span class="tp-kicker">Treino</span>
+      <h2 class="tp-h2">Três formas de treinar aqui</h2>
+      <p class="t-g-lead">Escolhes uma ou usas as três. O acesso é o mesmo e o plano acompanha-te em qualquer delas.</p>
+      <div class="t-g-split">
+        <div class="t-g-ways">
+          <article class="t-g-way"><span class="t-g-num" aria-hidden="true">01</span><h3>Sala de força</h3><p>Seis racks, barras olímpicas e halteres até 50 kg. Há espaço para treinar às 7h sem esperar pela máquina.</p></article>
+          <article class="t-g-way"><span class="t-g-num" aria-hidden="true">02</span><h3>Aulas em grupo</h3><p>Mais de 40 por semana, das 6h30 às 21h. Marcas o lugar no site e entras — sem custo extra no plano Full.</p></article>
+          <article class="t-g-way"><span class="t-g-num" aria-hidden="true">03</span><h3>Treino individual</h3><p>Uma hora só para ti: avaliação, plano escrito e revisão a cada seis semanas com o mesmo treinador.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="tw tp-sec" id="g-aulas">
       <span class="tp-kicker">Aulas</span>
-      <h2 class="tp-h2" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;">Mais de 40 aulas por semana</h2>
+      <h2 class="tp-h2">Horário da semana</h2>
+      <p class="t-g-lead">Quarenta e duas aulas por semana. Escolhe o dia para veres só o que te serve.</p>
       <div class="dm-fs" data-scope="aulas">
         <button class="dm-f on" type="button" data-f="all">Todas</button>
         <button class="dm-f" type="button" data-f="seg">Seg</button>
@@ -2143,49 +2163,119 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         <button class="dm-f" type="button" data-f="sex">Sex</button>
         <button class="dm-f" type="button" data-f="sab">Sáb</button>
       </div>
-      <div class="tp-grid-3" data-fscope="aulas">
-        <div class="tp-card" data-cat="seg qua sex"><b>HIIT 45</b><span>Seg · Qua · Sex — 07h e 18h</span></div>
-        <div class="tp-card" data-cat="ter qui"><b>Spinning</b><span>Ter · Qui — 12h15 e 19h</span></div>
-        <div class="tp-card" data-cat="seg qua"><b>Yoga Flow</b><span>Seg · Qua — 08h e 20h</span></div>
-        <div class="tp-card" data-cat="seg ter qua qui sex sab"><b>Cross Training</b><span>Todos os dias — 17h30</span></div>
-        <div class="tp-card" data-cat="ter qui sab"><b>Boxe</b><span>Ter · Qui · Sáb — 18h30</span></div>
-        <div class="tp-card" data-cat="qua sex"><b>Mobilidade 50+</b><span>Qua · Sex — 10h</span></div>
+      <div class="tp-grid-3 t-g-sched" data-fscope="aulas">
+        <div class="tp-card t-g-row" data-cat="seg ter qua qui sex sab">
+          <span class="t-g-hour">06:30</span>
+          <span class="t-g-what"><b>Cross Training</b><span class="t-g-sub">60 min · Luca K. · Seg a Sáb</span></span>
+          <span class="t-g-int" data-lvl="3" role="img" aria-label="Intensidade alta"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="seg qua sex">
+          <span class="t-g-hour">07:00</span>
+          <span class="t-g-what"><b>HIIT 45</b><span class="t-g-sub">45 min · Sara R. · Seg, Qua, Sex</span></span>
+          <span class="t-g-int" data-lvl="3" role="img" aria-label="Intensidade alta"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="seg qua">
+          <span class="t-g-hour">08:00</span>
+          <span class="t-g-what"><b>Yoga Flow</b><span class="t-g-sub">60 min · David M. · Seg, Qua</span></span>
+          <span class="t-g-int" data-lvl="1" role="img" aria-label="Intensidade baixa"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="qua sex">
+          <span class="t-g-hour">10:00</span>
+          <span class="t-g-what"><b>Mobilidade 50+</b><span class="t-g-sub">50 min · David M. · Qua, Sex</span></span>
+          <span class="t-g-int" data-lvl="1" role="img" aria-label="Intensidade baixa"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="ter qui">
+          <span class="t-g-hour">12:15</span>
+          <span class="t-g-what"><b>Spinning</b><span class="t-g-sub">45 min · Sara R. · Ter, Qui</span></span>
+          <span class="t-g-int" data-lvl="2" role="img" aria-label="Intensidade média"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="seg ter qua qui sex sab">
+          <span class="t-g-hour">17:30</span>
+          <span class="t-g-what"><b>Cross Training</b><span class="t-g-sub">60 min · Luca K. · Seg a Sáb</span></span>
+          <span class="t-g-int" data-lvl="3" role="img" aria-label="Intensidade alta"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="ter qui sab">
+          <span class="t-g-hour">18:30</span>
+          <span class="t-g-what"><b>Boxe</b><span class="t-g-sub">60 min · Sara R. · Ter, Qui, Sáb</span></span>
+          <span class="t-g-int" data-lvl="2" role="img" aria-label="Intensidade média"><i></i><i></i><i></i></span>
+        </div>
+        <div class="tp-card t-g-row" data-cat="seg qua">
+          <span class="t-g-hour">20:00</span>
+          <span class="t-g-what"><b>Yoga Flow</b><span class="t-g-sub">60 min · David M. · Seg, Qua</span></span>
+          <span class="t-g-int" data-lvl="1" role="img" aria-label="Intensidade baixa"><i></i><i></i><i></i></span>
+        </div>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="g-equipa">
+    <section class="tw tp-sec" id="g-planos">
+      <span class="tp-kicker">Planos</span>
+      <h2 class="tp-h2">Planos sem letras pequenas</h2>
+      <p class="t-g-lead">Sem joia de inscrição e sem fidelização. Cancelas no balcão, num minuto.</p>
+      <div class="t-g-plans">
+        <div class="t-g-plan">
+          <h3>Flex</h3>
+          <span class="p">CHF 59<small>/mês</small></span>
+          <ul><li>Acesso livre ao ginásio</li><li>Vestiário e cacifo incluídos</li><li>Sem fidelização</li></ul>
+          <button class="tpl-cta dm-pick" type="button" data-plan="Flex">Escolher Flex</button>
+        </div>
+        <div class="t-g-plan hot">
+          <span class="t-g-tag">Mais escolhido</span>
+          <h3>Full</h3>
+          <span class="p">CHF 79<small>/mês</small></span>
+          <ul><li>Ginásio e todas as aulas</li><li>Plano de treino escrito</li><li>Avaliação a cada 6 semanas</li></ul>
+          <button class="tpl-cta dm-pick" type="button" data-plan="Full">Escolher Full</button>
+        </div>
+        <div class="t-g-plan">
+          <h3>Duo</h3>
+          <span class="p">CHF 139<small>/mês</small></span>
+          <ul><li>Para dois, no mesmo plano</li><li>Tudo o que o Full inclui</li><li>Uma sessão de treino individual por mês</li></ul>
+          <button class="tpl-cta dm-pick" type="button" data-plan="Duo">Escolher Duo</button>
+        </div>
+      </div>
+      <div class="t-g-signup">
+        <div class="dm-form t-g-field">
+          <label>Onde te enviamos a confirmação<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 000 00 00 ou email"></label>
+        </div>
+        <p class="dm-mini">Escolhe um plano acima. A primeira sessão é por nossa conta e não pedimos cartão.</p>
+        <div class="dm-note" data-note><b>Plano reservado.</b> <span data-note-txt></span></div>
+      </div>
+    </section>
+    <section class="tw tp-sec" id="g-equipa">
       <span class="tp-kicker">Equipa</span>
-      <h2 class="tp-h2" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;">Treinadores certificados</h2>
-      <div class="tp-grid-3">
-        <div class="tp-card" style="text-align:center;"><span class="tp-ava" style="width:64px;height:64px;font-size:1.2rem;margin:0 auto 10px;">LK</span><b>Luca K.</b><span>Força & Cross · 8 anos</span></div>
-        <div class="tp-card" style="text-align:center;"><span class="tp-ava" style="width:64px;height:64px;font-size:1.2rem;margin:0 auto 10px;">SR</span><b>Sara R.</b><span>HIIT & Boxe · ex-competição</span></div>
-        <div class="tp-card" style="text-align:center;"><span class="tp-ava" style="width:64px;height:64px;font-size:1.2rem;margin:0 auto 10px;">DM</span><b>David M.</b><span>Yoga & Mobilidade</span></div>
+      <h2 class="tp-h2">Quem te acompanha</h2>
+      <p class="t-g-lead">Três treinadores fixos. Vais treinar sempre com quem já conhece o teu plano.</p>
+      <div class="t-g-team">
+        <div class="tp-card t-g-coach"><span class="tp-ava">LK</span><b>Luca K.</b><span>Força e Cross Training · 8 anos de sala</span></div>
+        <div class="tp-card t-g-coach"><span class="tp-ava">SR</span><b>Sara R.</b><span>HIIT e Boxe · ex-competição amadora</span></div>
+        <div class="tp-card t-g-coach"><span class="tp-ava">DM</span><b>David M.</b><span>Yoga e Mobilidade · reabilitação</span></div>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
+    <section class="tw tp-sec" id="g-vozes">
       <span class="tp-kicker">Testemunhos</span>
-      <h2 class="tp-h2" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;">Resultados reais</h2>
-      <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Perdi 12 kg em 8 meses com o plano do Luca. O ambiente é família.<footer><span class="tp-ava">TB</span>T. Berger · Visp</footer></blockquote>
+      <h2 class="tp-h2">Quem já treina cá</h2>
+      <div class="tp-grid-3 t-g-quotes">
+        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Perdi 12 kg em oito meses com o plano do Luca. O ambiente é de família.<footer><span class="tp-ava">TB</span>T. Berger · Visp</footer></blockquote>
         <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Aulas às 7h antes do trabalho — mudou-me os dias por completo.<footer><span class="tp-ava">AS</span>A. Silva · Stalden</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Sem fidelização e horário até às 23h. Exatamente o que procurava.<footer><span class="tp-ava">NW</span>N. Werlen · Brig</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Sem fidelização e aberto até às 23h. Era exatamente o que procurava.<footer><span class="tp-ava">NW</span>N. Werlen · Brig</footer></blockquote>
       </div>
     </section>
     <section class="tw tp-sec" id="g-cont">
       <span class="tp-kicker">Contacto</span>
-      <h2 class="tp-h2" style="font-weight:600;">Vem treinar connosco</h2>
+      <h2 class="tp-h2">Vem treinar connosco</h2>
+      <p class="t-g-lead">Aparece sem marcação para uma visita guiada. Mostramos-te a sala e ficas a treinar nesse dia.</p>
       <div class="tp-grid-2">
         <div class="tp-card tpl-contact-info">
-          <div class="tpl-cline"><b>Morada</b><span>Kantonsstrasse 8, Visp</span></div>
-          <div class="tpl-cline"><b>Horário</b><span>Todos os dias · 06h–23h</span></div>
+          <div class="tpl-cline"><b>Morada</b><span>Kantonsstrasse 8, 3930 Visp</span></div>
+          <div class="tpl-cline"><b>Horário</b><span>Todos os dias · 06h00–23h00</span></div>
+          <div class="tpl-cline"><b>Aulas</b><span>Estúdio · 06h30–21h00</span></div>
           <div class="tpl-cline"><b>Telefone</b><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div>
         </div>
         <a class="tpl-map" href="https://www.google.com/maps/search/?api=1&query=Kantonsstrasse+8+Visp" target="_blank" rel="noopener">
-          <span class="tpl-map-pin" aria-hidden="true">📍</span>
+          <span class="tpl-map-pin" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11.2A7 7 0 0 0 5 10.3c0 5.1 7 11.2 7 11.2Z"/><circle cx="12" cy="10.2" r="2.6"/></svg></span>
           <span class="tpl-map-label">Ver no Google Maps</span>
         </a>
       </div>
     </section>
-    <div class="tp-foot"><span>MOMENTUM · Kantonsstrasse 8, Visp</span><span>Todos os dias 06h–23h · +41 27 000 00 00</span></div>
+    <div class="tp-foot"><span>Momentum · Kantonsstrasse 8, Visp</span><span>Todos os dias 06h–23h · +41 27 000 00 00</span></div>
     <div class="tpl-go-band">
       <p>Um site assim para o teu ginásio ou estúdio? Trato disso.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
