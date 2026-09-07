@@ -191,6 +191,11 @@
 .t-m .tm-news .tpl-cta { background: var(--tm-paper); color: var(--tm-ink); }
 .t-m .tm-news .tpl-cta:hover { background: var(--tm-bronze-2); color: var(--tm-ink); }
 .t-m .tm-news .dm-note { border-radius: 0; }
+/* faixa final "queres um site destes": sem isto herda o azul genérico do overlay,
+   que destoa do bronze/papel do resto da demo e falha o contraste (branco sobre azul claro) */
+.t-m .tpl-go-band { background: var(--tm-ink); color: var(--tm-onink); }
+.t-m .tpl-go-band .tpl-cta { background: var(--tp-accent); color: var(--tp-onaccent); }
+.t-m .tpl-go-band .tpl-cta:hover { background: var(--tm-bronze-2); color: var(--tm-ink); }
 /* rodapé + carrinho lateral */
 .t-m .tp-foot { border-top: 1px solid var(--tm-line); margin-top: 76px; padding: 26px 22px 40px;
   color: var(--tm-mut); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
