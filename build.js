@@ -48,7 +48,7 @@ const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
   'site.webmanifest', '404.html', /* o _headers é gerado, ver buildHeaders() */
 ];
-const COPY_DIRS = ['img', 'css', 'fonts'];
+const COPY_DIRS = ['img', 'css', 'fonts', '3d'];
 
 /* preenchido por buildPosts(); consumido por buildSitemap() e buildDocPage(blog.html) */
 let DB_POSTS = [];

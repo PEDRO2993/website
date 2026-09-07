@@ -5,13 +5,19 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin-allow-popups
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.tawk.to https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.facebook.com; connect-src 'self' https://rinfpezlwqmblwpzfdlm.supabase.co wss://rinfpezlwqmblwpzfdlm.supabase.co https://*.tawk.to wss://*.tawk.to https://*.google-analytics.com https://analytics.google.com https://www.facebook.com; frame-src https://*.tawk.to; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.tawk.to https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob: https://www.facebook.com; connect-src 'self' https://rinfpezlwqmblwpzfdlm.supabase.co wss://rinfpezlwqmblwpzfdlm.supabase.co https://*.tawk.to wss://*.tawk.to https://*.google-analytics.com https://analytics.google.com https://www.facebook.com; frame-src https://*.tawk.to; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests
 
 # As regras por página são geradas pelo build a partir de DOC_PAGES (build.js).
 # Não escrever páginas à mão aqui: acrescentar à DOC_PAGES e o build trata disto.
 # Uma página sem regra fica no cache da CDN e as correções não chegam a quem visita.
 #gen:paginas:inicio
 #gen:paginas:fim
+
+/3d/*
+  Cache-Control: public, max-age=2592000
+
+/img/3d/*
+  Cache-Control: public, max-age=2592000
 
 /robots.txt
   Cache-Control: public, max-age=3600
