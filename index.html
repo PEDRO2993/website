@@ -2358,79 +2358,136 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 
 <template id="tpl-foto">
   <div class="t-f">
-    <header class="tw t-f-head tp-sticky"><span class="t-f-logo">Lume Studio</span>
-      <nav class="tpl-nav2"><a href="#f-port" data-goto="#f-port">Portfólio</a><a href="#f-packs" data-goto="#f-packs">Packs</a><a href="#f-sobre" data-goto="#f-sobre">Processo</a><a href="#f-cont" data-goto="#f-cont">Contacto</a></nav>
+    <header class="tw t-f-head tp-sticky"><span class="t-f-logo">Lume<span>Studio</span></span>
+      <nav class="tpl-nav2"><a href="#f-port" data-goto="#f-port">Trabalho</a><a href="#f-packs" data-goto="#f-packs">Serviços</a><a href="#f-sobre" data-goto="#f-sobre">Processo</a><a href="#f-cont" data-goto="#f-cont">Contacto</a></nav>
     </header>
     <div class="t-cover" aria-hidden="true">
       <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img">
         <defs>
-          <radialGradient id="fVig" cx="0.5" cy="0.5" r="0.75"><stop offset="0" stop-color="#1E1E1E"/><stop offset="1" stop-color="#0B0B0B"/></radialGradient>
-          <filter id="fSoft"><feGaussianBlur stdDeviation="8"/></filter>
+          <radialGradient id="fVig" cx="0.5" cy="0.46" r="0.8"><stop offset="0" stop-color="#1B1A17"/><stop offset="0.55" stop-color="#111110"/><stop offset="1" stop-color="#070706"/></radialGradient>
+          <linearGradient id="fBlade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2C2A26"/><stop offset="1" stop-color="#141310"/></linearGradient>
+          <filter id="fSoft"><feGaussianBlur stdDeviation="9"/></filter>
         </defs>
         <rect width="1200" height="400" fill="url(#fVig)"/>
-        <circle cx="240" cy="120" r="34" fill="#8A6D57" opacity="0.5" filter="url(#fSoft)"/>
-        <circle cx="330" cy="220" r="22" fill="#5B7C93" opacity="0.5" filter="url(#fSoft)"/>
-        <circle cx="180" cy="290" r="28" fill="#95556B" opacity="0.45" filter="url(#fSoft)"/>
-        <circle cx="990" cy="110" r="26" fill="#9A9463" opacity="0.5" filter="url(#fSoft)"/>
-        <circle cx="1060" cy="250" r="36" fill="#5E8F7F" opacity="0.45" filter="url(#fSoft)"/>
-        <circle cx="920" cy="320" r="20" fill="#8A6D57" opacity="0.4" filter="url(#fSoft)"/>
-        <circle cx="600" cy="200" r="130" fill="#141414" stroke="#2E2E2E" stroke-width="10"/>
-        <circle cx="600" cy="200" r="96" fill="#101010" stroke="#3A3A3A" stroke-width="4"/>
-        <circle cx="600" cy="200" r="62" fill="#181820"/>
-        <circle cx="600" cy="200" r="34" fill="#232330" opacity="0.9"/>
-        <path d="M520 140 a104 104 0 0 1 74 -32" stroke="#F2F2F2" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <circle cx="576" cy="178" r="10" fill="#F2F2F2" opacity="0.85"/>
+        <g filter="url(#fSoft)">
+          <circle cx="212" cy="118" r="38" fill="#C0A277" opacity="0.42"/>
+          <circle cx="322" cy="238" r="24" fill="#E9E2D6" opacity="0.26"/>
+          <circle cx="150" cy="300" r="30" fill="#8E7A5C" opacity="0.34"/>
+          <circle cx="1002" cy="106" r="28" fill="#E9E2D6" opacity="0.24"/>
+          <circle cx="1068" cy="256" r="40" fill="#B49768" opacity="0.34"/>
+          <circle cx="930" cy="330" r="20" fill="#6E8C84" opacity="0.3"/>
+        </g>
+        <g transform="translate(600 200)">
+          <circle r="134" fill="#121110" stroke="#2E2C28" stroke-width="9"/>
+          <circle r="98" fill="#0D0C0B" stroke="#3A3733" stroke-width="3"/>
+          <polygon points="46,0 23,39.8 -23,39.8 -46,0 -23,-39.8 23,-39.8" fill="url(#fBlade)" stroke="#4A4640" stroke-width="1.5"/>
+          <g stroke="#302D28" stroke-width="2" stroke-linecap="round">
+            <path d="M46 0 L96 0"/><path d="M23 39.8 L48 83.1"/><path d="M-23 39.8 L-48 83.1"/>
+            <path d="M-46 0 L-96 0"/><path d="M-23 -39.8 L-48 -83.1"/><path d="M23 -39.8 L48 -83.1"/>
+          </g>
+          <path d="M-84 -62 a104 104 0 0 1 60 -37" stroke="#F3F1EC" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <circle cx="-16" cy="-20" r="8" fill="#F3F1EC" opacity="0.5"/>
+        </g>
       </svg>
     </div>
     <section class="tw t-f-hero">
-      <h2>Histórias em luz</h2>
-      <p>Fotografia de casamento, retrato e produto — Valais e além.</p>
+      <h2>Fotografia de produto que vende.</h2>
+      <p>Estúdio em Visp. Imagens limpas e iguais entre si, para loja online, catálogo e campanha — entregues em cinco dias.</p>
+      <div class="t-f-actions">
+        <a class="tpl-cta" href="#f-port" data-goto="#f-port">Ver trabalho</a>
+        <a class="t-f-ghost" href="#f-cont" data-goto="#f-cont">Pedir orçamento</a>
+      </div>
+      <ul class="t-f-meta"><li>Visp · Valais</li><li>Estúdio próprio, 60 m²</li><li>Entrega em 5 dias úteis</li></ul>
     </section>
-    <section class="tw t-f-gal" id="f-port">
-      <div class="dm-zoom" data-cap="Casamento — Zermatt" role="button" tabindex="0" aria-label="Casamento — Zermatt" style="background:linear-gradient(135deg,#2B2B2B,#555);cursor:zoom-in;"></div>
-      <div class="dm-zoom" data-cap="Retrato — luz de fim de tarde" role="button" tabindex="0" aria-label="Retrato — luz de fim de tarde" style="background:linear-gradient(135deg,#3A2F2A,#8A6D57);cursor:zoom-in;"></div>
-      <div class="dm-zoom" data-cap="Editorial — inverno" role="button" tabindex="0" aria-label="Editorial — inverno" style="background:linear-gradient(135deg,#22303A,#5B7C93);cursor:zoom-in;"></div>
-      <div class="dm-zoom" data-cap="Produto — cerâmica local" role="button" tabindex="0" aria-label="Produto — cerâmica local" style="background:linear-gradient(135deg,#3B3B2A,#9A9463);cursor:zoom-in;"></div>
-      <div class="dm-zoom" data-cap="Retrato — estúdio" role="button" tabindex="0" aria-label="Retrato — estúdio" style="background:linear-gradient(135deg,#40272E,#95556B);cursor:zoom-in;"></div>
-      <div class="dm-zoom" data-cap="Paisagem — vale ao amanhecer" role="button" tabindex="0" aria-label="Paisagem — vale ao amanhecer" style="background:linear-gradient(135deg,#1F3530,#5E8F7F);cursor:zoom-in;"></div>
+    <section class="tw t-f-port" id="f-port">
+      <div class="t-f-shead t-f-gal"><h2 class="tp-h2">Trabalho recente para marcas do Valais.</h2><span class="tp-kicker">Portfólio</span></div>
+      <figure class="t-f-item t-f-item--lead">
+        <div class="t-f-frame dm-zoom" data-cap="Optik Valais — catálogo completo, 2025" role="button" tabindex="0" aria-label="Ampliar: Optik Valais, catálogo completo" style="background:url('img/foto.webp') 50% 46%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:50%;--py:46%;--z:1.02;">
+          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Conjunto de máquina e objetivas fotografado em estúdio sobre fundo escuro" width="960" height="537" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>Optik Valais · catálogo</b><span>2025</span></figcaption>
+      </figure>
+      <figure class="t-f-item t-f-item--tall">
+        <div class="t-f-frame dm-zoom" data-cap="Objetivas, série curta — loja online" role="button" tabindex="0" aria-label="Ampliar: objetivas, série curta" style="background:url('img/foto.webp') 6% 34%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:6%;--py:34%;--z:2.7;">
+          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Duas objetivas de pé, luz lateral suave sobre fundo preto" width="960" height="537" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>Objetivas, série curta</b><span>Loja online</span></figcaption>
+      </figure>
+      <figure class="t-f-item t-f-item--wide">
+        <div class="t-f-frame dm-zoom" data-cap="Corpo e teleobjetiva — editorial de marca" role="button" tabindex="0" aria-label="Ampliar: corpo e teleobjetiva" style="background:url('img/foto.webp') 70% 30%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:70%;--py:30%;--z:1.9;">
+          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Corpo de máquina com teleobjetiva branca, visto de frente" width="960" height="537" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>Corpo e 250 mm</b><span>Editorial</span></figcaption>
+      </figure>
+      <figure class="t-f-item">
+        <div class="t-f-frame dm-zoom" data-cap="250 mm, detalhe do anel — ficha de produto" role="button" tabindex="0" aria-label="Ampliar: detalhe do anel de 250 mm" style="background:url('img/foto.webp') 85% 46%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:85%;--py:46%;--z:2.7;">
+          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Detalhe do anel graduado de uma teleobjetiva de 250 mm" width="960" height="537" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>250 mm, o anel</b><span>Ficha de produto</span></figcaption>
+      </figure>
+      <figure class="t-f-item">
+        <div class="t-f-frame dm-zoom" data-cap="Grande angular — ficha de campanha" role="button" tabindex="0" aria-label="Ampliar: grande angular" style="background:url('img/foto.webp') 72% 93%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:72%;--py:93%;--z:2.8;">
+          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Objetiva grande angular deitada, luz rasante" width="960" height="537" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>Grande angular</b><span>Campanha</span></figcaption>
+      </figure>
+      <figure class="t-f-item">
+        <div class="t-f-frame dm-zoom" data-cap="Para-sol em contraluz — editorial" role="button" tabindex="0" aria-label="Ampliar: para-sol em contraluz" style="background:url('img/foto.webp') 31% 90%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:31%;--py:90%;--z:2.5;">
+          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Para-sol de objetiva em contraluz" width="960" height="537" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>Para-sol, contraluz</b><span>Editorial</span></figcaption>
+      </figure>
     </section>
     <section class="tw t-f-packs" id="f-packs">
-      <div class="t-f-pack"><b>RETRATO</b><span class="p">CHF 290</span><span>1h de sessão · 15 fotos editadas</span><button class="tpl-cta dm-pack" type="button" data-pack="Retrato — CHF 290" style="margin-top:12px;font-size:0.85rem;padding:9px 18px;">Reservar</button></div>
-      <div class="t-f-pack"><b>CASAMENTO</b><span class="p">CHF 1'900</span><span>dia completo · galeria privada</span><button class="tpl-cta dm-pack" type="button" data-pack="Casamento — CHF 1'900" style="margin-top:12px;font-size:0.85rem;padding:9px 18px;">Reservar</button></div>
-      <div class="t-f-pack"><b>PRODUTO</b><span class="p">CHF 499</span><span>meio dia · 25 fotos para loja</span><button class="tpl-cta dm-pack" type="button" data-pack="Produto — CHF 499" style="margin-top:12px;font-size:0.85rem;padding:9px 18px;">Reservar</button></div>
+      <div class="t-f-shead"><h2 class="tp-h2">Três formas de trabalhar.</h2><span class="tp-kicker">Serviços</span></div>
+      <div class="t-f-pack">
+        <div><b>Loja online</b><span>Até 12 produtos · fundo neutro · recortes prontos</span></div>
+        <span class="p">CHF 490</span>
+        <button class="tpl-cta dm-pack" type="button" data-pack="Loja online — CHF 490">Reservar</button>
+      </div>
+      <div class="t-f-pack">
+        <div><b>Catálogo de marca</b><span>Meio dia em estúdio · 40 imagens · direção de arte</span></div>
+        <span class="p">CHF 1'200</span>
+        <button class="tpl-cta dm-pack" type="button" data-pack="Catálogo de marca — CHF 1'200">Reservar</button>
+      </div>
+      <div class="t-f-pack">
+        <div><b>Editorial</b><span>Dia completo · cenário e assistente · uso ilimitado</span></div>
+        <span class="p">CHF 2'400</span>
+        <button class="tpl-cta dm-pack" type="button" data-pack="Editorial — CHF 2'400">Reservar</button>
+      </div>
     </section>
-    <div class="tw dm-form" style="grid-template-columns:1fr;max-width:420px;margin:0 auto 12px;">
-      <label>Contacto (telemóvel ou email)<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou email"></label>
-    </div>
-    <div class="tw dm-note" data-note style="max-width:560px;margin:0 auto 26px;"><b>✓ Pedido enviado!</b> <span data-note-txt></span></div>
-    <div class="tw t-f-center"><a class="tpl-cta" href="#">Pedir orçamento</a></div>
-    <section class="tw tp-sec" style="padding-top:0;" id="f-sobre">
-      <span class="tp-kicker">Processo</span>
-      <h2 class="tp-h2" style="font-weight:300;letter-spacing:0.04em;">Do primeiro café à galeria final</h2>
+    <section class="tw tp-sec" id="f-sobre">
+      <div class="t-f-shead"><h2 class="tp-h2">Do briefing à loja, em cinco dias.</h2><span class="tp-kicker">Processo</span></div>
       <div class="tp-grid-3">
-        <div class="tp-card"><b>1 · Conversa</b><span>Definimos o ambiente, o local e as referências que amas.</span></div>
-        <div class="tp-card"><b>2 · Sessão</b><span>Sem pressa e sem poses forçadas — luz natural sempre que possível.</span></div>
-        <div class="tp-card"><b>3 · Entrega</b><span>Galeria privada online em 10 dias, com download em alta resolução.</span></div>
+        <div class="tp-card"><b><i>1</i>Briefing</b><span>Vemos os produtos, decidimos fundo, luz e enquadramentos. Meia hora chega.</span></div>
+        <div class="tp-card"><b><i>2</i>Estúdio</b><span>Fotografo em Visp ou no teu espaço, com a mesma luz do primeiro ao último produto.</span></div>
+        <div class="tp-card"><b><i>3</i>Entrega</b><span>Ficheiros tratados e recortados, prontos a carregar na loja. Cinco dias úteis.</span></div>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <span class="tp-kicker">Testemunhos</span>
-      <h2 class="tp-h2" style="font-weight:300;letter-spacing:0.04em;">Palavras de quem confiou</h2>
+    <section class="tw tp-sec">
+      <div class="t-f-shead"><h2 class="tp-h2">O que dizem as marcas.</h2><span class="tp-kicker">Testemunhos</span></div>
       <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>As fotos do nosso casamento em Zermatt são um filme. Choramos a vê-las.<footer><span class="tp-ava" style="color:#111;">AJ</span>A. &amp; J. · Zermatt</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Sessão de retrato descontraída — nem pareci eu, pareci melhor.<footer><span class="tp-ava" style="color:#111;">VM</span>V. Marques · Sion</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>As fotos de produto duplicaram o aspeto profissional da nossa loja.<footer><span class="tp-ava" style="color:#111;">LH</span>L. Heinen · Brig</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Trocámos as fotos do fornecedor pelas do Lume e as devoluções caíram.<footer><span class="tp-ava">MR</span>M. Ritz · Optik Valais</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Quarenta referências num só dia, todas com a mesma luz. Era mesmo isto.<footer><span class="tp-ava">LI</span>L. Imboden · Cave du Rhône</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Fez o nosso pequeno atelier parecer uma marca grande.<footer><span class="tp-ava">NZ</span>N. Zurbriggen · Atelier Saas</footer></blockquote>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="f-cont">
-      <span class="tp-kicker">Contacto</span>
-      <h2 class="tp-h2" style="font-weight:300;letter-spacing:0.04em;">Vamos falar sobre a tua sessão</h2>
-      <div class="tp-card tpl-contact-info" style="max-width:420px;margin:0 auto;text-align:center;">
-        <div class="tpl-cline"><b>Área de atuação</b><span>Valais &amp; além, por marcação</span></div>
-        <div class="tpl-cline"><b>Telefone</b><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div>
+    <section class="tw tp-sec" id="f-cont">
+      <div class="t-f-shead"><h2 class="tp-h2">Conta-me o que precisas de fotografar.</h2><span class="tp-kicker">Contacto</span></div>
+      <div class="t-f-cont">
+        <div class="dm-form t-f-form">
+          <label>Contacto (telemóvel ou email)<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou email"></label>
+          <button class="tpl-cta dm-book" type="button" data-ref="LS" data-msg="Pedido recebido — respondo hoje com uma proposta">Pedir orçamento</button>
+          <div class="dm-note" data-note><b>✓ Pedido enviado!</b> <span data-note-txt></span></div>
+        </div>
+        <div class="tpl-contact-info">
+          <div class="tpl-cline"><b>Estúdio</b><span>Bahnhofstrasse 12, Visp</span></div>
+          <div class="tpl-cline"><b>Telefone</b><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div>
+          <div class="tpl-cline"><b>Resposta</b><span>Proposta em 24 horas</span></div>
+        </div>
       </div>
     </section>
-    <div class="tp-foot"><span>LUME STUDIO · Valais &amp; além</span><span>Por marcação · +41 27 000 00 00</span></div>
+    <div class="tp-foot"><span>Lume Studio · Visp, Valais</span><span>Estúdio por marcação · +41 27 000 00 00</span></div>
     <div class="tpl-go-band">
       <p>Fotógrafos e criativos: um portfólio que faz justiça ao trabalho.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
