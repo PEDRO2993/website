@@ -1726,3 +1726,169 @@
   .t-i, .t-i *, .t-i *::before, .t-i *::after { animation: none !important; transition: none !important; }
 }
 
+/* — Momento 3D (.d3) — */
+/* O bloco não traz mundo próprio: vive dentro de uma demo e veste-se com o dela.
+   Aqui fica só o esqueleto — o botão que carrega o motor, o palco e a letra miúda —
+   e a seguir cada setor calça-lhe a sua tipografia, o seu raio e a sua régua.
+
+   Duas regras a não quebrar:
+   · o `hidden` do markup manda. Tudo o que define `display` está atrás de
+     `:not([hidden])`, para a tela e a dica ficarem mesmo escondidas até ao clique.
+   · a tela nunca pode alargar a coluna. Largura fluida, `max-width` sempre
+     travada em 100% e `min-width: 0` para o caso de o bloco cair numa grelha. */
+.d3 {
+  --d3-ar: 16 / 10;   /* proporção do palco, redefinida por setor */
+  --d3-maxw: 100%;    /* travão de largura, para as peças que pedem retrato */
+  --d3-gap: 14px;
+  /* cubo isométrico a 1px: máscara, não imagem — assim herda a cor do botão de cada demo */
+  --d3-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.25' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M8 1 14.5 4.75V11.25L8 15 1.5 11.25V4.75Z'/%3E%3Cpath d='M8 8 14.5 4.75M8 8 1.5 4.75M8 8V15'/%3E%3C/svg%3E");
+  display: grid; gap: var(--d3-gap);
+  min-width: 0; max-width: 100%;
+  margin: clamp(20px, 2.6vw, 30px) 0 0;
+}
+
+/* o botão: um só, alinhado à esquerda, com a marca do cubo à frente do rótulo */
+.d3-go {
+  -webkit-appearance: none; appearance: none; -webkit-tap-highlight-color: transparent;
+  justify-self: start; box-sizing: border-box; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 10px;
+  max-width: 100%; min-height: 44px; padding: 12px 22px;
+  font-family: inherit; font-size: 0.84rem; font-weight: 600; line-height: 1.2;
+  letter-spacing: 0.1em; text-transform: uppercase; text-align: left;
+  color: var(--tp-ink); background: transparent;
+  border: 1px solid var(--tp-line); border-radius: 0;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.d3-go::before {
+  content: ""; flex: none; width: 15px; height: 15px; background: currentColor;
+  -webkit-mask: var(--d3-mark) center / contain no-repeat;
+  mask: var(--d3-mark) center / contain no-repeat;
+}
+@media (hover: hover) {
+  .d3-go:hover { background: color-mix(in srgb, var(--tp-accent) 12%, transparent); border-color: var(--tp-accent); color: var(--tp-accent); }
+}
+
+/* o palco */
+.d3-cv:not([hidden]) {
+  display: block; box-sizing: border-box;
+  width: 100%; max-width: min(100%, var(--d3-maxw));
+  aspect-ratio: var(--d3-ar); min-height: 220px; max-height: min(72vh, 600px);
+  border: 1px solid var(--tp-line); border-radius: 0;
+  background: radial-gradient(118% 96% at 50% 10%, color-mix(in srgb, var(--tp-accent) 9%, var(--tp-card)), var(--tp-card) 72%);
+  /* arrastar roda a peça; o dedo continua a poder deslizar a página na vertical */
+  touch-action: pan-y; cursor: grab;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.d3-cv:not([hidden]):active { cursor: grabbing; }
+/* a tela é operável por teclado (tabindex="0"): o anel tem de aparecer em todos os sete mundos —
+   .t-g e .t-c só desenham foco em a/button/input/select, por isso a regra é escrita aqui */
+.d3-cv:focus-visible { outline: 2px solid var(--tp-accent); outline-offset: 3px; }
+
+/* a letra miúda: sem `display` nenhum, para o `hidden` do markup continuar a mandar */
+.d3-hint { margin: 0; max-width: 48ch; font-family: inherit; font-size: 0.8rem; line-height: 1.5; color: var(--tp-muted); }
+
+/* um só momento: a peça aparece, não entra a saltar */
+@keyframes d3Fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes d3Rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  /* só opacidade na tela: mexer numa superfície WebGL com `transform` custa e borra */
+  .d3-cv:not([hidden]) { animation: d3Fade 0.55s ease both; }
+  .d3-hint:not([hidden]) { animation: d3Rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+}
+/* sem movimento: nada anima e nada transiciona; a peça já está lá, parada, e o visitante manda.
+   A moldura ganha contraste para o palco se ler como objeto e não como espaço vazio. */
+@media (prefers-reduced-motion: reduce) {
+  .d3, .d3 *, .d3 *::before, .d3 *::after { animation: none !important; transition: none !important; }
+  .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-accent) 42%, var(--tp-line)); }
+}
+/* em papel o palco não existe */
+@media print { .d3 { display: none !important; } }
+
+/* Restaurante — régua de ouro sobre madeira queimada, Instrument Sans em versaletes largos */
+.t-r .d3 { --d3-ar: 4 / 3; --d3-maxw: 760px; --d3-gap: 16px; }
+.t-r .d3-go {
+  font-family: "Instrument Sans", sans-serif; font-size: 0.72rem; letter-spacing: 0.2em;
+  min-height: 46px; padding: 13px 24px;
+  color: var(--tp-accent); border-color: rgba(228, 177, 90, 0.42);
+}
+@media (hover: hover) { .t-r .d3-go:hover { background: var(--tp-accent); border-color: var(--tp-accent); color: #1A120C; } }
+.t-r .d3-cv:not([hidden]) {
+  border-color: rgba(228, 177, 90, 0.22);
+  background: radial-gradient(112% 84% at 50% 6%, #2A1E14, #17110C 74%);
+}
+.t-r .d3-hint { font-family: "Instrument Sans", sans-serif; font-size: 0.95rem; color: var(--tp-muted); }
+
+/* Ginásio — o bloco volt cheio, como todos os CTA do clube */
+.t-g .d3 { --d3-ar: 16 / 9; }
+.t-g .d3-go {
+  font-weight: 800; font-size: 0.78rem; letter-spacing: 0.1em;
+  min-height: 48px; padding: 14px 24px;
+  background: var(--tp-accent); color: var(--tp-onaccent); border-color: var(--tp-accent);
+}
+@media (hover: hover) { .t-g .d3-go:hover { background: #DCFF7A; color: var(--tp-onaccent); border-color: #DCFF7A; box-shadow: 0 12px 26px rgba(200, 250, 75, 0.18); } }
+.t-g .d3-cv:not([hidden]) { border-color: var(--tg-line); background: linear-gradient(180deg, var(--tg-panel-2), var(--tg-ground) 78%); }
+.t-g .d3-hint { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* Barbearia — tinta café a fechar o botão, cobre a preenchê-lo ao passar */
+.t-b .d3 { --d3-ar: 4 / 3; --d3-maxw: 700px; }
+.t-b .d3-go {
+  font-weight: 700; font-size: 0.8rem; letter-spacing: 0.07em;
+  padding: 13px 24px; color: var(--tp-ink); border-color: var(--tp-ink);
+}
+@media (hover: hover) { .t-b .d3-go:hover { background: var(--tp-accent); border-color: var(--tp-accent); color: var(--b-cream); } }
+.t-b .d3-cv:not([hidden]) { border-color: var(--tp-line); background: linear-gradient(180deg, var(--b-paper-2), #DDD1BF); }
+.t-b .d3-hint { font-size: 0.92rem; }
+
+/* Clínica — pastilha clara com contorno, o único mundo com raio */
+.t-c .d3 { --d3-ar: 16 / 10; --d3-maxw: 860px; --d3-gap: 12px; }
+.t-c .d3-go {
+  font-weight: 600; font-size: 0.9rem; letter-spacing: -0.005em; text-transform: none;
+  padding: 12px 22px; border-radius: 999px;
+  background: var(--tp-card); color: var(--tp-accent); border-color: var(--tp-line);
+}
+@media (hover: hover) { .t-c .d3-go:hover { background: var(--tc-tint); border-color: var(--tp-accent); color: var(--tp-accent); } }
+.t-c .d3-cv:not([hidden]) {
+  border-radius: var(--tc-r); border-color: var(--tp-line);
+  background: linear-gradient(180deg, #EFF6F6, var(--tp-card));
+  box-shadow: 0 18px 44px rgba(14, 33, 38, 0.07);
+}
+.t-c .d3-cv:focus-visible { outline-offset: 3px; }
+.t-c .d3-hint { font-size: 0.88rem; }
+
+/* Fotografia — parede de galeria: a peça sobre preto, contorno de 1px por dentro */
+.t-f .d3 { --d3-ar: 16 / 9; --d3-maxw: 1000px; --d3-gap: 16px; }
+.t-f .d3-go {
+  font-size: 0.88rem; letter-spacing: 0.04em; text-transform: none;
+  padding: 15px 26px; border-radius: var(--f-r);
+  border-color: transparent; color: #F3F1EC; box-shadow: inset 0 0 0 1px rgba(243, 241, 236, 0.3);
+}
+@media (hover: hover) { .t-f .d3-go:hover { background: rgba(233, 226, 214, 0.08); color: #F3F1EC; border-color: transparent; box-shadow: inset 0 0 0 1px var(--tp-accent); } }
+.t-f .d3-cv:not([hidden]) { border-radius: var(--f-r); border-color: var(--tp-line); background: #0B0B0B; }
+.t-f .d3-hint { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* Imobiliária — o mesmo botão de contorno das fichas, verde a preencher ao passar */
+.t-i .d3 { --d3-ar: 3 / 2; --d3-maxw: 880px; }
+.t-i .d3-go {
+  font-weight: 650; font-size: 0.9rem; letter-spacing: 0.005em; text-transform: none;
+  padding: 11px 18px; border-radius: var(--ti-r);
+  color: var(--tp-ink); border-color: var(--tp-line);
+}
+@media (hover: hover) { .t-i .d3-go:hover { background: var(--tp-accent); border-color: var(--tp-accent); color: #fff; } }
+.t-i .d3-cv:not([hidden]) { border-radius: var(--ti-r); border-color: var(--tp-line); background: var(--ti-paper-2); box-shadow: var(--ti-shadow); }
+.t-i .d3-hint { font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 600; }
+
+/* Moda — ODDA não tem caixas: a peça assenta no papel do ensaio, sem moldura.
+   O botão é o mesmo "adicionar" da grelha de produto. */
+.t-m .d3 { --d3-ar: 4 / 5; --d3-maxw: 360px; }
+.t-m .d3-go {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-variation-settings: "wdth" 106;
+  font-weight: 600; font-size: 0.72rem; letter-spacing: 0.16em;
+  padding: 12px 20px; color: var(--tm-ink); border-color: var(--tm-line-2);
+}
+@media (hover: hover) { .t-m .d3-go:hover { background: var(--tm-ink); border-color: var(--tm-ink); color: var(--tm-paper); } }
+.t-m .d3-cv:not([hidden]) { border: 0; background: #E4DACD; }
+.t-m .d3-cv:focus-visible { outline-color: var(--tm-bronze); }
+.t-m .d3-hint {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-variation-settings: "wdth" 106;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tm-mut);
+}
