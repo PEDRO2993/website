@@ -338,7 +338,7 @@
 .t-i .t-cover { display: none; }
 
 /* cabeçalho */
-.t-i-head { display: flex; align-items: center; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--tp-line); }
+.t-i-head { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--tp-line); }
 .t-i-logo { display: inline-flex; align-items: baseline; gap: 9px; font-weight: 800; font-stretch: 112%; letter-spacing: -0.025em; font-size: 1.22rem; color: var(--tp-ink); }
 .t-i-logo em { font-style: normal; font-weight: 600; font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.64rem; color: var(--tp-accent); transform: translateY(-1px); }
 .t-i .tpl-nav2 { gap: 26px; font-family: inherit; font-size: 0.88rem; }
@@ -351,7 +351,7 @@
 /* `.tpl-body section` força position:static — daí o seletor mais específico */
 .t-i section.t-i-hero { position: relative; }
 .t-i-hero { overflow: hidden; min-height: clamp(430px, 72vh, 620px); display: flex; align-items: flex-end; background: var(--ti-deep); }
-.t-i-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 62%; animation: tiSettle 2.4s cubic-bezier(0.16, 0.84, 0.44, 1) both; }
+.t-i-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 62%; animation: tiSettle 1.4s cubic-bezier(0.16, 0.84, 0.44, 1) both; }
 .t-i-hero::after {
   content: ""; position: absolute; inset: 0;
   background:
@@ -367,7 +367,7 @@
 .t-i-locline { margin-top: 30px; font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.17em; font-size: 0.74rem; font-weight: 600; color: rgba(255, 255, 255, 0.72); animation: tiWipe 0.9s cubic-bezier(0.16, 0.84, 0.44, 1) 0.55s both; }
 
 /* barra de filtros, encavalitada na fotografia */
-.t-i-bar { position: relative; z-index: 3; margin-top: -32px; }
+.t-i .t-i-bar { position: relative; z-index: 3; margin-top: -34px; }
 .t-i-bar-in { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 18px; padding: 12px 14px; background: var(--ti-paper); border: 1px solid var(--tp-line); border-radius: var(--ti-r); box-shadow: var(--ti-shadow); }
 .t-i .dm-fs { margin: 0; gap: 6px; }
 .t-i .dm-f { font-family: inherit; font-size: 0.88rem; font-weight: 600; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 8px 18px; border-radius: var(--ti-r); border-color: transparent; color: var(--tp-muted); }
@@ -376,7 +376,7 @@
 .t-i-barnote { margin-left: auto; font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 600; color: var(--tp-muted); padding-right: 6px; }
 
 /* listagens */
-.t-i-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 46px 26px; padding: 52px 0 0; }
+.t-i-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 52px 30px; padding: 52px 0 0; }
 .t-i-card { display: flex; flex-direction: column; background: transparent; border-radius: 0; overflow: visible; box-shadow: none; animation: tiRise 0.6s cubic-bezier(0.16, 0.84, 0.44, 1) both; }
 .t-i-card:nth-child(2) { animation-delay: 0.07s; }
 .t-i-card:nth-child(3) { animation-delay: 0.14s; }
@@ -386,14 +386,15 @@
 .t-i-card:nth-child(7) { animation-delay: 0.42s; }
 .t-i-thumb { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--ti-r); background: var(--ti-paper-2); transition: none; }
 .t-i-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.7s cubic-bezier(0.16, 0.84, 0.44, 1); }
-.t-i-thumb img.t-i-alt { object-position: 50% 44%; }
 @media (hover: hover) { .t-i-card:hover .t-i-thumb img { transform: scale(1.045); } .t-i-card:hover b { color: var(--tp-accent); } }
 .t-i-tag { position: absolute; left: 12px; top: 12px; padding: 7px 11px; border-radius: var(--ti-r); background: rgba(20, 24, 21, 0.78); color: #fff; font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.68rem; font-weight: 600; }
 .t-i-body { display: flex; flex-direction: column; flex: 1 1 auto; padding: 16px 0 0; }
 .t-i-loc { font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.77rem; font-weight: 600; color: var(--tp-accent); }
 .t-i-card b { display: block; margin: 7px 0 0; font-size: 1.14rem; font-weight: 700; font-stretch: 105%; letter-spacing: -0.018em; line-height: 1.25; transition: color 0.18s ease; }
 .t-i-desc { margin-top: 9px; font-size: 0.98rem; color: var(--tp-muted); max-width: 46ch; }
-.t-i-meta { margin: 7px 0 16px; font-size: 0.95rem; color: var(--tp-muted); font-variant-numeric: tabular-nums; }
+.t-i-meta { margin: 7px 0 6px; font-size: 0.95rem; color: var(--tp-muted); font-variant-numeric: tabular-nums; }
+.t-i-sun { display: flex; align-items: baseline; gap: 9px; margin: 0 0 18px; font-size: 0.9rem; color: var(--tp-muted); font-variant-numeric: tabular-nums; }
+.t-i-sun::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--tp-accent); opacity: 0.6; transform: translateY(-1px); }
 .t-i-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 13px; border-top: 1px solid var(--tp-line); }
 .t-i-card .p { font-family: inherit; font-weight: 700; font-size: 1.08rem; letter-spacing: -0.015em; color: var(--tp-ink); font-variant-numeric: tabular-nums; }
 .t-i .t-i-card .tpl-cta:not(.tpl-go) { background: transparent; color: var(--tp-ink); border: 1px solid var(--tp-line); font-family: inherit; font-weight: 650; font-size: 0.9rem; padding: 10px 17px; min-height: 44px; border-radius: var(--ti-r); transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease; }
@@ -411,11 +412,30 @@
 .t-i-ask { padding: 62px 0 8px; }
 .t-i-ask-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 330px); gap: 22px 40px; align-items: center; padding: 26px 28px; background: var(--ti-paper-2); border: 1px solid var(--tp-line); border-radius: var(--ti-r); }
 .t-i-ask-t { font-size: 1.08rem; max-width: 46ch; color: var(--tp-ink); }
+.t-i-ask-form { display: grid; gap: 18px; align-content: start; }
+.t-i .t-i-ask-form .tpl-cta:not(.tpl-go) { justify-self: start; }
 .t-i-field { display: grid; gap: 7px; font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 600; color: var(--tp-muted); }
 .t-i-field input { font-family: inherit; font-size: 1rem; color: var(--tp-ink); background: transparent; border: 0; border-bottom: 1px solid var(--tp-ink); border-radius: 0; padding: 11px 2px; width: 100%; min-height: 46px; box-sizing: border-box; text-transform: none; letter-spacing: normal; transition: border-color 0.18s ease; }
-.t-i-field input::placeholder { color: color-mix(in srgb, var(--tp-muted) 72%, transparent); }
+.t-i-field input::placeholder { color: color-mix(in srgb, var(--tp-muted) 92%, transparent); }
 .t-i-field input:focus { outline: none; border-bottom-color: var(--tp-accent); box-shadow: 0 1px 0 var(--tp-accent); }
 .t-i .dm-note { border-radius: var(--ti-r); font-family: inherit; font-size: 0.98rem; margin-top: 20px; }
+
+/* venda discreta: índice de réguas, sem fotografia — e a explicar porquê */
+.t-i-quiet { padding: 76px 0 0; }
+.t-i-quiet-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 8px 26px; padding-top: 20px; border-top: 1px solid var(--tp-ink); }
+.t-i-quiet-head h3 { margin: 0; font-size: clamp(1.45rem, 2.7vw, 1.95rem); font-weight: 800; font-stretch: 108%; letter-spacing: -0.032em; line-height: 1.1; text-wrap: balance; max-width: 18ch; }
+.t-i-quiet-head p { margin: 0; color: var(--tp-muted); font-size: 1rem; max-width: 54ch; }
+.t-i-qrows { list-style: none; margin: 26px 0 0; padding: 0; }
+.t-i-qrow { display: grid; grid-template-columns: minmax(94px, 1.5fr) minmax(0, 5fr) minmax(0, 2.3fr) minmax(0, 1.9fr); gap: 3px 22px; align-items: baseline; padding: 15px 0; border-top: 1px solid var(--tp-line); }
+.t-i-qrow:last-child { border-bottom: 1px solid var(--tp-line); }
+.t-i-qloc { font-stretch: 78%; text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.77rem; font-weight: 600; color: var(--tp-accent); }
+.t-i-qwhat { font-size: 1.02rem; color: var(--tp-ink); }
+.t-i-qmeta { font-size: 0.95rem; color: var(--tp-muted); font-variant-numeric: tabular-nums; }
+.t-i-qp { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.015em; font-variant-numeric: tabular-nums; text-align: right; }
+.t-i-quiet-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 24px; }
+.t-i .t-i-quiet-foot .tpl-cta:not(.tpl-go) { background: transparent; color: var(--tp-ink); border: 1px solid var(--tp-ink); font-size: 0.92rem; padding: 12px 22px; }
+.t-i .t-i-quiet-foot .tpl-cta:not(.tpl-go):hover { background: var(--tp-accent); border-color: var(--tp-accent); color: #fff; }
+.t-i-fine { font-size: 0.86rem; color: var(--tp-muted); max-width: 46ch; }
 
 /* cabeçalhos de secção: etiqueta na margem, título ao lado (nunca por cima) */
 .t-i-sec { padding: 74px 0 0; }
@@ -448,7 +468,7 @@
 .t-i .tp-card.t-i-aval-form { display: grid; gap: 18px; align-content: start; padding: 24px; background: var(--ti-deep-2); border: 1px solid rgba(241, 239, 234, 0.16); }
 .t-i-aval-form .t-i-field { color: rgba(241, 239, 234, 0.72); }
 .t-i-aval-form .t-i-field input { color: #F1EFEA; border-bottom-color: rgba(241, 239, 234, 0.42); }
-.t-i-aval-form .t-i-field input::placeholder { color: rgba(241, 239, 234, 0.42); }
+.t-i-aval-form .t-i-field input::placeholder { color: rgba(241, 239, 234, 0.62); }
 .t-i-aval-form .t-i-field input:focus { border-bottom-color: #F1EFEA; box-shadow: 0 1px 0 #F1EFEA; }
 .t-i-aval-form .tpl-cta { justify-self: start; }
 .t-i-aval .dm-note { grid-column: 1 / -1; margin-top: 0; border-color: rgba(241, 239, 234, 0.4); background: rgba(241, 239, 234, 0.07); color: #F1EFEA; }
@@ -478,23 +498,35 @@
    secção — daí repetir aqui o padding lateral junto com o ritmo vertical */
 .t-i .t-i-hero-in { padding: 96px 22px 92px; }
 .t-i .t-i-list { padding: 54px 22px 0; }
+.t-i .t-i-quiet { padding: 78px 22px 0; }
 .t-i .t-i-ask { padding: 62px 22px 0; }
 .t-i .t-i-sec { padding: 78px 22px 0; }
 
-@keyframes tiSettle { from { transform: scale(1.07); } to { transform: scale(1); } }
+@keyframes tiSettle { from { transform: scale(1.04); } to { transform: scale(1); } }
 @keyframes tiWipe { from { opacity: 0; transform: translateY(12px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 -10% 0); } }
 @keyframes tiRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 900px) {
-  .t-i-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 22px; }
+  .t-i-list { gap: 42px 24px; }
   .t-i-aval-in { grid-template-columns: 1fr; }
   .t-i-ask-in { grid-template-columns: 1fr; }
-  .t-i-tel { display: none; }
+  .t-i-ask-form { grid-template-columns: minmax(0, 1fr); max-width: 420px; }
+}
+/* 700px é onde `.tpl-nav2` passa a linha própria — a demo tem de deixar */
+@media (max-width: 700px) {
+  .t-i-head { gap: 8px 14px; padding: 12px 0 2px; }
+  .t-i .tpl-nav2 { gap: 15px; font-size: 0.8rem; }
+  .t-i-tel { margin-left: auto; font-size: 0.85rem; min-height: 36px; }
 }
 @media (max-width: 760px) {
   .t-i-head2 { grid-template-columns: 1fr; }
   .t-i .tp-kicker { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
   .t-i-rows .tp-card { grid-template-columns: 1fr; gap: 8px; }
+  .t-i-quiet-head { grid-template-columns: 1fr; gap: 10px; }
+  .t-i-qrow { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 18px; }
+  .t-i-qloc { grid-column: 1 / -1; }
+  .t-i-qwhat { grid-column: 1 / -1; }
+  .t-i-qp { text-align: right; }
   .t-i .tp-grid-3.t-i-quotes { grid-template-columns: 1fr; gap: 0; }
   .t-i-quotes .tp-card { padding: 20px 0; }
 }
@@ -510,8 +542,17 @@
   .t-i .t-i-sec { padding-top: 62px; }
   .t-i-barnote { margin-left: 0; padding-left: 4px; }
   .t-i-aval { margin-top: 58px; padding: 58px 0; }
-  .t-i-foot { flex-wrap: wrap; gap: 4px 12px; }
+  .t-i-foot { display: grid; grid-template-columns: 1fr; gap: 12px; padding-top: 15px; }
+  .t-i .t-i-card .tpl-cta:not(.tpl-go) { width: 100%; }
+  .t-i .t-i-quiet { padding-top: 64px; }
+  .t-i-quiet-foot { gap: 16px; }
+  .t-i .t-i-quiet-foot .tpl-cta:not(.tpl-go) { width: 100%; }
 }
+/* a etiqueta fixa "TEMPLATE DEMO" pousava sobre o preço de cada ficha (canto
+   inferior esquerdo). Enquanto esta demo está aberta muda de lado: à direita
+   só apanha o preenchimento do botão, e o preço fica sempre legível. */
+#tplBody:has(.t-i) ~ .tpl-badge { left: auto; right: 14px; }
+
 @media (prefers-reduced-motion: reduce) {
   .t-i, .t-i *, .t-i *::before, .t-i *::after { animation: none !important; transition: none !important; }
 }

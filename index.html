@@ -2576,15 +2576,15 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       </svg>
     </div>
     <section class="t-i-hero">
-      <img class="t-i-hero-img" src="img/imob.webp" onerror="this.onerror=null;this.src='img/imob.jpg'" width="960" height="540" alt="Casa contemporânea ao fim da tarde, com relvado e terraço de madeira" loading="lazy">
+      <img class="t-i-hero-img" src="img/imob.webp" srcset="img/imob-480.webp 480w, img/imob.webp 960w" sizes="100vw" onerror="this.onerror=null;this.removeAttribute('srcset');this.src='img/imob.jpg'" width="960" height="540" alt="Casa contemporânea ao fim da tarde, com relvado e terraço de madeira" loading="eager" fetchpriority="high" decoding="async">
       <div class="t-i-hero-in tw">
         <h2>Casas com carácter,<br>no Alto Valais.</h2>
-        <p class="t-i-lead">Compramos, vendemos e avaliamos propriedades entre Visp e Zermatt. Escolhe a casa, marca a visita online — respondemos no mesmo dia.</p>
+        <p class="t-i-lead">Compramos, vendemos e avaliamos casas de Naters a Zermatt, Saastal incluído. Escolha a casa, marque a visita online — respondemos no mesmo dia.</p>
         <div class="t-i-acts">
           <a class="tpl-cta" href="#i-list" data-goto="#i-list">Ver imóveis à venda</a>
           <a class="t-i-ghost" href="#i-aval" data-goto="#i-aval">Avaliar a minha casa</a>
         </div>
-        <p class="t-i-locline">Visp · Brig · Sierre · Saas-Fee — agência de família desde 1998</p>
+        <p class="t-i-locline">Visp · Brig · Grächen · Saas-Fee — agência de família desde 1998</p>
       </div>
     </section>
     <div class="t-i-bar tw">
@@ -2595,30 +2595,22 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
           <button class="dm-f" type="button" data-f="apart">Apartamentos</button>
           <button class="dm-f" type="button" data-f="est">Estúdios</button>
         </div>
-        <span class="t-i-barnote">7 imóveis · atualizado esta semana</span>
+        <span class="t-i-barnote">3 publicados · 4 em venda discreta</span>
       </div>
     </div>
     <section class="tw t-i-list" data-fscope="imv">
       <article class="t-i-card t-i-wide" data-cat="chale">
         <div class="t-i-thumb">
-          <img src="img/imob-1.webp" onerror="this.onerror=null;this.src='img/imob-1.jpg'" width="800" height="500" alt="Casa de autor em madeira escura, ao anoitecer, com árvore no jardim" loading="lazy">
+          <img src="img/imob-1.webp" onerror="this.onerror=null;this.src='img/imob-1.jpg'" width="800" height="500" alt="Casa de autor em madeira escura, ao anoitecer, com árvore antiga no jardim" loading="lazy">
           <span class="t-i-tag">Exclusivo</span>
         </div>
         <div class="t-i-body">
-          <span class="t-i-loc">Salgesch</span>
+          <span class="t-i-loc">Naters</span>
           <b>Casa de autor com jardim antigo</b>
-          <span class="t-i-desc">Madeira, vidro e um plátano de cem anos no meio do relvado. Projeto de 2021, três quartos com vista para o vale.</span>
+          <span class="t-i-desc">Madeira escura, vidro do chão ao teto e um freixo de cem anos no meio do relvado. Projeto de 2021, três quartos virados ao Rhone.</span>
           <span class="t-i-meta">6.5 peças · 214 m² · terreno 980 m²</span>
-          <div class="t-i-foot"><span class="p">CHF 1'480'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Casa de autor — Salgesch">Marcar visita</button></div>
-        </div>
-      </article>
-      <article class="t-i-card" data-cat="chale">
-        <div class="t-i-thumb"><img src="img/imob-2.webp" onerror="this.onerror=null;this.src='img/imob-2.jpg'" width="800" height="500" alt="Villa branca com piscina exterior num dia de céu limpo" loading="lazy"></div>
-        <div class="t-i-body">
-          <span class="t-i-loc">Sierre</span>
-          <b>Villa com piscina aquecida</b>
-          <span class="t-i-meta">5.5 peças · 168 m² · garagem dupla</span>
-          <div class="t-i-foot"><span class="p">CHF 1'150'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Villa com piscina — Sierre">Marcar visita</button></div>
+          <span class="t-i-sun">Exposição sul-poente · 670 m · sol até às 19h em junho</span>
+          <div class="t-i-foot"><span class="p">CHF 1'480'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Casa de autor — Naters">Marcar visita</button></div>
         </div>
       </article>
       <article class="t-i-card" data-cat="apart">
@@ -2626,17 +2618,10 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         <div class="t-i-body">
           <span class="t-i-loc">Visp</span>
           <b>Apartamento renovado no centro</b>
-          <span class="t-i-meta">2.5 peças · 58 m² · a pé da estação</span>
+          <span class="t-i-desc">Segundo andar de um prédio dos anos 60, todo refeito em 2023. Quatro minutos a pé da estação.</span>
+          <span class="t-i-meta">2.5 peças · 58 m² · garagem incluída</span>
+          <span class="t-i-sun">Exposição nascente · 650 m · sem escadas até à porta</span>
           <div class="t-i-foot"><span class="p">CHF 420'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Apartamento 2.5 — Visp">Marcar visita</button></div>
-        </div>
-      </article>
-      <article class="t-i-card" data-cat="chale">
-        <div class="t-i-thumb"><img src="img/imob-4.webp" onerror="this.onerror=null;this.src='img/imob-4.jpg'" width="800" height="500" alt="Casa térrea branca com pátio, piscina e sebe verde" loading="lazy"></div>
-        <div class="t-i-body">
-          <span class="t-i-loc">Fully</span>
-          <b>Casa térrea com pátio fechado</b>
-          <span class="t-i-meta">4.5 peças · 142 m² · sem escadas</span>
-          <div class="t-i-foot"><span class="p">CHF 985'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Casa térrea — Fully">Marcar visita</button></div>
         </div>
       </article>
       <article class="t-i-card" data-cat="est">
@@ -2644,35 +2629,38 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         <div class="t-i-body">
           <span class="t-i-loc">Saas-Fee</span>
           <b>Estúdio mobilado, pronto a arrendar</b>
+          <span class="t-i-desc">A cem metros do teleférico, mobilado e já com histórico de reservas. Entrega em duas semanas.</span>
           <span class="t-i-meta">1.5 peças · 42 m² · rendimento anual 4,1%</span>
+          <span class="t-i-sun">Exposição sul · 1 800 m · esqui a pé</span>
           <div class="t-i-foot"><span class="p">CHF 390'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Estúdio 1.5 — Saas-Fee">Marcar visita</button></div>
         </div>
       </article>
-      <article class="t-i-card" data-cat="chale">
-        <div class="t-i-thumb"><img src="img/imob-6.webp" onerror="this.onerror=null;this.src='img/imob-6.jpg'" width="800" height="500" alt="Propriedade iluminada à hora azul, com piscina comprida em frente" loading="lazy"></div>
-        <div class="t-i-body">
-          <span class="t-i-loc">Sion</span>
-          <b>Propriedade com piscina e anexo</b>
-          <span class="t-i-meta">8.5 peças · 340 m² · terreno 2 400 m²</span>
-          <div class="t-i-foot"><span class="p">CHF 2'250'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Propriedade com piscina — Sion">Marcar visita</button></div>
-        </div>
-      </article>
-      <article class="t-i-card" data-cat="apart">
-        <div class="t-i-thumb"><img class="t-i-alt" src="img/imob.webp" onerror="this.onerror=null;this.src='img/imob.jpg'" width="960" height="540" alt="Casa nova com terraço de madeira e relvado, ao fim da tarde" loading="lazy"></div>
-        <div class="t-i-body">
-          <span class="t-i-loc">Naters</span>
-          <b>Apartamento de jardim, entrada privativa</b>
-          <span class="t-i-meta">4.5 peças · 128 m² · terraço de 40 m²</span>
-          <div class="t-i-foot"><span class="p">CHF 1'320'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Apartamento de jardim — Naters">Marcar visita</button></div>
-        </div>
-      </article>
+    </section>
+    <section class="tw t-i-quiet">
+      <div class="t-i-quiet-head">
+        <h3>Quatro casas em venda discreta.</h3>
+        <p>Há proprietários que não querem a casa no portal nem a morada online. Ficam nesta lista e mostramo-la só a quem já falou connosco.</p>
+      </div>
+      <ul class="t-i-qlist">
+        <li class="t-i-qrow"><span class="t-i-qloc">Zermatt</span><span class="t-i-qwhat">Chalet de quatro quartos, fachada sul</span><span class="t-i-qmeta">186 m² · 1 650 m</span><span class="t-i-qp">CHF 2'400'000</span></li>
+        <li class="t-i-qrow"><span class="t-i-qloc">Grächen</span><span class="t-i-qwhat">Casa de férias com vista para o Bietschhorn</span><span class="t-i-qmeta">148 m² · 1 620 m</span><span class="t-i-qp">CHF 1'150'000</span></li>
+        <li class="t-i-qrow"><span class="t-i-qloc">Brig-Glis</span><span class="t-i-qwhat">Cobertura com terraço a toda a volta</span><span class="t-i-qmeta">132 m² · 680 m</span><span class="t-i-qp">CHF 865'000</span></li>
+        <li class="t-i-qrow"><span class="t-i-qloc">Törbel</span><span class="t-i-qwhat">Casa de aldeia em pedra, para restaurar</span><span class="t-i-qmeta">160 m² · 1 490 m</span><span class="t-i-qp">CHF 395'000</span></li>
+      </ul>
+      <div class="t-i-quiet-foot">
+        <button class="tpl-cta dm-visit" type="button" data-prop="Venda discreta — as quatro casas">Quero ver estas quatro</button>
+        <span class="t-i-fine">Lex Koller: venda a residentes na Suíça e titulares de autorização C.</span>
+      </div>
     </section>
     <section class="tw t-i-ask">
       <div class="t-i-ask-in">
         <p class="t-i-ask-t">Escolha os imóveis que quer ver. Deixe um contacto e combinamos as visitas — normalmente para os dois dias seguintes.</p>
-        <label class="t-i-field">Telemóvel ou email<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou nome@email.ch"></label>
+        <div class="t-i-ask-form">
+          <label class="t-i-field">Telemóvel ou email<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou nome@email.ch"></label>
+          <button class="tpl-cta dm-book" type="button" data-ref="VI" data-msg="Ligamos hoje para combinar as horas">Combinar as visitas</button>
+        </div>
       </div>
-      <div class="dm-note" data-note><b>✓ Visita marcada!</b> <span data-note-txt></span></div>
+      <div class="dm-note" data-note><b>✓ Pedido recebido!</b> <span data-note-txt></span></div>
     </section>
     <section class="tw tp-sec t-i-sec" id="i-serv">
       <div class="t-i-head2">
@@ -2730,7 +2718,7 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         </a>
       </div>
     </section>
-    <div class="tp-foot"><span>ALPINA IMÓVEIS · Napoleonstrasse 15, 3930 Visp</span><span>Seg–Sex 8h30–18h · Sáb por marcação · +41 27 000 00 00</span></div>
+    <div class="tp-foot"><span>ALPINA IMÓVEIS · Napoleonstrasse 15, 3930 Visp</span><span>Seg–Sex 8h30–18h · Sáb por marcação · <span style="white-space:nowrap">+41 27 000 00 00</span></span></div>
     <div class="tpl-go-band">
       <p>Imobiliárias: listagens bonitas vendem mais depressa.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
