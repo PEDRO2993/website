@@ -48,7 +48,7 @@ const COPY_FILES = [
   'supabase.min.js', 'og.png', 'favicon.ico', 'robots.txt',
   'site.webmanifest', '404.html', /* o _headers é gerado, ver buildHeaders() */
 ];
-const COPY_DIRS = ['img', 'css', 'fonts', '3d'];
+const COPY_DIRS = ['img', 'css', 'fonts', '3d', 'js'];
 /* fonts/ guarda cinco famílias, mas o site publicado só pede a Archivo: as
    outras quatro estão nomeadas no css/demos.css sem @font-face nenhum, por isso
    o browser nunca lhes toca. Ficam no repositório — vieram do @fontsource que o

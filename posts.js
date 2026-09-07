@@ -312,6 +312,7 @@ ${alts.join('\n')}
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: 'PR Studio', item: ORIGIN + PREFIX[p.lang] }, { '@type': 'ListItem', position: 2, name: ui.blog, item: ORIGIN + PREFIX[p.lang] + 'blog.html' }, { '@type': 'ListItem', position: 3, name: p.title, item: self } ] }).replace(/</g, '\\u003c')}</script>
 ${FONT_HEAD}
 <style>${CSS}</style>
+<link rel="stylesheet" href="/css/motion.css">
 </head>
 <body>
 <div class="wrap">
@@ -339,6 +340,7 @@ ${FONT_HEAD}
     <span class="lg-mono">© ${new Date().getFullYear()} Pedro Ribeiro · Stalden VS</span>
   </footer>
 </div>
+<script defer src="/js/motion.js"></script>
 </body>
 </html>
 `;

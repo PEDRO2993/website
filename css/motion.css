@@ -1,0 +1,42 @@
+/* ==================================================================
+   PR STUDIO — camada de movimento partilhada das páginas de documento
+   (blog, artigos, páginas legais). Mesma gramática "reels" da homepage
+   (index.html): palavras a entrar uma a uma, blocos a revelar ao
+   scroll, faixas a varrer. Ligado por js/motion.js — sem ele, ou com
+   prefers-reduced-motion, tudo fica estático e legível.
+   ================================================================== */
+
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 0 0.08em; margin-bottom: -0.08em; max-width: 100%; }
+.w > span { display: inline-block; max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
+
+/* título da página: entra palavra a palavra ao carregar (mesmo registo do hero) */
+@keyframes lgWordIn { from { transform: translateY(110%) rotate(4deg); } to { transform: none; } }
+.js:not(.page-go) main h1 .w > span { opacity: 0; }
+.page-go main h1 .w > span { animation: lgWordIn 0.9s var(--ease) both; animation-delay: calc(0.12s + var(--i, 0) * 70ms); }
+
+/* blocos genéricos: sobem e aparecem ao entrar no ecrã */
+.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.9s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* título de secção dentro do artigo (main h2): palavra a palavra, como os títulos da homepage */
+.js main h2.reveal { opacity: 1; transform: none; }
+.js main h2.reveal .w > span { transform: translateY(110%) rotate(3deg); transition: transform 0.9s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); }
+.js main h2.reveal.in .w > span { transform: none; }
+
+/* faixa de contacto (.cta): o fundo varre para revelar, como .cta-band/.bundle da homepage */
+.js .cta.reveal { transform: none; position: relative; overflow: hidden; }
+.js .cta.reveal::after {
+  content: ""; position: absolute; inset: 0; background: var(--paper); z-index: 3; pointer-events: none;
+  transform-origin: 100% 50%; transition: transform 1.1s var(--ease);
+}
+.js .cta.reveal.in::after { transform: scaleX(0); }
+
+@media print {
+  .js .reveal, .js main h2.reveal, .js main h2.reveal .w > span, .js .cta.reveal, .js .cta.reveal::after { opacity: 1 !important; transform: none !important; }
+  .js .cta.reveal::after { display: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .w > span { animation: none !important; transform: none !important; }
+  .js .reveal, .js main h2.reveal, .js main h2.reveal .w > span, .js .cta.reveal, .js .cta.reveal::after { opacity: 1; transform: none; }
+  .js .cta.reveal::after { display: none; }
+}
