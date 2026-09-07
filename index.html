@@ -554,10 +554,12 @@ header.scrolled { background: var(--paper); border-bottom-color: var(--ink); }
 .hero-pitch .serif { font-weight: 600; color: var(--ink); }
 .hero-ctas { grid-column: 1 / 8; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; justify-content: flex-start; }
 .hero-ctas .btn-ghost { background: transparent; border-color: var(--ink); text-decoration: none; }
-.hero-trust { grid-column: 1 / 8; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; margin: 40px 0 0; padding: 0; list-style: none; justify-content: start; }
+/* padding-left mantém a lista afastada da rota vermelha; auto-fit evita a terceira coluna a partir em duas linhas */
+.hero-trust { grid-column: 1 / 8; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0 24px; margin: 40px 0 0; padding: 0 0 0 18px; list-style: none; justify-content: start; }
 .hero-trust li { border: 0; border-top: 1px solid var(--ink); border-radius: 0; background: transparent; padding: 10px 0 0; font-family: inherit; font-size: 0.9rem; color: var(--ink-2); }
 .hero-piece { grid-column: 8 / 13; grid-row: 1 / 6; align-self: start; display: block; text-decoration: none; color: var(--ink); margin-top: 6px; }
-.hero-piece-frame { display: block; background: var(--slate); padding: 14px; overflow: hidden; }
+/* a moldura ardósia está perto do fundo grafite: uma régua de 1px separa-a sem introduzir sombras */
+.hero-piece-frame { display: block; background: var(--slate); padding: 14px; overflow: hidden; outline: 1px solid var(--rule-2); outline-offset: -1px; }
 .hero-piece-frame img { display: block; width: 100%; height: auto; }
 .hero-piece-cap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; border-top: 1px solid var(--ink); margin-top: 12px; padding-top: 10px; font-size: 0.9rem; }
 .hero-piece-cap b { font-weight: 700; }
@@ -586,8 +588,9 @@ header.scrolled { background: var(--paper); border-bottom-color: var(--ink); }
 .section-head { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 16px 24px; border-top: 1px solid var(--ink); padding-top: 20px; margin-bottom: 44px; align-items: start; }
 /* o título carrega o seu próprio peso: a etiqueta fica no DOM (i18n, testes) mas só para leitores de ecrã */
 .section-head .eyebrow { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; margin: -1px; }
-.section-head { position: relative; }
-.section-head h2, .section-head .section-sub, .section-head .price-guide { grid-column: 2; }
+/* com a etiqueta só para leitores de ecrã, a coluna da esquerda ficava vazia e alinhada com nada */
+.section-head { position: relative; grid-template-columns: minmax(0, 1fr); }
+.section-head h2, .section-head .section-sub, .section-head .price-guide { grid-column: 1; }
 h2.display { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin: 0; }
 h2.display::after { content: "."; color: var(--red); }
 .price-guide { color: var(--ink-2); max-width: 60ch; font-size: 0.98rem; margin-top: 6px; }
@@ -631,6 +634,8 @@ h2.display::after { content: "."; color: var(--red); }
 .cta-band .btn-red { background: var(--on-red); color: var(--red); border-color: var(--on-red); flex-shrink: 0; }
 .cta-band .btn-red::before { background: var(--ink); }
 .cta-band .btn-red:hover { color: var(--paper); border-color: var(--ink); }
+/* o anel de foco por omissão é da cor do acento — sobre a faixa (que é o acento) desaparecia */
+.cta-band :focus-visible { outline-color: var(--on-red); }
 @media (max-width: 760px) { .cta-band { flex-direction: column; align-items: stretch; padding: 26px 22px; } .cta-band .btn { width: 100%; } }
 
 /* ---------- processo ---------- */
@@ -875,9 +880,17 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 0 0.08em; margin-bottom: -0.08em; max-width: 100%; }
 .w > span { display: inline-block; max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
 @media (max-width: 480px) { h2.display { font-size: clamp(1.8rem, 9.5vw, 2.6rem); } .hero h1 { font-size: clamp(2.3rem, 13vw, 3.2rem); } }
+/* "professionell" não parte (a palavra rotativa não é dividida em pedaços): no alemão o título desce um degrau */
+html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
+/* o botão principal herdava o espaçamento de letras do design anterior no telemóvel */
+@media (max-width: 700px) { .hero-ctas .btn { letter-spacing: 0; padding: 15px 20px; } }
 @keyframes wordIn { from { transform: translateY(110%) rotate(4deg); } to { transform: none; } }
 .hero-go .hero h1 .w > span { animation: wordIn 0.95s var(--ease) both; animation-delay: calc(0.28s + var(--i, 0) * 75ms); }
 .hero-go .hero h1 .rotator, .hero-go .hero h1 .dot { animation: wordIn 0.95s var(--ease) 0.85s both; display: inline-block; }
+/* sem isto, o fill-mode "both" fixa a transformação e a troca de palavra nunca desliza */
+.hero-go .hero h1 .rotator.swap { animation: none; }
+/* as palavras só existem depois de o JS as dividir: escondê-las até ao arranque evita o pisca-pisca na 2.ª visita */
+.js:not(.hero-go) .hero h1 .w > span { opacity: 0; }
 .js .section-head.reveal h2 .w > span { transform: translateY(110%) rotate(3deg); transition: transform 0.9s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); }
 .js .section-head.reveal.in h2 .w > span { transform: none; }
 .js .section-head.reveal h2 { clip-path: none; }
@@ -900,8 +913,14 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 .js .step.reveal .step-n, .js .pillar.reveal .pillar-idx, .js .plan.reveal .plan-amount, .js .stat.reveal .stat-v { transform: translateY(45%); opacity: 0; transition: transform 0.9s var(--ease), opacity 0.5s ease; transition-delay: inherit; }
 .js .step.reveal.in .step-n, .js .pillar.reveal.in .pillar-idx, .js .plan.reveal.in .plan-amount, .js .stat.reveal.in .stat-v { transform: none; opacity: 1; }
 /* faixas: o fundo entra por varrimento */
-.js .cta-band.reveal, .js .bundle.reveal { transform: none; clip-path: inset(0 100% 0 0); transition: clip-path 1.1s var(--ease), opacity 0.3s ease; }
-.js .cta-band.reveal.in, .js .bundle.reveal.in { clip-path: inset(0 0 0 0); }
+/* o varrimento é feito por uma cortina que recolhe: recortar o próprio elemento observado impede-o
+   de intersectar e o IntersectionObserver nunca lhe dá .in (a faixa ficava invisível no Chrome) */
+.js .cta-band.reveal, .js .bundle.reveal { transform: none; position: relative; overflow: hidden; }
+.js .cta-band.reveal::after, .js .bundle.reveal::after {
+  content: ""; position: absolute; inset: 0; background: var(--paper); z-index: 3; pointer-events: none;
+  transform-origin: 100% 50%; transition: transform 1.1s var(--ease);
+}
+.js .cta-band.reveal.in::after, .js .bundle.reveal.in::after { transform: scaleX(0); }
 /* cursor vermelho (rato/trackpad fino) */
 #cursorDot { position: fixed; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 2px var(--paper); pointer-events: none; z-index: 9999; opacity: 0;
   transition: opacity 0.3s ease, width 0.25s var(--ease), height 0.25s var(--ease), margin 0.25s var(--ease), background 0.2s ease, box-shadow 0.2s ease; }
@@ -917,6 +936,8 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 @media (prefers-reduced-motion: reduce) {
   .w > span, .hero .rotator, .hero .dot, .marquee-track, .hero-piece-frame, h2.display { animation: none !important; transform: none !important; }
   .js .section-head.reveal h2 .w > span, .js .tw-card.reveal .tw-mock, .js .shot.reveal .shot-screen, .js .step.reveal .step-n, .js .pillar.reveal .pillar-idx, .js .plan.reveal .plan-amount, .js .stat.reveal .stat-v, .js .cta-band.reveal, .js .bundle.reveal { transform: none; opacity: 1; clip-path: none; }
+  .js .cta-band.reveal::after, .js .bundle.reveal::after { display: none; }
+  .js:not(.hero-go) .hero h1 .w > span { opacity: 1; }
   #cursorDot { display: none; }
 }
 
@@ -1024,7 +1045,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Websites</span><span class="mq-dot">•</span><span>Marketing</span><span class="mq-dot">•</span><span>Social Media</span><span class="mq-dot">•</span><span>Valais</span><span class="mq-dot">•</span><span>Websites</span><span class="mq-dot">•</span><span>Marketing</span><span class="mq-dot">•</span><span>Social Media</span><span class="mq-dot">•</span><span>Valais</span><span class="mq-dot">•</span></div></div>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span data-i18n="mq.1">Websites</span><span class="mq-dot">•</span><span data-i18n="mq.2">Marketing</span><span class="mq-dot">•</span><span data-i18n="mq.3">Social Media</span><span class="mq-dot">•</span><span data-i18n="mq.4">Valais</span><span class="mq-dot">•</span><span data-i18n="mq.1">Websites</span><span class="mq-dot">•</span><span data-i18n="mq.2">Marketing</span><span class="mq-dot">•</span><span data-i18n="mq.3">Social Media</span><span class="mq-dot">•</span><span data-i18n="mq.4">Valais</span><span class="mq-dot">•</span></div></div>
 
   <!-- ================= TRABALHO RECENTE ================= -->
   <section id="trabalho">
@@ -1528,7 +1549,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
           <p data-i18n="ab.p2">No dia a dia, giro o marketing e as redes sociais de um centro médico no Valais — por isso sei, na prática, o que atrai clientes locais na Suíça, não só em teoria.</p>
           <p data-i18n="ab.p3">Quando trabalhas comigo, falas diretamente comigo: sem agência no meio, sem intermediários, sem custos inflacionados. Precisão suíça na entrega, alma portuguesa no atendimento.</p>
           <div class="about-facts">
-            <div><span class="k" data-i18n="ab.k1">Base</span><span class="v">Stalden, Valais (CH)</span></div>
+            <div><span class="k" data-i18n="ab.k1">Base</span><span class="v" data-i18n="ab.v1">Stalden, Valais (CH)</span></div>
             <div><span class="k" data-i18n="ab.k2">Idiomas</span><span class="v">Português · Deutsch · English</span></div>
             <div><span class="k" data-i18n="ab.k3">Formação</span><span class="v" data-i18n="ab.v3">Gestão e Programação de Sistemas Informáticos</span></div>
             <div><span class="k" data-i18n="ab.k4">Stack</span><span class="v">React · TypeScript · Tailwind</span></div>
@@ -1621,7 +1642,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       <div>
         <span class="logo">PR<span class="dot">.</span></span>
         <p class="foot-tag" data-i18n="ft.tag">Websites, marketing e redes sociais para negócios do Valais — falas comigo, sem agência pelo meio.</p>
-        <p class="foot-langs">PT · DE · EN — STALDEN, VALAIS</p>
+        <p class="foot-langs" data-i18n="ft.langs">PT · DE · EN — STALDEN, VALAIS</p>
       </div>
       <div class="foot-col">
         <span class="foot-h" data-i18n="ft.h1">Navegação</span>
@@ -1635,7 +1656,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       <div class="foot-col">
         <span class="foot-h" data-i18n="ft.h2">Serviços</span>
         <a href="#servicos">Websites</a>
-        <a href="#servicos">Marketing Digital</a>
+        <a href="#servicos" data-i18n="sv2.name">Marketing Digital</a>
         <a href="#servicos">Social Media</a>
         <a href="#precos" data-i18n="bd.title">Pacote Tudo-em-Um</a>
       </div>
@@ -2761,6 +2782,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       "ct.send": "Kostenlose Einschätzung anfragen", "ct.note": "Unverbindlich. Ich antworte in weniger als 24 Stunden, per E-Mail oder Telefon.",
       "ft.made": "Diese Website habe ich selbst gebaut — wie alles, was ich liefere",
       "ft.tag": "Websites, Marketing und Social Media für Betriebe im Wallis — Sie sprechen direkt mit mir, ohne Agentur dazwischen.",
+      "mq.1": "Websites", "mq.2": "Marketing", "mq.3": "Social Media", "mq.4": "Wallis", "ab.v1": "Stalden, Wallis (CH)", "ft.langs": "PT · DE · EN — STALDEN, WALLIS",
       "ft.h1": "Navigation", "ft.h2": "Leistungen", "ft.h3": "Kontakt",
       "ft.h4": "Rechtliches", "ft.privacy": "Datenschutz", "ft.terms": "AGB", "ft.notice": "Impressum",
       "cookie.msg": "Nur das technisch Nötige. Statistik und Marketing (Google Analytics / Meta) nur mit Ihrer Zustimmung. ", "cookie.link": "Datenschutzerklärung", "cookie.deny": "Nur das Nötigste", "cookie.accept": "Alles akzeptieren",
@@ -2859,6 +2881,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       "ct.send": "Get a free assessment", "ct.note": "No obligation. I reply within 24 hours, by email or phone.",
       "ft.made": "I built this website myself — like everything I deliver",
       "ft.tag": "Websites, marketing and social media for Valais businesses — you talk to me directly, no agency in between.",
+      "mq.1": "Websites", "mq.2": "Marketing", "mq.3": "Social Media", "mq.4": "Valais", "ab.v1": "Stalden, Valais (CH)", "ft.langs": "PT · DE · EN — STALDEN, VALAIS",
       "ft.h1": "Navigation", "ft.h2": "Services", "ft.h3": "Contact",
       "ft.h4": "Legal", "ft.privacy": "Privacy", "ft.terms": "Terms", "ft.notice": "Legal notice",
       "cookie.msg": "Only what the site needs to work. Statistics and marketing (Google Analytics / Meta) only with your consent. ", "cookie.link": "Privacy Policy", "cookie.deny": "Essential only", "cookie.accept": "Accept all",
@@ -2957,6 +2980,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       "ct.send": "Demander une évaluation gratuite", "ct.note": "Sans engagement. Je réponds en moins de 24 h, par email ou téléphone.",
       "ft.made": "J’ai créé ce site moi-même — comme tout ce que je livre",
       "ft.tag": "Sites web, marketing et réseaux sociaux pour les entreprises du Valais — vous me parlez directement, sans agence entre nous.",
+      "mq.1": "Sites web", "mq.2": "Marketing", "mq.3": "Social Media", "mq.4": "Valais", "ab.v1": "Stalden, Valais (CH)", "ft.langs": "PT · DE · EN — STALDEN, VALAIS",
       "ft.h1": "Navigation", "ft.h2": "Services", "ft.h3": "Contact",
       "ft.h4": "Légal", "ft.privacy": "Confidentialité", "ft.terms": "Conditions générales", "ft.notice": "Mentions légales",
       "cookie.msg": "Seulement le strict nécessaire au fonctionnement du site. Statistiques et marketing (Google Analytics / Meta) uniquement avec votre accord. ", "cookie.link": "Politique de confidentialité", "cookie.deny": "Seulement l’essentiel", "cookie.accept": "Tout accepter",
@@ -3055,6 +3079,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
       "ct.send": "Richiedi una valutazione gratuita", "ct.note": "Senza impegno. Rispondo entro 24 h, via email o telefono.",
       "ft.made": "Questo sito l’ho creato io stesso — come tutto ciò che consegno",
       "ft.tag": "Siti web, marketing e social media per le attività del Vallese — parli con me, senza agenzia di mezzo.",
+      "mq.1": "Siti web", "mq.2": "Marketing", "mq.3": "Social Media", "mq.4": "Vallese", "ab.v1": "Stalden, Vallese (CH)", "ft.langs": "PT · DE · EN — STALDEN, VALLESE",
       "ft.h1": "Navigazione", "ft.h2": "Servizi", "ft.h3": "Contatto",
       "ft.h4": "Legale", "ft.privacy": "Privacy", "ft.terms": "Termini", "ft.notice": "Note legali",
       "cookie.msg": "Solo l’indispensabile per far funzionare il sito. Statistiche e marketing (Google Analytics / Meta) solo con il tuo consenso. ", "cookie.link": "Informativa sulla privacy", "cookie.deny": "Solo l’essenziale", "cookie.accept": "Accetta tutto",
@@ -3222,9 +3247,14 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
     header.classList.toggle("scrolled", y > 12);
     if (now - scrollMaxAt > 500) { scrollMax = document.documentElement.scrollHeight - window.innerHeight; scrollMaxAt = now; }
     progress.style.transform = "scaleX(" + (scrollMax > 0 ? Math.min(1, y / scrollMax) : 0) + ")";
-    if (!REDUCED && y < 900) {
-      heroWrap.style.transform = "translateY(" + y * 0.1 + "px)";
-      heroWrap.style.opacity = Math.max(0, 1 - y / 750);
+    /* o desvanecer acompanha a altura real do hero: com 750px fixos, no telemóvel a peça
+       do Alpina apagava-se enquanto ainda estava no ecrã */
+    if (!REDUCED) {
+      var heroH = heroWrap.offsetHeight || 750;
+      if (y < heroH * 1.2) {
+        heroWrap.style.transform = "translateY(" + y * 0.1 + "px)";
+        heroWrap.style.opacity = String(Math.max(0, 1 - y / heroH));
+      }
     }
   }
   function onScroll() { if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(onScrollFrame); } }
