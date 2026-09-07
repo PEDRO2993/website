@@ -49,6 +49,12 @@ const COPY_FILES = [
   'site.webmanifest', '404.html', /* o _headers é gerado, ver buildHeaders() */
 ];
 const COPY_DIRS = ['img', 'css', 'fonts', '3d'];
+/* fonts/ guarda cinco famílias, mas o site publicado só pede a Archivo: as
+   outras quatro estão nomeadas no css/demos.css sem @font-face nenhum, por isso
+   o browser nunca lhes toca. Ficam no repositório — vieram do @fontsource que o
+   tests/package.json ainda lista — e deixam de ir para dist/: eram 136 KiB
+   publicados que ninguém descarregava. */
+const NAO_PUBLICAR = /^fonts\/(?!archivo-)/;
 
 /* preenchido por buildPosts(); consumido por buildSitemap() e buildDocPage(blog.html) */
 let DB_POSTS = [];
@@ -118,7 +124,10 @@ function writeFile(rel, content) {
 function copyInto(rel) {
   const from = path.join(ROOT, rel);
   if (!fs.existsSync(from)) throw new Error('ficheiro obrigatório em falta: ' + rel);
-  fs.cpSync(from, path.join(DIST, rel), { recursive: true });
+  fs.cpSync(from, path.join(DIST, rel), {
+    recursive: true,
+    filter: (src) => !NAO_PUBLICAR.test(path.relative(ROOT, src).split(path.sep).join('/')),
+  });
 }
 
 /* ------------------------------------------------------------------ */

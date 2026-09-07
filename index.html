@@ -487,6 +487,48 @@ section { padding: 88px 0; position: relative; }
 h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; font-variation-settings: "wdth" 105; }
 .serif { font-family: inherit; font-style: normal; font-weight: inherit; color: var(--red); background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: initial; animation: none; }
 .mono { font-family: inherit; font-variant-numeric: tabular-nums; }
+
+/* ---------- contenção: a página só é composta à medida que se desce ----------
+   São ~19 800 px e 1 388 elementos numa página só. Sem contenção o Chrome
+   refazia a composição da página inteira uma dúzia de vezes durante o
+   arranque. Com content-visibility o que está longe do ecrã fica de fora até
+   ser preciso. O selector é main > section (filho direto): as secções das
+   demos são injetadas noutro sítio e não podem ser tocadas.
+   As alturas são as medidas de cada secção, não um valor redondo para todas —
+   e o "auto" faz o browser guardar a altura real depois da primeira
+   composição, para não haver saltos ao voltar a subir. */
+main > section:not(.hero), main > .marquee, footer { content-visibility: auto; }
+main > .marquee { contain-intrinsic-size: auto 80px; }
+main > #trabalho { contain-intrinsic-size: auto 1400px; }
+main > #servicos { contain-intrinsic-size: auto 2400px; }
+main > #processo { contain-intrinsic-size: auto 1000px; }
+main > #portfolio { contain-intrinsic-size: auto 3200px; }
+main > #precos { contain-intrinsic-size: auto 2500px; }
+main > #faq { contain-intrinsic-size: auto 1100px; }
+main > #sobre { contain-intrinsic-size: auto 1300px; }
+main > #zona { contain-intrinsic-size: auto 450px; }
+main > #blog-teaser { contain-intrinsic-size: auto 1200px; }
+main > #contacto { contain-intrinsic-size: auto 1300px; }
+footer { contain-intrinsic-size: auto 1250px; }
+/* acima de 900px o layout passa a colunas e quase tudo encolhe para metade */
+@media (min-width: 901px) {
+  main > .marquee { contain-intrinsic-size: auto 150px; }
+  main > #trabalho { contain-intrinsic-size: auto 980px; }
+  main > #servicos { contain-intrinsic-size: auto 1310px; }
+  main > #processo { contain-intrinsic-size: auto 540px; }
+  main > #portfolio { contain-intrinsic-size: auto 1820px; }
+  main > #precos { contain-intrinsic-size: auto 1490px; }
+  main > #faq { contain-intrinsic-size: auto 940px; }
+  main > #sobre { contain-intrinsic-size: auto 825px; }
+  main > #zona { contain-intrinsic-size: auto 360px; }
+  main > #blog-teaser { contain-intrinsic-size: auto 750px; }
+  main > #contacto { contain-intrinsic-size: auto 970px; }
+  footer { contain-intrinsic-size: auto 430px; }
+}
+/* enquanto esta classe está posta, a página compõe-se de uma vez só — é o que
+   acerta os saltos internos na primeira vez (ver "saltos internos" no script) */
+html.cv-off main > section, html.cv-off main > .marquee, html.cv-off footer { content-visibility: visible; }
+
 .eyebrow { display: block; font-size: 0.9rem; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; border-radius: 0; letter-spacing: 0; text-transform: none; }
 .eyebrow::before { content: ""; display: inline-block; width: 9px; height: 9px; background: var(--red); margin-right: 10px; border-radius: 0; box-shadow: none; animation: none; }
 /* mais ar por cima do título do que por baixo: a régua abre a secção, o subtítulo cola-se ao título */
@@ -1179,7 +1221,7 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
         <li data-i18n="hero.tr3">✓ Preço fixo, sem surpresas</li>
       </ul>
       <a class="hero-piece" href="caso-hotel-alpina.html" data-i18n-aria="tw.a1" aria-label="Maqueta do site do Hotel Alpina Grächen: cabeçalho, título e botão de reserva">
-        <span class="hero-piece-frame"><img src="img/work-alpina.jpg" width="1000" height="625" alt="" decoding="async" fetchpriority="high"></span>
+        <span class="hero-piece-frame"><img src="img/work-alpina.webp" onerror="this.onerror=null;this.src='img/work-alpina.jpg'" width="1000" height="625" alt="" decoding="async" fetchpriority="high"></span>
         <span class="hero-piece-cap"><b data-i18n="tw.p1n">Hotel Alpina · Grächen</b><span data-i18n="tw.b1">Website</span></span>
       </a>
     </div>
@@ -1198,7 +1240,7 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
       <div class="tw-cards">
         <article class="tw-card reveal">
           <a class="tw-mock tw-mock-img" href="caso-hotel-alpina.html" data-i18n-aria="tw.a1" aria-label="Maqueta do site do Hotel Alpina Grächen: cabeçalho, título e botão de reserva">
-            <img src="img/work-alpina.jpg" width="1000" height="625" alt="" loading="lazy" decoding="async">
+            <img src="img/work-alpina.webp" onerror="this.onerror=null;this.src='img/work-alpina.jpg'" width="1000" height="625" alt="" loading="lazy" decoding="async">
           </a>
           <div class="tw-card-b">
             <span class="tw-badge" data-i18n="tw.b1">Website</span>
@@ -3960,6 +4002,48 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); el.style.transitionDelay = ""; });
   }
 
+  /* ---------- saltos internos (#servicos, #precos, ...) ----------
+     Com content-visibility, uma secção ainda não composta só sabe dar a altura
+     estimada do contain-intrinsic-size. O salto suave partia para uma posição
+     que mudava a meio do caminho e aterrava até 900px ao lado. Antes do
+     primeiro salto compõe-se a página inteira durante dois frames: a partir daí
+     o "auto" guarda a altura real de cada secção e o browser volta a acertar
+     sozinho — este código só corre uma vez por visita. */
+  var cvMeasured = false;
+  function cvCompose(then) {
+    cvMeasured = true;
+    var r = document.documentElement;
+    r.classList.add("cv-off");
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        r.classList.remove("cv-off");
+        then();
+      });
+    });
+  }
+  document.addEventListener("click", function (e) {
+    if (cvMeasured || !e.target.closest) return;
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var id = a.getAttribute("href").slice(1);
+    if (!id || !document.getElementById(id)) return;
+    e.preventDefault();
+    cvCompose(function () { location.hash = "#" + id; });
+  });
+  /* um link direto (prstudio.ch/#precos) chega antes de a página estar
+     composta: o browser já saltou para o sítio errado, acerta-se sem animação */
+  if (location.hash.length > 1 && document.getElementById(location.hash.slice(1))) {
+    (function () {
+      var alvo = document.getElementById(location.hash.slice(1));
+      cvCompose(function () {
+        var r = document.documentElement, sb = r.style.scrollBehavior;
+        r.style.scrollBehavior = "auto";
+        alvo.scrollIntoView();
+        r.style.scrollBehavior = sb;
+      });
+    })();
+  }
+
   /* ---------- scrollspy ---------- */
   var navMap = {};
   document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
@@ -5464,13 +5548,31 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     var cDot = document.createElement("div");
     cDot.id = "cursorDot"; cDot.setAttribute("aria-hidden", "true"); document.body.appendChild(cDot);
     var cX = -100, cY = -100, cTX = -100, cTY = -100;
+    /* o ponto persegue o rato com atraso. Enquanto persegue precisa de um frame
+       por frame, mas parado não: sem isto ficavam 60 rAF por segundo a escrever
+       sempre a mesma transformação e o separador nunca chegava a adormecer.
+       Quando a distância que falta é menos de meio pixel, encosta ao alvo e o
+       ciclo pára — o próximo pointermove volta a arrancá-lo. */
+    var cRunning = false;
+    function cLoop() {
+      var dx = cTX - cX, dy = cTY - cY;
+      if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5) {
+        cX = cTX; cY = cTY; cRunning = false;                 /* chegou: descansa */
+      } else {
+        cX += dx * 0.22; cY += dy * 0.22;
+        requestAnimationFrame(cLoop);
+      }
+      cDot.style.transform = "translate(" + cX + "px," + cY + "px)";
+    }
+    function cWake() { if (!cRunning) { cRunning = true; requestAnimationFrame(cLoop); } }
     window.addEventListener("pointermove", function (e) {
       cTX = e.clientX; cTY = e.clientY; cDot.classList.add("show");
       var hot = e.target && e.target.closest && e.target.closest("a, button, .shot, .tw-card, .faq-q, input, textarea, select");
       cDot.classList.toggle("on", !!hot);
+      cWake();
     }, { passive: true });
     document.addEventListener("pointerleave", function () { cDot.classList.remove("show"); });
-    (function cLoop() { cX += (cTX - cX) * 0.22; cY += (cTY - cY) * 0.22; cDot.style.transform = "translate(" + cX + "px," + cY + "px)"; requestAnimationFrame(cLoop); })();
+    cWake();
   }
 
   /* ---------- magnetic + tilt + spotlight (desktop) ---------- */
