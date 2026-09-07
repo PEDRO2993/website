@@ -1739,6 +1739,11 @@
 .d3 {
   --d3-ar: 16 / 10;   /* proporção do palco, redefinida por setor */
   --d3-maxw: 100%;    /* travão de largura, para as peças que pedem retrato */
+  /* chão mínimo do palco. É por setor porque no telemóvel um chão único
+     engole a proporção: a 320 a coluna tem 276px, e 16/9 pede 155px de altura —
+     um travão de 220 transformava seis dos sete palcos no mesmo retângulo.
+     Cada mundo declara aqui a altura mais baixa a que a sua cena ainda se lê. */
+  --d3-minh: 220px;
   --d3-gap: 14px;
   /* cubo isométrico a 1px: máscara, não imagem — assim herda a cor do botão de cada demo */
   --d3-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.25' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M8 1 14.5 4.75V11.25L8 15 1.5 11.25V4.75Z'/%3E%3Cpath d='M8 8 14.5 4.75M8 8 1.5 4.75M8 8V15'/%3E%3C/svg%3E");
@@ -1768,11 +1773,17 @@
   .d3-go:hover { background: color-mix(in srgb, var(--tp-accent) 12%, transparent); border-color: var(--tp-accent); color: var(--tp-accent); }
 }
 
-/* o palco */
+/* o palco.
+   `!important` na caixa não é força bruta: o motor (PlayCanvas em FILLMODE_NONE)
+   escreve `style.width`/`style.height` em px na tela a cada resize, e um estilo
+   em linha ganha sempre a esta folha. Sem isto a tela congela na primeira medida
+   — a 390 e a 320 ficava com 2px de largura, só molduras. O palco é da folha:
+   mede-se pela coluna, e o motor segue o clientWidth/clientHeight que daí sai. */
 .d3-cv:not([hidden]) {
   display: block; box-sizing: border-box;
-  width: 100%; max-width: min(100%, var(--d3-maxw));
-  aspect-ratio: var(--d3-ar); min-height: 220px; max-height: min(72vh, 600px);
+  width: 100% !important; height: auto !important;
+  max-width: min(100%, var(--d3-maxw));
+  aspect-ratio: var(--d3-ar); min-height: var(--d3-minh); max-height: min(72vh, 600px);
   border: 1px solid var(--tp-line); border-radius: 0;
   background: radial-gradient(118% 96% at 50% 10%, color-mix(in srgb, var(--tp-accent) 9%, var(--tp-card)), var(--tp-card) 72%);
   /* arrastar roda a peça; o dedo continua a poder deslizar a página na vertical */
@@ -1796,16 +1807,16 @@
   .d3-hint:not([hidden]) { animation: d3Rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
 }
 /* sem movimento: nada anima e nada transiciona; a peça já está lá, parada, e o visitante manda.
-   A moldura ganha contraste para o palco se ler como objeto e não como espaço vazio. */
+   O reforço da moldura para este caso vive no fim do ficheiro — tem de vir depois
+   dos sete setores, senão a cor de cada mundo ganha-lhe e a regra morre calada. */
 @media (prefers-reduced-motion: reduce) {
   .d3, .d3 *, .d3 *::before, .d3 *::after { animation: none !important; transition: none !important; }
-  .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-accent) 42%, var(--tp-line)); }
 }
 /* em papel o palco não existe */
 @media print { .d3 { display: none !important; } }
 
 /* Restaurante — régua de ouro sobre madeira queimada, Instrument Sans em versaletes largos */
-.t-r .d3 { --d3-ar: 4 / 3; --d3-maxw: 760px; --d3-gap: 16px; }
+.t-r .d3 { --d3-ar: 4 / 3; --d3-maxw: 760px; --d3-minh: 200px; --d3-gap: 16px; }
 .t-r .d3-go {
   font-family: "Instrument Sans", sans-serif; font-size: 0.72rem; letter-spacing: 0.2em;
   min-height: 46px; padding: 13px 24px;
@@ -1819,7 +1830,7 @@
 .t-r .d3-hint { font-family: "Instrument Sans", sans-serif; font-size: 0.95rem; color: var(--tp-muted); }
 
 /* Ginásio — o bloco volt cheio, como todos os CTA do clube */
-.t-g .d3 { --d3-ar: 16 / 9; }
+.t-g .d3 { --d3-ar: 16 / 9; --d3-minh: 168px; }
 .t-g .d3-go {
   font-weight: 800; font-size: 0.78rem; letter-spacing: 0.1em;
   min-height: 48px; padding: 14px 24px;
@@ -1830,7 +1841,7 @@
 .t-g .d3-hint { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 
 /* Barbearia — tinta café a fechar o botão, cobre a preenchê-lo ao passar */
-.t-b .d3 { --d3-ar: 4 / 3; --d3-maxw: 700px; }
+.t-b .d3 { --d3-ar: 4 / 3; --d3-maxw: 700px; --d3-minh: 200px; }
 .t-b .d3-go {
   font-weight: 700; font-size: 0.8rem; letter-spacing: 0.07em;
   padding: 13px 24px; color: var(--tp-ink); border-color: var(--tp-ink);
@@ -1840,7 +1851,7 @@
 .t-b .d3-hint { font-size: 0.92rem; }
 
 /* Clínica — pastilha clara com contorno, o único mundo com raio */
-.t-c .d3 { --d3-ar: 16 / 10; --d3-maxw: 860px; --d3-gap: 12px; }
+.t-c .d3 { --d3-ar: 16 / 10; --d3-maxw: 860px; --d3-minh: 170px; --d3-gap: 12px; }
 .t-c .d3-go {
   font-weight: 600; font-size: 0.9rem; letter-spacing: -0.005em; text-transform: none;
   padding: 12px 22px; border-radius: 999px;
@@ -1856,7 +1867,7 @@
 .t-c .d3-hint { font-size: 0.88rem; }
 
 /* Fotografia — parede de galeria: a peça sobre preto, contorno de 1px por dentro */
-.t-f .d3 { --d3-ar: 16 / 9; --d3-maxw: 1000px; --d3-gap: 16px; }
+.t-f .d3 { --d3-ar: 16 / 9; --d3-maxw: 1000px; --d3-minh: 168px; --d3-gap: 16px; }
 .t-f .d3-go {
   font-size: 0.88rem; letter-spacing: 0.04em; text-transform: none;
   padding: 15px 26px; border-radius: var(--f-r);
@@ -1867,7 +1878,7 @@
 .t-f .d3-hint { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; }
 
 /* Imobiliária — o mesmo botão de contorno das fichas, verde a preencher ao passar */
-.t-i .d3 { --d3-ar: 3 / 2; --d3-maxw: 880px; }
+.t-i .d3 { --d3-ar: 3 / 2; --d3-maxw: 880px; --d3-minh: 180px; }
 .t-i .d3-go {
   font-weight: 650; font-size: 0.9rem; letter-spacing: 0.005em; text-transform: none;
   padding: 11px 18px; border-radius: var(--ti-r);
@@ -1891,4 +1902,21 @@
 .t-m .d3-hint {
   font-family: "Archivo", "Helvetica Neue", Arial, sans-serif; font-variation-settings: "wdth" 106;
   font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tm-mut);
+}
+
+/* — Momento 3D, sem movimento —
+   Fecha o ficheiro de propósito: sem auto-rotação o palco pode ficar parado
+   entre gestos, e é aí que a moldura tem de dizer "isto é uma peça, não é vazio".
+   Cada mundo reforça a sua própria régua — e como estas regras vêm depois das
+   dos sete setores, ganham-lhes sem precisar de `!important`. */
+@media (prefers-reduced-motion: reduce) {
+  .t-r .d3-cv:not([hidden]) { border-color: rgba(228, 177, 90, 0.5); }
+  .t-g .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-accent) 30%, var(--tg-line)); }
+  .t-b .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-ink) 32%, var(--tp-line)); }
+  .t-c .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-accent) 38%, var(--tp-line)); }
+  .t-f .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-accent) 34%, var(--tp-line)); }
+  .t-i .d3-cv:not([hidden]) { border-color: color-mix(in srgb, var(--tp-accent) 36%, var(--tp-line)); }
+  /* ODDA não ganha moldura — ganharia uma caixa, que este mundo não tem.
+     Leva a régua de 1px por dentro, o mesmo traço das fichas de produto. */
+  .t-m .d3-cv:not([hidden]) { box-shadow: inset 0 0 0 1px var(--tm-line-2); }
 }
