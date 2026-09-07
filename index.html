@@ -984,17 +984,24 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
    ------------------------------------------------------------------ */
 .panel-head { display: none; }
 .marquee { position: relative; }
+/* A faixa vai de 60px no telemóvel a 145px no desktop; um glifo fixo de
+   12x15 lia-se lá como um defeito de renderização a cortar o "g" de
+   Marketing, não como um comando. O glifo cresce com a faixa e o traço
+   vertical usa o mesmo valor das réguas dela (--ink), não o --rule-2 que
+   quase não se via. A largura mínima de 46px guarda o alvo de toque. */
 .motion-btn {
+  --mg: clamp(15px, 3.2vw, 30px);
   position: absolute; right: 0; top: 0; bottom: 0; z-index: 3;
-  width: 46px; display: grid; place-items: center;
+  width: calc(var(--mg) + 30px); min-width: 46px;
+  display: grid; place-items: center;
   background: var(--paper); color: var(--ink-2);
-  border: 0; border-left: 1px solid var(--rule-2);
+  border: 0; border-left: 1px solid var(--ink);
   font: inherit; line-height: 1; cursor: pointer;
   transition: color 0.2s ease;
 }
 /* barras e triângulo desenhados em CSS: nada depende de um glifo da fonte */
-.motion-btn::before { content: ""; display: block; width: 12px; height: 15px; border-left: 4px solid currentColor; border-right: 4px solid currentColor; }
-.motion-btn[aria-pressed="true"]::before { width: 0; height: 0; border: 0; border-left: 13px solid currentColor; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.motion-btn::before { content: ""; display: block; width: calc(var(--mg) * 0.8); height: var(--mg); border-left: calc(var(--mg) * 0.267) solid currentColor; border-right: calc(var(--mg) * 0.267) solid currentColor; }
+.motion-btn[aria-pressed="true"]::before { width: 0; height: 0; border: 0; border-left: calc(var(--mg) * 0.867) solid currentColor; border-top: calc(var(--mg) * 0.533) solid transparent; border-bottom: calc(var(--mg) * 0.533) solid transparent; }
 .motion-btn:hover { color: var(--red); }
 .motion-btn:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
 html.motion-paused .marquee-track { animation-play-state: paused !important; }
@@ -1055,7 +1062,11 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
 .faq-q i { display: none !important; }
 .tabs { display: none !important; }
 .price-panel { display: block !important; margin-top: 56px; }
-.panel-head { display: block !important; font-size: 1.35rem; margin: 0 0 22px; }
+/* Os nove planos são h3 (o CSS principal desenha-os por `.plan h3`), por
+   isso o título da categoria não pode descer de nível sem lhes mexer.
+   Fica então visualmente inconfundível como categoria: régua de secção
+   por cima, corpo largo e o dobro do tamanho do nome de um plano. */
+.panel-head { display: block !important; font-size: clamp(1.7rem, 5vw, 2rem); font-variation-settings: "wdth" 118; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 30px; padding-top: 26px; border-top: 1px solid var(--ink); }
 .ns-banner { background: var(--paper-2); color: var(--ink); border-bottom: 1px solid var(--rule-2); padding: 14px 18px; text-align: center; font-size: 0.9rem; }
 .ns-banner a { color: var(--red); }
 </style></noscript>
@@ -1413,7 +1424,7 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
         <button type="button" role="tab" id="tab-mkt" aria-controls="panel-mkt" aria-selected="false" tabindex="-1" data-tab="mkt">Marketing</button>
       </div>
 
-      <div class="price-panel active" id="panel-web" role="tabpanel" aria-labelledby="tab-web" tabindex="0">
+      <div class="price-panel active" id="panel-web" role="tabpanel" aria-labelledby="tab-web">
         <h3 class="panel-head">Websites</h3>
         <div class="plans">
           <article class="plan card reveal">
@@ -1465,7 +1476,7 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
         </div>
       </div>
 
-      <div class="price-panel" id="panel-social" role="tabpanel" aria-labelledby="tab-social" tabindex="0">
+      <div class="price-panel" id="panel-social" role="tabpanel" aria-labelledby="tab-social">
         <h3 class="panel-head">Social Media</h3>
         <div class="plans">
           <article class="plan card reveal">
@@ -1508,7 +1519,7 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
         </div>
       </div>
 
-      <div class="price-panel" id="panel-mkt" role="tabpanel" aria-labelledby="tab-mkt" tabindex="0">
+      <div class="price-panel" id="panel-mkt" role="tabpanel" aria-labelledby="tab-mkt">
         <h3 class="panel-head">Marketing</h3>
         <div class="plans">
           <article class="plan card reveal">
@@ -1563,39 +1574,39 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a1"><div><p data-i18n="fq1.a">Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo fica fechado por escrito na proposta, antes de começarmos.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a2"><div><p data-i18n="fq2.a">Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a3"><div><p data-i18n="fq3.a">Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o investimento em anúncios?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o investimento em anúncios?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a4"><div><p data-i18n="fq4.a">Pagas o investimento em anúncios diretamente ao Google ou à Meta, com o teu cartão — eu não fico com uma parte disso. O plano cobre a estratégia, a criação dos anúncios e a otimização contínua.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a5"><div><p data-i18n="fq5.a">Ja, gerne. Atendo em alemão, português e inglês, e crio sites e conteúdos multilingues — no Valais, os teus clientes falam várias línguas.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a6"><div><p data-i18n="fq6.a">Claro. Os três serviços funcionam em separado. Começo com uma avaliação gratuita em 48 h do que já tens, e digo-te com franqueza onde vale a pena investir.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7"><span data-i18n="fq7.q">Fazes sites para hotéis, restaurantes e turismo no Valais?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a7"><span data-i18n="fq7.q">Fazes sites para hotéis, restaurantes e turismo no Valais?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a7"><div><p data-i18n="fq7.a">Sim. Restaurantes, alojamento, bem-estar e serviços locais são os setores com que mais trabalho no Alto Valais. Um site para turismo precisa de reservas fáceis, várias línguas e fotografias que vendam — é isso que construo, com preço fixo acordado antes.</p><p><a class="read-more" href="site-restaurante-valais.html" data-i18n="fq7.l">Ler o guia: site para restaurante no Valais →</a></p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a8"><span data-i18n="fq8.q">E depois de o site estar online, quem trata dele?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a8"><span data-i18n="fq8.q">E depois de o site estar online, quem trata dele?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a8"><div><p data-i18n="fq8.a">Eu — não precisas de perceber de tecnologia. O plano de manutenção (CHF 95–290/mês) trata do alojamento, SSL, cópias de segurança e pequenas alterações. Sem plano, entrego-te o site pronto a usar, com os ficheiros teus.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a9"><span data-i18n="fq9.q">Também tratas da ficha Google Business?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a9"><span data-i18n="fq9.q">Também tratas da ficha Google Business?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a9"><div><p data-i18n="fq9.a">Sim. Faz parte do marketing local e do site institucional: categoria certa, fotos, horários, serviços e resposta às avaliações — e ligo a ficha ao site para o Google confiar nos dois.</p><p><a class="read-more" href="google-business-valais.html" data-i18n="fq9.l">Ler o guia: ficha Google Business no Valais →</a></p></div></div>
         </div>
       </div>
@@ -3829,7 +3840,15 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     if (e.target.tagName === "A") { links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
   });
 
-  /* ---------- pricing tabs ---------- */
+  /* ---------- pricing tabs ----------
+     O tabindex="0" do painel é do padrão tablist e só faz sentido no
+     painel activo. No markup estava fixo nos três, o que sem JS punha
+     três paragens de tabulação vazias na ordem do teclado; agora é o JS
+     que o põe, no painel que está aberto. */
+  (function () {
+    var active = document.querySelector(".price-panel.active");
+    if (active) active.setAttribute("tabindex", "0");
+  })();
   document.querySelectorAll(".tabs button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".tabs button").forEach(function (x) {
@@ -3840,8 +3859,9 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
       b.setAttribute("tabindex", "0");
       var panel = document.getElementById("panel-" + b.getAttribute("data-tab"));
       if (!panel) return;
-      document.querySelectorAll(".price-panel").forEach(function (p) { p.classList.remove("active"); });
+      document.querySelectorAll(".price-panel").forEach(function (p) { p.classList.remove("active"); p.removeAttribute("tabindex"); });
       panel.classList.add("active");
+      panel.setAttribute("tabindex", "0");
       panel.querySelectorAll(".reveal").forEach(function (r) { r.classList.add("in"); });
     });
     /* teclado do padrão tablist: setas com wrap, Home/End para os extremos.
@@ -3929,7 +3949,12 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     if (waNarrow.addEventListener) waNarrow.addEventListener("change", syncFab);
     else if (waNarrow.addListener) waNarrow.addListener(syncFab);
     function sync() { var show = pastHero && !inContact && !inFooter; bar.classList.toggle("show", show); document.body.classList.toggle("has-sticky", show); document.body.classList.toggle("in-footer", inFooter); syncFab(); }
-    new IntersectionObserver(function (entries) { pastHero = entries[0].boundingClientRect.top < 0; sync(); }, { threshold: 0 }).observe(heroEl);
+    /* `top < 0` sozinho nunca voltava a false: ao subir, o hero reentra
+       pelo topo e nesse instante o top ainda é negativo, por isso a barra
+       fixa ficava colada para o resto da sessão (e com ela o FAB do
+       WhatsApp fora da árvore de acessibilidade). Só se está "depois do
+       hero" quando ele já não está visível. */
+    new IntersectionObserver(function (entries) { pastHero = entries[0].boundingClientRect.top < 0 && !entries[0].isIntersecting; sync(); }, { threshold: 0 }).observe(heroEl);
     if (contactEl) new IntersectionObserver(function (entries) { inContact = entries[0].isIntersecting; sync(); }, { rootMargin: "-10% 0px -70% 0px" }).observe(contactEl);
     if (footerEl) new IntersectionObserver(function (entries) { inFooter = entries[0].isIntersecting; sync(); }, { rootMargin: "0px" }).observe(footerEl);
   })();
@@ -5309,8 +5334,14 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     openLight(galleryEls.indexOf(zoom));
   });
 
-  /* ---------- faq toggles ---------- */
+  /* ---------- faq toggles ----------
+     No markup os nove aria-expanded nascem "true" porque é isso que o
+     <noscript> mostra: sem JS as respostas estão todas abertas e dizer
+     "false" era anunciar nove secções fechadas por cima de nove abertas.
+     Com JS o primeiro estado real é fechado (nenhum .faq-item tem .open),
+     por isso reconcilia-se aqui antes de ligar o clique. */
   document.querySelectorAll(".faq-q").forEach(function (btn) {
+    btn.setAttribute("aria-expanded", "false");
     btn.addEventListener("click", function () {
       var item = btn.parentElement;
       var open = item.classList.toggle("open");

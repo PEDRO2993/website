@@ -274,11 +274,17 @@ function buildHome() {
         html = html.replace(/(<script type="application\/ld\+json">\s*)(\{"@context":"https:\/\/schema\.org","@type":"FAQPage"[\s\S]*?)(\s*<\/script>)/,
           (m, open, body, close) => open + JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq }) + close);
       }
-      /* ProfessionalService: a FAQPage já saía traduzida, esta ficava em
-         português nas quatro versões — o Google lia uma ficha de negócio
-         portuguesa numa página alemã. Traduz-se o que é prosa
-         (description, nome do catálogo, descrição de cada oferta) e
-         declara-se o idioma. Preços, moeda e estrutura ficam intactos. */
+    }
+
+    /* ProfessionalService: a FAQPage já saía traduzida, esta ficava em
+       português nas quatro versões — o Google lia uma ficha de negócio
+       portuguesa numa página alemã. Traduz-se o que é prosa (description,
+       nome do catálogo, nome e descrição de cada oferta) e declara-se o
+       idioma. Preços, moeda e estrutura ficam intactos. Fica fora do
+       guarda `lang !== 'pt'` porque o inLanguage também faltava ao PT:
+       cinco fichas coerentes em vez de quatro mais uma. */
+    {
+      const dict = I18N[lang] || {};
       html = html.replace(/(<script type="application\/ld\+json">\s*)(\{"@context":"https:\/\/schema\.org","@type":"ProfessionalService"[\s\S]*?)(\s*<\/script>)/,
         (m, open, body, close) => {
           let o;
@@ -289,7 +295,13 @@ function buildHome() {
             if (dict['ld.cat']) o.hasOfferCatalog.name = dict['ld.cat'];
             const offers = [dict['ld.o1'], dict['ld.o2'], dict['ld.o3']];
             (o.hasOfferCatalog.itemListElement || []).forEach((it, i) => {
-              if (offers[i] && it.itemOffered) it.itemOffered.description = offers[i];
+              if (!it.itemOffered) return;
+              if (offers[i]) it.itemOffered.description = offers[i];
+              /* "Websites" e "Social Media" escrevem-se igual nas cinco
+                 línguas; só o nome do meio muda (Digitales Marketing /
+                 Marketing digital / Marketing digitale / Digital
+                 Marketing) — sem isto o nó ficava meio português. */
+              if (i === 1 && dict['sv2.name']) it.itemOffered.name = dict['sv2.name'];
             });
           }
           return open + JSON.stringify(o) + close;
