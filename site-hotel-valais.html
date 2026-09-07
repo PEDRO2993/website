@@ -72,7 +72,7 @@ h1, h2, h3 { font-weight:800; letter-spacing:-0.03em; line-height:1.05; font-var
 }
 
 /* ---------- moldura: a régua do cabeçalho e do pé marca a largura máxima ---------- */
-.wrap { max-width:796px; margin:0 auto; padding:0 var(--pad); }
+.wrap { max-width:calc(var(--frame) + 2 * var(--pad)); margin:0 auto; padding:0 var(--pad); }
 /* uma só margem esquerda: o texto pára na medida, os painéis vão até à moldura */
 main { max-width:var(--frame); margin:0 auto; padding:0 0 88px; }
 main p, main ul, main ol, main h3, main blockquote, .lg-sub { max-width:var(--measure); }
@@ -197,42 +197,49 @@ main code { font-family:inherit; font-size:0.94em; font-variation-settings:"wdth
 .lg-share a:hover, .lg-share button:hover { color:var(--red-ink); border-color:var(--red); }
 .lg-share button.done { color:var(--red-ink); border-color:var(--red); }
 
-/* ---------- leitura seguinte ---------- */
-.lg-more { margin:56px 0 0; padding-top:16px; border-top:1px solid var(--ink);
-  color:var(--ink-3); font-size:0.85rem; }
-.lg-more a { display:flex; align-items:baseline; justify-content:space-between; gap:18px;
-  margin-top:14px; padding-top:14px; border-top:1px solid var(--rule); color:var(--ink);
-  font-size:1.02rem; font-weight:600; letter-spacing:-0.015em; line-height:1.3;
-  text-decoration:none; transition:color .15s ease; }
-.lg-more a:first-of-type { margin-top:16px; }
-.lg-more a::after { content:"→"; flex:none; color:var(--red-ink); }
-.lg-more a:hover { color:var(--red-ink); }
-
-/* ---------- índice do jornal (blog.html e "mais artigos") ---------- */
-.more { margin:64px 0 0; }
-.more h2 { margin:0 0 4px; padding-top:16px; border-top:1px solid var(--ink); color:var(--ink-3);
-  font-size:0.85rem; font-weight:600; letter-spacing:0; font-variation-settings:"wdth" 100; }
+/* ---------- leitura seguinte e índice do jornal: uma só linha de artigo ----------
+   Dois pontos de autoria — as páginas fixas só têm o título, o posts.js e o
+   índice trazem data e resumo — mas uma só gramática: a linha é sempre a mesma
+   e os dados a mais aparecem quando existem. */
+.more, .lg-more { margin:64px 0 0; padding:16px 0 0; border-top:1px solid var(--ink);
+  color:var(--ink-3); font-size:0.85rem; font-weight:600; letter-spacing:0;
+  font-variation-settings:"wdth" 100; }
+.lg-more { border-bottom:1px solid var(--rule-2); }
+.more h2 { margin:0; padding:0; border:0; color:inherit; font:inherit; letter-spacing:inherit;
+  font-variation-settings:inherit; }
 .more h2::after { content:none; }
-.blog-list { counter-reset:lgpost; margin:0; border-bottom:1px solid var(--rule-2); }
-/* o número fica pendurado na margem; o texto do cartão alinha com o corpo do artigo */
-.blog-card { position:relative; display:block; padding:24px 0 28px clamp(2.4rem,7vw,3.4rem);
+.blog-list { counter-reset:lgpost; margin:4px 0 0; border-bottom:1px solid var(--rule-2); }
+/* a linha: régua em cima, seta do lado direito, o texto alinhado à margem do artigo */
+.blog-card { position:relative; display:block; margin:0;
+  padding:24px 40px 28px clamp(2.4rem,7vw,3.4rem);
   border:0; border-top:1px solid var(--ink); border-radius:0; background:transparent; box-shadow:none;
-  text-decoration:none; color:var(--ink); transition:border-color .15s ease; }
-.blog-card::before { counter-increment:lgpost; content:counter(lgpost,decimal-leading-zero);
+  text-decoration:none; color:var(--ink); font-size:1rem; font-weight:400; line-height:1.62;
+  letter-spacing:0; font-variation-settings:"wdth" 100; transition:border-color .15s ease; }
+/* o número fica pendurado na margem, só no índice do blog */
+.blog-list .blog-card::before { counter-increment:lgpost; content:counter(lgpost,decimal-leading-zero);
   position:absolute; left:0; top:26px; color:var(--red); font-size:1.4rem; font-weight:800;
   line-height:1; letter-spacing:-0.04em; font-variation-settings:"wdth" 118; font-variant-numeric:tabular-nums; }
 .more .blog-card::before { content:none; }
-.more .blog-card { padding-left:0; }
-.blog-card h2, .blog-card h3 { margin:0; padding:0; border:0; max-width:var(--measure); color:var(--ink);
-  font-size:1.32rem; line-height:1.16; letter-spacing:-0.028em; font-variation-settings:"wdth" 108;
+.more .blog-card, .lg-more .blog-card { padding-left:0; }
+.blog-card::after { content:"→"; position:absolute; right:0; top:22px; color:var(--red-ink);
+  font-size:1.05rem; line-height:1.2; transition:transform .2s var(--ease); }
+.blog-card:hover::after { transform:translateX(5px); }
+.blog-card h2, .blog-card h3, .blog-card .t { display:block; margin:0; padding:0; border:0;
+  max-width:var(--measure); color:var(--ink); font-size:1.32rem; font-weight:800; line-height:1.16;
+  letter-spacing:-0.028em; font-variation-settings:"wdth" 108; text-wrap:balance;
   transition:color .15s ease; }
 .blog-card h2::after { content:none; }
 .blog-card .lg-meta { display:block; margin:9px 0 0; color:var(--ink-3); font-size:0.85rem;
-  font-variant-numeric:tabular-nums; }
-.blog-card p { margin:10px 0 14px; color:var(--ink-2); font-size:0.98rem; max-width:56ch; }
-.blog-card > span:last-child { color:var(--red-ink); font-size:0.92rem; font-weight:600; }
+  font-weight:400; font-variant-numeric:tabular-nums; }
+.blog-card p { margin:10px 0 0; max-width:56ch; color:var(--ink-2); font-size:0.98rem; }
+.blog-card .go { display:block; margin:12px 0 0; color:var(--red-ink); font-size:0.92rem; font-weight:600; }
 .blog-card:hover { border-top-color:var(--red); }
-.blog-card:hover h2, .blog-card:hover h3 { color:var(--red-ink); }
+.blog-card:hover h2, .blog-card:hover h3, .blog-card:hover .t { color:var(--red-ink); }
+/* dentro de um artigo a linha é mais leve do que no índice do jornal */
+.lg-more .blog-card { padding-top:18px; padding-bottom:20px; border-top-color:var(--rule); }
+.lg-more .blog-card:first-of-type { margin-top:4px; }
+.lg-more .blog-card::after { top:16px; }
+.lg-more .blog-card .t { font-size:1.12rem; }
 
 /* ---------- pé ---------- */
 footer.lg-foot { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
@@ -276,7 +283,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>O que custa e o que muda</h2>
 <p>Para a maioria dos alojamentos pequenos, um site institucional de até cinco páginas — quartos, preços e condições, a região, contacto e reserva — custa CHF 4'900 e fica pronto em cerca de um mês. O motor de reservas, quando é preciso, é escolhido em função do que já usas. A manutenção, entre CHF 95 e 290 por mês, inclui alojamento, atualizações e as alterações de preços e épocas ao longo do ano — que num hotel são frequentes.</p>
 <p><strong>Tens um alojamento no Valais e o site não traz reservas diretas?</strong> Faço uma avaliação gratuita em 48 horas e digo-te o que mudaria primeiro — <a href="index.html#contacto">fala comigo</a>.</p>
-<p class="lg-share"><span>Partilhar:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiado">Copiar link</button></p><p class="lg-more">Ler também:<a href="preco-site-suica.html">Quanto custa um site profissional na Suíça? Preços 2026</a><a href="multilingue-valais.html">Site multilingue no Valais: porque a tua empresa precisa</a><a href="google-business-valais.html">Ficha Google Business no Valais: guia prático</a></p></div>
+<p class="lg-share"><span>Partilhar:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiado">Copiar link</button></p><p class="lg-more">Ler também:<a class="blog-card" href="preco-site-suica.html"><span class="t">Quanto custa um site profissional na Suíça? Preços 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Site multilingue no Valais: porque a tua empresa precisa</span></a><a class="blog-card" href="google-business-valais.html"><span class="t">Ficha Google Business no Valais: guia prático</span></a></p></div>
     <div class="i18n-doc" data-lang="de"><h1>Website für Hotel oder Bergunterkunft: Direktbuchungen statt Abhängigkeit von Plattformen</h1><p class="lg-updated">2. September 2026</p><p>Die meisten Unterkünfte im Oberwallis sind auf den grossen Buchungsplattformen — und das ist sinnvoll: Dort suchen viele Gäste. Das Problem beginnt, wenn die eigene Website schlechter ist als die Plattformseite. Dann bucht der Gast, der Sie schon gefunden hat, der Sie schon mag und der Sie mit Namen sucht, am Ende über den Vermittler und zahlt Ihnen weniger. Eine gute Website ersetzt die Plattformen nicht, sondern holt die Direktbuchung von denen zurück, die sich schon entschieden haben.</p>
 <h2>Was der Gast in dreissig Sekunden wissen will</h2>
 <ul>
@@ -296,7 +303,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Was es kostet und was sich ändert</h2>
 <p>Für die meisten kleinen Unterkünfte kostet eine Firmenwebsite mit bis zu fünf Seiten — Zimmer, Preise und Bedingungen, Region, Kontakt und Buchung — CHF 4'900 und ist in rund einem Monat fertig. Das Buchungssystem wird, wenn nötig, nach dem gewählt, was Sie bereits nutzen. Die Wartung, zwischen CHF 95 und 290 pro Monat, umfasst Hosting, Updates und die Preis- und Saisonänderungen im Laufe des Jahres — die in einem Hotel häufig sind.</p>
 <p><strong>Sie führen eine Unterkunft im Wallis und die Website bringt keine Direktbuchungen?</strong> Ich mache eine kostenlose Einschätzung innert 48 Stunden und sage Ihnen, was ich zuerst ändern würde — <a href="index.html#contacto">kontaktieren Sie mich</a>.</p>
-<p class="lg-share"><span>Teilen:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link kopiert">Link kopieren</button></p><p class="lg-more">Lesen Sie auch:<a href="preco-site-suica.html">Was kostet eine Website in der Schweiz? Echte Preise 2026</a><a href="multilingue-valais.html">Mehrsprachige Website im Wallis: warum sie nötig ist</a><a href="google-business-valais.html">Google-Business-Profil im Wallis: der Leitfaden</a></p></div>
+<p class="lg-share"><span>Teilen:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link kopiert">Link kopieren</button></p><p class="lg-more">Lesen Sie auch:<a class="blog-card" href="preco-site-suica.html"><span class="t">Was kostet eine Website in der Schweiz? Echte Preise 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Mehrsprachige Website im Wallis: warum sie nötig ist</span></a><a class="blog-card" href="google-business-valais.html"><span class="t">Google-Business-Profil im Wallis: der Leitfaden</span></a></p></div>
     <div class="i18n-doc" data-lang="fr"><h1>Site pour hôtel ou hébergement de montagne : des réservations directes sans dépendre des plateformes</h1><p class="lg-updated">2 septembre 2026</p><p>La plupart des hébergements du Haut-Valais sont sur les grandes plateformes de réservation — et c’est logique : c’est là que beaucoup d’hôtes cherchent. Le problème commence quand le site de l’hôtel lui-même est moins bon que la page de la plateforme. À ce moment-là, l’hôte qui vous a déjà trouvé, qui vous apprécie déjà et qui vous cherche par votre nom finit par réserver via un intermédiaire et vous rapporte moins. Un bon site ne remplace pas les plateformes : il récupère la réservation directe de ceux qui ont déjà décidé.</p>
 <h2>Ce que l’hôte veut savoir en trente secondes</h2>
 <ul>
@@ -316,7 +323,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Ce que ça coûte et ce qui change</h2>
 <p>Pour la plupart des petits hébergements, un site vitrine de cinq pages au plus — chambres, prix et conditions, la région, contact et réservation — coûte CHF 4'900 et est prêt en un mois environ. Le moteur de réservation, quand il en faut un, est choisi en fonction de ce que vous utilisez déjà. La maintenance, entre CHF 95 et 290 par mois, comprend l’hébergement, les mises à jour et les changements de prix et de saisons au fil de l’année — fréquents dans un hôtel.</p>
 <p><strong>Vous avez un hébergement en Valais et le site n’apporte pas de réservations directes ?</strong> Je fais une évaluation gratuite en 48 heures et je vous dis ce que je changerais en premier — <a href="index.html#contacto">contactez-moi</a>.</p>
-<p class="lg-share"><span>Partager :</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Lien copié">Copier le lien</button></p><p class="lg-more">À lire aussi :<a href="preco-site-suica.html">Combien coûte un site web en Suisse ? Prix réels 2026</a><a href="multilingue-valais.html">Site multilingue en Valais : pourquoi c’est nécessaire</a><a href="google-business-valais.html">Fiche Google Business en Valais : le guide</a></p></div>
+<p class="lg-share"><span>Partager :</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Lien copié">Copier le lien</button></p><p class="lg-more">À lire aussi :<a class="blog-card" href="preco-site-suica.html"><span class="t">Combien coûte un site web en Suisse ? Prix réels 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Site multilingue en Valais : pourquoi c’est nécessaire</span></a><a class="blog-card" href="google-business-valais.html"><span class="t">Fiche Google Business en Valais : le guide</span></a></p></div>
     <div class="i18n-doc" data-lang="it"><h1>Sito per hotel o struttura di montagna: prenotazioni dirette senza dipendere dalle piattaforme</h1><p class="lg-updated">2 settembre 2026</p><p>La maggior parte delle strutture dell’Alto Vallese è sulle grandi piattaforme di prenotazione — e ha senso: è lì che molti ospiti cercano. Il problema nasce quando il sito dell’hotel è peggiore della pagina della piattaforma. A quel punto l’ospite che ti ha già trovato, che già ti apprezza e che ti cerca per nome finisce per prenotare tramite un intermediario e ti frutta meno. Un buon sito non sostituisce le piattaforme: recupera la prenotazione diretta di chi ha già deciso.</p>
 <h2>Cosa vuole sapere l’ospite in trenta secondi</h2>
 <ul>
@@ -336,7 +343,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Quanto costa e cosa cambia</h2>
 <p>Per la maggior parte delle piccole strutture, un sito istituzionale fino a cinque pagine — camere, prezzi e condizioni, la regione, contatti e prenotazione — costa CHF 4'900 ed è pronto in circa un mese. Il motore di prenotazione, quando serve, si sceglie in base a ciò che usi già. La manutenzione, tra CHF 95 e 290 al mese, include hosting, aggiornamenti e le modifiche di prezzi e stagioni durante l’anno — frequenti in un hotel.</p>
 <p><strong>Hai una struttura in Vallese e il sito non porta prenotazioni dirette?</strong> Faccio una valutazione gratuita entro 48 ore e ti dico cosa cambierei per prima cosa — <a href="index.html#contacto">scrivimi</a>.</p>
-<p class="lg-share"><span>Condividi:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiato">Copia link</button></p><p class="lg-more">Leggi anche:<a href="preco-site-suica.html">Quanto costa un sito web in Svizzera? Prezzi reali 2026</a><a href="multilingue-valais.html">Sito multilingue in Vallese: perché serve alla tua azienda</a><a href="google-business-valais.html">Profilo Google Business in Vallese: la guida</a></p></div>
+<p class="lg-share"><span>Condividi:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiato">Copia link</button></p><p class="lg-more">Leggi anche:<a class="blog-card" href="preco-site-suica.html"><span class="t">Quanto costa un sito web in Svizzera? Prezzi reali 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Sito multilingue in Vallese: perché serve alla tua azienda</span></a><a class="blog-card" href="google-business-valais.html"><span class="t">Profilo Google Business in Vallese: la guida</span></a></p></div>
     <div class="i18n-doc" data-lang="en"><h1>A website for a hotel or mountain accommodation: direct bookings without depending on the platforms</h1><p class="lg-updated">2 September 2026</p><p>Most places to stay in Upper Valais are on the big booking platforms — and that makes sense: it is where many guests search. The problem starts when the hotel’s own website is worse than the platform page. At that point the guest who has already found you, already likes you and searches for you by name ends up booking through an intermediary and paying you less. A good website does not replace the platforms: it wins back the direct booking from those who have already decided.</p>
 <h2>What the guest wants to know in thirty seconds</h2>
 <ul>
@@ -356,7 +363,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>What it costs and what changes</h2>
 <p>For most small properties, a business website of up to five pages — rooms, prices and terms, the region, contact and booking — costs CHF 4'900 and is ready in about a month. The booking engine, when one is needed, is chosen around what you already use. Maintenance, between CHF 95 and 290 a month, covers hosting, updates and the price and season changes over the year — which are frequent in a hotel.</p>
 <p><strong>Do you run accommodation in Valais with a website that brings no direct bookings?</strong> I do a free assessment within 48 hours and tell you what I would change first — <a href="index.html#contacto">get in touch</a>.</p>
-<p class="lg-share"><span>Share:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copied">Copy link</button></p><p class="lg-more">Read also:<a href="preco-site-suica.html">Website cost in Switzerland: real prices for 2026</a><a href="multilingue-valais.html">Why your Valais business needs a multilingual website</a><a href="google-business-valais.html">Google Business Profile in Valais: the guide</a></p></div>
+<p class="lg-share"><span>Share:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copied">Copy link</button></p><p class="lg-more">Read also:<a class="blog-card" href="preco-site-suica.html"><span class="t">Website cost in Switzerland: real prices for 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Why your Valais business needs a multilingual website</span></a><a class="blog-card" href="google-business-valais.html"><span class="t">Google Business Profile in Valais: the guide</span></a></p></div>
   </main>
   <footer class="lg-foot">
     <span class="i18n-doc lg-links" data-display="flex" data-lang="pt"><a href="index.html">Voltar ao site</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="de"><a href="index.html">Zurück zur Website</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="fr"><a href="index.html">Retour au site</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="it"><a href="index.html">Torna al sito</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="en"><a href="index.html">Back to site</a><a href="blog.html">Blog</a></span>

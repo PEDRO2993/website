@@ -72,7 +72,7 @@ h1, h2, h3 { font-weight:800; letter-spacing:-0.03em; line-height:1.05; font-var
 }
 
 /* ---------- moldura: a régua do cabeçalho e do pé marca a largura máxima ---------- */
-.wrap { max-width:796px; margin:0 auto; padding:0 var(--pad); }
+.wrap { max-width:calc(var(--frame) + 2 * var(--pad)); margin:0 auto; padding:0 var(--pad); }
 /* uma só margem esquerda: o texto pára na medida, os painéis vão até à moldura */
 main { max-width:var(--frame); margin:0 auto; padding:0 0 88px; }
 main p, main ul, main ol, main h3, main blockquote, .lg-sub { max-width:var(--measure); }
@@ -197,42 +197,49 @@ main code { font-family:inherit; font-size:0.94em; font-variation-settings:"wdth
 .lg-share a:hover, .lg-share button:hover { color:var(--red-ink); border-color:var(--red); }
 .lg-share button.done { color:var(--red-ink); border-color:var(--red); }
 
-/* ---------- leitura seguinte ---------- */
-.lg-more { margin:56px 0 0; padding-top:16px; border-top:1px solid var(--ink);
-  color:var(--ink-3); font-size:0.85rem; }
-.lg-more a { display:flex; align-items:baseline; justify-content:space-between; gap:18px;
-  margin-top:14px; padding-top:14px; border-top:1px solid var(--rule); color:var(--ink);
-  font-size:1.02rem; font-weight:600; letter-spacing:-0.015em; line-height:1.3;
-  text-decoration:none; transition:color .15s ease; }
-.lg-more a:first-of-type { margin-top:16px; }
-.lg-more a::after { content:"→"; flex:none; color:var(--red-ink); }
-.lg-more a:hover { color:var(--red-ink); }
-
-/* ---------- índice do jornal (blog.html e "mais artigos") ---------- */
-.more { margin:64px 0 0; }
-.more h2 { margin:0 0 4px; padding-top:16px; border-top:1px solid var(--ink); color:var(--ink-3);
-  font-size:0.85rem; font-weight:600; letter-spacing:0; font-variation-settings:"wdth" 100; }
+/* ---------- leitura seguinte e índice do jornal: uma só linha de artigo ----------
+   Dois pontos de autoria — as páginas fixas só têm o título, o posts.js e o
+   índice trazem data e resumo — mas uma só gramática: a linha é sempre a mesma
+   e os dados a mais aparecem quando existem. */
+.more, .lg-more { margin:64px 0 0; padding:16px 0 0; border-top:1px solid var(--ink);
+  color:var(--ink-3); font-size:0.85rem; font-weight:600; letter-spacing:0;
+  font-variation-settings:"wdth" 100; }
+.lg-more { border-bottom:1px solid var(--rule-2); }
+.more h2 { margin:0; padding:0; border:0; color:inherit; font:inherit; letter-spacing:inherit;
+  font-variation-settings:inherit; }
 .more h2::after { content:none; }
-.blog-list { counter-reset:lgpost; margin:0; border-bottom:1px solid var(--rule-2); }
-/* o número fica pendurado na margem; o texto do cartão alinha com o corpo do artigo */
-.blog-card { position:relative; display:block; padding:24px 0 28px clamp(2.4rem,7vw,3.4rem);
+.blog-list { counter-reset:lgpost; margin:4px 0 0; border-bottom:1px solid var(--rule-2); }
+/* a linha: régua em cima, seta do lado direito, o texto alinhado à margem do artigo */
+.blog-card { position:relative; display:block; margin:0;
+  padding:24px 40px 28px clamp(2.4rem,7vw,3.4rem);
   border:0; border-top:1px solid var(--ink); border-radius:0; background:transparent; box-shadow:none;
-  text-decoration:none; color:var(--ink); transition:border-color .15s ease; }
-.blog-card::before { counter-increment:lgpost; content:counter(lgpost,decimal-leading-zero);
+  text-decoration:none; color:var(--ink); font-size:1rem; font-weight:400; line-height:1.62;
+  letter-spacing:0; font-variation-settings:"wdth" 100; transition:border-color .15s ease; }
+/* o número fica pendurado na margem, só no índice do blog */
+.blog-list .blog-card::before { counter-increment:lgpost; content:counter(lgpost,decimal-leading-zero);
   position:absolute; left:0; top:26px; color:var(--red); font-size:1.4rem; font-weight:800;
   line-height:1; letter-spacing:-0.04em; font-variation-settings:"wdth" 118; font-variant-numeric:tabular-nums; }
 .more .blog-card::before { content:none; }
-.more .blog-card { padding-left:0; }
-.blog-card h2, .blog-card h3 { margin:0; padding:0; border:0; max-width:var(--measure); color:var(--ink);
-  font-size:1.32rem; line-height:1.16; letter-spacing:-0.028em; font-variation-settings:"wdth" 108;
+.more .blog-card, .lg-more .blog-card { padding-left:0; }
+.blog-card::after { content:"→"; position:absolute; right:0; top:22px; color:var(--red-ink);
+  font-size:1.05rem; line-height:1.2; transition:transform .2s var(--ease); }
+.blog-card:hover::after { transform:translateX(5px); }
+.blog-card h2, .blog-card h3, .blog-card .t { display:block; margin:0; padding:0; border:0;
+  max-width:var(--measure); color:var(--ink); font-size:1.32rem; font-weight:800; line-height:1.16;
+  letter-spacing:-0.028em; font-variation-settings:"wdth" 108; text-wrap:balance;
   transition:color .15s ease; }
 .blog-card h2::after { content:none; }
 .blog-card .lg-meta { display:block; margin:9px 0 0; color:var(--ink-3); font-size:0.85rem;
-  font-variant-numeric:tabular-nums; }
-.blog-card p { margin:10px 0 14px; color:var(--ink-2); font-size:0.98rem; max-width:56ch; }
-.blog-card > span:last-child { color:var(--red-ink); font-size:0.92rem; font-weight:600; }
+  font-weight:400; font-variant-numeric:tabular-nums; }
+.blog-card p { margin:10px 0 0; max-width:56ch; color:var(--ink-2); font-size:0.98rem; }
+.blog-card .go { display:block; margin:12px 0 0; color:var(--red-ink); font-size:0.92rem; font-weight:600; }
 .blog-card:hover { border-top-color:var(--red); }
-.blog-card:hover h2, .blog-card:hover h3 { color:var(--red-ink); }
+.blog-card:hover h2, .blog-card:hover h3, .blog-card:hover .t { color:var(--red-ink); }
+/* dentro de um artigo a linha é mais leve do que no índice do jornal */
+.lg-more .blog-card { padding-top:18px; padding-bottom:20px; border-top-color:var(--rule); }
+.lg-more .blog-card:first-of-type { margin-top:4px; }
+.lg-more .blog-card::after { top:16px; }
+.lg-more .blog-card .t { font-size:1.12rem; }
 
 /* ---------- pé ---------- */
 footer.lg-foot { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
@@ -286,7 +293,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Depois da sessão</h2>
 <p>Escolhe as fotos com quem faz o site, não sozinho: é preciso saber onde cada uma vai entrar e em que formato. As fotos são tuas — pede os ficheiros originais e guarda-os fora do computador do dia a dia. E marca já a data em que vais renovar as fotos principais: um ano, dois no máximo. Um site com fotos do inverno passado em pleno verão diz mais do que qualquer texto.</p>
 <p><strong>Vais fazer o site e não sabes por onde começar nas fotos?</strong> Diz-me que negócio é e envio-te a lista de fotografias exata para o teu caso — <a href="index.html#contacto">fala comigo</a>.</p>
-<p class="lg-share"><span>Partilhar:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiado">Copiar link</button></p><p class="lg-more">Ler também:<a href="site-hotel-valais.html">Site para hotel no Valais: reservas diretas</a><a href="preco-site-suica.html">Quanto custa um site profissional na Suíça? Preços 2026</a><a href="multilingue-valais.html">Site multilingue no Valais: porque a tua empresa precisa</a></p></div>
+<p class="lg-share"><span>Partilhar:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiado">Copiar link</button></p><p class="lg-more">Ler também:<a class="blog-card" href="site-hotel-valais.html"><span class="t">Site para hotel no Valais: reservas diretas</span></a><a class="blog-card" href="preco-site-suica.html"><span class="t">Quanto custa um site profissional na Suíça? Preços 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Site multilingue no Valais: porque a tua empresa precisa</span></a></p></div>
     <div class="i18n-doc" data-lang="de"><h1>Fotos für die Website eines lokalen Betriebs: was Sie vor dem Shooting vorbereiten</h1><p class="lg-updated">2. September 2026</p><p>Der Unterschied zwischen einer Website, die nach einem echten Unternehmen aussieht, und einer, die nach gekaufter Vorlage aussieht, liegt fast immer in den Fotos. Nicht im Design, nicht im Text: in den Fotos. Die gute Nachricht: Ein lokaler Betrieb braucht nicht viele. Er braucht die richtigen, mit etwas Vorbereitung gemacht.</p>
 <h2>Die Fotos, die eine Website wirklich braucht</h2>
 <ul>
@@ -316,7 +323,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Nach dem Shooting</h2>
 <p>Wählen Sie die Fotos gemeinsam mit der Person aus, die die Website macht, nicht allein: Man muss wissen, wo jedes Bild eingesetzt wird und in welchem Format. Die Fotos gehören Ihnen — verlangen Sie die Originaldateien und bewahren Sie sie ausserhalb des Alltagscomputers auf. Und setzen Sie gleich das Datum, an dem die Hauptfotos erneuert werden: ein Jahr, höchstens zwei. Eine Website mit Winterfotos mitten im Sommer sagt mehr als jeder Text.</p>
 <p><strong>Sie planen die Website und wissen bei den Fotos nicht, wo Sie anfangen sollen?</strong> Sagen Sie mir, welcher Betrieb es ist, und ich schicke Ihnen die genaue Fotoliste für Ihren Fall — <a href="index.html#contacto">kontaktieren Sie mich</a>.</p>
-<p class="lg-share"><span>Teilen:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link kopiert">Link kopieren</button></p><p class="lg-more">Lesen Sie auch:<a href="site-hotel-valais.html">Hotel-Website im Wallis: Direktbuchungen</a><a href="preco-site-suica.html">Was kostet eine Website in der Schweiz? Echte Preise 2026</a><a href="multilingue-valais.html">Mehrsprachige Website im Wallis: warum sie nötig ist</a></p></div>
+<p class="lg-share"><span>Teilen:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link kopiert">Link kopieren</button></p><p class="lg-more">Lesen Sie auch:<a class="blog-card" href="site-hotel-valais.html"><span class="t">Hotel-Website im Wallis: Direktbuchungen</span></a><a class="blog-card" href="preco-site-suica.html"><span class="t">Was kostet eine Website in der Schweiz? Echte Preise 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Mehrsprachige Website im Wallis: warum sie nötig ist</span></a></p></div>
     <div class="i18n-doc" data-lang="fr"><h1>Photos pour le site d’un commerce local : ce qu’il faut préparer avant la séance</h1><p class="lg-updated">2 septembre 2026</p><p>La différence entre un site qui ressemble à une vraie entreprise et un site qui ressemble à un modèle acheté tient presque toujours aux photos. Pas au design, pas au texte : aux photos. La bonne nouvelle, c’est qu’un commerce local n’en a pas besoin de beaucoup. Il a besoin des bonnes, faites avec un peu de préparation.</p>
 <h2>Les photos dont un site a vraiment besoin</h2>
 <ul>
@@ -346,7 +353,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Après la séance</h2>
 <p>Choisissez les photos avec la personne qui fait le site, pas seul : il faut savoir où chacune ira et dans quel format. Les photos sont à vous — demandez les fichiers originaux et gardez-les hors de l’ordinateur de tous les jours. Et fixez tout de suite la date à laquelle vous renouvellerez les photos principales : un an, deux au maximum. Un site avec des photos de l’hiver dernier en plein été en dit plus que n’importe quel texte.</p>
 <p><strong>Vous allez faire le site et vous ne savez pas par où commencer pour les photos ?</strong> Dites-moi quel commerce c’est et je vous envoie la liste de photos exacte pour votre cas — <a href="index.html#contacto">contactez-moi</a>.</p>
-<p class="lg-share"><span>Partager :</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Lien copié">Copier le lien</button></p><p class="lg-more">À lire aussi :<a href="site-hotel-valais.html">Site pour hôtel en Valais : réservations directes</a><a href="preco-site-suica.html">Combien coûte un site web en Suisse ? Prix réels 2026</a><a href="multilingue-valais.html">Site multilingue en Valais : pourquoi c’est nécessaire</a></p></div>
+<p class="lg-share"><span>Partager :</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Lien copié">Copier le lien</button></p><p class="lg-more">À lire aussi :<a class="blog-card" href="site-hotel-valais.html"><span class="t">Site pour hôtel en Valais : réservations directes</span></a><a class="blog-card" href="preco-site-suica.html"><span class="t">Combien coûte un site web en Suisse ? Prix réels 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Site multilingue en Valais : pourquoi c’est nécessaire</span></a></p></div>
     <div class="i18n-doc" data-lang="it"><h1>Foto per il sito di un’attività locale: cosa preparare prima del servizio fotografico</h1><p class="lg-updated">2 settembre 2026</p><p>La differenza tra un sito che sembra un’azienda vera e un sito che sembra un modello comprato sta quasi sempre nelle fotografie. Non nel design, non nel testo: nelle foto. E la buona notizia è che a un’attività locale non ne servono molte. Servono quelle giuste, fatte con un po’ di preparazione.</p>
 <h2>Le foto di cui un sito ha davvero bisogno</h2>
 <ul>
@@ -376,7 +383,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>Dopo il servizio</h2>
 <p>Scegli le foto insieme a chi fa il sito, non da solo: bisogna sapere dove andrà ciascuna e in quale formato. Le foto sono tue — chiedi i file originali e conservali fuori dal computer di tutti i giorni. E fissa subito la data in cui rinnoverai le foto principali: un anno, due al massimo. Un sito con le foto dell’inverno scorso in piena estate dice più di qualsiasi testo.</p>
 <p><strong>Stai per fare il sito e non sai da dove cominciare con le foto?</strong> Dimmi che attività è e ti mando la lista esatta di fotografie per il tuo caso — <a href="index.html#contacto">scrivimi</a>.</p>
-<p class="lg-share"><span>Condividi:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiato">Copia link</button></p><p class="lg-more">Leggi anche:<a href="site-hotel-valais.html">Sito per hotel in Vallese: prenotazioni dirette</a><a href="preco-site-suica.html">Quanto costa un sito web in Svizzera? Prezzi reali 2026</a><a href="multilingue-valais.html">Sito multilingue in Vallese: perché serve alla tua azienda</a></p></div>
+<p class="lg-share"><span>Condividi:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copiato">Copia link</button></p><p class="lg-more">Leggi anche:<a class="blog-card" href="site-hotel-valais.html"><span class="t">Sito per hotel in Vallese: prenotazioni dirette</span></a><a class="blog-card" href="preco-site-suica.html"><span class="t">Quanto costa un sito web in Svizzera? Prezzi reali 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Sito multilingue in Vallese: perché serve alla tua azienda</span></a></p></div>
     <div class="i18n-doc" data-lang="en"><h1>Photos for a local business website: what to prepare before the shoot</h1><p class="lg-updated">2 September 2026</p><p>The difference between a website that looks like a real business and one that looks like a bought template is almost always in the photographs. Not the design, not the copy: the photos. The good news is that a local business does not need many. It needs the right ones, taken with a little preparation.</p>
 <h2>The photos a website really needs</h2>
 <ul>
@@ -406,7 +413,7 @@ footer.lg-foot a:hover { color:var(--red-ink); }
 <h2>After the shoot</h2>
 <p>Choose the photos together with whoever builds the site, not alone: you need to know where each one goes and in which format. The photos are yours — ask for the original files and keep them somewhere other than your everyday computer. And set the date now for renewing the main photos: one year, two at most. A website with last winter’s photos in the middle of summer says more than any text.</p>
 <p><strong>About to build the website and not sure where to start with the photos?</strong> Tell me what kind of business it is and I will send you the exact photo list for your case — <a href="index.html#contacto">get in touch</a>.</p>
-<p class="lg-share"><span>Share:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copied">Copy link</button></p><p class="lg-more">Read also:<a href="site-hotel-valais.html">Hotel website in Valais: direct bookings</a><a href="preco-site-suica.html">Website cost in Switzerland: real prices for 2026</a><a href="multilingue-valais.html">Why your Valais business needs a multilingual website</a></p></div>
+<p class="lg-share"><span>Share:</span><a data-share="wa" href="#" target="_blank" rel="noopener">WhatsApp</a><a data-share="li" href="#" target="_blank" rel="noopener">LinkedIn</a><button type="button" data-share="copy" data-done="Link copied">Copy link</button></p><p class="lg-more">Read also:<a class="blog-card" href="site-hotel-valais.html"><span class="t">Hotel website in Valais: direct bookings</span></a><a class="blog-card" href="preco-site-suica.html"><span class="t">Website cost in Switzerland: real prices for 2026</span></a><a class="blog-card" href="multilingue-valais.html"><span class="t">Why your Valais business needs a multilingual website</span></a></p></div>
   </main>
   <footer class="lg-foot">
     <span class="i18n-doc lg-links" data-display="flex" data-lang="pt"><a href="index.html">Voltar ao site</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="de"><a href="index.html">Zurück zur Website</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="fr"><a href="index.html">Retour au site</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="it"><a href="index.html">Torna al sito</a><a href="blog.html">Blog</a></span><span class="i18n-doc lg-links" data-display="flex" data-lang="en"><a href="index.html">Back to site</a><a href="blog.html">Blog</a></span>
