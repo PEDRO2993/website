@@ -70,6 +70,14 @@ body{font-size:1.0625rem;line-height:1.7;}.wrap{max-width:700px;padding:0 24px;}
 /* v3.1 — sombras de scroll nas tabelas largas; títulos equilibrados */
 .lg-tbl-wrap{background:linear-gradient(to right,var(--bg) 30%,rgba(4,6,11,0)) 0/20px 100% no-repeat local,linear-gradient(to left,var(--bg) 30%,rgba(4,6,11,0)) 100% 0/20px 100% no-repeat local,linear-gradient(to right,rgba(160,190,255,.35),rgba(160,190,255,0)) 0/10px 100% no-repeat scroll,linear-gradient(to left,rgba(160,190,255,.35),rgba(160,190,255,0)) 100% 0/10px 100% no-repeat scroll}
 main h1,.cta h2,.blog-card h2{text-wrap:balance}
+.lg-updated, .blog-card .lg-meta, .lg-share, .lg-more, .blog-card span, .lg-mono { font-size:0.85rem; }
+.blog-card span { font-size:0.92rem; }
+@media (max-width:480px){ .langs button, .langs a { min-height:44px; } }
+.btn-red:hover { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+.btn-ghost:hover { background:var(--ink); color:var(--bg); }
+.blog-card:hover h2 { color:var(--red-ink); }
+main code { font-family:inherit; font-size:0.95em; padding:2px 6px; }
+
 /* v4 — mundo da homepage (Graphite Control Room): Archivo, cantos retos, réguas em vez de sombras, faixas */
 body { font-family:"Archivo","Helvetica Neue",Arial,sans-serif; color-scheme:dark; }
 .logo, main h1, main h2, main h3, .cta h2, .blog-card h2, .blog-card h3 { font-family:inherit; font-weight:800; letter-spacing:-0.03em; font-variation-settings:"wdth" 112; }
