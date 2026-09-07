@@ -449,6 +449,17 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
   --paper: #151B23; --paper-2: #1B222B; --ink: #E9EEF3; --ink-2: #AAB5C1; --ink-3: #7E8A97;
   --rule: #243240; --rule-2: #364656; --red: #3FAEFF; --red-ink: #3FAEFF; --slate: #232D39; --accent-2: #A6E6FF; --band: #294263; --on-band: #F2F5FA; --on-band-2: #AAB5C1;
   --pad: clamp(20px, 4vw, 56px);
+  /* escala de numerais, ordenada em todas as larguras: o h2 manda, depois os preços,
+     depois a prova, e por último os índices (01/02, 1/2/3/4) que são só marcadores.
+     Os pisos do h2 (2.4rem abaixo de 481px, 2.5rem acima) ficam acima do piso dos preços em
+     TODAS as larguras, não só na amostra de 390: 320 → 38.4 · 34.4 · 31.2 · 27.2;
+     360/390/480 → 38.4-41.6 · 34.4 · 31.2 · 27.2; 481-800 → 40 · 34.4 · 31.2 · 27.2;
+     1440 → 64 · 49.6 · 44.6 · 36. O degrau de 480→481 fecha-se de 6.4px para 1.6px. */
+  --flag-fs: 0.76rem;
+  --num-price: clamp(2.15rem, 3.6vw, 3.1rem);
+  --num-proof: clamp(1.95rem, 3.1vw, 2.9rem);
+  --num-idx: clamp(1.7rem, 2.5vw, 2.4rem);
+  --num-price-sm: clamp(1.2rem, 1.6vw, 1.45rem);
   /* nomes herdados pelos blocos mantidos (loader, admin, montra, cartões) */
   --bg: var(--paper); --bg-2: var(--paper-2); --card: #1B222B; --dark: var(--band); --dark-2: #0F141B;
   --line: var(--rule); --line-2: var(--rule-2); --ember: var(--red); --peach: color-mix(in srgb, var(--red) 8%, transparent);
@@ -478,7 +489,8 @@ h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; font-varia
 .mono { font-family: inherit; font-variant-numeric: tabular-nums; }
 .eyebrow { display: block; font-size: 0.9rem; font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; border-radius: 0; letter-spacing: 0; text-transform: none; }
 .eyebrow::before { content: ""; display: inline-block; width: 9px; height: 9px; background: var(--red); margin-right: 10px; border-radius: 0; box-shadow: none; animation: none; }
-.section-sub { color: var(--ink-2); max-width: 58ch; font-size: 1.08rem; line-height: 1.5; margin-top: 18px; text-wrap: pretty; }
+/* mais ar por cima do título do que por baixo: a régua abre a secção, o subtítulo cola-se ao título */
+.section-sub { color: var(--ink-2); max-width: 56ch; font-size: 1.08rem; line-height: 1.5; margin-top: 16px; text-wrap: balance; }
 
 /* ---------- rota vermelha (progresso de scroll) ---------- */
 #progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: var(--red); transform-origin: 0 50%; transform: scaleX(0); z-index: 140; }
@@ -585,16 +597,21 @@ header.scrolled { background: var(--paper); border-bottom-color: var(--ink); }
 .hero-go .hero .hero-piece-frame img { animation: riseIn 1.1s var(--ease) 0.7s both; }
 
 /* ---------- cabeça de secção: régua, índice à esquerda, título à direita ---------- */
-.section-head { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 16px 24px; border-top: 1px solid var(--ink); padding-top: 20px; margin-bottom: 44px; align-items: start; }
+.section-head { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 16px 24px; border-top: 1px solid var(--ink); padding-top: 30px; margin-bottom: 56px; align-items: start; }
 /* o título carrega o seu próprio peso: a etiqueta fica no DOM (i18n, testes) mas só para leitores de ecrã */
 .section-head .eyebrow { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; margin: -1px; }
 /* com a etiqueta só para leitores de ecrã, a coluna da esquerda ficava vazia e alinhada com nada */
-.section-head { position: relative; grid-template-columns: minmax(0, 1fr); }
+.section-head { position: relative; grid-template-columns: minmax(0, 1fr); gap: 0; }
 .section-head h2, .section-head .section-sub, .section-head .price-guide { grid-column: 1; }
-h2.display { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin: 0; }
+/* a rota do hero deixa a sua marca em cada régua de secção: o mesmo traço de 3px do acento
+   que sublinha a navegação e os separadores — desenha-se ao revelar, como a rota se desenha ao carregar */
+.section-head::before { content: ""; position: absolute; left: 0; top: -1px; width: 64px; height: 3px; background: var(--red); transform-origin: 0 50%; }
+.js .section-head.reveal::before { transform: scaleX(0); transition: transform 0.9s var(--ease); }
+.js .section-head.reveal.in::before { transform: none; }
+h2.display { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin: 0; }
 h2.display::after { content: "."; color: var(--red); }
-.price-guide { color: var(--ink-2); max-width: 60ch; font-size: 0.98rem; margin-top: 6px; }
-@media (max-width: 760px) { .section-head { grid-template-columns: 1fr; gap: 12px; } .section-head h2, .section-head .section-sub, .section-head .price-guide { grid-column: 1; } }
+.price-guide { color: var(--ink-2); max-width: 60ch; font-size: 0.98rem; margin-top: 16px; text-wrap: pretty; }
+@media (max-width: 760px) { .section-head { grid-template-columns: 1fr; } .section-head h2, .section-head .section-sub, .section-head .price-guide { grid-column: 1; } }
 
 /* ---------- blocos (ex-cartões): réguas, sem sombra ---------- */
 .card { background: transparent; border: 0; border-top: 1px solid var(--rule-2); border-radius: 0; box-shadow: none; padding: 22px 0 26px; overflow: visible; transform: none !important; position: relative; }
@@ -602,21 +619,22 @@ h2.display::after { content: "."; color: var(--red); }
 .card:hover { transform: none; box-shadow: none; border-color: var(--ink); }
 .pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
 .pillar { display: flex; flex-direction: column; border-top: 1px solid var(--ink); }
-.pillar-idx { display: block; width: auto; height: auto; background: none; color: var(--red); font-weight: 800; font-size: 2.4rem; line-height: 1; letter-spacing: -0.04em; font-variation-settings: "wdth" 118; border-radius: 0; }
-.pillar h3 { font-size: 1.55rem; margin: 16px 0 10px; }
+.pillar-idx { display: block; width: auto; height: auto; background: none; color: var(--red); font-weight: 800; font-size: var(--num-idx); line-height: 1; letter-spacing: -0.04em; font-variation-settings: "wdth" 118; border-radius: 0; }
+.pillar h3 { font-size: 1.55rem; margin: 20px 0 10px; }
 .pillar > p { color: var(--ink-2); font-size: 0.98rem; }
 .pillar ul, .plan ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 7px; }
 .pillar li, .plan li { display: flex; gap: 10px; align-items: baseline; color: var(--ink-2); font-size: 0.95rem; }
 .pillar li::before, .plan li::before { content: "—"; color: var(--red); font-weight: 700; flex: none; }
-.pillar-price { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; border-top: 1px solid var(--rule); margin-top: auto; padding-top: 14px; font-weight: 600; }
-.pillar-price .mono { font-weight: 700; }
+.pillar-price { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; border-top: 1px solid var(--rule); margin-top: auto; padding-top: 16px; font-weight: 600; }
+/* o preço é o número que interessa no bloco: sai do corpo de texto e ganha voz de numeral */
+.pillar-price .mono { font-weight: 800; font-size: var(--num-price-sm); line-height: 1; letter-spacing: -0.03em; font-variation-settings: "wdth" 114; color: var(--ink); }
 .pillar-price a { color: var(--red-ink); text-decoration: none; font-size: 0.9rem; }
 .pillar-price a:hover { text-decoration: underline; }
 .pillar-art { margin-top: 14px; font-size: 0.92rem; }
 @media (max-width: 900px) { .pillars { grid-template-columns: 1fr; } .pillar { padding-bottom: 30px; } }
 .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 32px; margin-top: 44px; }
 .stat { padding: 16px 0 18px; display: grid; gap: 6px; border-top: 1px solid var(--ink); }
-.stat-v { font-family: inherit; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variation-settings: "wdth" 118; font-variant-numeric: tabular-nums; }
+.stat-v { font-family: inherit; font-size: var(--num-proof); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variation-settings: "wdth" 118; font-variant-numeric: tabular-nums; }
 .stat-v .num { color: var(--red); }
 .stat-k { font-size: 0.9rem; color: var(--ink-2); }
 @media (max-width: 900px) { .stats { grid-template-columns: 1fr 1fr; } }
@@ -625,8 +643,8 @@ h2.display::after { content: "."; color: var(--red); }
 .bundle h3 { color: var(--on-band); font-size: clamp(1.8rem, 3.4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; }
 .bundle p { color: var(--on-band-2); max-width: 56ch; margin-top: 12px; }
 .bundle-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; justify-content: center; }
-.bundle-cta .mono { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
-.bundle-cta .mono small { display: block; font-size: 0.82rem; font-weight: 400; color: var(--on-band-2); }
+.bundle-cta .mono { font-size: clamp(1.7rem, 2.6vw, 2.3rem); line-height: 1; font-weight: 800; letter-spacing: -0.03em; font-variation-settings: "wdth" 114; font-variant-numeric: tabular-nums; }
+.bundle-cta .mono small { display: block; font-size: 0.82rem; font-weight: 400; letter-spacing: 0; line-height: 1.4; margin-top: 8px; font-variation-settings: "wdth" 100; color: var(--on-band-2); }
 @media (max-width: 760px) { .bundle { grid-template-columns: 1fr; padding: 28px 22px; } }
 .cta-band { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin: 0 auto; padding: 32px 36px; border: 0; border-radius: 0; background: var(--red); color: var(--on-red); box-shadow: none; }
 .cta-band h2 { font-family: inherit; color: var(--on-red); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
@@ -634,15 +652,18 @@ h2.display::after { content: "."; color: var(--red); }
 .cta-band .btn-red { background: var(--on-red); color: var(--red); border-color: var(--on-red); flex-shrink: 0; }
 .cta-band .btn-red::before { background: var(--ink); }
 .cta-band .btn-red:hover { color: var(--paper); border-color: var(--ink); }
-/* o anel de foco por omissão é da cor do acento — sobre a faixa (que é o acento) desaparecia */
+/* o anel de foco por omissão é da cor do acento — sobre a faixa (que é o acento) desaparecia;
+   sobre os painéis "band" o azul-gelo também perde contraste, por isso o anel passa a tinta da faixa */
 .cta-band :focus-visible { outline-color: var(--on-red); }
+.bundle :focus-visible, .folio-cta :focus-visible, .lang-hint :focus-visible { outline-color: var(--on-band); }
 @media (max-width: 760px) { .cta-band { flex-direction: column; align-items: stretch; padding: 26px 22px; } .cta-band .btn { width: 100%; } }
 
 /* ---------- processo ---------- */
 .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 32px; }
 .step { border-top: 1px solid var(--ink); }
-.step-n { display: block; width: auto; height: auto; background: none; color: var(--ink); font-weight: 800; font-size: 3rem; line-height: 1; letter-spacing: -0.05em; font-variation-settings: "wdth" 118; border-radius: 0; }
-.step h3 { font-size: 1.3rem; margin: 14px 0 8px; }
+/* o dígito é um marcador de sequência, não o título da secção: mesmo registo do índice dos pilares */
+.step-n { display: block; width: auto; height: auto; background: none; color: var(--ink); font-weight: 800; font-size: var(--num-idx); line-height: 1; letter-spacing: -0.04em; font-variation-settings: "wdth" 118; border-radius: 0; }
+.step h3 { font-size: 1.3rem; margin: 18px 0 8px; }
 .step p { color: var(--ink-2); font-size: 0.95rem; }
 @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
@@ -654,12 +675,13 @@ h2.display::after { content: "."; color: var(--red); }
 .fbtn:hover { color: var(--ink); }
 .fbtn.active { color: var(--ink); background: transparent; box-shadow: none; }
 .fbtn.active::after { transform: scaleX(1); }
-.folio-filters + .folio { margin-top: 32px; }
+/* o botão da sala 3D fica entre os filtros e a grelha: sem isto a primeira régua encostava-lhe */
+.folio-filters + .folio, .folio-3d + .folio { margin-top: 32px; }
 .folio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
 .shot { text-decoration: none; display: block; padding: 16px 0 0; border-top: 1px solid var(--ink); overflow: visible; }
 .shot-screen { aspect-ratio: 4 / 2.9; overflow: hidden; position: relative; border: 1px solid var(--rule-2); border-radius: 0; }
-.shot-chrome { height: 22px; display: flex; align-items: center; gap: 4px; padding: 0 10px; background: rgba(255, 255, 255, 0.1); position: relative; z-index: 2; }
-.shot-chrome i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255, 255, 255, 0.4); }
+.shot-chrome { height: 22px; display: flex; align-items: center; gap: 4px; padding: 0 10px; background: color-mix(in srgb, var(--ink) 10%, transparent); position: relative; z-index: 2; }
+.shot-chrome i { width: 6px; height: 6px; border-radius: 50%; background: color-mix(in srgb, var(--ink) 40%, transparent); }
 .shot-body { position: absolute; inset: 22px 0 0 0; padding: 13px; display: grid; gap: 8px; align-content: start; }
 .sb { border-radius: 2px; transition: transform 0.55s var(--ease); }
 .shot:hover .sb:nth-child(2) { transform: translateX(6px); }
@@ -672,7 +694,9 @@ h2.display::after { content: "."; color: var(--red); }
 .shot-view { font-family: inherit; border-radius: 0; background: var(--paper); color: var(--ink); border: 0; font-weight: 700; }
 .folio-note { color: var(--ink-3); font-size: 0.88rem; margin-top: 22px; }
 .folio-cta { margin-top: 44px; padding: 30px 34px; border: 0; border-radius: 0; background: var(--band); color: var(--on-band); display: flex; justify-content: space-between; align-items: center; gap: 24px; text-align: left; }
-.folio-cta p { max-width: 52ch; color: var(--on-band); font-size: 1.08rem; margin: 0; }
+/* "balance" desliga-se acima de meia dúzia de linhas: a 390px em alemão o bloco corria 8 linhas
+   e caía em "könnte." sozinha. "pretty" não tem esse tecto e é o que trata da última linha. */
+.folio-cta p { max-width: 52ch; color: var(--on-band); font-size: 1.08rem; margin: 0; text-wrap: pretty; }
 @media (max-width: 900px) { .folio { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .folio { grid-template-columns: 1fr; } .folio-cta { flex-direction: column; align-items: stretch; } }
 
@@ -689,11 +713,16 @@ h2.display::after { content: "."; color: var(--red); }
 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 32px; }
 .plan { padding: 22px 0 28px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--ink); }
 .plan.hot { border-top: 5px solid var(--red); box-shadow: none; background: transparent; padding-top: 18px; }
+/* os três preços têm de assentar na mesma linha: o selo do plano em destaque empurrava-o
+   um degrau abaixo dos outros dois e a comparação — que é o trabalho desta secção — perdia-se.
+   A altura sai dos mesmos tokens que constroem o selo (corpo × entrelinha + os 2×4px de recuo),
+   por isso acompanha-o se ele mudar, em vez de ser um número redondo à mão. */
+@media (min-width: 901px) { .plans .plan:not(.hot)::before { content: ""; display: block; height: calc(var(--flag-fs) * 1.55 + 8px); } }
 /* blocos herdados que pintam o acento com texto branco fixo: no azul-gelo o texto tem de ser escuro */
 .tpl-close, .chip-perf, .cl-tab.on, .cl-msg.me { color: var(--on-red); }
-.plan-flag { position: static; display: inline-block; width: fit-content; background: var(--red); color: var(--on-red); padding: 4px 8px; font-size: 0.76rem; font-weight: 700; border-radius: 0; letter-spacing: 0; font-family: inherit; text-transform: none; }
-.plan h3 { font-size: 1.35rem; }
-.plan-amount { font-family: inherit; font-size: clamp(2rem, 3.4vw, 2.8rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variation-settings: "wdth" 114; font-variant-numeric: tabular-nums; color: var(--ink); background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: initial; }
+.plan-flag { position: static; display: inline-block; width: fit-content; background: var(--red); color: var(--on-red); padding: 4px 8px; font-size: var(--flag-fs); line-height: 1.55; font-weight: 700; border-radius: 0; letter-spacing: 0; font-family: inherit; text-transform: none; }
+.plan h3 { font-size: 1.35rem; margin-top: 6px; }
+.plan-amount { font-family: inherit; font-size: var(--num-price); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variation-settings: "wdth" 114; font-variant-numeric: tabular-nums; color: var(--ink); background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: initial; }
 .plan.hot .plan-amount { color: var(--red); }
 .plan-amount small { display: block; font-size: 0.85rem; font-weight: 500; letter-spacing: 0; color: var(--ink-3); margin-top: 6px; font-variation-settings: "wdth" 100; }
 .plan .blurb, .plan.hot .blurb { color: var(--ink-2); font-size: 0.95rem; }
@@ -702,8 +731,10 @@ h2.display::after { content: "."; color: var(--red); }
 .care { margin-top: 32px; padding: 24px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 30px; align-items: center; border-top: 1px solid var(--ink); border-radius: 0; background: transparent; }
 .care h4 { font-size: 1.15rem; }
 .care p { color: var(--ink-2); font-size: 0.95rem; margin-top: 6px; }
-.care .mono { font-family: inherit; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; }
-.care-cta { display: inline-block; margin-top: 6px; padding: 8px 0; font-weight: 600; color: var(--red-ink); text-decoration: underline; text-underline-offset: 4px; }
+.care .mono { font-family: inherit; font-size: var(--num-price-sm); line-height: 1; font-weight: 800; letter-spacing: -0.03em; font-variation-settings: "wdth" 114; color: var(--ink); white-space: nowrap; }
+/* um só registo de sublinhado nesta linha: era o mesmo tipo de ligação com dois pesos empilhados */
+.care-cta { display: inline-block; margin-top: 10px; padding: 8px 0; font-weight: 600; color: var(--red-ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, var(--red-ink) 40%, transparent); transition: text-decoration-color 0.2s ease; }
+.care-cta:hover { text-decoration-color: var(--red-ink); }
 .care-cta + .pillar-art { display: block; margin: 4px 0 0; }
 .price-note { color: var(--ink-3); font-size: 0.9rem; margin-top: 22px; max-width: 70ch; }
 .price-guarantee { border: 1px solid var(--ink); padding: 18px 20px; margin-top: 32px; font-size: 0.98rem; color: var(--ink-2); }
@@ -731,7 +762,7 @@ h2.display::after { content: "."; color: var(--red); }
 .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 32px; margin-top: 0; align-items: stretch; }
 .about-mark { aspect-ratio: 1; display: grid; place-items: center; position: relative; overflow: hidden; border-radius: 0; background: var(--red); color: var(--on-red); border: 0; }
 .about-mark::after { content: none; }
-.about-mark .pr { font-weight: 800; font-size: clamp(4rem, 12vw, 8rem); letter-spacing: -0.06em; line-height: 1; color: var(--on-red); font-variation-settings: "wdth" 118; }
+.about-mark .pr { font-weight: 800; font-size: clamp(4rem, 12vw, 8rem); letter-spacing: -0.04em; line-height: 1; color: var(--on-red); font-variation-settings: "wdth" 118; }
 .about-mark .pr .dot { color: var(--ink); }
 .about-mark .alt { position: absolute; bottom: 16px; left: 18px; right: 18px; display: flex; justify-content: space-between; font-family: inherit; font-size: 0.8rem; color: color-mix(in srgb, var(--on-red) 85%, transparent); letter-spacing: 0; font-variant-numeric: tabular-nums; }
 .about-copy { display: grid; gap: 16px; color: var(--ink-2); max-width: 62ch; align-content: start; }
@@ -753,7 +784,7 @@ h2.display::after { content: "."; color: var(--red); }
 .blog-teaser { gap: 0 32px; margin-top: 0; }
 .blog-teaser .card { padding: 20px 0 24px; border-top: 1px solid var(--ink); }
 .blog-teaser .lg-meta { font-family: inherit; text-transform: none; letter-spacing: 0; font-size: 0.82rem; color: var(--ink-3); }
-.blog-teaser h3 { font-size: 1.25rem; }
+.blog-teaser h3 { font-size: 1.25rem; margin-top: 6px; }
 .blog-teaser .card:hover h3 { color: var(--red); }
 .blog-teaser-all { margin-top: 26px; }
 @media (max-width: 900px) { .blog-teaser { gap: 0; } }
@@ -767,13 +798,15 @@ h2.display::after { content: "."; color: var(--red); }
 .tw-card:hover .tw-mock-img img { transform: none; }
 .tw-mock-logo { background: var(--slate); }
 .tw-mock-logo img { box-shadow: none; border-radius: 50%; }
-.tw-handle { font-family: inherit; letter-spacing: 0; color: rgba(255, 255, 255, 0.8); }
+.tw-handle { font-family: inherit; letter-spacing: 0; color: color-mix(in srgb, var(--ink) 80%, transparent); }
 .tw-card-b { padding: 16px 0 0; }
 .tw-badge { font-family: inherit; font-size: 0.8rem; letter-spacing: 0; text-transform: none; color: var(--ink); border: 1px solid var(--ink); border-radius: 0; padding: 3px 8px; }
-.tw-card-b h3 { font-size: 1.35rem; }
+.tw-card-b h3 { font-size: 1.35rem; margin: 6px 0 0; }
 .tw-card-b h3 a:hover { color: var(--red); }
-.tw-link { font-family: inherit; font-size: 0.92rem; letter-spacing: 0; text-transform: none; color: var(--red-ink); border-bottom: 1px solid color-mix(in srgb, var(--red-ink) 40%, transparent); padding-bottom: 1px; font-weight: 600; }
-.tw-link:hover { border-color: var(--red-ink); }
+/* "Ver o caso" e "Ver o site" ficam lado a lado: um sublinhado desenhado com border-bottom e outro
+   com text-decoration davam duas alturas de linha na mesma frase. Passam ao mesmo registo. */
+.tw-link { font-family: inherit; font-size: 0.92rem; letter-spacing: 0; text-transform: none; color: var(--red-ink); border-bottom: 0; padding-bottom: 0; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, var(--red-ink) 40%, transparent); transition: text-decoration-color 0.2s ease; }
+.tw-link:hover { text-decoration-color: var(--red-ink); }
 .tw-note { color: var(--ink-3); font-size: 0.9rem; margin-top: 20px; }
 
 /* ---------- contacto ---------- */
@@ -784,20 +817,28 @@ h2.display::after { content: "."; color: var(--red); }
 .way + .way { border-top: 1px solid var(--rule); }
 .way:hover { background: transparent; }
 .way:hover b { color: var(--red); }
-.way-ico { width: 42px; height: 42px; border-radius: 0; display: grid; place-items: center; flex: none; font-size: 1.1rem; background: var(--ink); color: var(--paper); }
-.way > .way-ico { color: var(--paper); }
+/* marcadores de lista, não botões: régua de 1px como todo o resto, para não competirem com o CTA */
+.way-ico { width: 42px; height: 42px; border-radius: 0; display: grid; place-items: center; flex: none; font-size: 1.1rem; background: transparent; border: 1px solid var(--rule-2); color: var(--ink-2); transition: color 0.2s ease, border-color 0.2s ease; }
+.way > .way-ico { color: var(--ink-2); }
+.way:hover .way-ico { color: var(--red); border-color: var(--red); }
 .way b { display: block; font-weight: 700; font-size: 1rem; font-family: inherit; color: var(--ink); transition: color 0.2s ease; }
 .way span { font-family: inherit; font-size: 0.92rem; color: var(--ink-2); overflow-wrap: anywhere; }
-#contactForm { display: grid; gap: 22px; align-content: start; }
-.field { display: grid; gap: 6px; }
+/* a etiqueta pertence ao campo por baixo: o intervalo entre campos tem de ser maior
+   do que o intervalo entre a etiqueta e a sua própria linha */
+#contactForm { display: grid; gap: 30px; align-content: start; }
+.field { display: grid; gap: 4px; }
 .field label { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
-.field input, .field select, .field textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; padding: 12px 0; color: var(--ink); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.field input, .field select, .field textarea { width: 100%; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; padding: 10px 0 9px; color: var(--ink); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
 .field textarea { resize: vertical; min-height: 110px; }
 .field input::placeholder, .field textarea::placeholder { color: var(--ink-3); }
 .field select option { background: var(--paper); color: var(--ink); }
 .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--red); box-shadow: 0 1px 0 var(--red); }
 .field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-bottom-color: var(--red); }
+/* o erro herdava um segundo tom (#FF7A7A) e uma sombra de 3px: neste mundo o erro é o acento
+   sobre a régua do campo, como o DESIGN.md descreve, sem introduzir uma segunda tinta nem elevação */
+.field-err { color: var(--red); }
+.field.invalid input, .field.invalid select, .field.invalid textarea { border-color: var(--red) !important; border-bottom-color: var(--red) !important; box-shadow: 0 1px 0 var(--red); }
 .form-note { font-size: 0.88rem; color: var(--ink-3); }
 .form-done { padding: 26px 24px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper-2); }
 .form-done strong { display: block; font-family: inherit; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
@@ -808,15 +849,21 @@ h2.display::after { content: "."; color: var(--red); }
 footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var(--paper); }
 .foot2 { display: grid; grid-template-columns: 1.3fr 0.85fr 0.85fr 0.95fr 0.75fr; gap: 30px; }
 .foot2 .logo { font-size: 2.2rem; }
-.foot-tag { color: var(--ink-2); font-size: 0.94rem; max-width: 30ch; margin-top: 12px; }
-.foot-langs { font-family: inherit; font-size: 0.82rem; letter-spacing: 0; color: var(--ink-3); margin-top: 14px; }
-.foot-h { font-family: inherit; font-size: 0.86rem; letter-spacing: 0; text-transform: none; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+/* o mesmo tratamento de quebra que o resto do corpo já tinha: em DE a última linha caía em
+   "dazwischen." sozinha a 1440. "pretty" e não "balance" — o bloco corre 3-4 linhas dentro de 30ch */
+.foot-tag { color: var(--ink-2); font-size: 0.94rem; max-width: 30ch; margin-top: 12px; text-wrap: pretty; }
+/* linha de línguas + lugar: um facto, não uma etiqueta. Fica destacada da assinatura por uma régua
+   e ganha o espaçamento ótico que as maiúsculas pedem a este corpo (o resto do mundo não usa maiúsculas). */
+.foot-langs { font-family: inherit; font-size: 0.8rem; line-height: 1.4; letter-spacing: 0.03em; color: var(--ink-3); margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--rule); width: fit-content; max-width: 100%; font-variant-numeric: tabular-nums; }
+.foot-h { font-family: inherit; font-size: 0.86rem; letter-spacing: 0; text-transform: none; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
 .foot-col { display: grid; gap: 2px; align-content: start; }
 .foot-col a { text-decoration: none; color: var(--ink-2); font-size: 0.93rem; padding: 6px 0; width: fit-content; transition: color 0.15s ease; }
 .foot-col a:hover { color: var(--red); }
 .foot-col a.wa2 { color: var(--red-ink); font-weight: 600; }
 .foot { display: flex; flex-wrap: wrap; gap: 12px 30px; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--rule-2); margin-top: 44px; padding-top: 22px; }
 .foot .mono { font-family: inherit; font-size: 0.8rem; color: var(--ink-3); }
+/* uma só família: o "admin" ainda caía numa monoespaçada do sistema, que não pertence a este mundo */
+.foot-admin { font-family: inherit; font-size: 0.8rem; letter-spacing: 0; }
 .foot-made { font-size: 0.9rem; color: var(--ink-2); }
 @media (max-width: 900px) { .foot2 { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .foot2 { grid-template-columns: 1fr; } }
@@ -827,19 +874,26 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 .sticky-cta a { flex: 1; text-align: center; padding: 12px 6px; font-size: 0.88rem; white-space: normal; line-height: 1.15; letter-spacing: 0; }
 @media (min-width: 701px) { .sticky-cta { display: none !important; } }
 @media (max-width: 700px) { .has-sticky .wa-fab { bottom: 96px; } }
-.wa-fab { position: fixed; right: 20px; bottom: 20px; z-index: 95; width: 56px; height: 56px; display: grid; place-items: center; background: var(--ink); color: var(--paper); border-radius: 0; text-decoration: none; font-size: 1.4rem; box-shadow: none; transition: background 0.2s ease, transform 0.2s var(--ease); }
-.wa-fab:hover { background: var(--red); transform: none; }
+/* o FAB é um atalho, não um segundo botão principal: régua e papel, não tinta cheia — assim
+   não disputa a hierarquia com o CTA de acento. A opacidade volta a transitar (esconde-se a esbater). */
+.wa-fab { position: fixed; right: 20px; bottom: 20px; z-index: 95; width: 56px; height: 56px; display: grid; place-items: center; background: var(--paper); color: var(--ink-2); border: 1px solid var(--rule-2); border-radius: 0; text-decoration: none; font-size: 1.4rem; box-shadow: none; transition: opacity 0.25s ease, transform 0.25s var(--ease), color 0.2s ease, border-color 0.2s ease; }
+.wa-fab:hover { background: var(--paper); color: var(--red); border-color: var(--red); transform: none; }
 .wa-fab::after { display: none; }
 .has-tawk .wa-fab { right: auto; left: 20px; }
 #toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 12px); background: var(--ink); color: var(--paper); padding: 12px 18px; font-weight: 600; z-index: 130; opacity: 0; pointer-events: none; border-radius: 0; box-shadow: none; transition: opacity 0.3s ease, transform 0.3s var(--ease); max-width: min(92vw, 520px); }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
-#cookieBanner { position: fixed; right: 16px; bottom: 16px; z-index: 110; max-width: 400px; background: var(--paper); border: 1px solid var(--ink); border-radius: 0; box-shadow: 0 12px 30px rgba(16, 16, 16, 0.12); padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; }
+/* a única sombra que restava no sistema: fora. O bloco define-se pela régua de 1px, como todos os
+   outros, e o recuo passa a registar com o FAB (20px) em vez de ficar 4px fora de esquadria. */
+#cookieBanner { position: fixed; right: 20px; bottom: 20px; z-index: 110; max-width: 400px; background: var(--paper); border: 1px solid var(--ink); border-radius: 0; box-shadow: none; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; }
 #cookieBanner[hidden] { display: none; }
 #cookieBanner p { font-size: 0.86rem; line-height: 1.5; color: var(--ink-2); margin: 0; }
 #cookieBanner p a { color: var(--red-ink); text-decoration: underline; }
 .cookie-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
 .cookie-row .btn { padding: 12px 16px; }
-@media (max-width: 640px) { #cookieBanner { left: 10px; right: 10px; bottom: 10px; max-width: none; padding: 14px 16px; } .cookie-row { justify-content: stretch; } .cookie-row button { flex: 1; } }
+/* no telemóvel o recuo é o mesmo --pad da página — o token, não o seu valor a uma só largura:
+   entre 500 e 640px o --pad passa de 20 para 25.6px e o aviso acompanha-o. A base fica em 20px
+   para continuar a registar com o FAB. */
+@media (max-width: 640px) { #cookieBanner { left: var(--pad); right: var(--pad); bottom: 20px; max-width: none; padding: 16px 18px; } .cookie-row { justify-content: stretch; } .cookie-row button { flex: 1; } }
 .tpl-badge { border-radius: 0; }
 
 /* ---------- loader em papel ---------- */
@@ -869,11 +923,11 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .js .reveal, .js .section-head.reveal, .js .section-head.reveal > * { opacity: 1; transform: none; clip-path: none; }
+  .js .reveal, .js .section-head.reveal, .js .section-head.reveal > *, .js .section-head.reveal::before { opacity: 1; transform: none; clip-path: none; }
 }
 
 /* ---------- sala 3D dos exemplos (PlayCanvas, carregada a pedido) ---------- */
-.folio-3d { margin: 18px 0 0; }
+.folio-3d { margin: 24px 0 0; }
 .pc3d { position: fixed; inset: 0; z-index: 125; background: var(--paper); display: flex; flex-direction: column; }
 .pc3d[hidden] { display: none; }
 .pc3d-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px var(--pad); border-bottom: 1px solid var(--ink); }
@@ -893,11 +947,12 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 /* palavras: o JS envolve cada palavra em .w > span */
 .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 0 0.08em; margin-bottom: -0.08em; max-width: 100%; }
 .w > span { display: inline-block; max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
-@media (max-width: 480px) { h2.display { font-size: clamp(1.8rem, 9.5vw, 2.6rem); } .hero h1 { font-size: clamp(2.3rem, 13vw, 3.2rem); } }
+@media (max-width: 480px) { h2.display { font-size: clamp(2.4rem, 9.5vw, 2.6rem); } .hero h1 { font-size: clamp(2.3rem, 13vw, 3.2rem); } }
 /* "professionell" não parte (a palavra rotativa não é dividida em pedaços): no alemão o título desce um degrau */
 html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
-/* o botão principal herdava o espaçamento de letras do design anterior no telemóvel */
-@media (max-width: 700px) { .hero-ctas .btn { letter-spacing: 0; padding: 15px 20px; } }
+/* o botão principal herdava o espaçamento de letras e o padding do design anterior no telemóvel:
+   aqui volta exatamente ao registo do mundo (.btn = 15px 22px, sem espaçamento de letras) */
+@media (max-width: 700px) { .hero-ctas .btn { letter-spacing: 0; padding: 15px 22px; } }
 @keyframes wordIn { from { transform: translateY(110%) rotate(4deg); } to { transform: none; } }
 .hero-go .hero h1 .w > span { animation: wordIn 0.95s var(--ease) both; animation-delay: calc(0.28s + var(--i, 0) * 75ms); }
 .hero-go .hero h1 .rotator, .hero-go .hero h1 .dot { animation: wordIn 0.95s var(--ease) 0.85s both; display: inline-block; }
@@ -913,7 +968,8 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 .marquee { overflow: hidden; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 14px 0; background: var(--paper); }
 .marquee-track { display: flex; align-items: center; width: max-content; animation: marquee 32s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee span { font-size: clamp(3rem, 9vw, 8.5rem); font-weight: 800; font-variation-settings: "wdth" 118; letter-spacing: -0.04em; line-height: 1; padding: 0 0.28em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+/* o contorno acompanha o corpo: fixo em 1.5px era um fio a 130px e um traço grosso a 48px */
+.marquee span { font-size: clamp(3rem, 9vw, 8.5rem); font-weight: 800; font-variation-settings: "wdth" 118; letter-spacing: -0.04em; line-height: 1; padding: 0 0.28em; white-space: nowrap; color: transparent; -webkit-text-stroke: 0.022em var(--ink); }
 .marquee span:nth-child(8n+3), .marquee span:nth-child(8n+7) { color: var(--ink); -webkit-text-stroke: 0; }
 .marquee .mq-dot { color: var(--accent-2); -webkit-text-stroke: 0; font-size: clamp(1.4rem, 3.6vw, 3rem); padding: 0 0.1em; }
 @keyframes marquee { to { transform: translateX(-50%); } }
@@ -956,14 +1012,14 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 }
 /* impressão: o conteúdo revelado ao scroll saía em branco no papel */
 @media print {
-  .js .reveal, .js .section-head.reveal, .js .section-head.reveal > *, .js .cta-band.reveal, .js .bundle.reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .js .reveal, .js .section-head.reveal, .js .section-head.reveal > *, .js .section-head.reveal::before, .js .cta-band.reveal, .js .bundle.reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   .js .section-head.reveal h2 .w > span, .hero h1 .w > span, .hero h1 .rotator, .hero h1 .dot { opacity: 1 !important; transform: none !important; animation: none !important; }
   .js .cta-band.reveal::after, .js .bundle.reveal::after, .marquee, .wa-fab, #cursorDot, #progress, .sticky-cta, #cookieBanner, .langs { display: none !important; }
   .hero .wrap { opacity: 1 !important; transform: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .w > span, .hero .rotator, .hero .dot, .marquee-track, .hero-piece-frame, h2.display { animation: none !important; transform: none !important; }
-  .js .section-head.reveal h2 .w > span, .js .tw-card.reveal .tw-mock, .js .shot.reveal .shot-screen, .js .step.reveal .step-n, .js .pillar.reveal .pillar-idx, .js .plan.reveal .plan-amount, .js .stat.reveal .stat-v, .js .cta-band.reveal, .js .bundle.reveal { transform: none; opacity: 1; clip-path: none; }
+  .js .section-head.reveal h2 .w > span, .js .section-head.reveal::before, .js .tw-card.reveal .tw-mock, .js .shot.reveal .shot-screen, .js .step.reveal .step-n, .js .pillar.reveal .pillar-idx, .js .plan.reveal .plan-amount, .js .stat.reveal .stat-v, .js .cta-band.reveal, .js .bundle.reveal { transform: none; opacity: 1; clip-path: none; }
   .js .cta-band.reveal::after, .js .bundle.reveal::after { display: none; }
   .js:not(.hero-go) .hero h1 .w > span { opacity: 1; }
   #cursorDot { display: none; }
