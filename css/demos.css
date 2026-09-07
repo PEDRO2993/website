@@ -333,6 +333,14 @@
 .t-b-facts li { display: flex; align-items: center; gap: 9px; }
 .t-b-facts li::before { content: ""; width: 6px; height: 6px; background: var(--tp-accent); flex: none; }
 .t-b-facts b { color: var(--tp-ink); font-weight: 700; }
+/* o número do herói é tocável, como o do contacto: mesmo sublinhado discreto */
+.t-b .t-b-tel, .t-b .tpl-cline a {
+  padding: 9px 0; text-decoration: underline; text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, var(--tp-ink) 28%, transparent);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.t-b .t-b-tel:hover, .t-b .tpl-cline a:hover { color: var(--tp-accent); text-decoration-color: var(--tp-accent); }
 
 /* moldura fotográfica: recorte sempre mais alto que largo para não apanhar a emenda da foto */
 .t-b-ph { position: relative; overflow: hidden; margin: 0; background: var(--b-paper-2); }
@@ -357,11 +365,7 @@
   align-items: baseline; margin: 0; padding: 17px 0; border-radius: 0;
   border-top: 1px solid var(--tp-line); border-bottom: 0;
   transition: background 0.2s ease;
-  animation: dishIn 0.4s cubic-bezier(0.16, 0.84, 0.36, 1) both;
 }
-.t-b-row:nth-of-type(2) { animation-delay: 0.06s; }
-.t-b-row:nth-of-type(3) { animation-delay: 0.12s; }
-.t-b-row:nth-of-type(4) { animation-delay: 0.18s; }
 .t-b-row:last-of-type { border-bottom: 1px solid var(--tp-line); }
 .t-b-row:hover { background: color-mix(in srgb, var(--tp-accent) 7%, transparent); }
 .t-b-row .t-b-svc { font-family: inherit; font-size: 1.06rem; font-weight: 600; }
@@ -401,7 +405,11 @@
 /* testemunhos: sem caixa, sem itálico sintético */
 .t-b-quotes .tp-card { border-top: 1px solid var(--tp-line); padding: 22px 20px 24px 0; font-style: normal; }
 .t-b-quotes .tp-quote { font-size: 1.02rem; color: var(--tp-ink); }
-.t-b .tp-card > .tp-stars { color: var(--tp-accent); font-size: 0.92rem; letter-spacing: 3px; margin-bottom: 14px; }
+/* estrelas desenhadas (sem glifo de sistema); a nota fica só para leitores de ecrã */
+.t-b-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.t-b .tp-card > .tp-stars { display: flex; gap: 4px; color: var(--tp-accent); margin-bottom: 14px; }
+.t-b .tp-stars svg { width: 15px; height: 15px; display: block; }
+.t-b .tp-card > .t-b-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .t-b .tp-quote footer { font-family: inherit; font-size: 0.95rem; color: var(--tp-muted); margin-top: 16px; }
 .t-b .tp-quote .tp-ava { width: 34px; height: 34px; font-size: 0.72rem; background: var(--b-paper-2); color: var(--tp-ink); border-radius: 50%; font-family: inherit; }
 
@@ -417,7 +425,10 @@
 }
 .t-b .t-b-book .tp-form input::placeholder { color: #9C8B7B; }
 .t-b .t-b-book .tp-form input:focus, .t-b-book .tp-form select:focus { border-color: var(--b-copper-lt); box-shadow: 0 0 0 3px rgba(226, 161, 117, 0.22); }
-.t-b .t-b-book .dm-mini { font-family: inherit; font-size: 0.9rem; color: var(--b-dim); margin: 18px 0 8px; }
+.t-b .t-b-book .dm-mini {
+  font-family: inherit; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--b-dim); margin: 18px 0 10px;
+}
 .t-b .t-b-book .dm-slot { background: transparent; border-color: var(--b-field); color: var(--b-cream); border-radius: 0; font-family: inherit; font-size: 0.88rem; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
 .t-b .t-b-book .dm-slot:not(.busy):hover { border-color: var(--b-copper-lt); color: var(--b-copper-lt); }
 .t-b .t-b-book .dm-slot.sel { background: var(--tp-accent); border-color: var(--tp-accent); color: var(--b-cream); }
@@ -432,8 +443,6 @@
 .t-b .tpl-contact-info { border-top: 1px solid var(--tp-ink); padding: 22px 0 6px; gap: 20px; justify-content: flex-start; }
 .t-b .tpl-cline b { font-family: inherit; font-size: 0.7rem; letter-spacing: 0.16em; color: var(--tp-accent); }
 .t-b .tpl-cline span, .t-b .tpl-cline a { font-family: inherit; font-size: 1rem; color: var(--tp-ink); }
-.t-b .tpl-cline a { padding: 9px 0; }
-.t-b .tpl-cline a:hover { color: var(--tp-accent); }
 .t-b .tpl-map {
   border-radius: 0; min-height: 240px; border-color: var(--tp-line); gap: 14px;
   background:

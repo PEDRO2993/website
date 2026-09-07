@@ -2191,7 +2191,7 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
           <ul class="t-b-facts">
             <li><b>Ter–Sáb · 9h–19h</b></li>
             <li>Bahnhofstrasse 4, Visp</li>
-            <li>+41 27 000 00 00</li>
+            <li><a class="t-b-tel" href="tel:+41270000000">+41 27 000 00 00</a></li>
           </ul>
         </div>
         <figure class="t-b-ph t-b-hero-ph">
@@ -2227,10 +2227,11 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
     <section class="tw tp-sec t-b-sec">
       <span class="tp-kicker">Testemunhos</span>
       <h2 class="tp-h2">Palavra de cliente</h2>
+      <svg class="t-b-sprite" aria-hidden="true" focusable="false"><symbol id="b-star" viewBox="0 0 24 24"><path d="M12 2.9 14.63 8.23 20.5 9.08 16.25 13.22 17.25 19.07 12 16.3 6.75 19.07 7.75 13.22 3.5 9.08 9.37 8.23Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol></svg>
       <div class="tp-grid-3 t-b-quotes">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Marco online à sexta, corto ao sábado. Nunca mais esperei numa fila.<footer><span class="tp-ava">PL</span>P. Lopes · Visp</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>A barba com toalha quente é um ritual. Recomendo a toda a gente.<footer><span class="tp-ava">HB</span>H. Brunner · Stalden</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Levo lá os meus dois filhos. Preço justo e trabalho impecável.<footer><span class="tp-ava">RS</span>R. Santos · Brig</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true"><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg></span><span class="t-b-sr">5/5</span>Marco online à sexta, corto ao sábado. Nunca mais esperei numa fila.<footer><span class="tp-ava">PL</span>P. Lopes · Visp</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true"><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg></span><span class="t-b-sr">5/5</span>A barba com toalha quente é um ritual. Recomendo a toda a gente.<footer><span class="tp-ava">HB</span>H. Brunner · Stalden</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true"><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg><svg><use href="#b-star"></use></svg></span><span class="t-b-sr">5/5</span>Levo lá os meus dois filhos. Preço justo e trabalho impecável.<footer><span class="tp-ava">RS</span>R. Santos · Brig</footer></blockquote>
       </div>
     </section>
     <section class="tw tp-sec t-b-sec" id="b-marcar">
@@ -2242,7 +2243,7 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
           <label>Serviço<select data-k="serviço"><option>Corte</option><option>Corte + barba</option><option>Barba</option></select></label>
           <label class="t-b-wide">Contacto (telemóvel ou email)<input type="text" data-k="contacto" placeholder="+41 79 … ou email"></label>
         </div>
-        <p class="dm-mini">Horários disponíveis:</p>
+        <p class="dm-mini">Horários disponíveis</p>
         <div class="dm-slots">
           <button class="dm-slot" type="button">09:00</button>
           <button class="dm-slot busy" type="button" disabled>09:45</button>
@@ -3498,7 +3499,9 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "Levo lá os meus dois filhos. Preço justo e trabalho impecável.": "Ich bringe meine beiden Söhne hin. Fairer Preis, tadellose Arbeit.",
       "Marcação": "Termin", "Escolhe o teu horário": "Wählen Sie Ihre Zeit",
       "Dia": "Tag", "Serviço": "Leistung", "Corte": "Schnitt", "Barba": "Rasur",
-      "Horários disponíveis:": "Verfügbare Zeiten:",
+      "Horários disponíveis": "Verfügbare Zeiten",
+      "Cadeira de barbeiro em pele castanha na sala da barbearia": "Barbierstuhl aus braunem Leder im Salon",
+      "Navalhas, correia de couro e máquinas de corte pousadas sobre pele": "Rasiermesser, Lederriemen und Haarschneider auf Leder",
       "Marcação confirmada": "Termin bestätigt", "Confirmar marcação": "Termin bestätigen", "✓ Marcação confirmada!": "✓ Termin bestätigt!",
       "Ter–Sáb 9h–19h · +41 27 000 00 00": "Di–Sa 9.00–19.00 · +41 27 000 00 00",
       "A tua barbearia merece uma presença assim.": "Ihr Barbershop verdient einen solchen Auftritt.",
@@ -3695,7 +3698,9 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "Levo lá os meus dois filhos. Preço justo e trabalho impecável.": "J'y emmène mes deux fils. Prix juste et travail impeccable.",
       "Marcação": "Rendez-vous", "Escolhe o teu horário": "Choisissez votre horaire",
       "Dia": "Jour", "Serviço": "Service", "Corte": "Coupe", "Barba": "Barbe",
-      "Horários disponíveis:": "Horaires disponibles :",
+      "Horários disponíveis": "Horaires disponibles",
+      "Cadeira de barbeiro em pele castanha na sala da barbearia": "Fauteuil de barbier en cuir brun dans le salon",
+      "Navalhas, correia de couro e máquinas de corte pousadas sobre pele": "Rasoirs, cuir à rasoir et tondeuses posés sur du cuir",
       "Marcação confirmada": "Rendez-vous confirmé", "Confirmar marcação": "Confirmer le rendez-vous", "✓ Marcação confirmada!": "✓ Rendez-vous confirmé !",
       "Ter–Sáb 9h–19h · +41 27 000 00 00": "Mar–Sam 9h–19h · +41 27 000 00 00",
       "A tua barbearia merece uma presença assim.": "Votre salon mérite une présence comme celle-ci.",
@@ -3892,7 +3897,9 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "Levo lá os meus dois filhos. Preço justo e trabalho impecável.": "Ci porto i miei due figli. Prezzo giusto e lavoro impeccabile.",
       "Marcação": "Appuntamento", "Escolhe o teu horário": "Scegli il tuo orario",
       "Dia": "Giorno", "Serviço": "Servizio", "Corte": "Taglio", "Barba": "Barba",
-      "Horários disponíveis:": "Orari disponibili:",
+      "Horários disponíveis": "Orari disponibili",
+      "Cadeira de barbeiro em pele castanha na sala da barbearia": "Poltrona da barbiere in pelle marrone nel salone",
+      "Navalhas, correia de couro e máquinas de corte pousadas sobre pele": "Rasoi, coramella e tosatrici appoggiati sulla pelle",
       "Marcação confirmada": "Appuntamento confermato", "Confirmar marcação": "Conferma appuntamento", "✓ Marcação confirmada!": "✓ Appuntamento confermato!",
       "Ter–Sáb 9h–19h · +41 27 000 00 00": "Mar–Sab 9:00–19:00 · +41 27 000 00 00",
       "A tua barbearia merece uma presença assim.": "Il tuo salone merita una presenza così.",
@@ -4089,7 +4096,9 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "Levo lá os meus dois filhos. Preço justo e trabalho impecável.": "I take both my sons there. Fair price, impeccable work.",
       "Marcação": "Booking", "Escolhe o teu horário": "Pick your slot",
       "Dia": "Day", "Serviço": "Service", "Corte": "Cut", "Barba": "Shave",
-      "Horários disponíveis:": "Available times:",
+      "Horários disponíveis": "Available times",
+      "Cadeira de barbeiro em pele castanha na sala da barbearia": "Brown leather barber chair in the shop",
+      "Navalhas, correia de couro e máquinas de corte pousadas sobre pele": "Straight razors, leather strop and clippers on leather",
       "Marcação confirmada": "Booking confirmed", "Confirmar marcação": "Confirm booking", "✓ Marcação confirmada!": "✓ Booking confirmed!",
       "Ter–Sáb 9h–19h · +41 27 000 00 00": "Tue–Sat 9:00–19:00 · +41 27 000 00 00",
       "A tua barbearia merece uma presença assim.": "Your barbershop deserves a presence like this.",
