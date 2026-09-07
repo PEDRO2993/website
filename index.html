@@ -1026,6 +1026,44 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 }
 
 </style>
+<style>
+/* ------------------------------------------------------------------
+   ACESSIBILIDADE — bloco próprio, deliberadamente fora do estilo
+   principal (é editado por outra mão). Só duas coisas:
+   1) o botão que pára o marquee e o rotativo do h1 (WCAG 2.2.2 —
+      até aqui a única pausa era o :hover, inútil no teclado e no
+      toque);
+   2) os títulos dos três painéis de preços, escondidos quando há
+      JavaScript (os separadores fazem esse trabalho) e mostrados
+      pelo <noscript>, onde os três painéis aparecem empilhados.
+   Usa os tokens do "Graphite Control Room" — nada de cores soltas.
+   ------------------------------------------------------------------ */
+.panel-head { display: none; }
+.marquee { position: relative; }
+/* A faixa vai de 60px no telemóvel a 145px no desktop; um glifo fixo de
+   12x15 lia-se lá como um defeito de renderização a cortar o "g" de
+   Marketing, não como um comando. O glifo cresce com a faixa e o traço
+   vertical usa o mesmo valor das réguas dela (--ink), não o --rule-2 que
+   quase não se via. A largura mínima de 46px guarda o alvo de toque. */
+.motion-btn {
+  --mg: clamp(15px, 3.2vw, 30px);
+  position: absolute; right: 0; top: 0; bottom: 0; z-index: 3;
+  width: calc(var(--mg) + 30px); min-width: 46px;
+  display: grid; place-items: center;
+  background: var(--paper); color: var(--ink-2);
+  border: 0; border-left: 1px solid var(--ink);
+  font: inherit; line-height: 1; cursor: pointer;
+  transition: color 0.2s ease;
+}
+/* barras e triângulo desenhados em CSS: nada depende de um glifo da fonte */
+.motion-btn::before { content: ""; display: block; width: calc(var(--mg) * 0.8); height: var(--mg); border-left: calc(var(--mg) * 0.267) solid currentColor; border-right: calc(var(--mg) * 0.267) solid currentColor; }
+.motion-btn[aria-pressed="true"]::before { width: 0; height: 0; border: 0; border-left: calc(var(--mg) * 0.867) solid currentColor; border-top: calc(var(--mg) * 0.533) solid transparent; border-bottom: calc(var(--mg) * 0.533) solid transparent; }
+.motion-btn:hover { color: var(--red); }
+.motion-btn:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
+html.motion-paused .marquee-track { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) { .motion-btn { display: none; } }
+@media print { .motion-btn { display: none !important; } }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#top" data-i18n="a11y.skip">Saltar para o conteúdo</a>
@@ -1069,8 +1107,26 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 })();
 </script>
 <div id="progress" aria-hidden="true"></div>
-<noscript><style>#prLoader { display: none !important; }</style></noscript>
-<noscript><div style="background:#0A1120;color:#F2F6FE;text-align:center;padding:14px 18px;font-family:sans-serif;font-size:0.9rem;border-bottom:1px solid rgba(255,255,255,0.22);">Este site funciona sem JavaScript, mas o seletor de idioma, a área de cliente e algumas validações do formulário precisam dele. Podes sempre contactar-me por <a style="color:#5B96FF" href="https://wa.me/41798257078">WhatsApp</a> ou <a style="color:#5B96FF" href="mailto:pedrooribeiro7555@icloud.com">email</a>.</div></noscript>
+<noscript><style>
+/* Sem JavaScript nada abre nem troca de separador: o loader some, as
+   respostas da FAQ ficam abertas e os três painéis de preços aparecem
+   empilhados, cada um com o seu título. */
+#prLoader { display: none !important; }
+.motion-btn { display: none !important; }
+.faq-a { grid-template-rows: 1fr !important; }
+.faq-a > div { visibility: visible !important; }
+.faq-q i { display: none !important; }
+.tabs { display: none !important; }
+.price-panel { display: block !important; margin-top: 56px; }
+/* Os nove planos são h3 (o CSS principal desenha-os por `.plan h3`), por
+   isso o título da categoria não pode descer de nível sem lhes mexer.
+   Fica então visualmente inconfundível como categoria: régua de secção
+   por cima, corpo largo e o dobro do tamanho do nome de um plano. */
+.panel-head { display: block !important; font-size: clamp(1.7rem, 5vw, 2rem); font-variation-settings: "wdth" 118; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 30px; padding-top: 26px; border-top: 1px solid var(--ink); }
+.ns-banner { background: var(--paper-2); color: var(--ink); border-bottom: 1px solid var(--rule-2); padding: 14px 18px; text-align: center; font-size: 0.9rem; }
+.ns-banner a { color: var(--red); }
+</style></noscript>
+<noscript><div class="ns-banner"><span data-i18n="ns.p1">Este site funciona sem JavaScript, mas o seletor de idioma, a área de cliente e algumas validações do formulário precisam dele. Podes sempre contactar-me por </span><a href="https://wa.me/41798257078">WhatsApp</a><span data-i18n="ns.or"> ou </span><a href="mailto:pedrooribeiro7555@icloud.com" data-i18n="ns.mail">email</a><span>.</span></div></noscript>
 <div id="prLoader" aria-hidden="true">
   <div class="in2">
     <div class="lg">PR<i>.</i></div>
@@ -1093,11 +1149,11 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       <a href="#" id="loginNav" data-i18n="lg.btn">Login</a>
     </nav>
     <div class="langs" role="group" data-i18n-aria="a11y.lang" aria-label="Idioma">
-      <button type="button" data-lang="pt" aria-pressed="true" aria-label="Português (PT)">PT</button>
-      <button type="button" data-lang="de" aria-pressed="false" aria-label="Deutsch (DE)">DE</button>
-      <button type="button" data-lang="fr" aria-pressed="false" aria-label="Français (FR)">FR</button>
-      <button type="button" data-lang="it" aria-pressed="false" aria-label="Italiano (IT)">IT</button>
-      <button type="button" data-lang="en" aria-pressed="false" aria-label="English (EN)">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="true" lang="pt" aria-label="Português (PT)">PT</button>
+      <button type="button" data-lang="de" aria-pressed="false" lang="de" aria-label="Deutsch (DE)">DE</button>
+      <button type="button" data-lang="fr" aria-pressed="false" lang="fr" aria-label="Français (FR)">FR</button>
+      <button type="button" data-lang="it" aria-pressed="false" lang="it" aria-label="Italiano (IT)">IT</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en" aria-label="English (EN)">EN</button>
     </div>
     <button class="btn btn-ghost btn-nav" id="loginBtn" type="button" data-i18n="lg.btn">Login</button>
     <a class="btn btn-red btn-nav" href="https://wa.me/41798257078?text=Ol%C3%A1%20Pedro!" target="_blank" rel="noopener">WhatsApp</a>
@@ -1129,7 +1185,7 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span data-i18n="mq.1">Websites</span><span class="mq-dot">•</span><span data-i18n="mq.2">Marketing</span><span class="mq-dot">•</span><span data-i18n="mq.3">Social Media</span><span class="mq-dot">•</span><span data-i18n="mq.4">Valais</span><span class="mq-dot">•</span><span data-i18n="mq.1">Websites</span><span class="mq-dot">•</span><span data-i18n="mq.2">Marketing</span><span class="mq-dot">•</span><span data-i18n="mq.3">Social Media</span><span class="mq-dot">•</span><span data-i18n="mq.4">Valais</span><span class="mq-dot">•</span></div></div>
+  <div class="marquee"><button class="motion-btn" type="button" id="motionToggle" aria-pressed="false" data-i18n-aria="a11y.motion" aria-label="Pausar as animações"></button><div class="marquee-track" aria-hidden="true"><span data-i18n="mq.1">Websites</span><span class="mq-dot">•</span><span data-i18n="mq.2">Marketing</span><span class="mq-dot">•</span><span data-i18n="mq.3">Social Media</span><span class="mq-dot">•</span><span data-i18n="mq.4">Valais</span><span class="mq-dot">•</span><span data-i18n="mq.1">Websites</span><span class="mq-dot">•</span><span data-i18n="mq.2">Marketing</span><span class="mq-dot">•</span><span data-i18n="mq.3">Social Media</span><span class="mq-dot">•</span><span data-i18n="mq.4">Valais</span><span class="mq-dot">•</span></div></div>
 
   <!-- ================= TRABALHO RECENTE ================= -->
   <section id="trabalho">
@@ -1424,7 +1480,8 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         <button type="button" role="tab" id="tab-mkt" aria-controls="panel-mkt" aria-selected="false" tabindex="-1" data-tab="mkt">Marketing</button>
       </div>
 
-      <div class="price-panel active" id="panel-web" role="tabpanel" aria-labelledby="tab-web" tabindex="0">
+      <div class="price-panel active" id="panel-web" role="tabpanel" aria-labelledby="tab-web">
+        <h3 class="panel-head">Websites</h3>
         <div class="plans">
           <article class="plan card reveal">
             <h3 data-i18n="pl.ess">Essencial</h3>
@@ -1475,7 +1532,8 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         </div>
       </div>
 
-      <div class="price-panel" id="panel-social" role="tabpanel" aria-labelledby="tab-social" tabindex="0">
+      <div class="price-panel" id="panel-social" role="tabpanel" aria-labelledby="tab-social">
+        <h3 class="panel-head">Social Media</h3>
         <div class="plans">
           <article class="plan card reveal">
             <h3>Social Start</h3>
@@ -1517,7 +1575,8 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         </div>
       </div>
 
-      <div class="price-panel" id="panel-mkt" role="tabpanel" aria-labelledby="tab-mkt" tabindex="0">
+      <div class="price-panel" id="panel-mkt" role="tabpanel" aria-labelledby="tab-mkt">
+        <h3 class="panel-head">Marketing</h3>
         <div class="plans">
           <article class="plan card reveal">
             <h3>Local Boost</h3>
@@ -1571,39 +1630,39 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       </div>
       <div class="faq-list reveal">
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a1"><span data-i18n="fq1.q">Quanto tempo demora até o meu site estar online?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a1"><div><p data-i18n="fq1.a">Uma landing page fica pronta em cerca de 7 dias, um site completo em cerca de 1 mês e uma loja online ou aplicação em até 3 meses. O prazo fica fechado por escrito na proposta, antes de começarmos.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a2"><span data-i18n="fq2.q">O site fica mesmo meu?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a2"><div><p data-i18n="fq2.a">Sim, 100%. O domínio, o conteúdo e o código são teus. Se um dia quiseres mudar de prestador, levas tudo contigo — sem dependências nem letras pequenas.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a3"><span data-i18n="fq3.q">Posso cancelar a gestão mensal de redes sociais ou marketing?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a3"><div><p data-i18n="fq3.a">Sim, com 30 dias de aviso. Não trabalho com fidelizações longas — prefiro que fiques porque os resultados aparecem, não porque um contrato te obriga.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o investimento em anúncios?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a4"><span data-i18n="fq4.q">Como funciona o investimento em anúncios?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a4"><div><p data-i18n="fq4.a">Pagas o investimento em anúncios diretamente ao Google ou à Meta, com o teu cartão — eu não fico com uma parte disso. O plano cobre a estratégia, a criação dos anúncios e a otimização contínua.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a5"><span data-i18n="fq5.q">Trabalhas com empresas de língua alemã?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a5"><div><p data-i18n="fq5.a">Ja, gerne. Atendo em alemão, português e inglês, e crio sites e conteúdos multilingues — no Valais, os teus clientes falam várias línguas.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a6"><span data-i18n="fq6.q">Já tenho site — podes tratar só das redes sociais ou dos anúncios?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a6"><div><p data-i18n="fq6.a">Claro. Os três serviços funcionam em separado. Começo com uma avaliação gratuita em 48 h do que já tens, e digo-te com franqueza onde vale a pena investir.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7"><span data-i18n="fq7.q">Fazes sites para hotéis, restaurantes e turismo no Valais?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a7"><span data-i18n="fq7.q">Fazes sites para hotéis, restaurantes e turismo no Valais?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a7"><div><p data-i18n="fq7.a">Sim. Restaurantes, alojamento, bem-estar e serviços locais são os setores com que mais trabalho no Alto Valais. Um site para turismo precisa de reservas fáceis, várias línguas e fotografias que vendam — é isso que construo, com preço fixo acordado antes.</p><p><a class="read-more" href="site-restaurante-valais.html" data-i18n="fq7.l">Ler o guia: site para restaurante no Valais →</a></p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a8"><span data-i18n="fq8.q">E depois de o site estar online, quem trata dele?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a8"><span data-i18n="fq8.q">E depois de o site estar online, quem trata dele?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a8"><div><p data-i18n="fq8.a">Eu — não precisas de perceber de tecnologia. O plano de manutenção (CHF 95–290/mês) trata do alojamento, SSL, cópias de segurança e pequenas alterações. Sem plano, entrego-te o site pronto a usar, com os ficheiros teus.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a9"><span data-i18n="fq9.q">Também tratas da ficha Google Business?</span><i aria-hidden="true">+</i></button>
+          <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq-a9"><span data-i18n="fq9.q">Também tratas da ficha Google Business?</span><i aria-hidden="true">+</i></button>
           <div class="faq-a" id="faq-a9"><div><p data-i18n="fq9.a">Sim. Faz parte do marketing local e do site institucional: categoria certa, fotos, horários, serviços e resposta às avaliações — e ligo a ficha ao site para o Google confiar nos dois.</p><p><a class="read-more" href="google-business-valais.html" data-i18n="fq9.l">Ler o guia: ficha Google Business no Valais →</a></p></div></div>
         </div>
       </div>
@@ -3167,10 +3226,16 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       thumb.setAttribute("aria-hidden", "true"); thumb.setAttribute("focusable", "false"); /* decorativo: o link já tem aria-label */
       holder.appendChild(thumb);
     }
+    /* o cartão abre uma janela modal com a demo — dizê-lo é a diferença
+       entre "link" e "abre uma caixa de diálogo" no leitor de ecrã */
+    a.setAttribute("aria-haspopup", "dialog");
     var screen = a.querySelector(".shot-screen");
     if (screen) {
       var ov = document.createElement("div");
       ov.className = "shot-ov";
+      /* a camada só existe no :hover; deixá-la no nome acessível fazia o
+         cartão anunciar "95+ Lighthouse… Ver demonstração" antes do nome */
+      ov.setAttribute("aria-hidden", "true");
       ov.innerHTML = '<div class="shot-chips"><span class="chip chip-perf">⚡ 95+ Lighthouse</span>' +
         '<span class="chip" data-i18n="' + meta.key + '">' + meta.chips + '</span></div>' +
         '<span class="shot-view" data-i18n="fo.view">Ver demonstração</span>';
@@ -3200,6 +3265,10 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "pl.ess": "Essenziell", "pl.pro": "Professionell", "sv2.name": "Digitales Marketing",
       "sv2.art": "Artikel: Google-Business-Profil im Wallis, der Leitfaden →", "ct.hp": "Nicht ausfüllen:", "bl.title": "Praktische Leitfäden für Betriebe im Wallis", "bl.sub": "Kurze Artikel über Websites, Preise und lokale Sichtbarkeit — ohne Fachchinesisch.", "bl.all": "Alle Artikel ansehen →", "pc.care.art": "Leitfaden lesen: was die Wartung umfasst →", "pc.art": "Artikel: Was kostet eine Website in der Schweiz? →", "zn.art": "Warum Ihr Unternehmen im Wallis eine mehrsprachige Website braucht →",
       "tpl.close": "✕ Schliessen", "a11y.nav": "Menü", "a11y.lang": "Sprache", "a11y.menuOpen": "Menü öffnen", "a11y.why": "Warum mit mir arbeiten", "a11y.filter": "Portfolio filtern", "a11y.priceTabs": "Preiskategorien",
+      "a11y.motion": "Automatische Animationen pausieren",
+      "ns.p1": "Diese Website funktioniert ohne JavaScript, aber die Sprachauswahl, der Kundenbereich und einige Formularprüfungen brauchen es. Sie erreichen mich jederzeit über ", "ns.or": " oder ", "ns.mail": "E-Mail",
+      "ld.desc": "Websites, digitales Marketing und Social-Media-Betreuung für Unternehmen im Wallis.", "ld.cat": "Leistungen",
+      "ld.o1": "Moderne, schnelle und massgeschneiderte Websites — vom einfachen Start bis zum Online-Shop.", "ld.o2": "Google Ads, Meta Ads, lokales SEO und Google-Business-Profil.", "ld.o3": "Professionelle Betreuung der sozialen Medien, Inhalte und Community.",
       "nav.services": "Leistungen", "nav.folio": "Beispiele", "nav.process": "Ablauf", "nav.pricing": "Preise", "nav.contact": "Kontakt",
       "hero.eyebrow": "Stalden · Wallis · Schweiz",
       "hero.h1a": "Ihr digitaler Auftritt, ", "hero.h1b": "komplett",
@@ -3300,6 +3369,10 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "pl.ess": "Essential", "pl.pro": "Professional", "sv2.name": "Digital Marketing",
       "sv2.art": "Article: Google Business Profile in Valais, the guide →", "ct.hp": "Do not fill in:", "bl.title": "Practical guides for Valais businesses", "bl.sub": "Short articles about websites, pricing and local visibility — no jargon.", "bl.all": "See all articles →", "pc.care.art": "Read the guide: what maintenance includes →", "pc.art": "Article: how much does a website cost in Switzerland? →", "zn.art": "Why your Valais business needs a multilingual website →",
       "tpl.close": "✕ Close", "a11y.nav": "Menu", "a11y.lang": "Language", "a11y.menuOpen": "Open menu", "a11y.why": "Why work with me", "a11y.filter": "Filter portfolio", "a11y.priceTabs": "Pricing categories",
+      "a11y.motion": "Pause the automatic animations",
+      "ns.p1": "This site works without JavaScript, but the language switcher, the client area and some form checks need it. You can always reach me on ", "ns.or": " or ", "ns.mail": "email",
+      "ld.desc": "Websites, digital marketing and social media management for Valais businesses.", "ld.cat": "Services",
+      "ld.o1": "Modern, fast, custom-built websites — from a simple launch to an online shop.", "ld.o2": "Google Ads, Meta Ads, local SEO and Google Business Profile.", "ld.o3": "Professional social media management, content and community.",
       "nav.services": "Services", "nav.folio": "Examples", "nav.process": "Process", "nav.pricing": "Pricing", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Switzerland",
       "hero.h1a": "Your digital presence, ", "hero.h1b": "complete",
@@ -3400,6 +3473,10 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "pl.ess": "Essentiel", "pl.pro": "Professionnel", "sv2.name": "Marketing digital",
       "sv2.art": "Article : fiche Google Business en Valais, le guide →", "ct.hp": "Ne pas remplir :", "bl.title": "Guides pratiques pour les entreprises du Valais", "bl.sub": "Des articles courts sur les sites web, les prix et la visibilité locale — sans jargon.", "bl.all": "Voir tous les articles →", "pc.care.art": "Lire le guide : ce que comprend la maintenance →", "pc.art": "Article : combien coûte un site web en Suisse ? →", "zn.art": "Pourquoi votre entreprise en Valais a besoin d’un site multilingue →",
       "tpl.close": "✕ Fermer", "a11y.nav": "Menu", "a11y.lang": "Langue", "a11y.menuOpen": "Ouvrir le menu", "a11y.why": "Pourquoi travailler avec moi", "a11y.filter": "Filtrer le portfolio", "a11y.priceTabs": "Catégories de prix",
+      "a11y.motion": "Mettre les animations automatiques en pause",
+      "ns.p1": "Ce site fonctionne sans JavaScript, mais le sélecteur de langue, l'espace client et certaines validations du formulaire en ont besoin. Vous pouvez toujours me contacter par ", "ns.or": " ou ", "ns.mail": "e-mail",
+      "ld.desc": "Sites web, marketing digital et gestion des réseaux sociaux pour les entreprises du Valais.", "ld.cat": "Services",
+      "ld.o1": "Des sites modernes, rapides et sur mesure — du lancement simple à la boutique en ligne.", "ld.o2": "Google Ads, Meta Ads, SEO local et fiche Google Business.", "ld.o3": "Gestion professionnelle des réseaux sociaux, contenu et communauté.",
       "nav.services": "Services", "nav.folio": "Exemples", "nav.process": "Processus", "nav.pricing": "Tarifs", "nav.contact": "Contact",
       "hero.eyebrow": "Stalden · Valais · Suisse",
       "hero.h1a": "Votre présence digitale, ", "hero.h1b": "complète",
@@ -3500,6 +3577,10 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       "pl.ess": "Essenziale", "pl.pro": "Professionale", "sv2.name": "Marketing digitale",
       "sv2.art": "Articolo: Profilo Google Business in Vallese, la guida →", "ct.hp": "Non compilare:", "bl.title": "Guide pratiche per le aziende del Vallese", "bl.sub": "Articoli brevi su siti web, prezzi e visibilità locale — senza gergo.", "bl.all": "Vedi tutti gli articoli →", "pc.care.art": "Leggi la guida: cosa include la manutenzione →", "pc.art": "Articolo: quanto costa un sito web in Svizzera? →", "zn.art": "Perché la tua azienda in Vallese ha bisogno di un sito multilingue →",
       "tpl.close": "✕ Chiudi", "a11y.nav": "Menu", "a11y.lang": "Lingua", "a11y.menuOpen": "Apri il menu", "a11y.why": "Perché lavorare con me", "a11y.filter": "Filtra il portfolio", "a11y.priceTabs": "Categorie di prezzi",
+      "a11y.motion": "Metti in pausa le animazioni automatiche",
+      "ns.p1": "Questo sito funziona senza JavaScript, ma il selettore della lingua, l'area clienti e alcune verifiche del modulo ne hanno bisogno. Puoi sempre contattarmi via ", "ns.or": " o ", "ns.mail": "email",
+      "ld.desc": "Siti web, marketing digitale e gestione dei social media per le aziende del Vallese.", "ld.cat": "Servizi",
+      "ld.o1": "Siti moderni, veloci e su misura — dal lancio semplice al negozio online.", "ld.o2": "Google Ads, Meta Ads, SEO locale e Profilo Google Business.", "ld.o3": "Gestione professionale dei social media, contenuti e community.",
       "nav.services": "Servizi", "nav.folio": "Esempi", "nav.process": "Processo", "nav.pricing": "Prezzi", "nav.contact": "Contatto",
       "hero.eyebrow": "Stalden · Vallese · Svizzera",
       "hero.h1a": "La tua presenza digitale, ", "hero.h1b": "completa",
@@ -3686,6 +3767,11 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       var md = document.querySelector('meta[name="description"]');
       if (md) md.setAttribute("content", ti.d);
     }
+    /* trocar textContent apagou os <span class="w"> que a splitWords tinha
+       criado, mas o data-split ficava a "1": os títulos perdiam a animação
+       palavra a palavra e nunca mais podiam ser recortados. Recorta outra
+       vez sobre o texto novo. */
+    if (!REDUCED) resplitWords();
     try { if (!tplOverlay.hidden && currentTpl) openTpl(currentTpl); } catch (e) {}
     try { localStorage.setItem("pr-lang", lang); } catch (e) {}
   }
@@ -3726,12 +3812,34 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
      desaconselha), oferece um link para a versão na língua do browser. */
   /* dica de idioma: movida para um script inline logo a seguir a <body> (evita salto de layout) */
 
+  /* ---------- pausa das animações automáticas (WCAG 2.2.2) ----------
+     O marquee e o rotativo do h1 andavam sozinhos para sempre; a única
+     pausa era o :hover do rato, que não serve a teclado nem a toque.
+     Um botão no próprio marquee pára os dois e a escolha fica guardada. */
+  var motionPaused = false;
+  (function () {
+    var btn = document.getElementById("motionToggle");
+    if (!btn) return;
+    if (REDUCED) return;                       /* já não há movimento a parar */
+    try { motionPaused = localStorage.getItem("pr-motion") === "off"; } catch (e) {}
+    function apply() {
+      document.documentElement.classList.toggle("motion-paused", motionPaused);
+      btn.setAttribute("aria-pressed", motionPaused ? "true" : "false");
+    }
+    apply();
+    btn.addEventListener("click", function () {
+      motionPaused = !motionPaused;
+      apply();
+      try { localStorage.setItem("pr-motion", motionPaused ? "off" : "on"); } catch (e) {}
+    });
+  })();
+
   /* ---------- headline word rotator ---------- */
   var rot = document.getElementById("rotator");
   var rotI = 0;
   if (rot && !REDUCED) {
     setInterval(function () {
-      if (document.hidden) return;
+      if (document.hidden || motionPaused) return;
       rotI++;
       rot.classList.add("swap");
       setTimeout(function () {
@@ -3788,7 +3896,15 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
     if (e.target.tagName === "A") { links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
   });
 
-  /* ---------- pricing tabs ---------- */
+  /* ---------- pricing tabs ----------
+     O tabindex="0" do painel é do padrão tablist e só faz sentido no
+     painel activo. No markup estava fixo nos três, o que sem JS punha
+     três paragens de tabulação vazias na ordem do teclado; agora é o JS
+     que o põe, no painel que está aberto. */
+  (function () {
+    var active = document.querySelector(".price-panel.active");
+    if (active) active.setAttribute("tabindex", "0");
+  })();
   document.querySelectorAll(".tabs button").forEach(function (b) {
     b.addEventListener("click", function () {
       document.querySelectorAll(".tabs button").forEach(function (x) {
@@ -3799,15 +3915,23 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       b.setAttribute("tabindex", "0");
       var panel = document.getElementById("panel-" + b.getAttribute("data-tab"));
       if (!panel) return;
-      document.querySelectorAll(".price-panel").forEach(function (p) { p.classList.remove("active"); });
+      document.querySelectorAll(".price-panel").forEach(function (p) { p.classList.remove("active"); p.removeAttribute("tabindex"); });
       panel.classList.add("active");
+      panel.setAttribute("tabindex", "0");
       panel.querySelectorAll(".reveal").forEach(function (r) { r.classList.add("in"); });
     });
-    /* arrow-key navigation between tabs */
+    /* teclado do padrão tablist: setas com wrap, Home/End para os extremos.
+       preventDefault porque a seta sem ele fazia a página rolar por baixo
+       do separador que acabou de receber o foco. */
     b.addEventListener("keydown", function (e) {
-      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
       var all = Array.prototype.slice.call(document.querySelectorAll(".tabs button"));
-      var i = all.indexOf(b) + (e.key === "ArrowRight" ? 1 : -1);
+      var at = all.indexOf(b), i;
+      if (e.key === "ArrowRight") i = at + 1;
+      else if (e.key === "ArrowLeft") i = at - 1;
+      else if (e.key === "Home") i = 0;
+      else if (e.key === "End") i = all.length - 1;
+      else return;
+      e.preventDefault();
       var next = all[(i + all.length) % all.length];
       next.focus();
       next.click();
@@ -3864,8 +3988,29 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
     var footerEl = document.querySelector("footer");
     if (!bar || !heroEl || !("IntersectionObserver" in window)) return;
     var pastHero = false, inContact = false, inFooter = false;
-    function sync() { var show = pastHero && !inContact && !inFooter; bar.classList.toggle("show", show); document.body.classList.toggle("has-sticky", show); document.body.classList.toggle("in-footer", inFooter); }
-    new IntersectionObserver(function (entries) { pastHero = entries[0].boundingClientRect.top < 0; sync(); }, { threshold: 0 }).observe(heroEl);
+    /* Até aqui o botão flutuante do WhatsApp só desaparecia visualmente
+       (opacity/pointer-events) quando a barra fixa o tapava: continuava a
+       apanhar o Tab e a ser lido, um destino invisível. Tira-se também da
+       ordem de tabulação e da árvore de acessibilidade, exatamente na
+       largura em que o CSS o esconde. */
+    var waFab = document.querySelector(".wa-fab");
+    var waBox = waFab && waFab.parentNode;
+    var waNarrow = window.matchMedia("(max-width: 700px)");
+    function syncFab() {
+      if (!waFab) return;
+      var gone = waNarrow.matches && (document.body.classList.contains("has-sticky") || document.body.classList.contains("in-footer"));
+      if (gone) { if (document.activeElement === waFab) waFab.blur(); waFab.setAttribute("tabindex", "-1"); if (waBox) waBox.setAttribute("aria-hidden", "true"); }
+      else { waFab.removeAttribute("tabindex"); if (waBox) waBox.removeAttribute("aria-hidden"); }
+    }
+    if (waNarrow.addEventListener) waNarrow.addEventListener("change", syncFab);
+    else if (waNarrow.addListener) waNarrow.addListener(syncFab);
+    function sync() { var show = pastHero && !inContact && !inFooter; bar.classList.toggle("show", show); document.body.classList.toggle("has-sticky", show); document.body.classList.toggle("in-footer", inFooter); syncFab(); }
+    /* `top < 0` sozinho nunca voltava a false: ao subir, o hero reentra
+       pelo topo e nesse instante o top ainda é negativo, por isso a barra
+       fixa ficava colada para o resto da sessão (e com ela o FAB do
+       WhatsApp fora da árvore de acessibilidade). Só se está "depois do
+       hero" quando ele já não está visível. */
+    new IntersectionObserver(function (entries) { pastHero = entries[0].boundingClientRect.top < 0 && !entries[0].isIntersecting; sync(); }, { threshold: 0 }).observe(heroEl);
     if (contactEl) new IntersectionObserver(function (entries) { inContact = entries[0].isIntersecting; sync(); }, { rootMargin: "-10% 0px -70% 0px" }).observe(contactEl);
     if (footerEl) new IntersectionObserver(function (entries) { inFooter = entries[0].isIntersecting; sync(); }, { rootMargin: "0px" }).observe(footerEl);
   })();
@@ -5245,8 +5390,14 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
     openLight(galleryEls.indexOf(zoom));
   });
 
-  /* ---------- faq toggles ---------- */
+  /* ---------- faq toggles ----------
+     No markup os nove aria-expanded nascem "true" porque é isso que o
+     <noscript> mostra: sem JS as respostas estão todas abertas e dizer
+     "false" era anunciar nove secções fechadas por cima de nove abertas.
+     Com JS o primeiro estado real é fechado (nenhum .faq-item tem .open),
+     por isso reconcilia-se aqui antes de ligar o clique. */
   document.querySelectorAll(".faq-q").forEach(function (btn) {
+    btn.setAttribute("aria-expanded", "false");
     btn.addEventListener("click", function () {
       var item = btn.parentElement;
       var open = item.classList.toggle("open");
@@ -5295,6 +5446,16 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
         } else if (n.nodeType === 1 && !n.classList.contains("rotator") && !n.classList.contains("dot") && !n.classList.contains("w")) walk(n);
       });
     })(el);
+  }
+  /* chamada pela setLang (declaração içada: a setLang corre antes daqui):
+     o dicionário reescreve o textContent e leva os .w à frente; limpa a
+     marca e volta a recortar. */
+  function resplitWords() {
+    document.querySelectorAll("h2.display, .hero h1").forEach(function (el) {
+      if (el.querySelector(".w")) return;      /* intacto: nada a refazer */
+      el.removeAttribute("data-split");
+      splitWords(el);
+    });
   }
   if (!REDUCED) document.querySelectorAll("h2.display, .hero h1").forEach(splitWords);
 
@@ -6488,10 +6649,15 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       var sh = Math.min(100, Math.round(pv));
       prPct.textContent = (sh < 10 ? "0" : "") + sh + "%";
       if (sh < 100 || document.readyState === "loading") { requestAnimationFrame(ptick); return; }
+      /* O .hero-go entrava aqui, 150 ms antes de o loader começar a
+         desvanecer: o traço vermelho (atraso 0,15 s) e a primeira palavra
+         a subir (0,28 s) aconteciam por trás de um ecrã ainda opaco e a
+         coreografia de entrada perdia-se. Agora sobe no mesmo instante em
+         que o .done arranca o fade. */
       prLoader.classList.add("finish");
-      document.documentElement.classList.add("hero-go");
       setTimeout(function () {
         prLoader.classList.add("done");
+        document.documentElement.classList.add("hero-go");
         document.body.style.overflow = "";
         try { sessionStorage.setItem("pr-seen", "1"); } catch (e) {}
       }, 150);
