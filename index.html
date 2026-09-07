@@ -2403,94 +2403,140 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 
 <template id="tpl-moda">
   <div class="t-m">
-    <header class="tw t-m-head tp-sticky"><span class="t-m-logo">ATELIER</span>
+    <div class="tm-ann">Envio grátis acima de CHF 150 · Trocas até 30 dias · Atelier em Sion</div>
+    <header class="tw t-m-head tp-sticky"><span class="t-m-logo"><span>ODDA</span><small>Atelier · Sion</small></span>
       <nav class="tpl-nav2" style="margin-left:auto;margin-right:16px;"><a href="#m-col" data-goto="#m-col">Coleção</a><a href="#m-atelier" data-goto="#m-atelier">Atelier</a><a href="#m-apoio" data-goto="#m-apoio">Apoio</a></nav>
-      <button class="t-m-cart dm-cartbtn" type="button" style="all:unset;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:0.85rem;color:#7E6F63;">Carrinho<b class="tm-count" style="color:#221A14;background:#EBDFD3;border-radius:999px;padding:3px 10px;margin-left:6px;">0</b></button></header>
+      <button class="t-m-cart dm-cartbtn" type="button">Cesto<b class="tm-count">0</b></button></header>
     <aside class="dm-drawer" data-drawer>
-      <header><span>O teu carrinho</span><button class="dm-dclose" type="button">✕</button></header>
+      <header><span>O teu cesto</span><button class="dm-dclose" type="button">✕</button></header>
       <div class="dm-items" data-items><p class="dm-empty">O carrinho está vazio.</p></div>
       <div class="dm-total"><span>Total</span><span class="p" data-total>CHF 0</span></div>
       <div class="dm-form" style="grid-template-columns:1fr;margin:0 18px 14px;">
         <label>Contacto (telemóvel ou email)<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou email"></label>
       </div>
       <button class="dm-checkout" type="button">Finalizar compra</button>
-      <div class="dm-note dm-dnote" data-checkout-note style="--tp-accent:#2F6B4F;--tp-line:#E7DDD2;"><b>✓ Encomenda confirmada!</b> <span data-checkout-txt></span></div>
+      <div class="dm-note dm-dnote" data-checkout-note style="--tp-accent:#7E5729;--tp-line:#DFD5C7;border-radius:0;"><b>✓ Encomenda confirmada!</b> <span data-checkout-txt></span></div>
     </aside>
+    <div class="tm-stage">
     <div class="t-cover" aria-hidden="true">
       <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img">
-        <rect width="1200" height="400" fill="#F1E9E2"/>
-        <path d="M320 400 L320 190 A180 180 0 0 1 680 190 L680 400 Z" fill="#E7DBD0"/>
-        <path d="M760 400 L760 240 A130 130 0 0 1 1020 240 L1020 400 Z" fill="#EADFD4" opacity="0.8"/>
-        <circle cx="210" cy="140" r="90" fill="#B3593F" opacity="0.14"/>
-        <rect x="494" y="96" width="12" height="26" rx="6" fill="#6E5A48"/>
-        <path d="M500 96 q0 -16 14 -16" stroke="#6E5A48" stroke-width="7" fill="none" stroke-linecap="round"/>
-        <path d="M420 132 L500 118 L580 132 L560 176 L440 176 Z" fill="#B3593F"/>
-        <path d="M440 176 L560 176 L596 356 Q500 386 404 356 Z" fill="#C96F52"/>
-        <path d="M470 176 Q500 260 530 176" fill="none" stroke="#8F3F2B" stroke-width="3" opacity="0.5"/>
-        <rect x="336" y="60" width="330" height="8" rx="4" fill="#D9CCBE"/>
-        <text x="812" y="150" font-family="Georgia, serif" font-size="42" letter-spacing="14" fill="#6E5A48">NOVA</text>
-        <text x="812" y="186" font-family="monospace" font-size="15" letter-spacing="6" fill="#A8968A">COLEÇÃO OUTONO</text>
+        <rect width="1200" height="400" fill="#EFE8DF"/>
+        <rect x="0" y="92" width="1200" height="3" fill="#C8B292"/>
+        <g fill="none" stroke="#16120E" stroke-width="5" stroke-linecap="round">
+          <path d="M250 94 v-14 a11 11 0 0 1 11 -11"/>
+          <path d="M470 94 v-14 a11 11 0 0 1 11 -11"/>
+          <path d="M690 94 v-14 a11 11 0 0 1 11 -11"/>
+        </g>
+        <path d="M192 130 L250 108 L308 130 L294 168 L206 168 Z" fill="#16120E"/>
+        <path d="M206 168 h88 l24 196 q-68 20 -136 0 Z" fill="#221B14"/>
+        <path d="M250 168 v186" stroke="#3A3028" stroke-width="2" fill="none"/>
+        <path d="M412 130 L470 108 L528 130 L514 168 L426 168 Z" fill="#7E5729"/>
+        <path d="M426 168 h88 l40 212 q-84 24 -168 0 Z" fill="#94663180"/>
+        <path d="M632 130 L690 108 L748 130 L734 168 L646 168 Z" fill="#D8CEC0"/>
+        <path d="M646 168 h88 l20 178 q-64 18 -128 0 Z" fill="#E7E0D4"/>
+        <text x="852" y="196" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="60" font-weight="500" letter-spacing="26" fill="#16120E">ODDA</text>
+        <text x="856" y="238" font-family="Archivo, Helvetica, Arial, sans-serif" font-size="16" letter-spacing="9" fill="#7E5729">ATELIER · SION</text>
       </svg>
     </div>
+    <div class="tm-veil" aria-hidden="true"></div>
     <section class="tw t-m-hero">
       <h2>Peças que ficam,<br>estações que passam</h2>
-      <p>Moda feminina desenhada com calma e produzida em pequenas séries. Envios em 48h para toda a Suíça e Europa.</p>
-      <a class="tpl-cta" href="#">Ver coleção</a>
+      <p class="tm-lede">Moda feminina cortada e cosida no nosso atelier em Sion, em séries de trinta a sessenta peças. Envio em 48 h para toda a Suíça.</p>
+      <div class="tm-actions">
+        <a class="tpl-cta" href="#m-col" data-goto="#m-col">Ver a coleção</a>
+        <a class="tm-ghost" href="#m-atelier" data-goto="#m-atelier">Conhecer o atelier</a>
+      </div>
+      <p class="tm-season">Outono · Inverno 26 — 24 peças</p>
+    </section>
+    </div>
+    <ul class="tm-promises">
+      <li>Envio em 48 h · Suíça e Europa</li>
+      <li>Trocas grátis até 30 dias</li>
+      <li>Séries de 30 a 60 peças</li>
+    </ul>
+    <section class="tw tm-sec">
+      <div class="tm-head">
+        <h2>Coleção outono</h2>
+        <span class="tm-meta">Reposição a 14 de outubro</span>
+      </div>
+      <p class="tm-intro">Cada modelo sai numa série curta. Quando esgota, raramente volta — preferimos desenhar a próxima.</p>
     </section>
     <div class="t-m-filters" id="m-col">
       <button class="tm-f on" type="button" data-f="all">Tudo</button>
-      <button class="tm-f" type="button" data-f="vest">Vestidos</button>
+      <button class="tm-f" type="button" data-f="vest">Silhuetas</button>
       <button class="tm-f" type="button" data-f="malha">Malhas</button>
       <button class="tm-f" type="button" data-f="acess">Acessórios</button>
     </div>
     <section class="tw t-m-grid">
-      <div class="tm-p" data-f="vest"><div class="ph" style="background:linear-gradient(160deg,#D8B9A5,#B3593F);"><img src="img/moda-1.webp" onerror="this.onerror=null;this.src='img/moda-1.jpg'" alt="Vestido Lina" loading="lazy"></div><div class="in"><b>Vestido Lina</b><span class="pr2">CHF 189</span><button class="tm-add" type="button">Adicionar</button></div></div>
-      <div class="tm-p" data-f="malha"><div class="ph" style="background:linear-gradient(160deg,#E4D6C6,#8F7B63);"><img src="img/moda-2.webp" onerror="this.onerror=null;this.src='img/moda-2.jpg'" alt="Camisola Ava" loading="lazy"></div><div class="in"><b>Camisola Ava</b><span class="pr2">CHF 149</span><button class="tm-add" type="button">Adicionar</button></div></div>
-      <div class="tm-p" data-f="acess"><div class="ph" style="background:linear-gradient(160deg,#D9C6BB,#6E5A48);"><img src="img/moda-3.webp" onerror="this.onerror=null;this.src='img/moda-3.jpg'" alt="Lenço Sena" loading="lazy"></div><div class="in"><b>Lenço Sena</b><span class="pr2">CHF 59</span><button class="tm-add" type="button">Adicionar</button></div></div>
-      <div class="tm-p" data-f="vest"><div class="ph" style="background:linear-gradient(160deg,#C9A38D,#96412C);"><img src="img/moda-5.webp" onerror="this.onerror=null;this.src='img/moda-5.jpg'" alt="Vestido Odda" loading="lazy"></div><div class="in"><b>Vestido Odda</b><span class="pr2">CHF 219</span><button class="tm-add" type="button">Adicionar</button></div></div>
-      <div class="tm-p" data-f="malha"><div class="ph" style="background:linear-gradient(160deg,#EFE3D3,#A8968A);"><img src="img/moda-4.webp" onerror="this.onerror=null;this.src='img/moda-4.jpg'" alt="Cardigã Noa" loading="lazy"></div><div class="in"><b>Cardigã Noa</b><span class="pr2">CHF 169</span><button class="tm-add" type="button">Adicionar</button></div></div>
-      <div class="tm-p" data-f="acess"><div class="ph" style="background:linear-gradient(160deg,#E2CDBD,#B3593F);"><img src="img/moda-6.webp" onerror="this.onerror=null;this.src='img/moda-6.jpg'" alt="Cinto Iva" loading="lazy"></div><div class="in"><b>Cinto Iva</b><span class="pr2">CHF 45</span><button class="tm-add" type="button">Adicionar</button></div></div>
+      <article class="tm-p" data-f="vest"><div class="ph"><img src="img/moda-1.webp" onerror="this.onerror=null;this.src='img/moda-1.jpg'" alt="Blusa de seda marfim com laço preto ao pescoço" width="700" height="840" loading="lazy"><span class="tm-tag">Nova</span></div><div class="in"><b>Blusa Lina</b><span class="pr2">CHF 175</span><span class="tm-sub">Seda lavada · marfim</span><button class="tm-add" type="button">Adicionar</button></div></article>
+      <article class="tm-p" data-f="vest"><div class="ph" style="--tm-z:2.2;--tm-ox:52%;--tm-oy:97%;"><img src="img/moda-4.webp" onerror="this.onerror=null;this.src='img/moda-4.jpg'" alt="Saia preta de lã fria com botões de madrepérola" width="700" height="840" loading="lazy"></div><div class="in"><b>Saia Ava</b><span class="pr2">CHF 145</span><span class="tm-sub">Lã fria · preto</span><button class="tm-add" type="button">Adicionar</button></div></article>
+      <article class="tm-p" data-f="vest"><div class="ph" style="--tm-z:1.75;--tm-ox:16%;--tm-oy:48%;"><img src="img/moda.webp" onerror="this.onerror=null;this.src='img/moda.jpg'" alt="Casaco comprido de pele preta com cinto, pendurado no atelier" width="960" height="538" loading="lazy" style="object-position:2% 50%;"></div><div class="in"><b>Casaco Vera</b><span class="pr2">CHF 690</span><span class="tm-sub">Pele lavada · preto</span><button class="tm-add" type="button">Adicionar</button></div></article>
+      <article class="tm-p" data-f="malha"><div class="ph"><img src="img/moda-5.webp" onerror="this.onerror=null;this.src='img/moda-5.jpg'" alt="Malhas de algodão numa arara, em seis cores da estação" width="700" height="840" loading="lazy"></div><div class="in"><b>Malha Sena</b><span class="pr2">CHF 129</span><span class="tm-sub">Algodão orgânico · 6 cores</span><button class="tm-add" type="button">Adicionar</button></div></article>
+      <article class="tm-p" data-f="malha"><div class="ph" style="--tm-z:1.3;--tm-oy:36%;"><img src="img/moda-6.webp" onerror="this.onerror=null;this.src='img/moda-6.jpg'" alt="Conjunto de moletão em ocre, camisola e calças" width="700" height="840" loading="lazy"><span class="tm-tag">Última série</span></div><div class="in"><b>Conjunto Sole</b><span class="pr2">CHF 195</span><span class="tm-sub">Moletão escovado · ocre</span><button class="tm-add" type="button">Adicionar</button></div></article>
+      <article class="tm-p" data-f="acess"><div class="ph" style="--tm-z:2.8;--tm-ox:64%;--tm-oy:90%;"><img src="img/moda-3.webp" onerror="this.onerror=null;this.src='img/moda-3.jpg'" alt="Sandálias de camurça vermelha pousadas sobre linho" width="700" height="840" loading="lazy"></div><div class="in"><b>Sandália Iva</b><span class="pr2">CHF 95</span><span class="tm-sub">Camurça · vermelho</span><button class="tm-add" type="button">Adicionar</button></div></article>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="m-atelier">
-      <span class="tp-kicker">O atelier</span>
-      <h2 class="tp-h2">Feito devagar, para durar</h2>
-      <div class="tp-grid-2">
-        <p style="color:var(--tp-muted);font-family:'Instrument Sans',sans-serif;">Cada peça nasce no nosso atelier: tecidos naturais escolhidos à mão, cortes que respeitam o corpo e séries pequenas para nunca veres a tua peça em todo o lado. Trocas gratuitas em 30 dias.</p>
-        <div class="tp-grid-3" style="gap:10px;">
-          <div class="tp-tile" style="background:linear-gradient(150deg,#E7DBD0,#B3593F);"></div>
-          <div class="tp-tile" style="background:linear-gradient(150deg,#EFE3D3,#8F7B63);"></div>
-          <div class="tp-tile" style="background:linear-gradient(150deg,#DDCBBB,#6E5A48);"></div>
+    <section class="tm-band" id="m-atelier">
+      <div class="tm-band-in">
+        <div class="tm-band-media"><img src="img/moda-3.webp" onerror="this.onerror=null;this.src='img/moda-3.jpg'" alt="Tecidos e peças da coleção pousados sobre linho cru" width="700" height="840" loading="lazy" style="object-position:50% 40%;"></div>
+        <div class="tm-band-text">
+          <span class="tp-kicker">O atelier</span>
+          <h2 class="tp-h2">Feito devagar, para durar</h2>
+          <p>Escolhemos os tecidos à mão, cortamos no atelier e cosemos em séries curtas. É mais lento e é de propósito: assim conhecemos cada peça que sai daqui.</p>
+          <dl class="tm-facts">
+            <div><dt>Tecidos</dt><dd>Lã, linho e seda de fábricas em Itália e Portugal</dd></div>
+            <div><dt>Séries</dt><dd>30 a 60 peças por modelo, sem reposição automática</dd></div>
+            <div><dt>Atelier</dt><dd>Corte e costura na Rue du Rhône, Sion</dd></div>
+          </dl>
         </div>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <span class="tp-kicker">Testemunhos</span>
-      <h2 class="tp-h2">Quem já veste Atelier</h2>
-      <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>O vestido Lina tornou-se a peça que mais uso. Qualidade rara.<footer><span class="tp-ava" style="color:#F7F2EE;">CV</span>C. Vieira · Genebra</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Encomendei à terça, chegou à quinta, impecavelmente embalado.<footer><span class="tp-ava" style="color:#F7F2EE;">MR</span>M. Roth · Zurique</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Finalmente uma marca que não segue todas as tendências.<footer><span class="tp-ava" style="color:#F7F2EE;">AL</span>A. Lopes · Sion</footer></blockquote>
+    <section class="tw tm-sec">
+      <div class="tm-head">
+        <h2>Lookbook</h2>
+        <span class="tm-meta">Fotografado em Sion, setembro</span>
+      </div>
+      <div class="tp-tiles">
+        <div class="tp-tile"><img src="img/moda-2.webp" onerror="this.onerror=null;this.src='img/moda-2.jpg'" alt="Look 01 — conjunto Sole fotografado em exteriores" width="700" height="840" loading="lazy" style="object-position:50% 30%;"></div>
+        <div class="tp-tile"><img src="img/moda-5.webp" onerror="this.onerror=null;this.src='img/moda-5.jpg'" alt="Look 02 — as seis cores da malha Sena numa arara" width="700" height="840" loading="lazy" style="object-position:100% 50%;"></div>
+        <div class="tp-tile"><img src="img/moda.webp" onerror="this.onerror=null;this.src='img/moda.jpg'" alt="Look 03 — vestidos e camisas nas araras da loja" width="960" height="538" loading="lazy" style="object-position:96% 42%;"></div>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <div class="tp-card">
-        <div class="tp-form" style="grid-template-columns:1fr auto;">
-          <label id="m-news">Recebe a próxima coleção em primeira mão<input type="email" placeholder="o-teu@email.ch" data-k="email"></label>
-          <button class="tpl-cta dm-book" type="button" data-ref="NL" data-msg="Subscrição feita — bem-vinda à lista">Subscrever</button>
-        </div>
-        <div class="dm-note" data-note><b>✓ Subscrito!</b> <span data-note-txt></span></div>
+    <section class="tw tm-sec">
+      <div class="tm-head">
+        <h2>Quem já veste ODDA</h2>
+        <span class="tm-meta">312 avaliações · 4,9 em 5</span>
+      </div>
+      <div class="tp-grid-3">
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" role="img" aria-label="Cinco estrelas em cinco"></span>A blusa Lina é a peça que mais uso. Três invernos depois, continua igual.<footer><span class="tp-ava">CV</span>C. Vieira · Genebra</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" role="img" aria-label="Cinco estrelas em cinco"></span>Encomendei à terça, chegou à quinta, embrulhada em papel de seda.<footer><span class="tp-ava">MR</span>M. Roth · Zurique</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" role="img" aria-label="Cinco estrelas em cinco"></span>Finalmente uma marca que não corre atrás de todas as tendências.<footer><span class="tp-ava">AL</span>A. Lopes · Sion</footer></blockquote>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="m-apoio">
-      <span class="tp-kicker">Apoio ao cliente</span>
-      <h2 class="tp-h2">Compra com confiança</h2>
+    <section class="tw tm-sec" id="m-apoio">
+      <div class="tm-head">
+        <h2>Compra com confiança</h2>
+        <span class="tm-meta">Apoio ao cliente</span>
+      </div>
       <div class="tp-grid-3">
-        <div class="tp-card"><b>Envios</b><span>48h para toda a Suíça e Europa, com rastreio incluído.</span></div>
+        <div class="tp-card"><b>Envios</b><span>48 h para toda a Suíça e Europa, com rastreio incluído.</span></div>
         <div class="tp-card"><b>Trocas</b><span>30 dias para trocar ou devolver, sem perguntas.</span></div>
-        <div class="tp-card tpl-contact-info"><b style="display:block;margin-bottom:6px;">Dúvidas?</b><div class="tpl-cline"><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div></div>
+        <div class="tp-card tpl-contact-info"><b>Dúvidas?</b><div class="tpl-cline"><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div></div>
       </div>
     </section>
-    <div class="tp-foot"><span>ATELIER · moda em pequenas séries</span><span>Envios 48h · Trocas grátis 30 dias</span></div>
+    <section class="tm-news">
+      <div class="tm-news-in">
+        <div class="tp-card">
+          <h2>Recebe a coleção antes de sair</h2>
+          <p>Uma carta por estação: peças novas, datas de reposição e convites para os dias abertos do atelier.</p>
+          <div class="tp-form">
+            <label id="m-news">Email<input type="email" placeholder="o-teu@email.ch" data-k="email" autocomplete="email"></label>
+            <button class="tpl-cta dm-book" type="button" data-ref="NL" data-msg="Subscrição feita — bem-vinda à lista">Subscrever</button>
+          </div>
+          <div class="dm-note" data-note><b>✓ Subscrito!</b> <span data-note-txt></span></div>
+        </div>
+      </div>
+    </section>
+    <div class="tp-foot"><span>ODDA · moda em séries curtas, Sion</span><span>Envio 48 h · Trocas grátis 30 dias</span></div>
     <div class="tpl-go-band">
       <p>Marcas e lojas: uma loja online com esta elegância vende sozinha.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
