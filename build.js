@@ -198,10 +198,21 @@ function absolutize(html, lang) {
       if (url === 'index.html') return attr + '="' + PREFIX[lang] + '"';
       return attr + '="/' + url + '"';
     });
+  /* srcset é uma lista, não um atributo simples — o absolutize acima só apanha src/href,
+     por isso a variante -480w pedia /de/img/x-480.webp e dava 404 em quatro dos cinco builds */
+  html = html.replace(/\bsrcset="([^"]+)"/g, (m, list) =>
+    'srcset="' + list.split(',').map((cand) => {
+      const t = cand.trim();
+      return /^(https?:|\/|data:)/.test(t) ? t : '/' + t;
+    }).join(', ') + '"');
+  /* url() dentro de style= e de <style>: num documento HTML resolve contra a base do
+     documento, logo em /de/ partia na mesma (mosaicos das demos sem foto nenhuma) */
+  html = html.replace(/url\((['"]?)(?!https?:|\/|data:|#)([^'")]+)\1\)/g,
+    (m, quote, url) => 'url(' + quote + '/' + url + quote + ')');
   // caminhos construídos dentro do JavaScript
   html = html.replace(/this\.src='img\//g, () => "this.src='/img/");
   html = html.replace(/"supabase\.min\.js"/g, () => '"/supabase.min.js"');
-  html = html.replace(/"img\/"/g, () => '"/img/"');
+  html = html.replace(/"img\//g, () => '"/img/');   /* apanha "img/" e também "img/3d/…" (texturas da sala 3D) */
   return html;
 }
 

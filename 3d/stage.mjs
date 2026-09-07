@@ -468,7 +468,11 @@ export function start(opts) {
     ['pointercancel', up], ['pointerleave', up], ['keydown', keys]];
   bound.forEach(([n, f, opt]) => canvas.addEventListener(n, f, opt));
 
-  const resize = () => app.resizeCanvas(Math.max(1, canvas.clientWidth), Math.max(1, canvas.clientHeight));
+  /* updateCanvasSize() lê clientWidth/clientHeight e redimensiona só o buffer de desenho.
+     app.resizeCanvas() faria o mesmo mas escrevia style.width/height em px no canvas, e um
+     estilo inline ganha à folha: o palco congelava na primeira medida (2px de largura no
+     telemóvel) e o ResizeObserver aqui em baixo realimentava-se. */
+  const resize = () => app.updateCanvasSize();
   window.addEventListener('resize', resize);
   let ro = null;   /* a demo pode mudar de largura sem a janela mudar */
   if (window.ResizeObserver) { ro = new ResizeObserver(resize); ro.observe(canvas); }

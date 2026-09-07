@@ -143,7 +143,9 @@ export function start(opts) {
   };
   canvas.addEventListener('keydown', keys);
 
-  const resize = () => app.resizeCanvas(canvas.clientWidth, canvas.clientHeight);
+  /* só o buffer de desenho — app.resizeCanvas() escreveria style.width/height inline no canvas
+     e o inline ganha à folha (ver a mesma armadilha em stage.mjs) */
+  const resize = () => app.updateCanvasSize();
   window.addEventListener('resize', resize);
   resize();
   app.start();
