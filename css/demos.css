@@ -322,7 +322,9 @@
 @keyframes fCover { from { transform: scale(1.07); } to { transform: none; } }
 
 /* cabeçalho */
-.t-f-head { display: flex; align-items: center; gap: 18px; padding-block: 18px; border-bottom: 1px solid var(--tp-line); }
+/* `flex-wrap` é o que faz a regra partilhada `.tpl-nav2 { flex: 1 1 100%; order: 9 }` funcionar:
+   no telemóvel a navegação ganha uma linha inteira em vez de encolher para uma tira com scroll. */
+.t-f-head { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; padding-block: 18px; border-bottom: 1px solid var(--tp-line); }
 .t-f-logo { font-size: 0.82rem; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 600; }
 .t-f-logo span { color: var(--tp-muted); font-weight: 400; margin-left: 0.35em; }
 .t-f .tpl-nav2 { font-family: inherit; font-size: 0.76rem; letter-spacing: 0.16em; text-transform: uppercase; gap: 26px; }
@@ -333,8 +335,12 @@
 
 /* hero: a fotografia a toda a largura, o texto assenta-lhe em cima */
 .t-f .t-cover { height: var(--f-hero); background: #0B0B0B; }
-.t-f .t-cover::after { content: ""; position: absolute; inset: 0; z-index: 3; background: linear-gradient(100deg, rgba(11, 11, 11, 0.82) 0%, rgba(11, 11, 11, 0.42) 40%, rgba(11, 11, 11, 0) 72%), linear-gradient(180deg, rgba(11, 11, 11, 0.55) 0%, rgba(11, 11, 11, 0.08) 26%, rgba(11, 11, 11, 0.3) 52%, rgba(11, 11, 11, 0.86) 82%, #0B0B0B 100%); }
-.t-f .t-cover .ph-img { animation: fCover 1.9s var(--f-ease) both; }
+.t-f .t-cover::after { content: ""; position: absolute; inset: 0; z-index: 3; background: linear-gradient(100deg, rgba(11, 11, 11, 0.88) 0%, rgba(11, 11, 11, 0.6) 42%, rgba(11, 11, 11, 0.12) 68%, rgba(11, 11, 11, 0) 84%), linear-gradient(180deg, rgba(11, 11, 11, 0.55) 0%, rgba(11, 11, 11, 0.08) 26%, rgba(11, 11, 11, 0.3) 52%, rgba(11, 11, 11, 0.86) 82%, #0B0B0B 100%); }
+/* a capa que o embImg() injeta é dimensionada para as miniaturas de 362px do portefólio: aqui a
+   capa é um hero a toda a largura, por isso esconde-se a injetada e usa-se o <img> do template,
+   que declara sizes="100vw", o candidato de 960w e prioridade de carregamento alta. */
+.t-f .t-cover > .ph-img { display: none; }
+.t-f-cover-img { position: absolute; inset: 0; z-index: 2; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 62% 42%; animation: fCover 1.9s var(--f-ease) both; }
 /* especificidade acima de `.tpl-body .tw`/`.tpl-body section`, que fixam margem e posição */
 .t-f section.t-f-hero { position: relative; z-index: 4; margin-top: calc(-1 * var(--f-hero)); margin-bottom: 0; min-height: var(--f-hero); display: flex; flex-direction: column; justify-content: flex-end; text-align: left; padding-block: 40px clamp(30px, 4vw, 48px); }
 .t-f-hero > * { animation: fRise 0.95s var(--f-ease) both; }
@@ -361,17 +367,23 @@
 .t-f section.t-f-port, .t-f section.t-f-packs { padding-top: var(--f-sec); padding-bottom: 0; }
 .t-f-port > .t-f-shead { grid-column: 1 / -1; margin-bottom: clamp(2px, 1vw, 8px); }
 .t-f-item { grid-column: span 4; --h: clamp(190px, 22vw, 300px); display: flex; flex-direction: column; gap: 12px; margin: 0; animation: fRise 0.8s var(--f-ease) both; }
-.t-f-item--lead { grid-column: span 12; --h: clamp(230px, 33vw, 460px); }
-.t-f-item--tall { grid-column: span 5; --h: clamp(260px, 31vw, 420px); }
-.t-f-item--wide { grid-column: span 7; --h: clamp(260px, 31vw, 420px); }
+/* primeira fila: duas paisagens à mesma altura */
+.t-f-item--lead { grid-column: span 7; --h: clamp(250px, 30vw, 450px); }
+.t-f-item--side { grid-column: span 5; --h: clamp(250px, 30vw, 450px); }
+/* segunda fila: três retratos. Proporção fixa em vez de altura fixa — assim o recorte de cada
+   fotografia é o mesmo em qualquer largura de ecrã, e não aperta nem alarga com a coluna. */
+.t-f-item--tall { grid-column: span 4; }
+.t-f-item--tall .t-f-frame { height: auto; aspect-ratio: 5 / 6; }
 .t-f-item:nth-of-type(2) { animation-delay: 0.07s; }
 .t-f-item:nth-of-type(3) { animation-delay: 0.12s; }
 .t-f-item:nth-of-type(4) { animation-delay: 0.17s; }
 .t-f-item:nth-of-type(5) { animation-delay: 0.22s; }
-.t-f-item:nth-of-type(6) { animation-delay: 0.27s; }
 .t-f-frame { position: relative; overflow: hidden; height: var(--h); border-radius: var(--f-r); background: #0B0B0B; cursor: zoom-in; }
-.t-f-frame > img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: var(--px, 50%) var(--py, 50%); transform: scale(var(--z, 1)); transform-origin: var(--px, 50%) var(--py, 50%); transition: transform 0.85s var(--f-ease), filter 0.5s ease; }
-@media (hover: hover) { .t-f-frame:hover > img { transform: scale(calc(var(--z, 1) * 1.06)); } }
+/* Sem escala no <img>: o que se vê na miniatura é `cover` + `object-position`, exatamente o
+   que o `background` inline diz — e é esse `background` que a lightbox partilhada copia.
+   Ampliar passa assim a mostrar o mesmo enquadramento, maior, e não um plano mais aberto. */
+.t-f-frame > img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: var(--px, 50%) var(--py, 50%); transform-origin: var(--px, 50%) var(--py, 50%); transition: transform 0.85s var(--f-ease), filter 0.5s ease; }
+@media (hover: hover) { .t-f-frame:hover > img { transform: scale(1.05); } }
 /* marca de ampliar: duas linhas desenhadas, não um glifo */
 .t-f-frame::after { content: ""; position: absolute; right: 14px; bottom: 14px; width: 20px; height: 20px; z-index: 3; opacity: 0; transform: translateY(6px); filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.8)); transition: opacity 0.3s ease, transform 0.3s var(--f-ease); background: linear-gradient(var(--tp-accent), var(--tp-accent)) center / 1.5px 100% no-repeat, linear-gradient(var(--tp-accent), var(--tp-accent)) center / 100% 1.5px no-repeat; }
 .t-f-frame:hover::after, .t-f-frame:focus-visible::after { opacity: 1; transform: none; }
@@ -426,11 +438,19 @@
   /* no telemóvel o texto ocupa mais altura: o escurecimento tem de subir */
   .t-f .t-cover::after { background: linear-gradient(180deg, rgba(11, 11, 11, 0.5) 0%, rgba(11, 11, 11, 0.06) 20%, rgba(11, 11, 11, 0.58) 46%, rgba(11, 11, 11, 0.93) 74%, #0B0B0B 100%); }
   .t-f-port { grid-template-columns: 1fr; gap: 28px; }
-  .t-f-item, .t-f-item--lead, .t-f-item--tall, .t-f-item--wide { grid-column: 1 / -1; --h: clamp(210px, 56vw, 320px); }
-  .t-f-item--tall { --h: clamp(300px, 84vw, 420px); }
-  .t-f-item:nth-of-type(5) { --h: clamp(250px, 68vw, 360px); }
+  .t-f-item, .t-f-item--lead, .t-f-item--side, .t-f-item--tall { grid-column: 1 / -1; --h: clamp(210px, 56vw, 320px); }
   .t-f-cont { grid-template-columns: 1fr; }
-  .t-f .tpl-nav2 { gap: 20px; }
+}
+/* mesmo ponto de corte da regra partilhada que manda a navegação para a linha de baixo */
+@media (max-width: 700px) {
+  /* com uma linha só para ela e sem versaletes largos, os quatro destinos — Contacto incluído —
+     cabem a 390px sem scroll horizontal escondido. */
+  .t-f .tpl-nav2 { gap: 18px; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: none; padding-right: 0; -webkit-mask-image: none; mask-image: none; }
+  .t-f .tpl-nav2 a { padding: 12px 0; }
+  .t-f .tpl-nav2 a::after { bottom: 5px; }
+  .t-f-head { padding-block: 14px 4px; gap: 10px; }
+  /* o cabeçalho fixo tem agora duas linhas: as âncoras têm de parar mais abaixo */
+  .t-f [id] { scroll-margin-top: 96px; }
 }
 @media (max-width: 640px) {
   .t-f-pack { grid-template-columns: minmax(0, 1fr) auto; gap: 10px 18px; }

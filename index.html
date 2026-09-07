@@ -2389,10 +2389,17 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
           <circle cx="-16" cy="-20" r="8" fill="#F3F1EC" opacity="0.5"/>
         </g>
       </svg>
+      <!-- capa a toda a largura: contrato de tamanho próprio (100vw, candidato grande, sem lazy),
+           ao contrário do embImg() do portfólio, que é dimensionado para miniaturas de 362px.
+           A imagem que o embImg() injeta neste .t-cover fica escondida por CSS (.t-f .t-cover > .ph-img). -->
+      <img class="t-f-cover-img" src="img/foto.webp" srcset="img/foto-480.webp 480w, img/foto.webp 960w" sizes="100vw"
+           onerror="this.onerror=null;this.removeAttribute('srcset');this.removeAttribute('sizes');this.src='img/foto.jpg'"
+           alt="Corpo de máquina fotográfica e quatro objetivas dispostos sobre fundo preto de estúdio"
+           width="960" height="537" fetchpriority="high" decoding="async">
     </div>
     <section class="tw t-f-hero">
       <h2>Fotografia de produto que vende.</h2>
-      <p>Estúdio em Visp. Imagens limpas e iguais entre si, para loja online, catálogo e campanha — entregues em cinco dias.</p>
+      <p>Estúdio em Visp. Imagens limpas e iguais entre si — para loja online, catálogo e campanha. Entrega em cinco dias.</p>
       <div class="t-f-actions">
         <a class="tpl-cta" href="#f-port" data-goto="#f-port">Ver trabalho</a>
         <a class="t-f-ghost" href="#f-cont" data-goto="#f-cont">Pedir orçamento</a>
@@ -2400,42 +2407,42 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
       <ul class="t-f-meta"><li>Visp · Valais</li><li>Estúdio próprio, 60 m²</li><li>Entrega em 5 dias úteis</li></ul>
     </section>
     <section class="tw t-f-port" id="f-port">
-      <div class="t-f-shead t-f-gal"><h2 class="tp-h2">Trabalho recente para marcas do Valais.</h2><span class="tp-kicker">Portfólio</span></div>
+      <div class="t-f-shead"><h2 class="tp-h2">Trabalho recente para marcas do Valais.</h2><span class="tp-kicker">Portfólio · cinco peças</span></div>
+      <!-- Cada moldura é uma fotografia diferente do repositório. O `background` inline repete o
+           enquadramento do `<img>` (mesma posição, mesmo `cover`) porque é o que a lightbox
+           partilhada copia — assim ampliar mostra o mesmo enquadramento, maior, e não outro.
+           Nas molduras 5:6, `cover` é o mesmo que largura 216.5% para uma foto 960×532: onde o
+           recorte tem de se manter exato (aço, à esquerda do original), escreve-se a percentagem,
+           porque a percentagem conserva a fração da imagem visível também na lightbox 4:3. -->
       <figure class="t-f-item t-f-item--lead">
-        <div class="t-f-frame dm-zoom" data-cap="Optik Valais — catálogo completo, 2025" role="button" tabindex="0" aria-label="Ampliar: Optik Valais, catálogo completo" style="background:url('img/foto.webp') 50% 46%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:50%;--py:46%;--z:1.02;">
-          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Conjunto de máquina e objetivas fotografado em estúdio sobre fundo escuro" width="960" height="537" loading="lazy" decoding="async">
+        <div class="t-f-frame dm-zoom" data-cap="Cave du Rhône — mesa posta para a prova, 2025" role="button" tabindex="0" aria-label="Ampliar: Cave du Rhône, mesa posta" style="background:url('img/rest.webp') 50% 60%/cover no-repeat,#0B0B0B;--px:50%;--py:60%;">
+          <img src="img/rest.webp" onerror="this.onerror=null;this.src='img/rest.jpg'" alt="Mesa posta numa sala de madeira, taças de vinho alinhadas e lareira acesa ao fundo" width="960" height="541" loading="lazy" decoding="async">
         </div>
-        <figcaption class="t-f-cap"><b>Optik Valais · catálogo</b><span>2025</span></figcaption>
+        <figcaption class="t-f-cap"><b>Cave du Rhône · mesa e prova</b><span>2025</span></figcaption>
+      </figure>
+      <figure class="t-f-item t-f-item--side">
+        <div class="t-f-frame dm-zoom" data-cap="Holz &amp; Co — cómoda Saas, catálogo de outono" role="button" tabindex="0" aria-label="Ampliar: Holz e Co, cómoda Saas" style="background:url('img/imob-5.webp') 72% 46%/cover no-repeat,#0B0B0B;--px:72%;--py:46%;">
+          <img src="img/imob-5.webp" onerror="this.onerror=null;this.src='img/imob-5.jpg'" alt="Cómoda clara com candeeiro de pé e ramo seco, junto a um sofá escuro, sobre parede branca" width="800" height="500" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="t-f-cap"><b>Holz &amp; Co · catálogo</b><span>Mobiliário</span></figcaption>
       </figure>
       <figure class="t-f-item t-f-item--tall">
-        <div class="t-f-frame dm-zoom" data-cap="Objetivas, série curta — loja online" role="button" tabindex="0" aria-label="Ampliar: objetivas, série curta" style="background:url('img/foto.webp') 6% 34%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:6%;--py:34%;--z:2.7;">
-          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Duas objetivas de pé, luz lateral suave sobre fundo preto" width="960" height="537" loading="lazy" decoding="async">
+        <div class="t-f-frame dm-zoom" data-cap="Atelier Saas — conjunto de verão, plano de cima" role="button" tabindex="0" aria-label="Ampliar: Atelier Saas, conjunto de verão" style="background:url('img/moda-3.webp') 50% 48%/cover no-repeat,#0B0B0B;--px:50%;--py:48%;">
+          <img src="img/moda-3.webp" onerror="this.onerror=null;this.src='img/moda-3.jpg'" alt="Camisa branca, calças de ganga e sandálias vermelhas dispostas sobre linho cru" width="700" height="840" loading="lazy" decoding="async">
         </div>
-        <figcaption class="t-f-cap"><b>Objetivas, série curta</b><span>Loja online</span></figcaption>
+        <figcaption class="t-f-cap"><b>Atelier Saas · lookbook</b><span>Loja online</span></figcaption>
       </figure>
-      <figure class="t-f-item t-f-item--wide">
-        <div class="t-f-frame dm-zoom" data-cap="Corpo e teleobjetiva — editorial de marca" role="button" tabindex="0" aria-label="Ampliar: corpo e teleobjetiva" style="background:url('img/foto.webp') 70% 30%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:70%;--py:30%;--z:1.9;">
-          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Corpo de máquina com teleobjetiva branca, visto de frente" width="960" height="537" loading="lazy" decoding="async">
+      <figure class="t-f-item t-f-item--tall">
+        <div class="t-f-frame dm-zoom" data-cap="Coutellerie Alpin — navalhas e máquinas, ficha de produto" role="button" tabindex="0" aria-label="Ampliar: Coutellerie Alpin, navalhas e máquinas" style="background:url('img/barb.webp') 0% 50%/216.5% no-repeat,#0B0B0B;--px:0%;--py:50%;">
+          <img src="img/barb.webp" onerror="this.onerror=null;this.src='img/barb.jpg'" alt="Navalhas de barbear e máquinas de corte alinhadas sobre couro castanho" width="960" height="532" loading="lazy" decoding="async">
         </div>
-        <figcaption class="t-f-cap"><b>Corpo e 250 mm</b><span>Editorial</span></figcaption>
+        <figcaption class="t-f-cap"><b>Coutellerie Alpin · aço</b><span>Ficha de produto</span></figcaption>
       </figure>
-      <figure class="t-f-item">
-        <div class="t-f-frame dm-zoom" data-cap="250 mm, detalhe do anel — ficha de produto" role="button" tabindex="0" aria-label="Ampliar: detalhe do anel de 250 mm" style="background:url('img/foto.webp') 85% 46%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:85%;--py:46%;--z:2.7;">
-          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Detalhe do anel graduado de uma teleobjetiva de 250 mm" width="960" height="537" loading="lazy" decoding="async">
+      <figure class="t-f-item t-f-item--tall">
+        <div class="t-f-frame dm-zoom" data-cap="Atelier Saas — cartela de cores da coleção" role="button" tabindex="0" aria-label="Ampliar: Atelier Saas, cartela de cores" style="background:url('img/moda-5.webp') 46% 42%/cover no-repeat,#0B0B0B;--px:46%;--py:42%;">
+          <img src="img/moda-5.webp" onerror="this.onerror=null;this.src='img/moda-5.jpg'" alt="Fila de camisolas em cabides, do branco ao ocre e ao preto" width="700" height="840" loading="lazy" decoding="async">
         </div>
-        <figcaption class="t-f-cap"><b>250 mm, o anel</b><span>Ficha de produto</span></figcaption>
-      </figure>
-      <figure class="t-f-item">
-        <div class="t-f-frame dm-zoom" data-cap="Grande angular — ficha de campanha" role="button" tabindex="0" aria-label="Ampliar: grande angular" style="background:url('img/foto.webp') 72% 93%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:72%;--py:93%;--z:2.8;">
-          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Objetiva grande angular deitada, luz rasante" width="960" height="537" loading="lazy" decoding="async">
-        </div>
-        <figcaption class="t-f-cap"><b>Grande angular</b><span>Campanha</span></figcaption>
-      </figure>
-      <figure class="t-f-item">
-        <div class="t-f-frame dm-zoom" data-cap="Para-sol em contraluz — editorial" role="button" tabindex="0" aria-label="Ampliar: para-sol em contraluz" style="background:url('img/foto.webp') 31% 90%/cover no-repeat,#0B0B0B;cursor:zoom-in;--px:31%;--py:90%;--z:2.5;">
-          <img src="img/foto.webp" onerror="this.onerror=null;this.src='img/foto.jpg'" alt="Para-sol de objetiva em contraluz" width="960" height="537" loading="lazy" decoding="async">
-        </div>
-        <figcaption class="t-f-cap"><b>Para-sol, contraluz</b><span>Editorial</span></figcaption>
+        <figcaption class="t-f-cap"><b>Atelier Saas · cartela</b><span>Campanha</span></figcaption>
       </figure>
     </section>
     <section class="tw t-f-packs" id="f-packs">
@@ -2467,7 +2474,7 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
     <section class="tw tp-sec">
       <div class="t-f-shead"><h2 class="tp-h2">O que dizem as marcas.</h2><span class="tp-kicker">Testemunhos</span></div>
       <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Trocámos as fotos do fornecedor pelas do Lume e as devoluções caíram.<footer><span class="tp-ava">MR</span>M. Ritz · Optik Valais</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Trocámos as fotos do fornecedor pelas do Lume e as devoluções caíram.<footer><span class="tp-ava">SB</span>S. Bumann · Holz &amp; Co</footer></blockquote>
         <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Quarenta referências num só dia, todas com a mesma luz. Era mesmo isto.<footer><span class="tp-ava">LI</span>L. Imboden · Cave du Rhône</footer></blockquote>
         <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Fez o nosso pequeno atelier parecer uma marca grande.<footer><span class="tp-ava">NZ</span>N. Zurbriggen · Atelier Saas</footer></blockquote>
       </div>
