@@ -451,7 +451,11 @@ h2.display { font-size: clamp(2rem, 4.6vw, 3.2rem); letter-spacing: -0.02em; lin
   --pad: clamp(20px, 4vw, 56px);
   /* escala de numerais, ordenada em todas as larguras: o h2 manda, depois os preços,
      depois a prova, e por último os índices (01/02, 1/2/3/4) que são só marcadores.
-     Em 390px: h2 37 · preço 34.4 · prova 31.2 · índice 27.2 — a inversão do telemóvel desaparece. */
+     Os pisos do h2 (2.4rem abaixo de 481px, 2.5rem acima) ficam acima do piso dos preços em
+     TODAS as larguras, não só na amostra de 390: 320 → 38.4 · 34.4 · 31.2 · 27.2;
+     360/390/480 → 38.4-41.6 · 34.4 · 31.2 · 27.2; 481-800 → 40 · 34.4 · 31.2 · 27.2;
+     1440 → 64 · 49.6 · 44.6 · 36. O degrau de 480→481 fecha-se de 6.4px para 1.6px. */
+  --flag-fs: 0.76rem;
   --num-price: clamp(2.15rem, 3.6vw, 3.1rem);
   --num-proof: clamp(1.95rem, 3.1vw, 2.9rem);
   --num-idx: clamp(1.7rem, 2.5vw, 2.4rem);
@@ -604,7 +608,7 @@ header.scrolled { background: var(--paper); border-bottom-color: var(--ink); }
 .section-head::before { content: ""; position: absolute; left: 0; top: -1px; width: 64px; height: 3px; background: var(--red); transform-origin: 0 50%; }
 .js .section-head.reveal::before { transform: scaleX(0); transition: transform 0.9s var(--ease); }
 .js .section-head.reveal.in::before { transform: none; }
-h2.display { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin: 0; }
+h2.display { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.035em; margin: 0; }
 h2.display::after { content: "."; color: var(--red); }
 .price-guide { color: var(--ink-2); max-width: 60ch; font-size: 0.98rem; margin-top: 16px; text-wrap: pretty; }
 @media (max-width: 760px) { .section-head { grid-template-columns: 1fr; } .section-head h2, .section-head .section-sub, .section-head .price-guide { grid-column: 1; } }
@@ -690,7 +694,9 @@ h2.display::after { content: "."; color: var(--red); }
 .shot-view { font-family: inherit; border-radius: 0; background: var(--paper); color: var(--ink); border: 0; font-weight: 700; }
 .folio-note { color: var(--ink-3); font-size: 0.88rem; margin-top: 22px; }
 .folio-cta { margin-top: 44px; padding: 30px 34px; border: 0; border-radius: 0; background: var(--band); color: var(--on-band); display: flex; justify-content: space-between; align-items: center; gap: 24px; text-align: left; }
-.folio-cta p { max-width: 52ch; color: var(--on-band); font-size: 1.08rem; margin: 0; text-wrap: balance; }
+/* "balance" desliga-se acima de meia dúzia de linhas: a 390px em alemão o bloco corria 8 linhas
+   e caía em "könnte." sozinha. "pretty" não tem esse tecto e é o que trata da última linha. */
+.folio-cta p { max-width: 52ch; color: var(--on-band); font-size: 1.08rem; margin: 0; text-wrap: pretty; }
 @media (max-width: 900px) { .folio { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .folio { grid-template-columns: 1fr; } .folio-cta { flex-direction: column; align-items: stretch; } }
 
@@ -708,11 +714,13 @@ h2.display::after { content: "."; color: var(--red); }
 .plan { padding: 22px 0 28px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--ink); }
 .plan.hot { border-top: 5px solid var(--red); box-shadow: none; background: transparent; padding-top: 18px; }
 /* os três preços têm de assentar na mesma linha: o selo do plano em destaque empurrava-o
-   um degrau abaixo dos outros dois e a comparação — que é o trabalho desta secção — perdia-se */
-@media (min-width: 901px) { .plans .plan:not(.hot)::before { content: ""; display: block; height: 28px; } }
+   um degrau abaixo dos outros dois e a comparação — que é o trabalho desta secção — perdia-se.
+   A altura sai dos mesmos tokens que constroem o selo (corpo × entrelinha + os 2×4px de recuo),
+   por isso acompanha-o se ele mudar, em vez de ser um número redondo à mão. */
+@media (min-width: 901px) { .plans .plan:not(.hot)::before { content: ""; display: block; height: calc(var(--flag-fs) * 1.55 + 8px); } }
 /* blocos herdados que pintam o acento com texto branco fixo: no azul-gelo o texto tem de ser escuro */
 .tpl-close, .chip-perf, .cl-tab.on, .cl-msg.me { color: var(--on-red); }
-.plan-flag { position: static; display: inline-block; width: fit-content; background: var(--red); color: var(--on-red); padding: 4px 8px; font-size: 0.76rem; font-weight: 700; border-radius: 0; letter-spacing: 0; font-family: inherit; text-transform: none; }
+.plan-flag { position: static; display: inline-block; width: fit-content; background: var(--red); color: var(--on-red); padding: 4px 8px; font-size: var(--flag-fs); line-height: 1.55; font-weight: 700; border-radius: 0; letter-spacing: 0; font-family: inherit; text-transform: none; }
 .plan h3 { font-size: 1.35rem; margin-top: 6px; }
 .plan-amount { font-family: inherit; font-size: var(--num-price); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variation-settings: "wdth" 114; font-variant-numeric: tabular-nums; color: var(--ink); background: none; -webkit-background-clip: initial; background-clip: initial; -webkit-text-fill-color: initial; }
 .plan.hot .plan-amount { color: var(--red); }
@@ -841,7 +849,9 @@ h2.display::after { content: "."; color: var(--red); }
 footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var(--paper); }
 .foot2 { display: grid; grid-template-columns: 1.3fr 0.85fr 0.85fr 0.95fr 0.75fr; gap: 30px; }
 .foot2 .logo { font-size: 2.2rem; }
-.foot-tag { color: var(--ink-2); font-size: 0.94rem; max-width: 30ch; margin-top: 12px; }
+/* o mesmo tratamento de quebra que o resto do corpo já tinha: em DE a última linha caía em
+   "dazwischen." sozinha a 1440. "pretty" e não "balance" — o bloco corre 3-4 linhas dentro de 30ch */
+.foot-tag { color: var(--ink-2); font-size: 0.94rem; max-width: 30ch; margin-top: 12px; text-wrap: pretty; }
 /* linha de línguas + lugar: um facto, não uma etiqueta. Fica destacada da assinatura por uma régua
    e ganha o espaçamento ótico que as maiúsculas pedem a este corpo (o resto do mundo não usa maiúsculas). */
 .foot-langs { font-family: inherit; font-size: 0.8rem; line-height: 1.4; letter-spacing: 0.03em; color: var(--ink-3); margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--rule); width: fit-content; max-width: 100%; font-variant-numeric: tabular-nums; }
@@ -880,8 +890,10 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 #cookieBanner p a { color: var(--red-ink); text-decoration: underline; }
 .cookie-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
 .cookie-row .btn { padding: 12px 16px; }
-/* no telemóvel o recuo é o mesmo --pad da página: as arestas do aviso alinham com o texto por trás */
-@media (max-width: 640px) { #cookieBanner { left: 20px; right: 20px; bottom: 20px; max-width: none; padding: 16px 18px; } .cookie-row { justify-content: stretch; } .cookie-row button { flex: 1; } }
+/* no telemóvel o recuo é o mesmo --pad da página — o token, não o seu valor a uma só largura:
+   entre 500 e 640px o --pad passa de 20 para 25.6px e o aviso acompanha-o. A base fica em 20px
+   para continuar a registar com o FAB. */
+@media (max-width: 640px) { #cookieBanner { left: var(--pad); right: var(--pad); bottom: 20px; max-width: none; padding: 16px 18px; } .cookie-row { justify-content: stretch; } .cookie-row button { flex: 1; } }
 .tpl-badge { border-radius: 0; }
 
 /* ---------- loader em papel ---------- */
@@ -935,7 +947,7 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 /* palavras: o JS envolve cada palavra em .w > span */
 .w { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 0 0.08em; margin-bottom: -0.08em; max-width: 100%; }
 .w > span { display: inline-block; max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
-@media (max-width: 480px) { h2.display { font-size: clamp(1.8rem, 9.5vw, 2.6rem); } .hero h1 { font-size: clamp(2.3rem, 13vw, 3.2rem); } }
+@media (max-width: 480px) { h2.display { font-size: clamp(2.4rem, 9.5vw, 2.6rem); } .hero h1 { font-size: clamp(2.3rem, 13vw, 3.2rem); } }
 /* "professionell" não parte (a palavra rotativa não é dividida em pedaços): no alemão o título desce um degrau */
 html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 /* o botão principal herdava o espaçamento de letras e o padding do design anterior no telemóvel:
