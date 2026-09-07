@@ -2429,88 +2429,161 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 
 <template id="tpl-clin">
   <div class="t-c">
-    <header class="tw t-c-head tp-sticky"><span class="t-c-logo">Clínica Vista</span>
+    <header class="tw t-c-head tp-sticky"><span class="t-c-logo"><svg class="t-c-mark" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="7.5" fill="currentColor"/><path d="M12 7.4v9.2M7.4 12h9.2" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/></svg>Clínica Vista</span>
       <nav class="tpl-nav2"><a href="#c-esp" data-goto="#c-esp">Especialidades</a><a href="#c-equipa" data-goto="#c-equipa">Equipa</a><a href="#c-marc" data-goto="#c-marc">Marcação</a><a href="#c-cont" data-goto="#c-cont">Contacto</a></nav>
+      <a class="tpl-cta t-c-headcta" href="#c-marc" data-goto="#c-marc">Marcar consulta</a>
     </header>
+    <div class="t-c-stage">
     <div class="t-cover" aria-hidden="true">
       <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img">
         <defs>
-          <linearGradient id="cSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCEBFA"/><stop offset="1" stop-color="#F5FAFF"/></linearGradient>
+          <linearGradient id="cSky" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#E2EEEE"/><stop offset="1" stop-color="#F7FBFB"/></linearGradient>
         </defs>
         <rect width="1200" height="400" fill="url(#cSky)"/>
-        <circle cx="220" cy="120" r="130" fill="#2E7DD1" opacity="0.10"/>
-        <circle cx="1020" cy="290" r="170" fill="#2E7DD1" opacity="0.08"/>
-        <circle cx="880" cy="90" r="60" fill="#2E7DD1" opacity="0.12"/>
-        <polyline points="60,330 380,330 430,330 460,270 495,368 530,300 555,330 1140,330" stroke="#2E7DD1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
-        <circle cx="600" cy="180" r="92" fill="#FFFFFF" stroke="#D6E6F6" stroke-width="4"/>
-        <rect x="576" y="128" width="48" height="104" rx="12" fill="#2E7DD1"/>
-        <rect x="548" y="156" width="104" height="48" rx="12" fill="#2E7DD1"/>
+        <circle cx="212" cy="112" r="152" fill="#0E5F6E" opacity="0.07"/>
+        <circle cx="1024" cy="302" r="188" fill="#0E5F6E" opacity="0.06"/>
+        <circle cx="892" cy="86" r="54" fill="#0E5F6E" opacity="0.09"/>
+        <polyline points="40,318 402,318 438,318 468,254 504,372 534,286 560,318 1160,318" stroke="#0E5F6E" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+        <rect x="516" y="94" width="168" height="168" rx="52" fill="#FFFFFF"/>
+        <rect x="576" y="128" width="48" height="100" rx="16" fill="#0E5F6E"/>
+        <rect x="550" y="154" width="100" height="48" rx="16" fill="#0E5F6E"/>
       </svg>
+      <img class="ph-img t-c-heroimg" src="img/clin.webp" onerror="this.onerror=null;this.src='img/clin.jpg'" width="960" height="533" alt="" decoding="async" fetchpriority="high">
     </div>
-    <section class="tw t-c-hero">
-      <h2>Cuidamos de si, perto de si</h2>
-      <p>Consultas com marcação no próprio dia, equipa multilingue (DE/PT/FR) e acompanhamento de proximidade para toda a família.</p>
-      <a class="tpl-cta" href="#">Marcar consulta</a>
-    </section>
-    <section class="tw t-c-specs" id="c-esp">
-      <div class="t-c-spec"><b>Medicina geral</b><span>Consultas, check-ups e medicina preventiva</span></div>
-      <div class="t-c-spec"><b>Fisioterapia</b><span>Recuperação, desporto e reabilitação</span></div>
-      <div class="t-c-spec"><b>Pediatria</b><span>Acompanhamento desde o primeiro dia</span></div>
-    </section>
-    <section class="tw t-c-team" id="c-equipa">
-      <div class="t-c-doc"><span class="ava">AM</span><b>Dra. A. Meier</b><span>Medicina geral</span></div>
-      <div class="t-c-doc"><span class="ava">JS</span><b>Dr. J. Santos</b><span>Fisioterapia</span></div>
-      <div class="t-c-doc"><span class="ava">LB</span><b>Dra. L. Brunner</b><span>Pediatria</span></div>
-    </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <span class="tp-kicker">Como funciona</span>
-      <h2 class="tp-h2" style="font-weight:700;">Simples do início ao fim</h2>
-      <div class="tp-grid-3">
-        <div class="tp-card"><b>1 · Marcar</b><span>Online ou por telefone — muitas vezes para o próprio dia.</span></div>
-        <div class="tp-card"><b>2 · Consulta</b><span>Atendimento com tempo, em alemão, português ou francês.</span></div>
-        <div class="tp-card"><b>3 · Seguro</b><span>Faturamos diretamente com as seguradoras suíças (LAMal/LCA).</span></div>
+    <div class="t-c-hero">
+      <h2>Cuidamos de si, <em>perto de si</em></h2>
+      <p class="t-c-lead">Medicina de família, fisioterapia, pediatria e medicina dentária em Visp — com vagas no próprio dia e uma equipa que o atende na sua língua.</p>
+      <div class="t-c-acts">
+        <a class="tpl-cta" href="#c-marc" data-goto="#c-marc">Marcar consulta</a>
+        <a class="t-c-tel" href="tel:+41270000000"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.4 3.5h3l1.5 3.7-1.9 1.4a11.5 11.5 0 0 0 5.4 5.4l1.4-1.9 3.7 1.5v3a1.6 1.6 0 0 1-1.8 1.6C10.6 17.6 6.4 13.4 4.8 5.3A1.6 1.6 0 0 1 6.4 3.5z"/></svg>+41 27 000 00 00</a>
+      </div>
+      <ul class="t-c-trust">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.7 2.7 5.4-5.7"/></svg>Vagas no próprio dia para casos agudos</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>Atendemos em alemão, português e francês</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8l7.4 2.9v5.9c0 4.5-3.1 8.3-7.4 9.5-4.3-1.2-7.4-5-7.4-9.5V5.7z"/><path d="M9 12.1l2.2 2.2 4-4.3"/></svg>Faturação direta com a sua seguradora</li>
+      </ul>
+    </div>
+    </div>
+    <section class="tw tp-sec" id="c-esp">
+      <div class="t-c-shead">
+        <h2 class="tp-h2">Cinco especialidades, uma equipa</h2>
+        <p class="t-c-secl">Marque online e receba a confirmação por SMS. Se precisar de outra especialidade, encaminhamos e tratamos do agendamento.</p>
+      </div>
+      <div class="t-c-specs">
+        <article class="t-c-spec">
+          <span class="t-c-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3v5.5a4.5 4.5 0 0 0 9 0V3"/><path d="M10.5 13v1.9a4.2 4.2 0 0 0 8.4 0v-1.4"/><circle cx="18.9" cy="11" r="2.1"/></svg></span>
+          <div class="t-c-sbody"><b>Medicina geral</b><span>Consultas, check-ups, vacinas e acompanhamento de doença crónica.</span></div>
+          <div class="t-c-smeta"><span class="t-c-dur">30 min</span><a class="t-c-go" href="#c-marc" data-goto="#c-marc">Marcar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="t-c-spec">
+          <span class="t-c-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12h4l2.5-6.5L13 18l2.5-6h6"/></svg></span>
+          <div class="t-c-sbody"><b>Fisioterapia</b><span>Recuperação pós-operatória, lesões de desporto e dor de coluna.</span></div>
+          <div class="t-c-smeta"><span class="t-c-dur">45 min</span><a class="t-c-go" href="#c-marc" data-goto="#c-marc">Marcar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="t-c-spec">
+          <span class="t-c-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.4 4.7 13.1a4.7 4.7 0 0 1 6.6-6.7l.7.7.7-.7a4.7 4.7 0 0 1 6.6 6.7z"/></svg></span>
+          <div class="t-c-sbody"><b>Pediatria</b><span>Consultas de desenvolvimento, vacinação e apoio aos pais.</span></div>
+          <div class="t-c-smeta"><span class="t-c-dur">30 min</span><a class="t-c-go" href="#c-marc" data-goto="#c-marc">Marcar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="t-c-spec">
+          <span class="t-c-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.2 3.7c2 0 2.4.9 4.8.9s2.8-.9 4.8-.9c1.6 0 2.4 1.3 2.4 3.2 0 2.6-1.1 4-1.7 6.3-.5 2-.7 4.7-2.1 4.7-1.3 0-1.4-2.4-2-4.3-.3-1-.6-1.5-1.4-1.5s-1.1.5-1.4 1.5c-.6 1.9-.7 4.3-2 4.3-1.4 0-1.6-2.7-2.1-4.7C5.9 10.9 4.8 9.5 4.8 6.9c0-1.9.8-3.2 2.4-3.2z"/></svg></span>
+          <div class="t-c-sbody"><b>Medicina dentária</b><span>Higiene oral, restaurações, branqueamento e urgências no próprio dia.</span></div>
+          <div class="t-c-smeta"><span class="t-c-dur">40 min</span><a class="t-c-go" href="#c-marc" data-goto="#c-marc">Marcar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+        </article>
+        <article class="t-c-spec">
+          <span class="t-c-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.6" y="4.4" width="14.8" height="16.6" rx="3"/><path d="M9.2 4.4V3.6A1.6 1.6 0 0 1 10.8 2h2.4a1.6 1.6 0 0 1 1.6 1.6v.8z"/><path d="M8.9 13.4l2.2 2.2 4.1-4.4"/></svg></span>
+          <div class="t-c-sbody"><b>Check-up preventivo</b><span>Análises, tensão, ECG e um plano de saúde por escrito no fim.</span></div>
+          <div class="t-c-smeta"><span class="t-c-dur">60 min</span><a class="t-c-go" href="#c-marc" data-goto="#c-marc">Marcar<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+        </article>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <span class="tp-kicker">Testemunhos</span>
-      <h2 class="tp-h2" style="font-weight:700;">Confiança de quem nos visita</h2>
-      <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Consegui consulta no próprio dia e fui atendida em português.<footer><span class="tp-ava" style="color:#fff;">MG</span>M. Gomes · Visp</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>A fisioterapia pôs-me a correr outra vez em oito semanas.<footer><span class="tp-ava" style="color:#fff;">KZ</span>K. Zenklusen · Stalden</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Equipa fantástica com os miúdos. Marcação online facílima.<footer><span class="tp-ava" style="color:#fff;">DF</span>D. Ferreira · Brig</footer></blockquote>
+    <section class="tw tp-sec" id="c-equipa">
+      <div class="t-c-shead">
+        <h2 class="tp-h2">Quem o vai atender</h2>
+        <p class="t-c-secl">Uma equipa pequena e estável: vê sempre a mesma pessoa, que conhece o seu histórico.</p>
       </div>
-    </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="c-marc">
-      <span class="tp-kicker">Marcação</span>
-      <h2 class="tp-h2" style="font-weight:700;">Marque a sua consulta</h2>
-      <div class="tp-card">
-        <div class="tp-form">
-          <label>Especialidade<select data-k="especialidade"><option>Medicina geral</option><option>Fisioterapia</option><option>Pediatria</option></select></label>
-          <label>Data preferida<input type="date" data-k="data"></label>
-          <label style="grid-column:1/-1;">Contacto (telemóvel ou email)<input type="text" data-k="contacto" placeholder="+41 79 … ou email"></label>
-          <button class="tpl-cta dm-book" type="button" data-ref="CV" data-msg="Pedido de consulta enviado">Pedir marcação</button>
+      <div class="t-c-teamwrap">
+        <figure class="t-c-teamph">
+          <img src="img/clin.webp" onerror="this.onerror=null;this.src='img/clin.jpg'" width="960" height="533" alt="Médico e assistente a preparar o material numa sala de tratamento da clínica" loading="lazy" decoding="async">
+          <figcaption>Sala de tratamento · Überlandstrasse 21, Visp</figcaption>
+        </figure>
+        <div class="t-c-team">
+          <div class="t-c-doc"><span class="ava">AM</span><div><b>Dra. A. Meier</b><span class="t-c-role">Medicina geral · 12 anos em Visp</span></div><span class="t-c-lang">DE · FR</span></div>
+          <div class="t-c-doc"><span class="ava">JS</span><div><b>Dr. J. Santos</b><span class="t-c-role">Fisioterapia e reabilitação</span></div><span class="t-c-lang">PT · DE</span></div>
+          <div class="t-c-doc"><span class="ava">LB</span><div><b>Dra. L. Brunner</b><span class="t-c-role">Pediatria e vacinação</span></div><span class="t-c-lang">DE · FR</span></div>
+          <div class="t-c-doc"><span class="ava">MR</span><div><b>Dr. M. Ruppen</b><span class="t-c-role">Medicina dentária e higiene oral</span></div><span class="t-c-lang">DE · FR</span></div>
+          <div class="t-c-doc"><span class="ava">RI</span><div><b>Enf. R. Imboden</b><span class="t-c-role">Enfermagem, análises e vacinas</span></div><span class="t-c-lang">DE · IT</span></div>
         </div>
-        <div class="dm-note" data-note><b>✓ Pedido enviado!</b> <span data-note-txt></span></div>
-        <p class="dm-mini">Ligamos-te no próprio dia útil para confirmar a hora.</p>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="c-cont">
-      <span class="tp-kicker">Contacto</span>
-      <h2 class="tp-h2" style="font-weight:700;">Estamos perto de si</h2>
+    <section class="tw tp-sec">
+      <div class="t-c-shead">
+        <h2 class="tp-h2">Quem já cá esteve</h2>
+      </div>
+      <div class="tp-grid-3">
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-label="5 em 5"><svg width="88" height="16" viewBox="0 0 88 16" fill="currentColor" aria-hidden="true"><path d="M8 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L8 11.65 3.98 13.8l.77-4.5L1.5 6.15 6 5.5z"/><path d="M26 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L26 11.65 21.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M44 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L44 11.65 39.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M62 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L62 11.65 57.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M80 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L80 11.65 75.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/></svg></span>Liguei às nove com o miúdo com febre e às onze já estávamos na consulta.<footer><span class="tp-ava">MG</span>M. Gomes · Visp</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-label="5 em 5"><svg width="88" height="16" viewBox="0 0 88 16" fill="currentColor" aria-hidden="true"><path d="M8 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L8 11.65 3.98 13.8l.77-4.5L1.5 6.15 6 5.5z"/><path d="M26 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L26 11.65 21.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M44 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L44 11.65 39.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M62 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L62 11.65 57.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M80 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L80 11.65 75.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/></svg></span>Depois da operação ao joelho, oito semanas de fisioterapia e voltei a correr.<footer><span class="tp-ava">KZ</span>K. Zenklusen · Stalden</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-label="5 em 5"><svg width="88" height="16" viewBox="0 0 88 16" fill="currentColor" aria-hidden="true"><path d="M8 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L8 11.65 3.98 13.8l.77-4.5L1.5 6.15 6 5.5z"/><path d="M26 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L26 11.65 21.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M44 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L44 11.65 39.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M62 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L62 11.65 57.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/><path d="M80 1.4l2 4.1 4.5.65-3.25 3.15.77 4.5L80 11.65 75.98 13.8l.77-4.5-3.25-3.15 4.5-.65z"/></svg></span>Fui atendida em português sem ter de levar ninguém a traduzir. Faz diferença.<footer><span class="tp-ava">DF</span>D. Ferreira · Brig</footer></blockquote>
+      </div>
+    </section>
+    <section class="tw tp-sec" id="c-marc">
+      <div class="t-c-shead">
+        <h2 class="tp-h2">Marque a sua consulta</h2>
+        <p class="t-c-secl">Deixe o pedido e ligamos-lhe no próprio dia útil para fechar a hora.</p>
+      </div>
+      <div class="t-c-book">
+        <div>
+          <ol class="t-c-steps">
+            <li><span class="n">1</span><div><b>Pede a marcação</b><span>Online em dois minutos ou por telefone, das 8h às 18h.</span></div></li>
+            <li><span class="n">2</span><div><b>Confirmamos por SMS</b><span>Com o nome do médico, a hora e o que deve trazer.</span></div></li>
+            <li><span class="n">3</span><div><b>Tratamos do seguro</b><span>Faturamos diretamente à seguradora (LAMal e LCA).</span></div></li>
+          </ol>
+          <div class="t-c-hours">
+            <h3>Horário</h3>
+            <div class="t-c-hrow"><span>Segunda a sexta</span><span>08:00 – 18:00</span></div>
+            <div class="t-c-hrow"><span>Sábado (urgências)</span><span>09:00 – 12:00</span></div>
+            <div class="t-c-hrow"><span>Fora de horas</span><span>144</span></div>
+          </div>
+        </div>
+        <div class="tp-card t-c-bookcard">
+          <div class="tp-form">
+            <label>Especialidade<select data-k="especialidade"><option>Medicina geral</option><option>Fisioterapia</option><option>Pediatria</option><option>Medicina dentária</option><option>Check-up preventivo</option></select></label>
+            <label>Data preferida<input type="date" data-k="data"></label>
+            <label style="grid-column:1/-1;">Contacto (telemóvel ou email)<input type="text" data-k="contacto" placeholder="+41 79 … ou email"></label>
+          </div>
+          <p class="t-c-slotlab">Horas livres amanhã</p>
+          <div class="dm-slots">
+            <button class="dm-slot" type="button">08:30</button>
+            <button class="dm-slot busy" type="button" disabled aria-disabled="true">09:10</button>
+            <button class="dm-slot" type="button">11:20</button>
+            <button class="dm-slot" type="button">14:00</button>
+            <button class="dm-slot" type="button">16:40</button>
+          </div>
+          <button class="tpl-cta dm-book" type="button" data-ref="CV" data-msg="Pedido de consulta enviado">Pedir marcação</button>
+          <div class="dm-note" data-note><b>✓ Pedido enviado!</b> <span data-note-txt></span></div>
+          <p class="dm-mini">Sem taxa de inscrição. Basta trazer o cartão de seguro na primeira visita.</p>
+        </div>
+      </div>
+    </section>
+    <section class="tw tp-sec" id="c-cont">
+      <div class="t-c-shead">
+        <h2 class="tp-h2">Estamos perto de si</h2>
+        <p class="t-c-secl">A dois minutos a pé da estação de Visp, com estacionamento no edifício.</p>
+      </div>
       <div class="tp-grid-2">
         <div class="tp-card tpl-contact-info">
-          <div class="tpl-cline"><b>Morada</b><span>Überlandstrasse 21, Visp</span></div>
-          <div class="tpl-cline"><b>Horário</b><span>Seg–Sex · 8h–18h</span></div>
-          <div class="tpl-cline"><b>Urgências</b><span>144</span></div>
+          <div class="tpl-cline"><b>Morada</b><span>Überlandstrasse 21, 3930 Visp</span></div>
+          <div class="tpl-cline"><b>Horário</b><span>Seg–Sex 8h–18h · Sáb 9h–12h</span></div>
+          <div class="tpl-cline"><b>Urgências</b><span>144 (fora do horário da clínica)</span></div>
           <div class="tpl-cline"><b>Telefone</b><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div>
         </div>
         <a class="tpl-map" href="https://www.google.com/maps/search/?api=1&query=Überlandstrasse+21+Visp" target="_blank" rel="noopener">
-          <span class="tpl-map-pin" aria-hidden="true">📍</span>
+          <span class="tpl-map-pin" aria-hidden="true"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.6s7-6.3 7-11.3a7 7 0 1 0-14 0c0 5 7 11.3 7 11.3z"/><circle cx="12" cy="10.3" r="2.6"/></svg></span>
           <span class="tpl-map-label">Ver no Google Maps</span>
         </a>
       </div>
     </section>
-    <div class="tp-foot"><span>Clínica Vista · Überlandstrasse 21, Visp</span><span>Seg–Sex 8h–18h · Urgências: 144 · +41 27 000 00 00</span></div>
+    <div class="tp-foot"><span>Clínica Vista · Überlandstrasse 21, 3930 Visp</span><span>Seg–Sex 8h–18h · Sáb 9h–12h · Urgências 144 · +41 27 000 00 00</span></div>
     <div class="tpl-go-band">
       <p>Clínicas e consultórios: presença profissional que inspira confiança.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
