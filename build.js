@@ -274,7 +274,41 @@ function buildHome() {
         html = html.replace(/(<script type="application\/ld\+json">\s*)(\{"@context":"https:\/\/schema\.org","@type":"FAQPage"[\s\S]*?)(\s*<\/script>)/,
           (m, open, body, close) => open + JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq }) + close);
       }
+      /* ProfessionalService: a FAQPage já saía traduzida, esta ficava em
+         português nas quatro versões — o Google lia uma ficha de negócio
+         portuguesa numa página alemã. Traduz-se o que é prosa
+         (description, nome do catálogo, descrição de cada oferta) e
+         declara-se o idioma. Preços, moeda e estrutura ficam intactos. */
+      html = html.replace(/(<script type="application\/ld\+json">\s*)(\{"@context":"https:\/\/schema\.org","@type":"ProfessionalService"[\s\S]*?)(\s*<\/script>)/,
+        (m, open, body, close) => {
+          let o;
+          try { o = JSON.parse(body); } catch (e) { return m; }
+          if (dict['ld.desc']) o.description = dict['ld.desc'];
+          o.inLanguage = HTML_LANG[lang];
+          if (o.hasOfferCatalog) {
+            if (dict['ld.cat']) o.hasOfferCatalog.name = dict['ld.cat'];
+            const offers = [dict['ld.o1'], dict['ld.o2'], dict['ld.o3']];
+            (o.hasOfferCatalog.itemListElement || []).forEach((it, i) => {
+              if (offers[i] && it.itemOffered) it.itemOffered.description = offers[i];
+            });
+          }
+          return open + JSON.stringify(o) + close;
+        });
     }
+
+    /* "Ja, gerne." é alemão dentro da resposta PT/FR/IT/EN: sem lang="de"
+       o leitor de ecrã lê-o com a fonética da página. Feito aqui, depois
+       da troca de textos, porque o regex do data-i18n exige inner sem tags. */
+    if (lang !== 'de') {
+      html = html.replace(/(<p data-i18n="fq5\.a">)Ja, gerne\./,
+        (m, open) => open + '<span lang="de">Ja, gerne.</span>');
+    }
+
+    /* Seletor de idioma: o build servia data-lang="pt" aria-pressed="true"
+       em todas as línguas — em /de/ ficava o PT marcado como escolhido até
+       o JS correr, e para sempre em quem navega sem JavaScript. */
+    html = html.replace(/(<button type="button" data-lang="([a-z]{2})" aria-pressed=")(?:true|false)(")/g,
+      (m, open, l, close) => open + (l === lang ? 'true' : 'false') + close);
 
     html = html.replace(/href="\/feed\.xml"/, () => 'href="' + PREFIX[lang] + 'feed.xml"'); // RSS do idioma (homepage)
     if (fs.existsSync(path.join(ROOT, 'img/og/home-' + lang + '.jpg'))) html = html.replace(/(<meta property="og:image" content=")[^"]*/, (m, o) => o + ORIGIN + '/img/og/home-' + lang + '.jpg');
