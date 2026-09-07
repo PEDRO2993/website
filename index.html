@@ -957,8 +957,15 @@ footer { border-top: 1px solid var(--ink); padding: 56px 0 28px; background: var
 .js .section-head.reveal > .eyebrow { transition-delay: 0s; }
 .js .section-head.reveal > .section-sub, .js .section-head.reveal > .price-guide { transition-delay: 0.45s; }
 .js .section-head.reveal.in > :not(h2) { clip-path: inset(0 -2% 0 0); }
+/* Troca de palavra do título. O deslocamento tem de caber na folga até ao parágrafo:
+   0.35em num título de 96px são 33,6px e a folga é 19px — de três em três segundos a
+   palavra azul atravessava o texto de baixo, meia transparente. 0.12em são 11,5px e
+   escalam com o tamanho do título, por isso cabem em qualquer largura.
+   O ponto final acompanha a palavra pelo selector irmão: o script só põe .swap no
+   #rotator, e sem isto o ponto ficava para trás em cada troca. */
 .rotator { display: inline-block; transition: opacity 0.28s ease, transform 0.32s var(--ease); }
-.rotator.swap { opacity: 0; transform: translateY(0.35em); }
+.rotator + .dot { display: inline-block; transition: opacity 0.28s ease, transform 0.32s var(--ease); }
+.rotator.swap, .rotator.swap + .dot { opacity: 0; transform: translateY(0.12em); }
 /* placas com paralaxe ligada ao scroll (só onde o browser suporta) */
 @supports (animation-timeline: view()) {
   .tw-mock-img img { animation: plateShift linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
@@ -999,9 +1006,15 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 @media (max-width: 700px) { .hero-ctas .btn { letter-spacing: 0; padding: 15px 22px; } }
 @keyframes wordIn { from { transform: translateY(110%) rotate(4deg); } to { transform: none; } }
 .hero-go .hero h1 .w > span { animation: wordIn 0.95s var(--ease) both; animation-delay: calc(0.28s + var(--i, 0) * 75ms); }
-.hero-go .hero h1 .rotator, .hero-go .hero h1 .dot { animation: wordIn 0.95s var(--ease) 0.85s both; display: inline-block; }
+/* a última linha do título é a única que tem o parágrafo logo por baixo: as outras
+   palavras sobem 110% contra outra linha de título, esta subiria contra o texto */
+/* só transform: pôr opacity aqui faz a palavra apagar-se a cada troca — remover .swap
+   repõe animation-name, a animação rearranca do princípio e leva o atraso de 0.85s com
+   ela. A opacidade da troca é da transição em .rotator, não daqui. */
+@keyframes rotIn { from { transform: translateY(0.14em); } to { transform: none; } }
+.hero-go .hero h1 .rotator, .hero-go .hero h1 .dot { animation: rotIn 0.85s var(--ease) 0.85s both; display: inline-block; }
 /* sem isto, o fill-mode "both" fixa a transformação e a troca de palavra nunca desliza */
-.hero-go .hero h1 .rotator.swap { animation: none; }
+.hero-go .hero h1 .rotator.swap, .hero-go .hero h1 .rotator.swap + .dot { animation: none; }
 /* as palavras só existem depois de o JS as dividir: escondê-las até ao arranque evita o pisca-pisca na 2.ª visita */
 .js:not(.hero-go) .hero h1 .w > span { opacity: 0; }
 .js .section-head.reveal h2 .w > span { transform: translateY(110%) rotate(3deg); transition: transform 0.9s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); }
