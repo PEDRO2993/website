@@ -2537,107 +2537,200 @@ html[lang="de-CH"] .hero h1 { font-size: clamp(2.2rem, 11.5vw, 6rem); }
 
 <template id="tpl-imob">
   <div class="t-i">
-    <header class="tw t-i-head tp-sticky"><span class="t-i-logo">Alpina Imóveis</span>
+    <header class="tw t-i-head tp-sticky"><span class="t-i-logo">Alpina<em>Imóveis</em></span>
       <nav class="tpl-nav2"><a href="#i-list" data-goto="#i-list">Imóveis</a><a href="#i-serv" data-goto="#i-serv">Serviços</a><a href="#i-aval" data-goto="#i-aval">Avaliação</a><a href="#i-cont" data-goto="#i-cont">Contacto</a></nav>
+      <a class="t-i-tel" href="tel:+41270000000">+41 27 000 00 00</a>
     </header>
     <div class="t-cover" aria-hidden="true">
       <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img">
         <defs>
-          <linearGradient id="iSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#DCE9E2"/><stop offset="1" stop-color="#F1F4EF"/></linearGradient>
+          <linearGradient id="iSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4E0D5"/><stop offset="1" stop-color="#F4F2ED"/></linearGradient>
         </defs>
         <rect width="1200" height="400" fill="url(#iSky)"/>
-        <circle cx="980" cy="90" r="46" fill="#F4E9C8"/>
-        <polygon points="0,260 240,110 470,260" fill="#9FB3A8"/>
-        <polygon points="240,110 190,142 290,142" fill="#F6F7F4"/>
-        <polygon points="330,260 620,80 900,260" fill="#7F988C"/>
-        <polygon points="620,80 556,120 684,120" fill="#F6F7F4"/>
-        <polygon points="780,260 1010,140 1200,260" fill="#9FB3A8"/>
-        <rect y="250" width="1200" height="150" fill="#3E7F61"/>
-        <rect y="250" width="1200" height="20" fill="#2F6B4F" opacity="0.4"/>
+        <circle cx="980" cy="90" r="46" fill="#EBE4D2"/>
+        <polygon points="0,260 240,110 470,260" fill="#BCB7A9"/>
+        <polygon points="240,110 190,142 290,142" fill="#F4F2ED"/>
+        <polygon points="330,260 620,80 900,260" fill="#9C968A"/>
+        <polygon points="620,80 556,120 684,120" fill="#F4F2ED"/>
+        <polygon points="780,260 1010,140 1200,260" fill="#BCB7A9"/>
+        <rect y="250" width="1200" height="150" fill="#2A5D45"/>
+        <rect y="250" width="1200" height="20" fill="#1E4634" opacity="0.5"/>
         <g>
-          <rect x="470" y="220" width="180" height="110" rx="4" fill="#2A3F34"/>
-          <polygon points="450,224 560,150 670,224" fill="#1B241F"/>
-          <rect x="500" y="250" width="30" height="34" rx="3" fill="#F4C95B"/>
-          <rect x="560" y="250" width="30" height="34" rx="3" fill="#F4C95B"/>
-          <rect x="530" y="292" width="36" height="38" rx="3" fill="#141B17"/>
+          <rect x="470" y="220" width="180" height="110" rx="2" fill="#22322A"/>
+          <polygon points="450,224 560,150 670,224" fill="#141815"/>
+          <rect x="500" y="250" width="30" height="34" rx="2" fill="#F0D9A0"/>
+          <rect x="560" y="250" width="30" height="34" rx="2" fill="#F0D9A0"/>
+          <rect x="530" y="292" width="36" height="38" rx="2" fill="#141815"/>
         </g>
         <g opacity="0.9">
-          <rect x="760" y="248" width="110" height="82" rx="4" fill="#33503F"/>
-          <polygon points="748,252 815,204 882,252" fill="#22352A"/>
-          <rect x="782" y="270" width="22" height="24" rx="2" fill="#F4C95B"/>
-          <rect x="820" y="270" width="22" height="24" rx="2" fill="#F4C95B"/>
+          <rect x="760" y="248" width="110" height="82" rx="2" fill="#2E4438"/>
+          <polygon points="748,252 815,204 882,252" fill="#1B2A22"/>
+          <rect x="782" y="270" width="22" height="24" rx="2" fill="#F0D9A0"/>
+          <rect x="820" y="270" width="22" height="24" rx="2" fill="#F0D9A0"/>
         </g>
         <g opacity="0.9">
-          <rect x="330" y="256" width="96" height="74" rx="4" fill="#33503F"/>
-          <polygon points="320,260 378,218 436,260" fill="#22352A"/>
-          <rect x="352" y="276" width="20" height="22" rx="2" fill="#F4C95B"/>
+          <rect x="330" y="256" width="96" height="74" rx="2" fill="#2E4438"/>
+          <polygon points="320,260 378,218 436,260" fill="#1B2A22"/>
+          <rect x="352" y="276" width="20" height="22" rx="2" fill="#F0D9A0"/>
         </g>
       </svg>
     </div>
-    <section class="tw t-i-hero">
-      <h2>A tua próxima casa no Valais</h2>
-      <p>Compra, venda e avaliação com quem conhece cada vila do vale. Visitas com marcação online.</p>
-      <a class="tpl-cta" href="#">Ver imóveis</a>
+    <section class="t-i-hero">
+      <img class="t-i-hero-img" src="img/imob.webp" onerror="this.onerror=null;this.src='img/imob.jpg'" width="960" height="540" alt="Casa contemporânea ao fim da tarde, com relvado e terraço de madeira" loading="lazy">
+      <div class="t-i-hero-in tw">
+        <h2>Casas com carácter,<br>no Alto Valais.</h2>
+        <p class="t-i-lead">Compramos, vendemos e avaliamos propriedades entre Visp e Zermatt. Escolhe a casa, marca a visita online — respondemos no mesmo dia.</p>
+        <div class="t-i-acts">
+          <a class="tpl-cta" href="#i-list" data-goto="#i-list">Ver imóveis à venda</a>
+          <a class="t-i-ghost" href="#i-aval" data-goto="#i-aval">Avaliar a minha casa</a>
+        </div>
+        <p class="t-i-locline">Visp · Brig · Sierre · Saas-Fee — agência de família desde 1998</p>
+      </div>
     </section>
-    <div class="tw dm-fs" data-scope="imv" id="i-list">
-      <button class="dm-f on" type="button" data-f="all">Todos</button>
-      <button class="dm-f" type="button" data-f="apart">Apartamentos</button>
-      <button class="dm-f" type="button" data-f="chale">Chalés</button>
-      <button class="dm-f" type="button" data-f="est">Estúdios</button>
+    <div class="t-i-bar tw">
+      <div class="t-i-bar-in">
+        <div class="dm-fs" data-scope="imv" id="i-list">
+          <button class="dm-f on" type="button" data-f="all">Todos</button>
+          <button class="dm-f" type="button" data-f="chale">Casas</button>
+          <button class="dm-f" type="button" data-f="apart">Apartamentos</button>
+          <button class="dm-f" type="button" data-f="est">Estúdios</button>
+        </div>
+        <span class="t-i-barnote">7 imóveis · atualizado esta semana</span>
+      </div>
     </div>
     <section class="tw t-i-list" data-fscope="imv">
-      <div class="t-i-card" data-cat="apart"><div class="t-i-thumb" style="background:linear-gradient(135deg,#DDE4DA,#8FAF9E);"><img src="img/imob-1.webp" onerror="this.onerror=null;this.src='img/imob-1.jpg'" alt="Apartamento 3.5 — Stalden" loading="lazy"></div><div><span class="p">CHF 685'000</span><b>Apartamento 3.5 — Stalden</b><span>92 m² · varanda · vista vale</span><button class="tpl-cta dm-visit" type="button" data-prop="Apartamento 3.5 — Stalden" style="margin-top:12px;font-size:0.84rem;padding:9px 18px;">Marcar visita</button></div></div>
-      <div class="t-i-card" data-cat="chale"><div class="t-i-thumb" style="background:linear-gradient(135deg,#D8DFE6,#7F98AF);"><img src="img/imob-2.webp" onerror="this.onerror=null;this.src='img/imob-2.jpg'" alt="Chalé 5.5 — Grächen" loading="lazy"></div><div><span class="p">CHF 1'150'000</span><b>Chalé 5.5 — Grächen</b><span>168 m² · lareira · garagem dupla</span><button class="tpl-cta dm-visit" type="button" data-prop="Chalé 5.5 — Grächen" style="margin-top:12px;font-size:0.84rem;padding:9px 18px;">Marcar visita</button></div></div>
-      <div class="t-i-card" data-cat="est"><div class="t-i-thumb" style="background:linear-gradient(135deg,#E6E0D4,#B3A27F);"><img src="img/imob-3.webp" onerror="this.onerror=null;this.src='img/imob-3.jpg'" alt="Estúdio 2.5 — Visp" loading="lazy"></div><div><span class="p">CHF 420'000</span><b>Estúdio 2.5 — Visp</b><span>58 m² · renovado · centro</span><button class="tpl-cta dm-visit" type="button" data-prop="Estúdio 2.5 — Visp" style="margin-top:12px;font-size:0.84rem;padding:9px 18px;">Marcar visita</button></div></div>
-      <div class="t-i-card" data-cat="chale"><div class="t-i-thumb" style="background:linear-gradient(135deg,#D5E0DB,#6E9484);"><img src="img/imob-4.webp" onerror="this.onerror=null;this.src='img/imob-4.jpg'" alt="Chalé 6.5 — Zermatt" loading="lazy"></div><div><span class="p">CHF 1'450'000</span><b>Chalé 6.5 — Zermatt</b><span>195 m² · vista Matterhorn · sauna</span><button class="tpl-cta dm-visit" type="button" data-prop="Chalé 6.5 — Zermatt" style="margin-top:12px;font-size:0.84rem;padding:9px 18px;">Marcar visita</button></div></div>
-      <div class="t-i-card" data-cat="apart"><div class="t-i-thumb" style="background:linear-gradient(135deg,#E2E6E0,#9BAA8F);"><img src="img/imob-5.webp" onerror="this.onerror=null;this.src='img/imob-5.jpg'" alt="Apartamento 2.5 — Brig" loading="lazy"></div><div><span class="p">CHF 520'000</span><b>Apartamento 2.5 — Brig</b><span>68 m² · terraço · perto da estação</span><button class="tpl-cta dm-visit" type="button" data-prop="Apartamento 2.5 — Brig" style="margin-top:12px;font-size:0.84rem;padding:9px 18px;">Marcar visita</button></div></div>
-      <div class="t-i-card" data-cat="est"><div class="t-i-thumb" style="background:linear-gradient(135deg,#E9E4D8,#A9906B);"><img src="img/imob-6.webp" onerror="this.onerror=null;this.src='img/imob-6.jpg'" alt="Estúdio 1.5 — Saas-Fee" loading="lazy"></div><div><span class="p">CHF 390'000</span><b>Estúdio 1.5 — Saas-Fee</b><span>42 m² · mobilado · renda garantida</span><button class="tpl-cta dm-visit" type="button" data-prop="Estúdio 1.5 — Saas-Fee" style="margin-top:12px;font-size:0.84rem;padding:9px 18px;">Marcar visita</button></div></div>
+      <article class="t-i-card t-i-wide" data-cat="chale">
+        <div class="t-i-thumb">
+          <img src="img/imob-1.webp" onerror="this.onerror=null;this.src='img/imob-1.jpg'" width="800" height="500" alt="Casa de autor em madeira escura, ao anoitecer, com árvore no jardim" loading="lazy">
+          <span class="t-i-tag">Exclusivo</span>
+        </div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Salgesch</span>
+          <b>Casa de autor com jardim antigo</b>
+          <span class="t-i-desc">Madeira, vidro e um plátano de cem anos no meio do relvado. Projeto de 2021, três quartos com vista para o vale.</span>
+          <span class="t-i-meta">6.5 peças · 214 m² · terreno 980 m²</span>
+          <div class="t-i-foot"><span class="p">CHF 1'480'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Casa de autor — Salgesch">Marcar visita</button></div>
+        </div>
+      </article>
+      <article class="t-i-card" data-cat="chale">
+        <div class="t-i-thumb"><img src="img/imob-2.webp" onerror="this.onerror=null;this.src='img/imob-2.jpg'" width="800" height="500" alt="Villa branca com piscina exterior num dia de céu limpo" loading="lazy"></div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Sierre</span>
+          <b>Villa com piscina aquecida</b>
+          <span class="t-i-meta">5.5 peças · 168 m² · garagem dupla</span>
+          <div class="t-i-foot"><span class="p">CHF 1'150'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Villa com piscina — Sierre">Marcar visita</button></div>
+        </div>
+      </article>
+      <article class="t-i-card" data-cat="apart">
+        <div class="t-i-thumb"><img src="img/imob-3.webp" onerror="this.onerror=null;this.src='img/imob-3.jpg'" width="800" height="500" alt="Sala de estar clara com sofá cinzento, estante de livros e plantas" loading="lazy"></div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Visp</span>
+          <b>Apartamento renovado no centro</b>
+          <span class="t-i-meta">2.5 peças · 58 m² · a pé da estação</span>
+          <div class="t-i-foot"><span class="p">CHF 420'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Apartamento 2.5 — Visp">Marcar visita</button></div>
+        </div>
+      </article>
+      <article class="t-i-card" data-cat="chale">
+        <div class="t-i-thumb"><img src="img/imob-4.webp" onerror="this.onerror=null;this.src='img/imob-4.jpg'" width="800" height="500" alt="Casa térrea branca com pátio, piscina e sebe verde" loading="lazy"></div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Fully</span>
+          <b>Casa térrea com pátio fechado</b>
+          <span class="t-i-meta">4.5 peças · 142 m² · sem escadas</span>
+          <div class="t-i-foot"><span class="p">CHF 985'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Casa térrea — Fully">Marcar visita</button></div>
+        </div>
+      </article>
+      <article class="t-i-card" data-cat="est">
+        <div class="t-i-thumb"><img src="img/imob-5.webp" onerror="this.onerror=null;this.src='img/imob-5.jpg'" width="800" height="500" alt="Estúdio mobilado com sofá escuro, cómoda clara e candeeiro de pé" loading="lazy"></div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Saas-Fee</span>
+          <b>Estúdio mobilado, pronto a arrendar</b>
+          <span class="t-i-meta">1.5 peças · 42 m² · rendimento anual 4,1%</span>
+          <div class="t-i-foot"><span class="p">CHF 390'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Estúdio 1.5 — Saas-Fee">Marcar visita</button></div>
+        </div>
+      </article>
+      <article class="t-i-card" data-cat="chale">
+        <div class="t-i-thumb"><img src="img/imob-6.webp" onerror="this.onerror=null;this.src='img/imob-6.jpg'" width="800" height="500" alt="Propriedade iluminada à hora azul, com piscina comprida em frente" loading="lazy"></div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Sion</span>
+          <b>Propriedade com piscina e anexo</b>
+          <span class="t-i-meta">8.5 peças · 340 m² · terreno 2 400 m²</span>
+          <div class="t-i-foot"><span class="p">CHF 2'250'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Propriedade com piscina — Sion">Marcar visita</button></div>
+        </div>
+      </article>
+      <article class="t-i-card" data-cat="apart">
+        <div class="t-i-thumb"><img class="t-i-alt" src="img/imob.webp" onerror="this.onerror=null;this.src='img/imob.jpg'" width="960" height="540" alt="Casa nova com terraço de madeira e relvado, ao fim da tarde" loading="lazy"></div>
+        <div class="t-i-body">
+          <span class="t-i-loc">Naters</span>
+          <b>Apartamento de jardim, entrada privativa</b>
+          <span class="t-i-meta">4.5 peças · 128 m² · terraço de 40 m²</span>
+          <div class="t-i-foot"><span class="p">CHF 1'320'000</span><button class="tpl-cta dm-visit" type="button" data-prop="Apartamento de jardim — Naters">Marcar visita</button></div>
+        </div>
+      </article>
     </section>
-    <div class="tw" style="padding-bottom:40px;">
+    <section class="tw t-i-ask">
+      <div class="t-i-ask-in">
+        <p class="t-i-ask-t">Escolha os imóveis que quer ver. Deixe um contacto e combinamos as visitas — normalmente para os dois dias seguintes.</p>
+        <label class="t-i-field">Telemóvel ou email<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou nome@email.ch"></label>
+      </div>
       <div class="dm-note" data-note><b>✓ Visita marcada!</b> <span data-note-txt></span></div>
-    </div>
-    <section class="tw tp-sec" style="padding-top:0;" id="i-serv">
-      <span class="tp-kicker">Serviços</span>
-      <h2 class="tp-h2" style="font-weight:700;">Comprar, vender, avaliar</h2>
-      <div class="tp-grid-3">
-        <div class="tp-card"><b>Vender</b><span>Avaliação gratuita, fotos profissionais e anúncio nas principais plataformas suíças.</span></div>
-        <div class="tp-card"><b>Comprar</b><span>Alertas personalizados e acompanhamento nas visitas e no notário.</span></div>
-        <div class="tp-card"><b>Avaliar</b><span>Relatório de valor de mercado em 48h, sem compromisso.</span></div>
+    </section>
+    <section class="tw tp-sec t-i-sec" id="i-serv">
+      <div class="t-i-head2">
+        <span class="tp-kicker">Serviços</span>
+        <h2 class="tp-h2">Do primeiro café à escritura, sempre a mesma pessoa.</h2>
+      </div>
+      <div class="tp-grid-3 t-i-rows">
+        <div class="tp-card"><b>Vender</b><span>Avaliação, fotografia de arquitetura e anúncio nas plataformas suíças. Publicamos em cinco dias e trazemos-lhe só as visitas sérias.</span></div>
+        <div class="tp-card"><b>Comprar</b><span>Aviso por mensagem quando entra algo do seu perfil — muitas vezes antes de ir para o mercado — e acompanhamento até ao notário.</span></div>
+        <div class="tp-card"><b>Avaliar</b><span>Relatório de valor de mercado em 48 horas, com as vendas comparáveis do seu bairro. Sem compromisso e sem custo.</span></div>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <span class="tp-kicker">Testemunhos</span>
-      <h2 class="tp-h2" style="font-weight:700;">Negócios fechados, clientes felizes</h2>
-      <div class="tp-grid-3">
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Venderam o nosso chalé em seis semanas, acima do valor de avaliação.<footer><span class="tp-ava" style="color:#fff;">FB</span>F. Bumann · Grächen</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Encontraram-nos o apartamento certo antes de chegar ao mercado.<footer><span class="tp-ava" style="color:#fff;">CO</span>C. Oliveira · Visp</footer></blockquote>
-        <blockquote class="tp-card tp-quote"><span class="tp-stars">★★★★★</span>Processo transparente do início à escritura. Recomendo.<footer><span class="tp-ava" style="color:#fff;">SI</span>S. Imboden · Stalden</footer></blockquote>
+    <section class="tw tp-sec t-i-sec">
+      <div class="t-i-head2">
+        <span class="tp-kicker">Clientes</span>
+        <h2 class="tp-h2">Quem já mudou de casa connosco.</h2>
+      </div>
+      <div class="tp-grid-3 t-i-quotes">
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true">★★★★★</span>Venderam a nossa casa em seis semanas, acima do valor da avaliação.<footer><span class="tp-ava">FB</span>F. Bumann · Grächen</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true">★★★★★</span>Encontraram-nos o apartamento certo antes de chegar ao mercado.<footer><span class="tp-ava">CO</span>C. Oliveira · Visp</footer></blockquote>
+        <blockquote class="tp-card tp-quote"><span class="tp-stars" aria-hidden="true">★★★★★</span>Explicaram-nos cada papel. Do início à escritura, nunca ficámos à espera.<footer><span class="tp-ava">SI</span>S. Imboden · Stalden</footer></blockquote>
       </div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;">
-      <div class="tp-card" id="i-aval" style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;">
-        <div><b style="font-size:1.1rem;">Quanto vale a tua casa?</b><span style="display:block;">Avaliação gratuita e sem compromisso, em 48 horas.</span></div>
-        <label style="flex:1 1 220px;min-width:220px;">Contacto (telemóvel ou email)<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou email" style="width:100%;"></label>
-        <button class="tpl-cta dm-book" type="button" data-ref="AV" data-msg="Pedido de avaliação registado — resposta em 48h">Pedir avaliação gratuita</button>
+    <section class="t-i-aval" id="i-aval">
+      <div class="tw t-i-aval-in">
+        <div class="t-i-aval-txt">
+          <h2>Quanto vale a sua casa hoje?</h2>
+          <p>Vemos o imóvel, comparamos com o que se vendeu à volta e entregamos um relatório em 48 horas. Gratuito, sem compromisso, e fica seu mesmo que não venda.</p>
+        </div>
+        <div class="tp-card t-i-aval-form">
+          <label class="t-i-field">Telemóvel ou email<input type="text" data-k="contacto" inputmode="email" autocomplete="email" placeholder="+41 79 … ou nome@email.ch"></label>
+          <button class="tpl-cta dm-book" type="button" data-ref="AV" data-msg="Pedido de avaliação registado — resposta em 48h">Pedir avaliação gratuita</button>
+        </div>
+        <div class="dm-note" data-note><b>✓ Pedido registado!</b> <span data-note-txt></span></div>
       </div>
-      <div class="dm-note" data-note style="margin-top:12px;"><b>✓ Pedido registado!</b> <span data-note-txt></span></div>
     </section>
-    <section class="tw tp-sec" style="padding-top:0;" id="i-cont">
-      <span class="tp-kicker">Contacto</span>
-      <h2 class="tp-h2" style="font-weight:700;">Fala com a agência</h2>
-      <div class="tp-grid-2">
+    <section class="tw tp-sec t-i-sec" id="i-cont">
+      <div class="t-i-head2">
+        <span class="tp-kicker">Contacto</span>
+        <h2 class="tp-h2">Passe pelo escritório em Visp.</h2>
+      </div>
+      <div class="tp-grid-2 t-i-cont">
         <div class="tp-card tpl-contact-info">
-          <div class="tpl-cline"><b>Morada</b><span>Napoleonstrasse 15, Visp</span></div>
+          <div class="tpl-cline"><b>Morada</b><span>Napoleonstrasse 15, 3930 Visp</span></div>
           <div class="tpl-cline"><b>Horário</b><span>Seg–Sex 8h30–18h · Sáb por marcação</span></div>
           <div class="tpl-cline"><b>Telefone</b><span><a href="tel:+41270000000">+41 27 000 00 00</a></span></div>
+          <div class="tpl-cline"><b>Email</b><span><a href="mailto:visitas@alpinaimoveis.ch">visitas@alpinaimoveis.ch</a></span></div>
         </div>
         <a class="tpl-map" href="https://www.google.com/maps/search/?api=1&query=Napoleonstrasse+15+Visp" target="_blank" rel="noopener">
-          <span class="tpl-map-pin" aria-hidden="true">📍</span>
+          <span class="tpl-map-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7-6.1 7-11.1a7 7 0 1 0-14 0c0 5 7 11.1 7 11.1Z"/><circle cx="12" cy="10.2" r="2.6"/></svg>
+          </span>
           <span class="tpl-map-label">Ver no Google Maps</span>
+          <span class="t-i-mapaddr">Napoleonstrasse 15 · 3930 Visp</span>
         </a>
       </div>
     </section>
-    <div class="tp-foot"><span>ALPINA IMÓVEIS · Napoleonstrasse 15, Visp</span><span>Seg–Sex 8h30–18h · Sáb por marcação · +41 27 000 00 00</span></div>
+    <div class="tp-foot"><span>ALPINA IMÓVEIS · Napoleonstrasse 15, 3930 Visp</span><span>Seg–Sex 8h30–18h · Sáb por marcação · +41 27 000 00 00</span></div>
     <div class="tpl-go-band">
       <p>Imobiliárias: listagens bonitas vendem mais depressa.</p>
       <button class="tpl-cta tpl-go" type="button">Quero um site destes</button>
