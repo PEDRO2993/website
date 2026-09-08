@@ -5241,6 +5241,7 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     applyPhotos(key, tplBody);
     initDatePickers(tplBody);
     translateTpl(tplBody);
+    d3AutoWatch(tplBody);
     tplName.textContent = TU(TPL_NAMES[key] || "");
     tplOverlay.hidden = false;
     document.body.style.overflow = "hidden";
@@ -5295,6 +5296,25 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
       out.push(im.src || u);
     });
     return out.slice(0, 12);
+  }
+  /* ---------- 3D das demos: aparece sozinho ao entrar no ecrã, sem precisar de toque ----------
+     Mesma guarda da sala 3D dos exemplos (webgl2 + sem poupança de dados) — quem não passa
+     nelas mantém o botão manual, nunca descarrega os 2 MB do motor sem escolher. */
+  var d3AutoOk = false;
+  try { d3AutoOk = !!document.createElement("canvas").getContext("webgl2"); } catch (e) {}
+  var d3AutoSave = navigator.connection && navigator.connection.saveData;
+  var d3io = (d3AutoOk && !d3AutoSave && window.IntersectionObserver) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      d3io.unobserve(en.target);
+      var go = en.target.querySelector(".d3-go");
+      if (go && !go.hidden && !go.disabled) go.click();
+    });
+  }, { threshold: 0.4 }) : null;
+  function d3AutoWatch(root) {
+    if (!d3io) return;
+    d3io.disconnect();
+    Array.prototype.forEach.call(root.querySelectorAll(".d3"), function (box) { d3io.observe(box); });
   }
   tplBody.addEventListener("click", function (e) {
     var t = e.target;
