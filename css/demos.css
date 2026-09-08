@@ -1774,6 +1774,13 @@
   -webkit-mask: var(--d3-mark) center / contain no-repeat;
   mask: var(--d3-mark) center / contain no-repeat;
 }
+/* enquanto o motor (2 MB) descarrega: o cubo roda no lugar do clique — sem isto
+   o botão fica mudo entre o toque e a peça aparecer, e parece ter travado */
+.d3-go[aria-busy="true"] { cursor: progress; pointer-events: none; }
+.d3-go[aria-busy="true"]::before { animation: d3Spin 0.85s linear infinite; }
+/* saída: o botão esbate-se antes de sair da grelha, para a peça não saltar
+   sobre o lugar dele — só depois de invisível é que `hidden` o recolhe */
+.d3-go.d3-go--done { opacity: 0; transition: opacity 0.16s ease; }
 @media (hover: hover) {
   .d3-go:hover { background: color-mix(in srgb, var(--tp-accent) 12%, transparent); border-color: var(--tp-accent); color: var(--tp-accent); }
 }
@@ -1806,6 +1813,7 @@
 /* um só momento: a peça aparece, não entra a saltar */
 @keyframes d3Fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes d3Rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes d3Spin { to { transform: rotate(1turn); } }
 @media (prefers-reduced-motion: no-preference) {
   /* só opacidade na tela: mexer numa superfície WebGL com `transform` custa e borra */
   .d3-cv:not([hidden]) { animation: d3Fade 0.55s ease both; }

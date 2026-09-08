@@ -5272,20 +5272,30 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     var sector = box.getAttribute("data-d3") || currentTpl;
     var palette = d3Palette(root), images = d3Images(root);
     go.disabled = true;
+    go.setAttribute("aria-busy", "true"); /* o cubo roda no lugar do clique enquanto o motor descarrega */
     import("/3d/stage.mjs").then(function (m) {
       /* a demo pode ter fechado ou trocado enquanto os 2 MB do motor desciam */
       if (!tplBody.contains(cv) || tplOverlay.hidden) return;
       d3Stop();
-      go.hidden = true;
       cv.hidden = false;
       if (hint) hint.hidden = false;
       d3Live = m.start({ canvas: cv, sector: sector, palette: palette, images: images, reduced: REDUCED });
       cv.focus();
+      /* o botão esbate-se por cima da peça a aparecer e só sai da grelha depois
+         de invisível — a coluna não salta, a peça é que ganha o lugar dele */
+      go.classList.add("d3-go--done");
+      window.setTimeout(function () {
+        go.hidden = true;
+        go.classList.remove("d3-go--done");
+        go.removeAttribute("aria-busy");
+      }, 160);
     }).catch(function () {
       /* mesma guarda do ramo de sucesso: nada de avisos nem de escritas em nós
          já destacados se o visitante entretanto fechou ou trocou de demo */
       if (!tplBody.contains(cv) || tplOverlay.hidden) return;
       go.hidden = false;
+      go.classList.remove("d3-go--done");
+      go.removeAttribute("aria-busy");
       cv.hidden = true;
       if (hint) hint.hidden = true;
       showToast(({ pt: "Não foi possível abrir a vista 3D.", de: "Die 3D-Ansicht konnte nicht geladen werden.", fr: "Impossible d’ouvrir la vue 3D.", it: "Impossibile aprire la vista 3D.", en: "Could not open the 3D view." })[currentLang] || "Could not open the 3D view.");
