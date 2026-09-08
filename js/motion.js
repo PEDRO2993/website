@@ -60,6 +60,22 @@
     document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); el.style.transitionDelay = ""; });
   }
 
+  /* botões da faixa de contacto seguem o rato — o mesmo `.magnetic` do hero
+     da homepage, só que aqui é o motor partilhado que o liga; só em ecrãs
+     com rato fino, nunca em toque (não há "pointerleave" real num dedo). */
+  var FINE = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (FINE && !REDUCED) {
+    document.querySelectorAll(".cta .btn").forEach(function (btn) {
+      btn.addEventListener("pointermove", function (e) {
+        var r = btn.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) * 0.14;
+        var dy = (e.clientY - r.top - r.height / 2) * 0.22;
+        btn.style.transform = "translate(" + dx + "px," + dy + "px)";
+      });
+      btn.addEventListener("pointerleave", function () { btn.style.transform = ""; });
+    });
+  }
+
   if (!REDUCED) requestAnimationFrame(function () { requestAnimationFrame(function () { html.classList.add("page-go"); }); });
   else html.classList.add("page-go");
 })();

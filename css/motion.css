@@ -14,9 +14,16 @@
 .js:not(.page-go) main h1 .w > span { opacity: 0; }
 .page-go main h1 .w > span { animation: lgWordIn 0.9s var(--ease) both; animation-delay: calc(0.12s + var(--i, 0) * 70ms); }
 
-/* blocos genéricos: sobem e aparecem ao entrar no ecrã */
-.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.9s var(--ease); }
-.js .reveal.in { opacity: 1; transform: none; }
+/* blocos genéricos: sobem, ganham foco e aparecem ao entrar no ecrã —
+   o desfoque a resolver-se é o mesmo truque de "puxar o foco" do cinema,
+   discreto (6px) para não pesar no reflow em telemóveis mais lentos */
+.js .reveal { opacity: 0; transform: translateY(20px); filter: blur(6px); transition: opacity 0.7s ease, transform 0.9s var(--ease), filter 0.7s ease; }
+.js .reveal.in { opacity: 1; transform: none; filter: blur(0); }
+
+/* resposta magnética dos botões da faixa de contacto (.cta) — o mesmo toque
+   tátil do botão do hero na homepage (.magnetic), só que aqui é a folha
+   partilhada que ativa: só precisa que o transform entre na transição. */
+.cta .btn { transition: color 0.25s ease, border-color 0.25s ease, transform 0.2s var(--ease); }
 
 /* título de secção dentro do artigo (main h2): palavra a palavra, como os títulos da homepage */
 .js main h2.reveal { opacity: 1; transform: none; }
@@ -32,11 +39,12 @@
 .js .cta.reveal.in::after { transform: scaleX(0); }
 
 @media print {
-  .js .reveal, .js main h2.reveal, .js main h2.reveal .w > span, .js .cta.reveal, .js .cta.reveal::after { opacity: 1 !important; transform: none !important; }
+  .js .reveal, .js main h2.reveal, .js main h2.reveal .w > span, .js .cta.reveal, .js .cta.reveal::after { opacity: 1 !important; transform: none !important; filter: none !important; }
   .js .cta.reveal::after { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   .w > span { animation: none !important; transform: none !important; }
-  .js .reveal, .js main h2.reveal, .js main h2.reveal .w > span, .js .cta.reveal, .js .cta.reveal::after { opacity: 1; transform: none; }
+  .js .reveal, .js main h2.reveal, .js main h2.reveal .w > span, .js .cta.reveal, .js .cta.reveal::after { opacity: 1; transform: none; filter: none; }
+  .cta .btn { transition: color 0.25s ease, border-color 0.25s ease; }
   .js .cta.reveal::after { display: none; }
 }
