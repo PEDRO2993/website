@@ -7178,6 +7178,29 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
         showToast(({ pt: "Não foi possível abrir a vista 3D.", de: "Die 3D-Ansicht konnte nicht geladen werden.", fr: "Impossible d’ouvrir la vue 3D.", it: "Impossibile aprire la vista 3D.", en: "Could not open the 3D view." })[currentLang] || "Could not open the 3D view.");
       }).then(function () { loading = false; });
     });
+
+    /* abre sozinha ao chegar ao Portfólio, sem precisar de clicar — mesmo
+       gate (webgl2/poupança de dados) já garantido acima. Uma vez por sessão:
+       a sala tapa a página e tranca o scroll, por isso quem já a viu (e a
+       fechou) volta a poder percorrer os sete cartões sem ser interrompido. */
+    if ("IntersectionObserver" in window) {
+      /* observa-se a linha do botão, não a secção inteira: num telemóvel o
+         Portfólio tem vários ecrãs de altura e uma fração dele nunca chega a
+         estar visível de uma vez — com um limiar sobre a secção a sala nunca
+         abria em mobile. */
+      var mark3d = btn.parentNode || document.getElementById("portfolio");
+      var seen3d = false;
+      try { seen3d = sessionStorage.getItem("pr-3d") === "1"; } catch (e) {}
+      if (mark3d && !seen3d) {
+        var showIo = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting) return;
+          showIo.disconnect();
+          try { sessionStorage.setItem("pr-3d", "1"); } catch (e) {}
+          if (ov.hidden) btn.click();
+        }, { threshold: 0.5 });
+        showIo.observe(mark3d);
+      }
+    }
   })();
 
   /* ---------- relatório silencioso de erros (fiabilidade) ----------
