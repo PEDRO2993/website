@@ -591,7 +591,39 @@ header.scrolled { background: var(--paper); border-bottom-color: var(--ink); }
 
 /* ---------- hero: grelha visível, título a abrir, a peça real ---------- */
 .hero { padding: 36px 0 72px; text-align: left; min-height: 0; display: block; overflow-x: clip; }
-.hero .wrap { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 0; padding-top: 28px; padding-bottom: 8px; max-width: 1320px; z-index: auto; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 0; padding-top: 28px; padding-bottom: 8px; max-width: 1320px; z-index: auto; }
+/* campo de sinal: profundidade ambiente atrás do hero, sem WebGL — pontos que
+   flutuam devagar e se afastam do rato com um atraso (parallax por camadas,
+   --depth mais alto = mais perto = mexe mais). Decorativo: fora do alcance
+   do rato e do leitor de ecrã. */
+.hero-field { grid-column: 1 / -1; grid-row: 1 / -1; position: absolute !important; inset: 0; z-index: 0 !important; overflow: hidden; pointer-events: none; }
+.hf-node {
+  position: absolute; left: var(--x); top: var(--y); width: 0; height: 0;
+  transform: translate(calc(var(--px, 0) * var(--depth, 1) * 1px), calc(var(--py, 0) * var(--depth, 1) * 1px));
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hf-node i {
+  display: block; position: absolute; left: -3.5px; top: -3.5px; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--red); opacity: var(--o, 0.62);
+  box-shadow: 0 0 22px 3px color-mix(in srgb, var(--red) 65%, transparent);
+  animation: hfFloat var(--dur, 7s) ease-in-out var(--delay, 0s) infinite alternate;
+}
+@keyframes hfFloat { from { transform: translateY(-7px); } to { transform: translateY(7px); } }
+/* as réguas entre pontos: uma rede, não quadrados — o "sem os quadrados" do
+   dono era sobre a grelha de colunas; isto é o sinal a ligar-se a ele mesmo.
+   Desenha-se uma vez com o resto da coreografia de entrada e fica quieto. */
+.hf-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hf-lines line { stroke: var(--rule-2); stroke-width: 1; opacity: 0.55; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.hero-go .hf-lines line { animation: hfDraw 1.3s var(--ease) both; }
+.hf-lines line:nth-child(1) { animation-delay: 0.9s !important; }
+.hf-lines line:nth-child(2) { animation-delay: 1.05s !important; }
+.hf-lines line:nth-child(3) { animation-delay: 1.2s !important; }
+@keyframes hfDraw { to { stroke-dashoffset: 0; } }
+@media (max-width: 900px) { .hero-field { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .hf-node, .hf-node i { animation: none; transition: none; transform: none; }
+  .hf-lines line { stroke-dashoffset: 0; animation: none; }
+}
 /* sem réguas de coluna no hero (pedido do dono: "sem os quadrados"); a estrutura fica na rota vermelha e nas réguas horizontais */
 .hero .wrap::before { content: none; }
 .hero .wrap > * { position: relative; z-index: 1; }
@@ -1223,6 +1255,15 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
   <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="wrap">
+      <div class="hero-field" aria-hidden="true">
+        <svg class="hf-lines"><line x1="4%" y1="8%" x2="44%" y2="52%" pathLength="1"/><line x1="52%" y1="6%" x2="60%" y2="32%" pathLength="1"/><line x1="60%" y1="32%" x2="57%" y2="78%" pathLength="1"/></svg>
+        <span class="hf-node" style="--x:4%; --y:8%; --depth:.5; --dur:8.4s; --delay:-2.1s; --o:.35"><i></i></span>
+        <span class="hf-node" style="--x:52%; --y:6%; --depth:.9; --dur:6.6s; --delay:-.6s"><i></i></span>
+        <span class="hf-node" style="--x:60%; --y:32%; --depth:.6; --dur:7.8s; --delay:-3.4s; --o:.4"><i></i></span>
+        <span class="hf-node" style="--x:44%; --y:52%; --depth:1; --dur:6s; --delay:-1.8s"><i></i></span>
+        <span class="hf-node" style="--x:18%; --y:66%; --depth:.4; --dur:9s; --delay:-4.2s; --o:.3"><i></i></span>
+        <span class="hf-node" style="--x:57%; --y:78%; --depth:.7; --dur:7.2s; --delay:-2.7s; --o:.4"><i></i></span>
+      </div>
       <span class="eyebrow" data-i18n="hero.eyebrow">Stalden · Valais · Suíça</span>
       <h1><span data-i18n="hero.h1a">A tua presença digital, </span><span class="serif rotator" id="rotator" data-i18n="hero.h1b">completa</span><span class="dot">.</span></h1>
       <p class="hero-pitch"><span data-i18n="hero.pitch">Crio-te um site que vende, trago clientes com anúncios e SEO, e cuido das tuas redes sociais — com </span><span class="serif" data-i18n="hero.acc1">precisão suíça</span><span data-i18n="hero.join"> e </span><span class="serif" data-i18n="hero.acc2">alma portuguesa</span><span>.</span></p>
@@ -5755,6 +5796,18 @@ html.motion-paused .marquee-track { animation-play-state: paused !important; }
     }, { passive: true });
     document.addEventListener("pointerleave", function () { cDot.classList.remove("show"); });
     cWake();
+  }
+
+  /* ---------- campo de sinal do hero: os pontos afastam-se do rato ---------- */
+  var heroField = document.querySelector(".hero-field");
+  if (heroField && FINE && !REDUCED) {
+    document.querySelector(".hero").addEventListener("pointermove", function (e) {
+      var r = this.getBoundingClientRect();
+      var px = ((e.clientX - r.left) / r.width - 0.5) * -22;
+      var py = ((e.clientY - r.top) / r.height - 0.5) * -16;
+      heroField.style.setProperty("--px", px.toFixed(2));
+      heroField.style.setProperty("--py", py.toFixed(2));
+    });
   }
 
   /* ---------- magnetic + tilt + spotlight (desktop) ---------- */
